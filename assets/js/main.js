@@ -144,6 +144,8 @@ sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200});
 sr.reveal('.veille__card',{interval: 300, delay: 200});
+sr.reveal('.timeline__title',{delay: 200});
+sr.reveal('.timeline__item',{interval: 400, delay: 300, origin: 'bottom', distance: '50px'});
 
 /*===== SMOOTH SCROLL POUR LES LIENS =====*/
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
