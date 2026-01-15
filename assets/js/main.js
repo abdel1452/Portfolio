@@ -24,9 +24,19 @@ const showMenu = (toggleId, navId) =>{
     nav = document.getElementById(navId)
 
     if(toggle && nav){
+        // S'assurer que le menu est fermé au chargement
+        nav.classList.remove('show');
+        
         toggle.addEventListener('click', ()=>{
             nav.classList.toggle('show')
         })
+        
+        // Fermer le menu en cliquant en dehors
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+                nav.classList.remove('show');
+            }
+        });
     }
 }
 showMenu('nav-toggle','nav-menu')
