@@ -33,6 +33,9 @@ Développement d'une application web avec :
 - **Barre de recherche** avancée
 - Gestion des environnements **production** et **préproduction**
 
+### Projet personnel - Snack Palace
+Développement d'un **site vitrine** pour appliquer et mettre en pratique mes compétences personnelles en développement web.
+
 ## 📧 Contact
 
 - Email: abdelmalekelidrissi80@proton.me
