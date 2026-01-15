@@ -18,25 +18,63 @@ window.addEventListener('load', () => {
 // Ajouter la classe loading au body dès le début
 document.body.classList.add('loading');
 
+// Initialiser le menu au chargement du DOM (compatible Safari)
+document.addEventListener('DOMContentLoaded', () => {
+    const navMenu = document.getElementById('nav-menu');
+    if (navMenu) {
+        navMenu.classList.remove('show');
+        navMenu.style.right = '-100%';
+        navMenu.style.transform = 'translateX(100%)';
+        navMenu.style.webkitTransform = 'translateX(100%)';
+    }
+});
+
 /*===== MENU SHOW =====*/ 
 const showMenu = (toggleId, navId) =>{
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId)
 
     if(toggle && nav){
-        // S'assurer que le menu est fermé au chargement
+        // S'assurer que le menu est fermé au chargement (compatible Safari)
         nav.classList.remove('show');
+        nav.style.right = '-100%';
+        nav.style.transform = 'translateX(100%)';
+        nav.style.webkitTransform = 'translateX(100%)';
         
-        toggle.addEventListener('click', ()=>{
-            nav.classList.toggle('show')
-        })
+        // Fonction pour ouvrir/fermer le menu
+        const toggleMenu = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (nav.classList.contains('show')) {
+                nav.classList.remove('show');
+                nav.style.right = '-100%';
+                nav.style.transform = 'translateX(100%)';
+                nav.style.webkitTransform = 'translateX(100%)';
+            } else {
+                nav.classList.add('show');
+                nav.style.right = '0';
+                nav.style.transform = 'translateX(0)';
+                nav.style.webkitTransform = 'translateX(0)';
+            }
+        };
         
-        // Fermer le menu en cliquant en dehors
-        document.addEventListener('click', (e) => {
+        // Support pour click et touchstart (Safari mobile)
+        toggle.addEventListener('click', toggleMenu);
+        toggle.addEventListener('touchend', toggleMenu);
+        
+        // Fermer le menu en cliquant en dehors (compatible Safari)
+        const closeMenuOnOutsideClick = (e) => {
             if (!nav.contains(e.target) && !toggle.contains(e.target)) {
                 nav.classList.remove('show');
+                nav.style.right = '-100%';
+                nav.style.transform = 'translateX(100%)';
+                nav.style.webkitTransform = 'translateX(100%)';
             }
-        });
+        };
+        
+        document.addEventListener('click', closeMenuOnOutsideClick);
+        document.addEventListener('touchend', closeMenuOnOutsideClick);
     }
 }
 showMenu('nav-toggle','nav-menu')
@@ -44,12 +82,30 @@ showMenu('nav-toggle','nav-menu')
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav__link')
 
-function linkAction(){
+function linkAction(e){
+    e.preventDefault();
     const navMenu = document.getElementById('nav-menu')
-    // When we click on each nav__link, we remove the show-menu class
-    navMenu.classList.remove('show')
+    // When we click on each nav__link, we remove the show-menu class (compatible Safari)
+    navMenu.classList.remove('show');
+    navMenu.style.right = '-100%';
+    navMenu.style.transform = 'translateX(100%)';
+    navMenu.style.webkitTransform = 'translateX(100%)';
+    
+    // Scroll vers la section après fermeture du menu
+    const targetId = this.getAttribute('href');
+    if (targetId && targetId !== '#') {
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            setTimeout(() => {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        }
+    }
 }
-navLink.forEach(n => n.addEventListener('click', linkAction))
+navLink.forEach(n => {
+    n.addEventListener('click', linkAction);
+    n.addEventListener('touchend', linkAction);
+})
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
