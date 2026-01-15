@@ -448,13 +448,34 @@ body.dark-mode .theme-toggle:hover {
   padding: 5rem 0 6rem;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .home {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 .home__data {
   align-self: center;
   position: relative;
   z-index: 2;
-  padding-right: 1rem;
+  padding: 0 1rem;
+  text-align: center;
+  width: 100%;
+  order: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .home__data {
+    padding-right: 2rem;
+    text-align: left;
+    width: auto;
+    order: initial;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -466,13 +487,29 @@ body.dark-mode .theme-toggle:hover {
   font-size: var(--big-font-size);
   font-weight: 700;
   line-height: var(--line-height-title);
-  margin-bottom: var(--mb-5);
+  margin-bottom: var(--mb-4);
   color: var(--text-color);
   letter-spacing: -0.03em;
   position: relative;
   z-index: 1;
-  max-width: 90%;
+  max-width: 100%;
   animation: fadeInUp 1s ease-out;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .home__title {
+    max-width: 80%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .home__title {
+    max-width: 70%;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -519,11 +556,24 @@ body.dark-mode .theme-toggle:hover {
 }
 .home__social {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
   position: relative;
-  z-index: 0;
+  z-index: 2;
   opacity: 0;
   animation: fadeInSocial 0.8s ease-out 1.5s forwards;
+  margin-top: 2rem;
+  order: 2;
+}
+
+@media screen and (min-width: 576px) {
+  .home__social {
+    flex-direction: row;
+    align-self: flex-end;
+    margin-top: 0;
+    order: initial;
+  }
 }
 
 @keyframes fadeInSocial {
@@ -554,12 +604,22 @@ body.dark-mode .theme-toggle:hover {
   text-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 5px 15px rgba(0, 212, 255, 0.5);
 }
 .home__img {
-  position: absolute;
-  right: 0;
-  top: 10%;
+  position: relative;
   width: 260px;
   z-index: 1;
   animation: slideUpImage 1.5s ease-out forwards;
+  margin-top: 2rem;
+  order: 3;
+}
+
+@media screen and (min-width: 768px) {
+  .home__img {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    margin-top: 0;
+    order: initial;
+  }
 }
 
 @keyframes slideUpImage {
@@ -1796,14 +1856,19 @@ body.dark-mode .footer {
 /* Très petits écrans (téléphones très petits < 320px) */
 @media screen and (max-width: 320px) {
   .home {
-    row-gap: 2rem;
-    padding: 3rem 0 2rem;
+    row-gap: 1.5rem;
+    padding: 2rem 0 2rem;
+    min-height: auto;
   }
   .home__img {
-    width: 180px;
+    width: 150px;
+    margin-top: 1rem;
   }
   .home__blob-img {
-    width: 280px;
+    width: 240px;
+  }
+  .home__data {
+    padding: 0 0.5rem;
   }
   .home__title {
     font-size: 1.5rem;
@@ -1849,14 +1914,26 @@ body.dark-mode .footer {
 
 /* Petits téléphones (320px - 480px) */
 @media screen and (min-width: 321px) and (max-width: 480px) {
+  .home {
+    padding: 3rem 0 2rem;
+    row-gap: 2rem;
+  }
   .home__img {
-    width: 220px;
+    width: 200px;
+    margin-top: 1.5rem;
   }
   .home__blob-img {
-    width: 300px;
+    width: 280px;
   }
   .home__title {
     font-size: 1.75rem;
+    margin-bottom: var(--mb-3);
+  }
+  .home__data {
+    padding: 0 1rem;
+  }
+  .home__social {
+    margin-top: 1.5rem;
   }
   .timeline {
     padding: 2rem 1.5rem;
@@ -2087,11 +2164,26 @@ body.dark-mode .footer {
 
 /* Améliorations pour le mode portrait sur mobile */
 @media screen and (max-width: 767px) and (orientation: portrait) {
+  .home {
+    padding: 3rem 0 3rem;
+    row-gap: 2rem;
+  }
   .home__img {
-    width: 250px;
+    width: 220px;
+    margin-top: 1.5rem;
   }
   .home__blob-img {
-    width: 320px;
+    width: 300px;
+  }
+  .home__title {
+    font-size: 2rem;
+    margin-bottom: var(--mb-3);
+  }
+  .home__data {
+    padding: 0 1rem;
+  }
+  .home__social {
+    margin-top: 1.5rem;
   }
   .nav__menu {
     width: 100%;
@@ -2103,18 +2195,42 @@ body.dark-mode .footer {
   .veille__container {
     grid-template-columns: 1fr;
   }
+  .section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
 /* Améliorations pour le mode paysage sur mobile */
 @media screen and (max-width: 767px) and (orientation: landscape) {
   .home {
-    padding: 3rem 0 2rem;
+    padding: 2rem 0 2rem;
+    row-gap: 1.5rem;
+    min-height: auto;
   }
   .home__img {
-    width: 200px;
+    width: 180px;
+    margin-top: 1rem;
+  }
+  .home__blob-img {
+    width: 260px;
+  }
+  .home__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--mb-2);
+  }
+  .home__data {
+    padding: 0 1rem;
+  }
+  .home__social {
+    margin-top: 1rem;
   }
   .section {
     padding-top: 2rem;
     padding-bottom: 1.5rem;
+  }
+  .button {
+    padding: 0.75rem 2rem;
+    font-size: 0.875rem;
   }
 }
