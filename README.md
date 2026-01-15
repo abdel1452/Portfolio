@@ -24,6 +24,15 @@ Portfolio responsive développé avec HTML, CSS et JavaScript présentant mes co
 - JavaScript (Vanilla)
 - ScrollReveal.js
 
+## 💼 Expérience
+
+### Stage - AmsomHabitat
+Développement d'une application web avec :
+- **CRUD** complet pour la gestion des données
+- **API REST** pour les interactions backend
+- **Barre de recherche** avancée
+- Gestion des environnements **production** et **préproduction**
+
 ## 📧 Contact
 
 - Email: abdelmalekelidrissi80@proton.me
