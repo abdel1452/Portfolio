@@ -428,15 +428,26 @@ if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
 
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
+        // Ajouter la classe de transition
+        body.classList.add('theme-transitioning');
         
-        if (body.classList.contains('dark-mode')) {
-            themeIcon.className = 'bx bx-moon theme-icon';
-            localStorage.setItem('theme', 'dark');
-        } else {
-            themeIcon.className = 'bx bx-sun theme-icon';
-            localStorage.setItem('theme', 'light');
-        }
+        // Attendre un court instant puis changer le thème
+        setTimeout(() => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.className = 'bx bx-moon theme-icon';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.className = 'bx bx-sun theme-icon';
+                localStorage.setItem('theme', 'light');
+            }
+            
+            // Retirer la classe de transition après l'animation
+            setTimeout(() => {
+                body.classList.remove('theme-transitioning');
+            }, 600);
+        }, 50);
     });
 }
 

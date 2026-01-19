@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+   <table class ="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Quantite</th>
+            <th>Date ajout</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for productAdded in productsAdded %}
+        <tr>
+            <tr>{{ productAdded.id }}</td>
+            <tr>{{ productAdded.qte }}</td>
+            <tr>{{ productAdded.createdAt|date('d/m/Y H:i:s') }}</td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="3">Aucun historique à afficher</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <br>
+    <a href="#" onclick="history.back(); return false;" class="btn btn-secondary">Retour en arrière</a>  
+</div>
+
+
+{% endblock %}

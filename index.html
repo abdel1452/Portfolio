@@ -84,9 +84,26 @@
                 <div class="about__container bd-grid">
                     <div>
                         <h2 class="about__subtitle">Je suis Abdelmalek Elidrissi</h2>
-                        <p class="about__text">Étudiant en BTS SIO (Services Informatiques aux Organisations) spécialité SLAM (Solutions Logicielles et Applications Métiers), je me forme aux métiers du développement logiciel et des applications web.</p>
-                        <p class="about__text">Passionné par la programmation et le développement d'applications, je développe mes compétences en conception, développement, test et maintenance de solutions logicielles adaptées aux besoins des entreprises.</p>
-                        <p class="about__text"><strong>Objectif professionnel :</strong> Devenir développeur d'applications ou développeur web full-stack</p>
+                        
+                        <div class="about__text-block">
+                            <p class="about__text">
+                                Étudiant en <strong>BTS SIO</strong> (Services Informatiques aux Organisations) spécialité <strong>SLAM</strong> (Solutions Logicielles et Applications Métiers), je me forme aux métiers du développement logiciel et des applications web.
+                            </p>
+                            
+                            <p class="about__text">
+                                Passionné par la programmation et le développement d'applications, je développe mes compétences en :
+                            </p>
+                            <ul class="about__text-list">
+                                <li>Conception et architecture de solutions logicielles</li>
+                                <li>Développement d'applications web et mobiles</li>
+                                <li>Tests et maintenance de systèmes</li>
+                                <li>Adaptation aux besoins spécifiques des entreprises</li>
+                            </ul>
+                            
+                            <p class="about__text">
+                                <strong>Objectif professionnel :</strong> Devenir développeur d'applications ou développeur web full-stack, en contribuant à des projets innovants et en continuant à apprendre les technologies émergentes.
+                            </p>
+                        </div>
                         
                         <div class="about__interests">
                             <h3 class="about__interests-title">Centres d'intérêt</h3>
@@ -204,7 +221,14 @@
                 <div class="skills__container bd-grid">          
                     <div>
                         <h2 class="skills__subtitle">Compétences Techniques</h2>
-                        <p class="skills__text">En formation BTS SIO SLAM, je développe mes compétences en développement logiciel, programmation web et conception d'applications métiers.</p>
+                        <div class="skills__text-block">
+                            <p class="skills__text">
+                                En formation <strong>BTS SIO SLAM</strong>, je développe mes compétences en développement logiciel, programmation web et conception d'applications métiers.
+                            </p>
+                            <p class="skills__text">
+                                Mes compétences couvrent l'ensemble du cycle de vie d'une application, de la conception à la maintenance.
+                            </p>
+                        </div>
                         <div class="skills__data">
                             <div class="skills__names">
                                 <i class='bx bxl-html5 skills__icon'></i>
@@ -326,14 +350,25 @@
                 <h2 class="section-title">Projets</h2>
 
                 <div class="work__container bd-grid">
-                    <div class="work__item" data-project-index="0">
-                        <input type="file" id="project-file-0" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
-                        <label for="project-file-0" class="work__placeholder">
-                            <i class='bx bx-plus-circle work__add-icon'></i>
-                            <p class="work__placeholder-text">Ajouter un projet</p>
-                            <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
-                        </label>
-                        <div class="work__preview-container"></div>
+                    <div class="work__item work__project-item" data-project-index="0">
+                        <a href="Projets/Projet-Weather-API-master/public/index.html" target="_blank" class="work__project-link">
+                            <img src="assets/img/work1.jpg" alt="Projet Weather API" class="work__project-img">
+                            <div class="work__project-overlay">
+                                <div class="work__project-info">
+                                    <h3 class="work__project-title">Weather API</h3>
+                                    <p class="work__project-description">Application web de météo utilisant la géolocalisation et l'API WeatherAPI. Affiche la température, les conditions météorologiques et la qualité de l'air. Fonctionne entièrement côté client avec localStorage.</p>
+                                    <div class="work__project-tech">
+                                        <span class="work__tech-tag">JavaScript</span>
+                                        <span class="work__tech-tag">API REST</span>
+                                        <span class="work__tech-tag">localStorage</span>
+                                        <span class="work__tech-tag">Géolocalisation</span>
+                                    </div>
+                                    <div class="work__project-link-icon">
+                                        <i class='bx bx-link-external'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     <div class="work__item" data-project-index="1">
                         <input type="file" id="project-file-1" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
