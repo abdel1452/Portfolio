@@ -423,10 +423,12 @@ const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
     body.classList.add('dark-mode');
-    themeIcon.className = 'bx bx-moon theme-icon';
+    if (themeIcon) {
+        themeIcon.className = 'bx bx-moon theme-icon';
+    }
 }
 
-if (themeToggle) {
+if (themeToggle && themeIcon) {
     themeToggle.addEventListener('click', () => {
         // Ajouter la classe de transition
         body.classList.add('theme-transitioning');

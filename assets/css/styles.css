@@ -1975,92 +1975,177 @@ body.dark-mode .work__item:hover .work__placeholder {
   text-decoration: none;
 }
 
-.work__project-img {
+/* ===== PROJECT CARDS (Style similaire aux veilles) =====*/
+.work__project-card {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+body.dark-mode .work__project-card {
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.work__project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 40px rgba(14, 36, 49, 0.25), 0 0 30px rgba(0, 212, 255, 0.3);
+  border-color: var(--neon-blue);
+}
+
+body.dark-mode .work__project-card:hover {
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 212, 255, 0.5);
+}
+
+.work__project-link-card {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.work__project-header {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-blue-dark));
+}
+
+.work__project-header-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-  min-height: 300px;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
 }
 
-.work__project-overlay {
+.work__project-card:hover .work__project-header-img {
+  opacity: 0.5;
+}
+
+.work__project-header-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95));
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  gap: 1rem;
   padding: 2rem;
-  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
 }
 
-.work__project-item:hover .work__project-overlay {
-  opacity: 1;
-}
-
-.work__project-item:hover .work__project-img {
-  transform: scale(1.1);
-}
-
-.work__project-info {
-  text-align: center;
+.work__project-icon {
+  font-size: 3rem;
   color: white;
-  z-index: 1;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
-.work__project-title {
+.work__project-card-title {
   font-size: var(--h3-font-size);
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin: 0;
+  font-family: var(--heading-font);
+  line-height: var(--line-height-title);
   color: white;
+  text-align: center;
 }
 
-.work__project-description {
+.work__project-content {
+  padding: 2rem;
+}
+
+.work__project-description-card {
   font-size: var(--normal-font-size);
   line-height: var(--line-height-normal);
   margin-bottom: 1.5rem;
-  opacity: 0.95;
-  color: white;
+  color: var(--text-color);
+  opacity: 0.85;
+}
+
+body.dark-mode .work__project-description-card {
+  opacity: 0.9;
 }
 
 .work__project-tech {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .work__tech-tag {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 212, 255, 0.1);
   padding: 0.4rem 0.8rem;
   border-radius: 1.5rem;
   font-size: var(--small-font-size);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--neon-blue);
+  border: 1px solid rgba(0, 212, 255, 0.3);
   transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .work__tech-tag:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 212, 255, 0.2);
+  border-color: var(--neon-blue);
   transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
-.work__project-link-icon {
-  font-size: 2rem;
-  margin-top: 1rem;
-  opacity: 0.9;
+body.dark-mode .work__tech-tag {
+  background-color: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.4);
+}
+
+.work__project-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--neon-blue);
+  font-weight: 600;
+  font-size: var(--normal-font-size);
+  transition: all 0.3s ease;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(0, 212, 255, 0.2);
+}
+
+.work__project-link i {
+  font-size: 1.25rem;
   transition: transform 0.3s ease;
 }
 
-.work__project-item:hover .work__project-link-icon {
-  transform: scale(1.2);
+.work__project-card:hover .work__project-link {
+  color: var(--neon-blue-light);
+}
+
+.work__project-card:hover .work__project-link i {
+  transform: translateX(5px);
+}
+
+body.dark-mode .work__project-link {
+  border-top-color: rgba(0, 212, 255, 0.3);
+}
+
+@media screen and (min-width: 768px) {
+  .work__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+  
+  .work__project-header {
+    height: 250px;
+  }
+  
+  .work__project-content {
+    padding: 2.5rem;
+  }
 }
 
 /* ===== VEILLE TECHNOLOGIQUE =====*/
