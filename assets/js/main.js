@@ -171,6 +171,33 @@ window.addEventListener('scroll', () => {
     }
 });
 
+/*===== ANIMATION AU SCROLL POUR LES CARTES =====*/
+const animateCardsOnScroll = () => {
+    const cards = document.querySelectorAll('.work__project-card, .veille__card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 150);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    });
+    
+    cards.forEach(card => {
+        observer.observe(card);
+    });
+};
+
+// Lancer l'animation au chargement et au scroll
+window.addEventListener('load', animateCardsOnScroll);
+document.addEventListener('DOMContentLoaded', animateCardsOnScroll);
+
 /*===== TYPING EFFECT POUR LE TITRE (OPTIONNEL) =====*/
 const typingEffect = () => {
     const title = document.querySelector('.home__title');
@@ -486,4 +513,4 @@ if (cvPreviewImg && cvModal && cvModalClose) {
             document.body.style.overflow = '';
         }
     });
-} 
+}

@@ -52,10 +52,114 @@
         </header>
 
         <main class="l-main">
+            <!-- Graphique de données animé en arrière-plan -->
+            <div class="animated-chart">
+                <svg class="chart-svg" viewBox="0 0 1200 600" preserveAspectRatio="none">
+                    <!-- Lignes de grille horizontales -->
+                    <line class="grid-line" x1="0" y1="100" x2="1200" y2="100" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="200" x2="1200" y2="200" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="300" x2="1200" y2="300" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="400" x2="1200" y2="400" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="500" x2="1200" y2="500" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    
+                    <!-- Labels numériques sur l'axe Y (valeurs) -->
+                    <text class="chart-label" x="30" y="105" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">100</text>
+                    <text class="chart-label" x="30" y="205" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">80</text>
+                    <text class="chart-label" x="30" y="305" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">60</text>
+                    <text class="chart-label" x="30" y="405" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">40</text>
+                    <text class="chart-label" x="30" y="505" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">20</text>
+                    <text class="chart-label" x="30" y="555" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">0</text>
+                    
+                    <!-- Labels numériques sur l'axe X (temps/périodes) -->
+                    <text class="chart-label" x="135" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q1</text>
+                    <text class="chart-label" x="235" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q2</text>
+                    <text class="chart-label" x="335" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q3</text>
+                    <text class="chart-label" x="435" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q4</text>
+                    <text class="chart-label" x="535" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q5</text>
+                    <text class="chart-label" x="635" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q6</text>
+                    <text class="chart-label" x="735" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q7</text>
+                    <text class="chart-label" x="835" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q8</text>
+                    <text class="chart-label" x="935" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q9</text>
+                    <text class="chart-label" x="1035" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q10</text>
+                    
+                    <!-- Graphique en ligne avec points de données animés -->
+                    <polyline class="data-line" points="100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400" 
+                        fill="none" stroke="rgba(0, 212, 255, 0.4)" stroke-width="2">
+                        <animate attributeName="points" 
+                            values="100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400;
+                                    100,420 150,400 200,380 250,400 300,360 350,420 400,380 450,400 500,360 550,420 600,380 650,400 700,360 750,420 800,380 850,400 900,360 950,420 1000,380 1050,400 1100,360;
+                                    100,400 150,420 200,360 250,400 300,420 350,360 400,400 450,420 500,360 550,400 600,420 650,360 700,400 750,420 800,360 850,400 900,420 950,360 1000,400 1050,420 1100,360;
+                                    100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400"
+                            dur="8s" repeatCount="indefinite"/>
+                    </polyline>
+                    
+                    <!-- Points de données animés -->
+                    <circle class="data-point" cx="100" cy="450" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="450;420;400;450" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="300" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="500" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="700" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="900" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="1100" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- Barres de données animées -->
+                    <rect class="chart-bar" x="120" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;80;120;100;70;0" dur="5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;370;330;350;380;450" dur="5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="220" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;100;80;120;90;0" dur="4.5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;350;370;330;360;450" dur="4.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="320" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;120;100;90;110;0" dur="5.5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;330;350;360;340;450" dur="5.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="420" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;90;110;100;95;0" dur="4.8s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;360;340;350;355;450" dur="4.8s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="520" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;110;85;105;95;0" dur="5.2s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;340;365;345;355;450" dur="5.2s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="620" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;95;115;100;105;0" dur="4.6s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;355;335;350;345;450" dur="4.6s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="720" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;105;90;110;100;0" dur="5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;345;360;340;350;450" dur="5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="820" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;100;110;95;105;0" dur="4.7s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;350;340;355;345;450" dur="4.7s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="920" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;110;95;105;100;0" dur="5.3s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;340;355;345;350;450" dur="5.3s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="1020" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;95;105;100;110;0" dur="4.9s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;355;345;350;340;450" dur="4.9s" repeatCount="indefinite"/>
+                    </rect>
+                </svg>
+            </div>
             <!--===== HOME =====-->
             <section class="home bd-grid" id="home">
                 <div class="home__data">
-                    <h1 class="home__title">Bonjour,<br>Je suis <span class="home__title-color">Abdelmalek Elidrissi</span><br>Étudiant BTS SIO <span class="home__title-color">SLAM</span></h1>
+                    <h1 class="home__title"><span class="home__title-color">Abdelmalek ELIDRISSI</span><br>Étudiant en informatique</h1>
                     <a href="#contact" class="button">Me contacter</a>
                 </div>
 
