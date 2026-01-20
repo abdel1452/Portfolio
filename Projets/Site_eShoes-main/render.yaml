@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: mon-symfony
+    env: production
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_ENV
+        value: prod
+      - key: APP_DEBUG
+        value: 0
+      - key: APP_SECRET
+        generateValue: true

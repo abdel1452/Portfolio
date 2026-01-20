@@ -171,6 +171,33 @@ window.addEventListener('scroll', () => {
     }
 });
 
+/*===== ANIMATION AU SCROLL POUR LES CARTES =====*/
+const animateCardsOnScroll = () => {
+    const cards = document.querySelectorAll('.work__project-card, .veille__card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 150);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    });
+    
+    cards.forEach(card => {
+        observer.observe(card);
+    });
+};
+
+// Lancer l'animation au chargement et au scroll
+window.addEventListener('load', animateCardsOnScroll);
+document.addEventListener('DOMContentLoaded', animateCardsOnScroll);
+
 /*===== TYPING EFFECT POUR LE TITRE (OPTIONNEL) =====*/
 const typingEffect = () => {
     const title = document.querySelector('.home__title');
@@ -423,20 +450,33 @@ const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
     body.classList.add('dark-mode');
-    themeIcon.className = 'bx bx-moon theme-icon';
+    if (themeIcon) {
+        themeIcon.className = 'bx bx-moon theme-icon';
+    }
 }
 
-if (themeToggle) {
+if (themeToggle && themeIcon) {
     themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
+        // Ajouter la classe de transition
+        body.classList.add('theme-transitioning');
         
-        if (body.classList.contains('dark-mode')) {
-            themeIcon.className = 'bx bx-moon theme-icon';
-            localStorage.setItem('theme', 'dark');
-        } else {
-            themeIcon.className = 'bx bx-sun theme-icon';
-            localStorage.setItem('theme', 'light');
-        }
+        // Attendre un court instant puis changer le thème
+        setTimeout(() => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.className = 'bx bx-moon theme-icon';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.className = 'bx bx-sun theme-icon';
+                localStorage.setItem('theme', 'light');
+            }
+            
+            // Retirer la classe de transition après l'animation
+            setTimeout(() => {
+                body.classList.remove('theme-transitioning');
+            }, 600);
+        }, 50);
     });
 }
 
@@ -474,75 +514,3 @@ if (cvPreviewImg && cvModal && cvModalClose) {
         }
     });
 }
-
-/*===== WEATHER API ERROR HANDLING =====*/
-// Intercept fetch calls to prevent weather API errors
-const originalFetch = window.fetch;
-window.fetch = function(...args) {
-    const url = args[0];
-    
-    // Check if this is a weather API call matching the error pattern (weather?lat/lon)
-    if (typeof url === 'string' && /weather[?/]/.test(url)) {
-        console.warn('Weather API call intercepted. Please configure API key or remove weather functionality.');
-        // Return a rejected promise that will be caught by error handlers
-        return Promise.reject(new Error('Weather API not configured'));
-    }
-    
-    // For other fetch calls, use the original fetch
-    return originalFetch.apply(this, args);
-};
-
-// Safe wrapper for weather API calls to prevent errors
-const safeWeatherFetch = async (lat, lon) => {
-    try {
-        // Check if coordinates are valid
-        if (!lat || !lon || isNaN(lat) || isNaN(lon)) {
-            console.warn('Invalid coordinates for weather API');
-            return null;
-        }
-
-        // Example: If you're using a weather API, add proper error handling here
-        // const response = await fetch(`weather?${lat}/${lon}`);
-        // if (!response.ok) {
-        //     throw new Error(`Weather API error: ${response.status}`);
-        // }
-        // const data = await response.json();
-        // return data;
-
-        return null;
-    } catch (error) {
-        console.error('Weather API error:', error);
-        return null;
-    }
-};
-
-// Safe accessor for air_quality data
-const getAirQuality = (weatherData) => {
-    try {
-        if (!weatherData || typeof weatherData !== 'object') {
-            return null;
-        }
-        return weatherData.air_quality || null;
-    } catch (error) {
-        console.error('Error accessing air_quality:', error);
-        return null;
-    }
-};
-
-// Global error handler for unhandled promise rejections
-window.addEventListener('unhandledrejection', (event) => {
-    if (event.reason && (event.reason.message && event.reason.message.includes('weather')) || 
-        (event.reason && event.reason.toString().includes('weather'))) {
-        console.warn('Weather API request failed:', event.reason);
-        event.preventDefault(); // Prevent the error from showing in console
-    }
-});
-
-// Global error handler for general errors
-window.addEventListener('error', (event) => {
-    if (event.message && (event.message.includes('air_quality') || event.message.includes('weather'))) {
-        console.warn('Weather/air_quality error handled:', event.message);
-        event.preventDefault(); // Prevent the error from showing in console
-        return true;
-    }
-});

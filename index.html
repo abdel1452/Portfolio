@@ -44,9 +44,6 @@
                 </div>
 
                 <div class="nav__right">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
-                        <i class='bx bx-sun theme-icon' id="theme-icon"></i>
-                    </button>
                     <div class="nav__toggle" id="nav-toggle">
                         <i class='bx bx-menu'></i>
                     </div>
@@ -55,10 +52,114 @@
         </header>
 
         <main class="l-main">
+            <!-- Graphique de données animé en arrière-plan -->
+            <div class="animated-chart">
+                <svg class="chart-svg" viewBox="0 0 1200 600" preserveAspectRatio="none">
+                    <!-- Lignes de grille horizontales -->
+                    <line class="grid-line" x1="0" y1="100" x2="1200" y2="100" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="200" x2="1200" y2="200" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="300" x2="1200" y2="300" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="400" x2="1200" y2="400" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="500" x2="1200" y2="500" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    
+                    <!-- Labels numériques sur l'axe Y (valeurs) -->
+                    <text class="chart-label" x="30" y="105" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">100</text>
+                    <text class="chart-label" x="30" y="205" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">80</text>
+                    <text class="chart-label" x="30" y="305" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">60</text>
+                    <text class="chart-label" x="30" y="405" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">40</text>
+                    <text class="chart-label" x="30" y="505" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">20</text>
+                    <text class="chart-label" x="30" y="555" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">0</text>
+                    
+                    <!-- Labels numériques sur l'axe X (temps/périodes) -->
+                    <text class="chart-label" x="135" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q1</text>
+                    <text class="chart-label" x="235" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q2</text>
+                    <text class="chart-label" x="335" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q3</text>
+                    <text class="chart-label" x="435" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q4</text>
+                    <text class="chart-label" x="535" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q5</text>
+                    <text class="chart-label" x="635" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q6</text>
+                    <text class="chart-label" x="735" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q7</text>
+                    <text class="chart-label" x="835" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q8</text>
+                    <text class="chart-label" x="935" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q9</text>
+                    <text class="chart-label" x="1035" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q10</text>
+                    
+                    <!-- Graphique en ligne avec points de données animés -->
+                    <polyline class="data-line" points="100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400" 
+                        fill="none" stroke="rgba(0, 212, 255, 0.4)" stroke-width="2">
+                        <animate attributeName="points" 
+                            values="100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400;
+                                    100,420 150,400 200,380 250,400 300,360 350,420 400,380 450,400 500,360 550,420 600,380 650,400 700,360 750,420 800,380 850,400 900,360 950,420 1000,380 1050,400 1100,360;
+                                    100,400 150,420 200,360 250,400 300,420 350,360 400,400 450,420 500,360 550,400 600,420 650,360 700,400 750,420 800,360 850,400 900,420 950,360 1000,400 1050,420 1100,360;
+                                    100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400"
+                            dur="8s" repeatCount="indefinite"/>
+                    </polyline>
+                    
+                    <!-- Points de données animés -->
+                    <circle class="data-point" cx="100" cy="450" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="450;420;400;450" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="300" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="500" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="700" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="900" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="1100" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- Barres de données animées -->
+                    <rect class="chart-bar" x="120" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;80;120;100;70;0" dur="5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;370;330;350;380;450" dur="5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="220" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;100;80;120;90;0" dur="4.5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;350;370;330;360;450" dur="4.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="320" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;120;100;90;110;0" dur="5.5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;330;350;360;340;450" dur="5.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="420" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;90;110;100;95;0" dur="4.8s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;360;340;350;355;450" dur="4.8s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="520" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;110;85;105;95;0" dur="5.2s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;340;365;345;355;450" dur="5.2s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="620" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;95;115;100;105;0" dur="4.6s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;355;335;350;345;450" dur="4.6s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="720" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;105;90;110;100;0" dur="5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;345;360;340;350;450" dur="5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="820" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;100;110;95;105;0" dur="4.7s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;350;340;355;345;450" dur="4.7s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="920" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;110;95;105;100;0" dur="5.3s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;340;355;345;350;450" dur="5.3s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="1020" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;95;105;100;110;0" dur="4.9s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;355;345;350;340;450" dur="4.9s" repeatCount="indefinite"/>
+                    </rect>
+                </svg>
+            </div>
             <!--===== HOME =====-->
             <section class="home bd-grid" id="home">
                 <div class="home__data">
-                    <h1 class="home__title">Bonjour,<br>Je suis <span class="home__title-color">Abdelmalek Elidrissi</span><br>Étudiant BTS SIO <span class="home__title-color">SLAM</span></h1>
+                    <h1 class="home__title"><span class="home__title-color">Abdelmalek ELIDRISSI</span><br>Étudiant en informatique</h1>
                     <a href="#contact" class="button">Me contacter</a>
                 </div>
 
@@ -85,15 +186,69 @@
                 <h2 class="section-title">À propos</h2>
 
                 <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="home-removebg-preview.png" alt="Abdelmalek Elidrissi">
-                    </div>
-                    
                     <div>
                         <h2 class="about__subtitle">Je suis Abdelmalek Elidrissi</h2>
-                        <p class="about__text">Étudiant en BTS SIO (Services Informatiques aux Organisations) spécialité SLAM (Solutions Logicielles et Applications Métiers), je me forme aux métiers du développement logiciel et des applications web.</p>
-                        <p class="about__text">Passionné par la programmation et le développement d'applications, je développe mes compétences en conception, développement, test et maintenance de solutions logicielles adaptées aux besoins des entreprises.</p>
-                        <p class="about__text"><strong>Objectif professionnel :</strong> Devenir développeur d'applications ou développeur web full-stack</p>
+                        
+                        <div class="about__text-block">
+                            <p class="about__text">
+                                Étudiant en <strong>BTS SIO</strong> (Services Informatiques aux Organisations) spécialité <strong>SLAM</strong> (Solutions Logicielles et Applications Métiers), je me forme aux métiers du développement logiciel et des applications web.
+                            </p>
+                            
+                            <p class="about__text">
+                                Passionné par la programmation et le développement d'applications, je développe mes compétences en :
+                            </p>
+                            <ul class="about__text-list">
+                                <li>Conception et architecture de solutions logicielles</li>
+                                <li>Développement d'applications web et mobiles</li>
+                                <li>Tests et maintenance de systèmes</li>
+                                <li>Adaptation aux besoins spécifiques des entreprises</li>
+                            </ul>
+                            
+                            <p class="about__text">
+                                <strong>Objectif professionnel :</strong> Devenir développeur d'applications ou développeur web full-stack, en contribuant à des projets innovants et en continuant à apprendre les technologies émergentes.
+                            </p>
+                        </div>
+                        
+                        <div class="about__interests">
+                            <h3 class="about__interests-title">Centres d'intérêt</h3>
+                            <ul class="about__interests-list">
+                                <li><i class='bx bx-code-alt'></i> Développement web et applications</li>
+                                <li><i class='bx bx-brain'></i> Résolution de problèmes algorithmiques</li>
+                                <li><i class='bx bx-shield-quarter'></i> Cybersécurité et protection des données</li>
+                                <li><i class='bx bx-trending-up'></i> Veille technologique</li>
+                                <li><i class='bx bx-group'></i> Travail en équipe et collaboration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="about__qualities">
+                        <h3 class="about__qualities-title">Qualités professionnelles</h3>
+                        <div class="about__qualities-grid">
+                            <div class="about__quality-item">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Rigoureux</span>
+                            </div>
+                            <div class="about__quality-item">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Curieux</span>
+                            </div>
+                            <div class="about__quality-item">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Autonome</span>
+                            </div>
+                            <div class="about__quality-item">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Adaptable</span>
+                            </div>
+                            <div class="about__quality-item">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Organisé</span>
+                            </div>
+                            <div class="about__quality-item">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Esprit d'équipe</span>
+                            </div>
+                        </div>
                     </div>                                   
                 </div>
 
@@ -170,7 +325,14 @@
                 <div class="skills__container bd-grid">          
                     <div>
                         <h2 class="skills__subtitle">Compétences Techniques</h2>
-                        <p class="skills__text">En formation BTS SIO SLAM, je développe mes compétences en développement logiciel, programmation web et conception d'applications métiers.</p>
+                        <div class="skills__text-block">
+                            <p class="skills__text">
+                                En formation <strong>BTS SIO SLAM</strong>, je développe mes compétences en développement logiciel, programmation web et conception d'applications métiers.
+                            </p>
+                            <p class="skills__text">
+                                Mes compétences couvrent l'ensemble du cycle de vie d'une application, de la conception à la maintenance.
+                            </p>
+                        </div>
                         <div class="skills__data">
                             <div class="skills__names">
                                 <i class='bx bxl-html5 skills__icon'></i>
@@ -233,8 +395,56 @@
                         </div>
                     </div>
                     
-                    <div>              
-                        <img src="home-removebg-preview.png" alt="Compétences SLAM" class="skills__img">
+                    <div>
+                        <h2 class="skills__subtitle">Outils & Technologies</h2>
+                        <p class="skills__text">Maîtrise des outils de développement et des technologies modernes pour créer des solutions efficaces.</p>
+                        
+                        <div class="skills__tools">
+                            <div class="skills__tool-item">
+                                <i class='bx bxl-git'></i>
+                                <span>Git / GitHub</span>
+                            </div>
+                            <div class="skills__tool-item">
+                                <i class='bx bx-code-block'></i>
+                                <span>VS Code</span>
+                            </div>
+                            <div class="skills__tool-item">
+                                <i class='bx bx-server'></i>
+                                <span>MySQL / PostgreSQL</span>
+                            </div>
+                            <div class="skills__tool-item">
+                                <i class='bx bx-window'></i>
+                                <span>Frameworks web</span>
+                            </div>
+                            <div class="skills__tool-item">
+                                <i class='bx bx-shield'></i>
+                                <span>Cybersécurité</span>
+                            </div>
+                            <div class="skills__tool-item">
+                                <i class='bx bx-cloud'></i>
+                                <span>Cloud Computing</span>
+                            </div>
+                        </div>
+                        
+                        <h3 class="skills__subtitle" style="margin-top: 2rem;">Compétences Transversales</h3>
+                        <div class="skills__soft">
+                            <div class="skills__soft-item">
+                                <i class='bx bx-group'></i>
+                                <span>Travail en équipe</span>
+                            </div>
+                            <div class="skills__soft-item">
+                                <i class='bx bx-message-dots'></i>
+                                <span>Communication</span>
+                            </div>
+                            <div class="skills__soft-item">
+                                <i class='bx bx-time'></i>
+                                <span>Gestion de projet</span>
+                            </div>
+                            <div class="skills__soft-item">
+                                <i class='bx bx-book'></i>
+                                <span>Veille technologique</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -244,23 +454,54 @@
                 <h2 class="section-title">Projets</h2>
 
                 <div class="work__container bd-grid">
-                    <div class="work__item" data-project-index="0">
-                        <input type="file" id="project-file-0" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
-                        <label for="project-file-0" class="work__placeholder">
-                            <i class='bx bx-plus-circle work__add-icon'></i>
-                            <p class="work__placeholder-text">Ajouter un projet</p>
-                            <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
-                        </label>
-                        <div class="work__preview-container"></div>
+                    <div class="work__project-card" data-project-index="0">
+                        <a href="Projets/Projet-Weather-API-master/public/index.html" target="_blank" class="work__project-link-card">
+                            <div class="work__project-header">
+                                <img src="Projets/Projet-Weather-API-master/public/Meteo.jpg" alt="Projet Weather API" class="work__project-header-img">
+                                <div class="work__project-header-overlay">
+                                    <i class='bx bx-cloud work__project-icon'></i>
+                                    <h3 class="work__project-card-title">Weather API</h3>
+                                </div>
+                            </div>
+                            <div class="work__project-content">
+                                <p class="work__project-description-card">Application web de météo utilisant la géolocalisation et l'API WeatherAPI. Affiche la température, les conditions météorologiques et la qualité de l'air. Fonctionne entièrement côté client avec localStorage.</p>
+                                <div class="work__project-tech">
+                                    <span class="work__tech-tag">JavaScript</span>
+                                    <span class="work__tech-tag">API REST</span>
+                                    <span class="work__tech-tag">localStorage</span>
+                                    <span class="work__tech-tag">Géolocalisation</span>
+                                </div>
+                                <div class="work__project-link">
+                                    <span>Voir le projet</span>
+                                    <i class='bx bx-link-external'></i>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="work__item" data-project-index="1">
-                        <input type="file" id="project-file-1" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
-                        <label for="project-file-1" class="work__placeholder">
-                            <i class='bx bx-plus-circle work__add-icon'></i>
-                            <p class="work__placeholder-text">Ajouter un projet</p>
-                            <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
-                        </label>
-                        <div class="work__preview-container"></div>
+                    <div class="work__project-card" data-project-index="1">
+                        <a href="Projets/Site_eShoes-main/instructions.html" target="_blank" class="work__project-link-card">
+                            <div class="work__project-header">
+                                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&h=600&fit=crop&q=80" alt="Projet SIO Shoes" class="work__project-header-img" onerror="this.onerror=null; this.src='assets/img/work2.jpg';">
+                                <div class="work__project-header-overlay">
+                                    <i class='bx bx-shopping-bag work__project-icon'></i>
+                                    <h3 class="work__project-card-title">SIO Shoes</h3>
+                                </div>
+                            </div>
+                            <div class="work__project-content">
+                                <p class="work__project-description-card">Application e-commerce Symfony pour la vente de chaussures. Gestion des produits, catégories, panier, commandes et paiement Stripe. Interface d'administration complète.</p>
+                                <div class="work__project-tech">
+                                    <span class="work__tech-tag">Symfony</span>
+                                    <span class="work__tech-tag">PHP</span>
+                                    <span class="work__tech-tag">Twig</span>
+                                    <span class="work__tech-tag">Stripe</span>
+                                    <span class="work__tech-tag">MySQL</span>
+                                </div>
+                                <div class="work__project-link">
+                                    <span>Voir le projet</span>
+                                    <i class='bx bx-link-external'></i>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     <div class="work__item" data-project-index="2">
                         <input type="file" id="project-file-2" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
@@ -308,68 +549,72 @@
                 <div class="veille__container bd-grid">
                     <div class="veille__card">
                         <div class="veille__header">
-                            <i class='bx bx-code-alt veille__icon'></i>
-                            <h3 class="veille__title">Framework JavaScript : React vs Vue.js</h3>
+                            <i class='bx bx-data veille__icon'></i>
+                            <h3 class="veille__title">Data Science : Python vs R</h3>
                         </div>
                         <div class="veille__content">
                             <p class="veille__date"><i class='bx bx-calendar'></i> Mise à jour : Décembre 2024</p>
                             <div class="veille__description">
                                 <h4>Contexte</h4>
-                                <p>Les frameworks JavaScript sont essentiels pour le développement web moderne. React et Vue.js sont deux des frameworks les plus populaires actuellement.</p>
+                                <p>Python et R sont les deux langages les plus populaires pour la data science et l'analyse de données. Chaque langage a ses forces et ses domaines d'application privilégiés.</p>
                                 
-                                <h4>React</h4>
+                                <h4>Python</h4>
                                 <ul>
-                                    <li><strong>Créé par :</strong> Facebook (Meta) en 2013</li>
-                                    <li><strong>Avantages :</strong> Grande communauté, écosystème riche, flexibilité, utilisé par de nombreuses entreprises (Netflix, Airbnb, Instagram)</li>
-                                    <li><strong>Inconvénients :</strong> Courbe d'apprentissage plus raide, nécessite des bibliothèques supplémentaires pour certaines fonctionnalités</li>
-                                    <li><strong>Tendances 2024 :</strong> React 19 avec amélioration des performances, Server Components, amélioration de la gestion d'état</li>
+                                    <li><strong>Créé en :</strong> 1991 par Guido van Rossum</li>
+                                    <li><strong>Avantages :</strong> Langage généraliste polyvalent, syntaxe simple et lisible, écosystème riche (Pandas, NumPy, Scikit-learn, TensorFlow), intégration facile avec le web et les APIs, très utilisé en production</li>
+                                    <li><strong>Bibliothèques clés :</strong> Pandas (manipulation de données), NumPy (calculs numériques), Scikit-learn (machine learning), Matplotlib/Seaborn (visualisation)</li>
+                                    <li><strong>Inconvénients :</strong> Moins spécialisé pour l'analyse statistique pure que R, performances parfois inférieures pour certains calculs statistiques</li>
+                                    <li><strong>Tendances 2024 :</strong> Python 3.12 avec amélioration des performances, croissance de l'IA/ML, intégration renforcée avec les outils cloud (AWS, GCP)</li>
                                 </ul>
 
-                                <h4>Vue.js</h4>
+                                <h4>R</h4>
                                 <ul>
-                                    <li><strong>Créé par :</strong> Evan You en 2014</li>
-                                    <li><strong>Avantages :</strong> Courbe d'apprentissage douce, documentation excellente, syntaxe simple, performances optimisées</li>
-                                    <li><strong>Inconvénients :</strong> Communauté plus petite que React, moins d'emplois disponibles</li>
-                                    <li><strong>Tendances 2024 :</strong> Vue 3 avec Composition API, meilleures performances, meilleure TypeScript support</li>
+                                    <li><strong>Créé en :</strong> 1993 par Ross Ihaka et Robert Gentleman</li>
+                                    <li><strong>Avantages :</strong> Spécialisé pour l'analyse statistique, excellente visualisation (ggplot2), très utilisé dans la recherche académique, nombreuses bibliothèques statistiques (CRAN), syntaxe optimisée pour l'analyse de données</li>
+                                    <li><strong>Bibliothèques clés :</strong> dplyr (manipulation), ggplot2 (visualisation), tidyr (nettoyage), caret (machine learning), shiny (applications web)</li>
+                                    <li><strong>Inconvénients :</strong> Syntaxe moins intuitive pour les débutants, moins adapté pour le développement web ou la production, communauté plus petite que Python</li>
+                                    <li><strong>Tendances 2024 :</strong> R 4.3 avec améliorations de performance, intégration avec Python via reticulate, croissance dans le domaine de la bioinformatique</li>
                                 </ul>
 
                                 <h4>Analyse et Recommandation</h4>
-                                <p>Pour un développeur débutant en BTS SIO SLAM, Vue.js offre une meilleure courbe d'apprentissage. Cependant, React reste le choix privilégié pour les opportunités professionnelles. Il est recommandé de maîtriser les deux pour maximiser ses chances sur le marché du travail.</p>
+                                <p>Pour un étudiant BTS SIO intéressé par la data, Python est recommandé comme point de départ car il est plus polyvalent et offre plus d'opportunités professionnelles. R reste essentiel pour les analyses statistiques approfondies et la recherche. L'idéal est de maîtriser les deux, en commençant par Python pour la polyvalence, puis R pour les analyses statistiques spécialisées.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="veille__card">
                         <div class="veille__header">
-                            <i class='bx bx-server veille__icon'></i>
-                            <h3 class="veille__title">Cloud Computing : AWS vs Azure</h3>
+                            <i class='bx bx-cloud-upload veille__icon'></i>
+                            <h3 class="veille__title">Big Data : Hadoop vs Apache Spark</h3>
                         </div>
                         <div class="veille__content">
                             <p class="veille__date"><i class='bx bx-calendar'></i> Mise à jour : Décembre 2024</p>
                             <div class="veille__description">
                                 <h4>Contexte</h4>
-                                <p>Le cloud computing est devenu incontournable pour les entreprises. AWS (Amazon Web Services) et Azure (Microsoft) dominent le marché des services cloud.</p>
+                                <p>Le Big Data nécessite des outils spécialisés pour traiter de très grands volumes de données. Hadoop et Apache Spark sont deux frameworks majeurs pour le traitement distribué de données, chacun avec ses spécificités.</p>
                                 
-                                <h4>AWS (Amazon Web Services)</h4>
+                                <h4>Apache Hadoop</h4>
                                 <ul>
-                                    <li><strong>Lancé en :</strong> 2006</li>
-                                    <li><strong>Part de marché :</strong> ~32% (leader mondial)</li>
-                                    <li><strong>Avantages :</strong> Plus grande offre de services, meilleure documentation, leader du marché, très utilisé par les startups</li>
-                                    <li><strong>Services populaires :</strong> EC2, S3, Lambda, RDS, CloudFront</li>
-                                    <li><strong>Tendances 2024 :</strong> IA/ML intégrés (SageMaker), edge computing, sécurité renforcée</li>
+                                    <li><strong>Créé en :</strong> 2006 par Doug Cutting et Mike Cafarella</li>
+                                    <li><strong>Architecture :</strong> Système de stockage distribué (HDFS) + MapReduce pour le traitement par lots</li>
+                                    <li><strong>Avantages :</strong> Mature et stable, excellent pour le stockage de grandes quantités de données, écosystème riche (Hive, Pig, HBase), tolérance aux pannes, très utilisé en entreprise</li>
+                                    <li><strong>Cas d'usage :</strong> Traitement par lots (batch processing), stockage de données historiques, ETL (Extract, Transform, Load)</li>
+                                    <li><strong>Inconvénients :</strong> Plus lent pour le traitement en temps réel, complexité de configuration, écriture sur disque (I/O intensif)</li>
+                                    <li><strong>Tendances 2024 :</strong> Hadoop 3.3 avec améliorations de sécurité, intégration avec le cloud, migration progressive vers Spark pour certains cas d'usage</li>
                                 </ul>
 
-                                <h4>Azure (Microsoft)</h4>
+                                <h4>Apache Spark</h4>
                                 <ul>
-                                    <li><strong>Lancé en :</strong> 2010</li>
-                                    <li><strong>Part de marché :</strong> ~23% (2ème position)</li>
-                                    <li><strong>Avantages :</strong> Intégration native avec Microsoft (Office 365, Active Directory), excellent pour les entreprises Microsoft, hybride cloud</li>
-                                    <li><strong>Services populaires :</strong> Virtual Machines, Blob Storage, Functions, SQL Database</li>
-                                    <li><strong>Tendances 2024 :</strong> Azure AI, amélioration de la sécurité, expansion mondiale</li>
+                                    <li><strong>Créé en :</strong> 2012 par l'UC Berkeley AMPLab</li>
+                                    <li><strong>Architecture :</strong> Traitement en mémoire (in-memory), supporte batch, streaming, machine learning et graph processing</li>
+                                    <li><strong>Avantages :</strong> 10 à 100 fois plus rapide que Hadoop MapReduce, traitement en temps réel (streaming), APIs simples (Python, Scala, Java, R), intégration avec Hadoop, Spark SQL pour requêtes SQL</li>
+                                    <li><strong>Cas d'usage :</strong> Traitement en temps réel, machine learning à grande échelle, analyse interactive, streaming de données</li>
+                                    <li><strong>Inconvénients :</strong> Nécessite beaucoup de RAM, moins mature que Hadoop pour certains cas d'usage, consommation mémoire importante</li>
+                                    <li><strong>Tendances 2024 :</strong> Spark 3.5 avec amélioration des performances, intégration renforcée avec le cloud (Databricks), croissance du streaming et du ML</li>
                                 </ul>
 
                                 <h4>Analyse et Recommandation</h4>
-                                <p>AWS reste le leader incontesté avec la plus large gamme de services. Azure est idéal pour les entreprises déjà dans l'écosystème Microsoft. Pour un étudiant BTS SIO, commencer par AWS est recommandé car c'est le plus demandé sur le marché. La certification AWS Certified Cloud Practitioner est un excellent point de départ.</p>
+                                <p>Hadoop reste essentiel pour le stockage distribué et le traitement par lots de très grandes quantités de données. Spark est devenu le standard pour le traitement en temps réel et le machine learning à grande échelle. Pour un étudiant BTS SIO intéressé par la data, commencer par Spark est recommandé car il est plus moderne, plus rapide et offre une meilleure expérience développeur. Cependant, comprendre Hadoop reste important car de nombreuses entreprises l'utilisent encore. L'idéal est de maîtriser les deux, sachant qu'ils peuvent être complémentaires dans un même écosystème Big Data.</p>
                             </div>
                         </div>
                     </div>
@@ -405,6 +650,10 @@
             <p class="footer__copy">&#169; 2026 Abdelmalek Elidrissi - Étudiant BTS SIO SLAM. Tous droits réservés.</p>
         </footer>
 
+        <!--===== THEME TOGGLE BUTTON =====-->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+            <i class='bx bx-sun theme-icon' id="theme-icon"></i>
+        </button>
 
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>
