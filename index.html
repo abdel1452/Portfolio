@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Abdelmalek Elidrissi - Portfolio BTS SIO SLAM</title>
+    </head>
+    <body>
+        <!--===== LOADER =====-->
+        <div class="loader" id="loader">
+            <div class="loader__content">
+                <div class="loader__spinner">
+                    <div class="loader__circle"></div>
+                    <div class="loader__circle"></div>
+                    <div class="loader__circle"></div>
+                </div>
+                <h2 class="loader__text">Abdelmalek Elidrissi</h2>
+                <p class="loader__subtext">Portfolio BTS SIO SLAM</p>
+            </div>
+        </div>
+
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">Abdelmalek</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu" style="right: -100%; transform: translateX(100%); -webkit-transform: translateX(100%);">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link">Accueil</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">À propos</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Compétences</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link">Projets</a></li>
+                        <li class="nav__item"><a href="#veille" class="nav__link">Veille</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__right">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+                        <i class='bx bx-sun theme-icon' id="theme-icon"></i>
+                    </button>
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class='bx bx-menu'></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title">Bonjour,<br>Je suis <span class="home__title-color">Abdelmalek Elidrissi</span><br>Étudiant BTS SIO <span class="home__title-color">SLAM</span></h1>
+                    <a href="#contact" class="button">Me contacter</a>
+                </div>
+
+                <div class="home__social">
+                    <a href="https://www.linkedin.com/in/abdelmalek-elidrissi/" target="_blank" rel="noopener noreferrer" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://github.com/abdel1452" target="_blank" rel="noopener noreferrer" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                </div>
+
+                <div class="home__img">
+                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <mask id="mask0" mask-type="alpha">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                        </mask>
+                        <g mask="url(#mask0)">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                            <image class="home__blob-img" x="50" y="60" href="home-removebg-preview.png"/>
+                        </g>
+                    </svg>
+                </div>
+            </section>
+
+            <!--===== ABOUT =====-->
+            <section class="about section " id="about">
+                <h2 class="section-title">À propos</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="home-removebg-preview.png" alt="Abdelmalek Elidrissi">
+                    </div>
+                    
+                    <div>
+                        <h2 class="about__subtitle">Je suis Abdelmalek Elidrissi</h2>
+                        <p class="about__text">Étudiant en BTS SIO (Services Informatiques aux Organisations) spécialité SLAM (Solutions Logicielles et Applications Métiers), je me forme aux métiers du développement logiciel et des applications web.</p>
+                        <p class="about__text">Passionné par la programmation et le développement d'applications, je développe mes compétences en conception, développement, test et maintenance de solutions logicielles adaptées aux besoins des entreprises.</p>
+                        <p class="about__text"><strong>Objectif professionnel :</strong> Devenir développeur d'applications ou développeur web full-stack</p>
+                    </div>                                   
+                </div>
+
+                <!--===== FRISE CHRONOLOGIQUE =====-->
+                <div class="timeline__container bd-grid">
+                    <h2 class="timeline__title">Parcours Académique</h2>
+                    <div class="timeline">
+                        <div class="timeline__item">
+                            <div class="timeline__content">
+                                <span class="timeline__year-badge">2023-2024</span>
+                                <h3 class="timeline__heading">Bac Général</h3>
+                                <p class="timeline__subtitle">Lycée Édouard Branly (Amiens)</p>
+                                <p class="timeline__description">Spécialités Mathématiques et NSI (Numérique et Sciences Informatiques)</p>
+                                <ul class="timeline__details">
+                                    <li>Programmation Python</li>
+                                    <li>Algorithmique et structures de données</li>
+                                    <li>Bases de données</li>
+                                    <li>Développement web</li>
+                                    <li>Projets : applications, analyse de données, résolution de problèmes algorithmiques</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline__item">
+                            <div class="timeline__content">
+                                <span class="timeline__year-badge">2024-2026</span>
+                                <h3 class="timeline__heading">BTS SIO</h3>
+                                <p class="timeline__subtitle">Spécialité SLAM</p>
+                                <p class="timeline__description">Services Informatiques aux Organisations - Solutions Logicielles et Applications Métiers</p>
+                                <ul class="timeline__details">
+                                    <li>Développement d'applications web</li>
+                                    <li>Conception et développement de solutions logicielles</li>
+                                    <li>Gestion de bases de données</li>
+                                    <li>Cybersécurité et protection des données</li>
+                                    <li>Architecture et optimisation de projets</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--===== CV SECTION =====-->
+                <div class="cv__container bd-grid">
+                    <div class="cv__card">
+                        <div class="cv__icon-wrapper">
+                            <i class='bx bx-file-blank cv__icon'></i>
+                        </div>
+                        <h3 class="cv__title">Mon CV</h3>
+                        
+                        <div class="cv__preview">
+                            <img src="CV_Abdelmalek (2).png" alt="Aperçu du CV d'Abdelmalek Elidrissi" class="cv__preview-img" id="cv-preview-img">
+                        </div>
+                        
+                        <!-- Modal pour agrandir le CV -->
+                        <div class="cv__modal" id="cv-modal">
+                            <div class="cv__modal-content">
+                                <button class="cv__modal-close" id="cv-modal-close">&times;</button>
+                                <img src="CV_Abdelmalek (2).png" alt="CV complet d'Abdelmalek Elidrissi" class="cv__modal-img">
+                            </div>
+                        </div>
+                        
+                        <a href="CV_Abdelmalek (2).png" class="cv__download-button button" id="download-cv" download="CV_Abdelmalek_Elidrissi.png">
+                            <i class='bx bx-download'></i>
+                            Télécharger mon CV
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title">Compétences</h2>
+
+                <div class="skills__container bd-grid">          
+                    <div>
+                        <h2 class="skills__subtitle">Compétences Techniques</h2>
+                        <p class="skills__text">En formation BTS SIO SLAM, je développe mes compétences en développement logiciel, programmation web et conception d'applications métiers.</p>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-html5 skills__icon'></i>
+                                <span class="skills__name">HTML5</span>
+                            </div>
+                            <div class="skills__bar skills__html">
+
+                            </div>
+                            <div>
+                                <span class="skills__percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-css3 skills__icon'></i>
+                                <span class="skills__name">CSS3</span>
+                            </div>
+                            <div class="skills__bar skills__css">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">80%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-javascript skills__icon' ></i>
+                                <span class="skills__name">JavaScript</span>
+                            </div>
+                            <div class="skills__bar skills__js">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">75%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bx-code-alt skills__icon'></i>
+                                <span class="skills__name">PHP / Java</span>
+                            </div>
+                            <div class="skills__bar skills__php">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">70%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bx-data skills__icon'></i>
+                                <span class="skills__name">Base de données</span>
+                            </div>
+                            <div class="skills__bar skills__db">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>              
+                        <img src="home-removebg-preview.png" alt="Compétences SLAM" class="skills__img">
+                    </div>
+                </div>
+            </section>
+
+            <!--===== WORK =====-->
+            <section class="work section" id="work">
+                <h2 class="section-title">Projets</h2>
+
+                <div class="work__container bd-grid">
+                    <div class="work__item" data-project-index="0">
+                        <input type="file" id="project-file-0" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
+                        <label for="project-file-0" class="work__placeholder">
+                            <i class='bx bx-plus-circle work__add-icon'></i>
+                            <p class="work__placeholder-text">Ajouter un projet</p>
+                            <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
+                        </label>
+                        <div class="work__preview-container"></div>
+                    </div>
+                    <div class="work__item" data-project-index="1">
+                        <input type="file" id="project-file-1" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
+                        <label for="project-file-1" class="work__placeholder">
+                            <i class='bx bx-plus-circle work__add-icon'></i>
+                            <p class="work__placeholder-text">Ajouter un projet</p>
+                            <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
+                        </label>
+                        <div class="work__preview-container"></div>
+                    </div>
+                    <div class="work__item" data-project-index="2">
+                        <input type="file" id="project-file-2" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
+                        <label for="project-file-2" class="work__placeholder">
+                            <i class='bx bx-plus-circle work__add-icon'></i>
+                            <p class="work__placeholder-text">Ajouter un projet</p>
+                            <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
+                        </label>
+                        <div class="work__preview-container"></div>
+                    </div>
+                    <div class="work__item" data-project-index="3">
+                        <input type="file" id="project-file-3" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
+                        <label for="project-file-3" class="work__placeholder">
+                            <i class='bx bx-plus-circle work__add-icon'></i>
+                            <p class="work__placeholder-text">Ajouter un projet</p>
+                            <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
+                        </label>
+                        <div class="work__preview-container"></div>
+                    </div>
+                    <div class="work__item" data-project-index="4">
+                        <input type="file" id="project-file-4" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
+                        <label for="project-file-4" class="work__placeholder">
+                            <i class='bx bx-plus-circle work__add-icon'></i>
+                            <p class="work__placeholder-text">Ajouter un projet</p>
+                            <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
+                        </label>
+                        <div class="work__preview-container"></div>
+                    </div>
+                    <div class="work__item" data-project-index="5">
+                        <input type="file" id="project-file-5" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
+                        <label for="project-file-5" class="work__placeholder">
+                            <i class='bx bx-plus-circle work__add-icon'></i>
+                            <p class="work__placeholder-text">Ajouter un projet</p>
+                            <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
+                        </label>
+                        <div class="work__preview-container"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== VEILLE TECHNOLOGIQUE =====-->
+            <section class="veille section" id="veille">
+                <h2 class="section-title">Veille Technologique</h2>
+
+                <div class="veille__container bd-grid">
+                    <div class="veille__card">
+                        <div class="veille__header">
+                            <i class='bx bx-code-alt veille__icon'></i>
+                            <h3 class="veille__title">Framework JavaScript : React vs Vue.js</h3>
+                        </div>
+                        <div class="veille__content">
+                            <p class="veille__date"><i class='bx bx-calendar'></i> Mise à jour : Décembre 2024</p>
+                            <div class="veille__description">
+                                <h4>Contexte</h4>
+                                <p>Les frameworks JavaScript sont essentiels pour le développement web moderne. React et Vue.js sont deux des frameworks les plus populaires actuellement.</p>
+                                
+                                <h4>React</h4>
+                                <ul>
+                                    <li><strong>Créé par :</strong> Facebook (Meta) en 2013</li>
+                                    <li><strong>Avantages :</strong> Grande communauté, écosystème riche, flexibilité, utilisé par de nombreuses entreprises (Netflix, Airbnb, Instagram)</li>
+                                    <li><strong>Inconvénients :</strong> Courbe d'apprentissage plus raide, nécessite des bibliothèques supplémentaires pour certaines fonctionnalités</li>
+                                    <li><strong>Tendances 2024 :</strong> React 19 avec amélioration des performances, Server Components, amélioration de la gestion d'état</li>
+                                </ul>
+
+                                <h4>Vue.js</h4>
+                                <ul>
+                                    <li><strong>Créé par :</strong> Evan You en 2014</li>
+                                    <li><strong>Avantages :</strong> Courbe d'apprentissage douce, documentation excellente, syntaxe simple, performances optimisées</li>
+                                    <li><strong>Inconvénients :</strong> Communauté plus petite que React, moins d'emplois disponibles</li>
+                                    <li><strong>Tendances 2024 :</strong> Vue 3 avec Composition API, meilleures performances, meilleure TypeScript support</li>
+                                </ul>
+
+                                <h4>Analyse et Recommandation</h4>
+                                <p>Pour un développeur débutant en BTS SIO SLAM, Vue.js offre une meilleure courbe d'apprentissage. Cependant, React reste le choix privilégié pour les opportunités professionnelles. Il est recommandé de maîtriser les deux pour maximiser ses chances sur le marché du travail.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="veille__card">
+                        <div class="veille__header">
+                            <i class='bx bx-server veille__icon'></i>
+                            <h3 class="veille__title">Cloud Computing : AWS vs Azure</h3>
+                        </div>
+                        <div class="veille__content">
+                            <p class="veille__date"><i class='bx bx-calendar'></i> Mise à jour : Décembre 2024</p>
+                            <div class="veille__description">
+                                <h4>Contexte</h4>
+                                <p>Le cloud computing est devenu incontournable pour les entreprises. AWS (Amazon Web Services) et Azure (Microsoft) dominent le marché des services cloud.</p>
+                                
+                                <h4>AWS (Amazon Web Services)</h4>
+                                <ul>
+                                    <li><strong>Lancé en :</strong> 2006</li>
+                                    <li><strong>Part de marché :</strong> ~32% (leader mondial)</li>
+                                    <li><strong>Avantages :</strong> Plus grande offre de services, meilleure documentation, leader du marché, très utilisé par les startups</li>
+                                    <li><strong>Services populaires :</strong> EC2, S3, Lambda, RDS, CloudFront</li>
+                                    <li><strong>Tendances 2024 :</strong> IA/ML intégrés (SageMaker), edge computing, sécurité renforcée</li>
+                                </ul>
+
+                                <h4>Azure (Microsoft)</h4>
+                                <ul>
+                                    <li><strong>Lancé en :</strong> 2010</li>
+                                    <li><strong>Part de marché :</strong> ~23% (2ème position)</li>
+                                    <li><strong>Avantages :</strong> Intégration native avec Microsoft (Office 365, Active Directory), excellent pour les entreprises Microsoft, hybride cloud</li>
+                                    <li><strong>Services populaires :</strong> Virtual Machines, Blob Storage, Functions, SQL Database</li>
+                                    <li><strong>Tendances 2024 :</strong> Azure AI, amélioration de la sécurité, expansion mondiale</li>
+                                </ul>
+
+                                <h4>Analyse et Recommandation</h4>
+                                <p>AWS reste le leader incontesté avec la plus large gamme de services. Azure est idéal pour les entreprises déjà dans l'écosystème Microsoft. Pour un étudiant BTS SIO, commencer par AWS est recommandé car c'est le plus demandé sur le marché. La certification AWS Certified Cloud Practitioner est un excellent point de départ.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== CONTACT =====-->
+            <section class="contact section" id="contact">
+                <h2 class="section-title">Contact</h2>
+
+                <div class="contact__container bd-grid">
+                    <form action="" class="contact__form" id="contact-form">
+                        <input type="text" id="contact-name" name="name" placeholder="Nom" class="contact__input" required>
+                        <input type="email" id="contact-email" name="email" placeholder="Email" class="contact__input" required>
+                        <textarea name="message" id="contact-message" cols="0" rows="10" placeholder="Votre message" class="contact__input" required></textarea>
+                        <button type="submit" class="contact__button button">
+                            <i class='bx bx-send'></i>
+                            Envoyer
+                        </button>
+                        <p class="contact__message" id="contact-message-text"></p>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title">Abdelmalek Elidrissi</p>
+            <div class="footer__social">
+                <a href="https://www.linkedin.com/in/abdelmalek-elidrissi/" target="_blank" rel="noopener noreferrer" class="footer__icon"><i class='bx bxl-linkedin' ></i></a>
+                <a href="https://github.com/abdel1452" target="_blank" rel="noopener noreferrer" class="footer__icon"><i class='bx bxl-github' ></i></a>
+            </div>
+            <p class="footer__copy">&#169; 2026 Abdelmalek Elidrissi - Étudiant BTS SIO SLAM. Tous droits réservés.</p>
+        </footer>
+
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
