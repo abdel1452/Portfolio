@@ -2248,6 +2248,14 @@ body.dark-mode .work__tech-tag {
   border-color: rgba(0, 212, 255, 0.4);
 }
 
+.work__project-links {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(0, 212, 255, 0.2);
+  flex-wrap: wrap;
+}
+
 .work__project-link {
   display: flex;
   align-items: center;
@@ -2257,8 +2265,20 @@ body.dark-mode .work__tech-tag {
   font-weight: 600;
   font-size: var(--normal-font-size);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  padding-top: 1rem;
-  border-top: 2px solid rgba(0, 212, 255, 0.2);
+  padding: 0.75rem 1.25rem;
+  background: rgba(0, 212, 255, 0.1);
+  border-radius: 8px;
+  text-decoration: none;
+  flex: 1;
+  min-width: 140px;
+  border: 2px solid transparent;
+}
+
+.work__project-link:hover {
+  color: var(--neon-blue-light);
+  background: rgba(0, 212, 255, 0.2);
+  border-color: var(--neon-blue);
+  transform: translateY(-2px);
 }
 
 .work__project-link i {
@@ -2266,17 +2286,20 @@ body.dark-mode .work__tech-tag {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.work__project-card:hover .work__project-link {
-  color: var(--neon-blue-light);
-  transform: translateY(-2px);
+.work__project-link:hover i {
+  transform: translateX(4px) scale(1.1);
 }
 
-.work__project-card:hover .work__project-link i {
-  transform: translateX(8px) scale(1.1);
+body.dark-mode .work__project-links {
+  border-top-color: rgba(0, 212, 255, 0.3);
 }
 
 body.dark-mode .work__project-link {
-  border-top-color: rgba(0, 212, 255, 0.3);
+  background: rgba(0, 212, 255, 0.15);
+}
+
+body.dark-mode .work__project-link:hover {
+  background: rgba(0, 212, 255, 0.25);
 }
 
 @media screen and (min-width: 768px) {

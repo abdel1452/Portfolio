@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte Rendu - Coach v1</title>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="compte-rendu-styles.css">
+</head>
+<body>
+    <div class="compte-rendu">
+        <a href="../index.html#work" class="compte-rendu__back">
+            <i class='bx bx-arrow-back'></i> Retour au portfolio
+        </a>
+
+        <div class="compte-rendu__header">
+            <h1 class="compte-rendu__title">Compte Rendu - Coach v1</h1>
+            <p class="compte-rendu__subtitle">Application mobile multiplateforme .NET MAUI</p>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📋 Informations générales</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <strong>Nom du projet :</strong> Coach v1 - Application de calcul d'IMG
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Date de création :</strong> Projet BTS SIO SLAM
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Auteur :</strong> Abdelmalek Elidrissi
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Type :</strong> Application mobile multiplateforme
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🎯 Objectifs du projet</h2>
+            <ul class="compte-rendu__list">
+                <li>Calcul de l'IMG (Indice de Masse Grasse)</li>
+                <li>Évaluation de la condition physique selon le sexe</li>
+                <li>Affichage visuel des résultats avec des indicateurs</li>
+                <li>Interface utilisateur simple et intuitive</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🛠️ Technologies utilisées</h2>
+            <h3 class="compte-rendu__subsection-title">Framework</h3>
+            <span class="compte-rendu__badge">.NET MAUI</span>
+            <span class="compte-rendu__badge">C#</span>
+            <span class="compte-rendu__badge">XAML</span>
+            
+            <h3 class="compte-rendu__subsection-title">Plateformes supportées</h3>
+            <span class="compte-rendu__badge">Android</span>
+            <span class="compte-rendu__badge">iOS</span>
+            <span class="compte-rendu__badge">Windows</span>
+            <span class="compte-rendu__badge">macOS (MacCatalyst)</span>
+            
+            <h3 class="compte-rendu__subsection-title">Architecture</h3>
+            <span class="compte-rendu__badge">MVVM Pattern</span>
+            <span class="compte-rendu__badge">MSTest</span>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📱 .NET MAUI : Présentation détaillée</h2>
+            
+            <h3 class="compte-rendu__subsection-title">Qu'est-ce que .NET MAUI ?</h3>
+            <p><strong>.NET MAUI</strong> (Multi-platform App UI) est un framework open-source développé par Microsoft qui permet de créer des applications natives pour plusieurs plateformes à partir d'un seul code source partagé.</p>
+            
+            <div class="compte-rendu__highlight">
+                <strong>🎯 Objectif principal :</strong> Développer une fois, déployer partout (Android, iOS, Windows, macOS) avec des performances natives et une expérience utilisateur optimale sur chaque plateforme.
+            </div>
+
+            <h3 class="compte-rendu__subsection-title">Historique et évolution</h3>
+            <ul class="compte-rendu__list">
+                <li><strong>Xamarin.Forms</strong> (2014-2022) : Prédécesseur de MAUI, framework multiplateforme pour mobile</li>
+                <li><strong>.NET MAUI</strong> (2022) : Évolution de Xamarin.Forms intégrée à l'écosystème .NET</li>
+                <li>Basé sur <strong>.NET 6+</strong> et bénéficie de toutes les améliorations de performance de .NET</li>
+                <li>Support officiel depuis mai 2022 avec .NET 6</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">Principaux concepts et architecture</h3>
+            
+            <h4>1. Code partagé (Shared Code)</h4>
+            <p>Le code métier, la logique et les modèles de données sont écrits une seule fois dans un projet partagé et fonctionnent sur toutes les plateformes.</p>
+            <div class="compte-rendu__code">
+// Exemple : Code partagé dans MauiAppCoach.Core
+public class Profil
+{
+    // Cette classe fonctionne sur Android, iOS, Windows, macOS
+    public double CalculIMG() { ... }
+}
+            </div>
+
+            <h4>2. Code spécifique par plateforme (Platform-Specific Code)</h4>
+            <p>Pour accéder aux fonctionnalités natives de chaque plateforme, MAUI permet d'écrire du code spécifique dans le dossier <code>Platforms/</code>.</p>
+            <div class="compte-rendu__code">
+Platforms/
+├── Android/    # Code spécifique Android
+├── iOS/        # Code spécifique iOS
+├── Windows/    # Code spécifique Windows
+└── MacCatalyst/ # Code spécifique macOS
+            </div>
+
+            <h4>3. XAML (eXtensible Application Markup Language)</h4>
+            <p>Langage déclaratif pour créer l'interface utilisateur de manière séparée de la logique métier.</p>
+            <div class="compte-rendu__code">
+&lt;ContentPage&gt;
+    &lt;StackLayout&gt;
+        &lt;Entry x:Name="entPoids" /&gt;
+        &lt;Button Text="Calculer" Clicked="btCalculer_Clicked" /&gt;
+    &lt;/StackLayout&gt;
+&lt;/ContentPage&gt;
+            </div>
+            <p><strong>Avantages du XAML :</strong></p>
+            <ul class="compte-rendu__list">
+                <li>Séparation claire entre UI et logique</li>
+                <li>Design visuel facilité</li>
+                <li>Binding de données déclaratif</li>
+                <li>Styles et ressources réutilisables</li>
+            </ul>
+
+            <h4>4. MVVM Pattern (Model-View-ViewModel)</h4>
+            <p>Architecture recommandée pour structurer les applications MAUI :</p>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Model</h4>
+                    <p>Représente les données et la logique métier (ex: classe <code>Profil</code>)</p>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>View</h4>
+                    <p>Interface utilisateur définie en XAML (ex: <code>MainPage.xaml</code>)</p>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>ViewModel</h4>
+                    <p>Intermédiaire entre View et Model, gère la logique de présentation et le binding</p>
+                </div>
+            </div>
+
+            <h4>5. Handlers et Renderers</h4>
+            <p>MAUI utilise un système de handlers pour mapper les contrôles XAML vers les contrôles natifs de chaque plateforme :</p>
+            <ul class="compte-rendu__list">
+                <li><strong>Android :</strong> Les contrôles MAUI sont rendus comme des vues Android natives</li>
+                <li><strong>iOS :</strong> Conversion en UIKit (UIView, UIButton, etc.)</li>
+                <li><strong>Windows :</strong> Utilisation de WinUI 3</li>
+                <li><strong>macOS :</strong> Utilisation de AppKit</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">Avantages de .NET MAUI</h3>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>🚀 Performance native</h4>
+                    <p>Les applications compilées sont des applications natives, pas des applications web dans un conteneur. Performance équivalente aux apps développées nativement.</p>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>💰 Coût de développement réduit</h4>
+                    <p>Un seul code source pour plusieurs plateformes = moins de temps de développement et de maintenance.</p>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>🔄 Partage de code maximal</h4>
+                    <p>Jusqu'à 90% de code partagé entre les plateformes, réduisant la duplication et les bugs.</p>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>🛠️ Écosystème .NET</h4>
+                    <p>Accès à toutes les bibliothèques .NET, NuGet packages, et outils de l'écosystème .NET.</p>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>📦 Hot Reload</h4>
+                    <p>Modifications du code visibles instantanément sans recompiler, accélérant le développement.</p>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>🎨 Interface native</h4>
+                    <p>Chaque plateforme utilise ses contrôles natifs, garantissant une expérience utilisateur authentique.</p>
+                </div>
+            </div>
+
+            <h3 class="compte-rendu__subsection-title">Contrôles et composants principaux</h3>
+            <p>MAUI fournit une bibliothèque riche de contrôles UI :</p>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Contrôles de base</h4>
+                    <ul class="compte-rendu__list">
+                        <li><code>Button</code> - Bouton cliquable</li>
+                        <li><code>Entry</code> - Champ de saisie texte</li>
+                        <li><code>Label</code> - Texte affiché</li>
+                        <li><code>Image</code> - Affichage d'images</li>
+                        <li><code>RadioButton</code> - Sélection unique</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Layouts</h4>
+                    <ul class="compte-rendu__list">
+                        <li><code>StackLayout</code> - Empilement vertical/horizontal</li>
+                        <li><code>Grid</code> - Grille flexible</li>
+                        <li><code>FlexLayout</code> - Layout flexible</li>
+                        <li><code>AbsoluteLayout</code> - Positionnement absolu</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Navigation</h4>
+                    <ul class="compte-rendu__list">
+                        <li><code>Shell</code> - Navigation et structure d'app</li>
+                        <li><code>NavigationPage</code> - Navigation par pile</li>
+                        <li><code>TabbedPage</code> - Onglets</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Données</h4>
+                    <ul class="compte-rendu__list">
+                        <li><code>CollectionView</code> - Listes performantes</li>
+                        <li><code>ListView</code> - Listes (legacy)</li>
+                        <li><code>Picker</code> - Sélecteur de valeurs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="compte-rendu__subsection-title">Binding de données (Data Binding)</h3>
+            <p>Le binding permet de connecter automatiquement les données aux contrôles UI :</p>
+            <div class="compte-rendu__code">
+// En XAML
+&lt;Label Text="{Binding Message}" /&gt;
+&lt;Entry Text="{Binding Poids}" /&gt;
+
+// En C# (ViewModel)
+public string Message { get; set; }
+public int Poids { get; set; }
+            </div>
+            <p><strong>Types de binding :</strong></p>
+            <ul class="compte-rendu__list">
+                <li><strong>One-way binding :</strong> Données → UI (affichage)</li>
+                <li><strong>Two-way binding :</strong> Données ↔ UI (saisie et affichage)</li>
+                <li><strong>One-way-to-source :</strong> UI → Données (saisie uniquement)</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">Ressources et styles</h3>
+            <p>MAUI permet de centraliser les ressources (couleurs, styles, images) :</p>
+            <div class="compte-rendu__code">
+// Dans App.xaml ou ResourceDictionary
+&lt;Color x:Key="PrimaryColor"&gt;#007ACC&lt;/Color&gt;
+&lt;Style x:Key="ButtonStyle" TargetType="Button"&gt;
+    &lt;Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" /&gt;
+&lt;/Style&gt;
+            </div>
+
+            <h3 class="compte-rendu__subsection-title">Cycle de vie de l'application</h3>
+            <p>MAUI gère les événements du cycle de vie :</p>
+            <ul class="compte-rendu__list">
+                <li><code>OnStart()</code> - Application démarrée</li>
+                <li><code>OnSleep()</code> - Application mise en arrière-plan</li>
+                <li><code>OnResume()</code> - Application revenue au premier plan</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">Accès aux fonctionnalités natives</h3>
+            <p>MAUI fournit des APIs unifiées pour accéder aux fonctionnalités natives :</p>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Device Info</h4>
+                    <p><code>DeviceInfo.Platform</code>, <code>DeviceInfo.Idiom</code></p>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>File System</h4>
+                    <p><code>FileSystem.AppDataDirectory</code>, <code>FileSystem.CacheDirectory</code></p>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Preferences</h4>
+                    <p><code>Preferences.Set()</code>, <code>Preferences.Get()</code> pour le stockage local</p>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Connectivity</h4>
+                    <p><code>Connectivity.NetworkAccess</code> pour vérifier la connexion</p>
+                </div>
+            </div>
+
+            <h3 class="compte-rendu__subsection-title">Déploiement et compilation</h3>
+            <p><strong>Processus de compilation :</strong></p>
+            <ol class="compte-rendu__list" style="list-style: decimal; padding-left: 2rem;">
+                <li><strong>Compilation C# :</strong> Le code C# est compilé en IL (Intermediate Language)</li>
+                <li><strong>Linking :</strong> Réduction de la taille de l'app (suppression du code inutilisé)</li>
+                <li><strong>Compilation native :</strong>
+                    <ul class="compte-rendu__list">
+                        <li><strong>Android :</strong> AOT (Ahead-Of-Time) ou JIT (Just-In-Time)</li>
+                        <li><strong>iOS :</strong> AOT obligatoire (Apple requirement)</li>
+                        <li><strong>Windows :</strong> Compilation .NET standard</li>
+                    </ul>
+                </li>
+                <li><strong>Packaging :</strong> Création du package d'installation (.apk, .ipa, .msix, etc.)</li>
+            </ol>
+
+            <h3 class="compte-rendu__subsection-title">Comparaison avec d'autres technologies</h3>
+            <table class="compte-rendu__table">
+                <thead>
+                    <tr>
+                        <th>Technologie</th>
+                        <th>Avantages</th>
+                        <th>Inconvénients</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>.NET MAUI</strong></td>
+                        <td>Performance native, code partagé, écosystème .NET</td>
+                        <td>Courbe d'apprentissage, taille des apps</td>
+                    </tr>
+                    <tr>
+                        <td><strong>React Native</strong></td>
+                        <td>Écosystème JavaScript, hot reload</td>
+                        <td>Performance inférieure, dépendances natives</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Flutter</strong></td>
+                        <td>Performance, UI personnalisable</td>
+                        <td>Langage Dart, moins de packages</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Développement natif</strong></td>
+                        <td>Performance maximale, accès complet aux APIs</td>
+                        <td>Code dupliqué, maintenance multiple</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="compte-rendu__subsection-title">Utilisation dans le projet Coach v1</h3>
+            <p>Dans ce projet, .NET MAUI a été utilisé pour :</p>
+            <ul class="compte-rendu__list">
+                <li><strong>Interface utilisateur :</strong> Création de l'UI avec XAML (<code>MainPage.xaml</code>)</li>
+                <li><strong>Logique métier :</strong> Code partagé dans <code>MauiAppCoach.Core</code> (classe <code>Profil</code>)</li>
+                <li><strong>Ressources :</strong> Images stockées dans <code>Resources/Images/</code></li>
+                <li><strong>Multiplateforme :</strong> Même code fonctionne sur Android, iOS, Windows, macOS</li>
+                <li><strong>Navigation :</strong> Utilisation de <code>AppShell</code> pour la structure de l'application</li>
+            </ul>
+
+            <div class="compte-rendu__highlight">
+                <strong>💡 Pourquoi .NET MAUI pour ce projet ?</strong>
+                <p>Le choix de .NET MAUI permet de créer une application mobile professionnelle avec un seul code source, tout en bénéficiant des performances natives et de l'expérience utilisateur optimale sur chaque plateforme. C'est idéal pour une application de calcul comme Coach v1 qui nécessite une interface simple mais efficace.</p>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📁 Structure du projet</h2>
+            <div class="compte-rendu__code">
+Coach V1/
+├── MauiAppCoach/              # Application principale
+│   ├── MainPage.xaml          # Interface utilisateur principale
+│   ├── MainPage.xaml.cs       # Code-behind de la page principale
+│   ├── App.xaml               # Application XAML
+│   ├── App.xaml.cs            # Point d'entrée de l'application
+│   ├── AppShell.xaml          # Navigation et structure de l'app
+│   ├── Platforms/            # Code spécifique par plateforme
+│   │   ├── Android/
+│   │   ├── iOS/
+│   │   ├── Windows/
+│   │   └── MacCatalyst/
+│   ├── Resources/            # Ressources (images, styles)
+│   │   ├── Images/
+│   │   │   ├── smiley_parfait.png
+│   │   │   ├── smiley_surpoids.png
+│   │   │   ├── smiley_tropmaigre.png
+│   │   │   └── smiley.png
+│   │   └── Styles/
+│   └── Tests/                # Tests unitaires
+├── MauiAppCoach.Core/         # Bibliothèque de classes partagée
+│   └── Modele/
+│       └── Profil.cs         # Modèle de données pour le calcul IMG
+├── TestProjectCoach/         # Projet de tests
+└── MauiAppCoach.slnx         # Solution Visual Studio
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🔧 Fonctionnalités implémentées</h2>
+            
+            <h3 class="compte-rendu__subsection-title">1. Calcul de l'IMG (Indice de Masse Grasse)</h3>
+            <p>L'application calcule l'IMG selon la formule de Deurenberg :</p>
+            <div class="compte-rendu__code">
+IMG = (1.2 × poids / taille²) + (0.23 × âge) - (10.83 × sexe) - 5.4
+
+Où :
+- poids : en kilogrammes
+- taille : en centimètres (convertie en mètres)
+- âge : en années
+- sexe : 1 pour homme, 0 pour femme
+            </div>
+
+            <h3 class="compte-rendu__subsection-title">2. Évaluation selon le sexe</h3>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Pour les femmes (sexe = 0)</h4>
+                    <ul class="compte-rendu__list">
+                        <li>IMG &lt; 25 : Trop maigre</li>
+                        <li>25 ≤ IMG &lt; 30 : Parfait</li>
+                        <li>IMG ≥ 30 : Surpoids</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Pour les hommes (sexe = 1)</h4>
+                    <ul class="compte-rendu__list">
+                        <li>IMG &lt; 15 : Trop maigre</li>
+                        <li>15 ≤ IMG &lt; 20 : Parfait</li>
+                        <li>IMG ≥ 20 : Surpoids</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="compte-rendu__subsection-title">3. Interface utilisateur</h3>
+            <h4>Champs de saisie :</h4>
+            <ul class="compte-rendu__list">
+                <li>Poids (en kg)</li>
+                <li>Taille (en cm)</li>
+                <li>Âge (en années)</li>
+                <li>Sélection du sexe (Homme/Femme) via radio buttons</li>
+            </ul>
+            
+            <h4>Affichage des résultats :</h4>
+            <ul class="compte-rendu__list">
+                <li>Message textuel (Trop maigre / Parfait / Surpoids)</li>
+                <li>Valeur de l'IMG avec une décimale</li>
+                <li>Image indicative (smiley) selon le résultat :
+                    <ul class="compte-rendu__list">
+                        <li>smiley_parfait.png</li>
+                        <li>smiley_surpoids.png</li>
+                        <li>smiley_tropmaigre.png</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">4. Modèle de données</h3>
+            <p>La classe <code>Profil</code> encapsule :</p>
+            <ul class="compte-rendu__list">
+                <li>Les données d'entrée (sexe, poids, taille, âge)</li>
+                <li>Le calcul de l'IMG</li>
+                <li>La détermination du message et de l'image à afficher</li>
+                <li>Les méthodes getters pour accéder aux résultats</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">💻 Code principal</h2>
+            <h3 class="compte-rendu__subsection-title">Classe Profil</h3>
+            <div class="compte-rendu__code">
+public class Profil
+{
+    private int sexe;
+    private int poids;
+    private int taille;
+    private int age;
+    private double img;
+    private string message;
+    private string image;
+
+    public Profil(int sexe, int poids, int taille, int age)
+    {
+        this.sexe = sexe;
+        this.poids = poids;
+        this.taille = taille;
+        this.age = age;
+        
+        CalculIMG();
+        ResultatIMG();
+    }
+
+    private void CalculIMG()
+    {
+        double tailleEnMetres = taille / 100.0;
+        img = (1.2 * poids / (tailleEnMetres * tailleEnMetres))
+               + (0.23 * age)
+               - (10.83 * sexe)
+               - 5.4;
+    }
+
+    private void ResultatIMG()
+    {
+        // Logique d'évaluation selon le sexe
+        // Détermine message et image
+    }
+}
+            </div>
+
+            <h3 class="compte-rendu__subsection-title">MainPage.xaml.cs</h3>
+            <div class="compte-rendu__code">
+private void btCalculer_Clicked(object sender, EventArgs e)
+{
+    int poids = Convert.ToInt32(entPoids.Text);
+    int taille = Convert.ToInt32(entTaille.Text);
+    int age = Convert.ToInt32(entAge.Text);
+    int sexe = rdHomme.IsChecked ? 1 : 0;
+
+    Profil profil = new Profil(sexe, poids, taille, age);
+
+    CounterLabel.Text = "Votre IMG : " + profil.GetMessage() + 
+                        profil.GetImg().ToString("0.0");
+    imgResultat.Source = profil.GetImage();
+}
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🚀 Installation et démarrage</h2>
+            <h3 class="compte-rendu__subsection-title">Prérequis</h3>
+            <ul class="compte-rendu__list">
+                <li>Visual Studio 2022 ou supérieur</li>
+                <li>.NET MAUI workload installé</li>
+                <li>SDK Android (pour Android)</li>
+                <li>Xcode (pour iOS, sur macOS uniquement)</li>
+                <li>Windows SDK (pour Windows)</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">Étapes d'installation</h3>
+            <ol class="compte-rendu__list" style="list-style: decimal; padding-left: 2rem;">
+                <li><strong>Ouvrir la solution</strong>
+                    <div class="compte-rendu__code">Ouvrir MauiAppCoach.slnx dans Visual Studio</div>
+                </li>
+                <li><strong>Restaurer les packages NuGet</strong>
+                    <div class="compte-rendu__code">dotnet restore</div>
+                </li>
+                <li><strong>Compiler l'application</strong>
+                    <div class="compte-rendu__code">dotnet build</div>
+                </li>
+                <li><strong>Lancer l'application</strong>
+                    <ul class="compte-rendu__list">
+                        <li>Sélectionner la plateforme cible (Android, iOS, Windows)</li>
+                        <li>Appuyer sur F5 ou cliquer sur "Démarrer"</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3 class="compte-rendu__subsection-title">Plateformes disponibles</h3>
+            <ul class="compte-rendu__list">
+                <li><strong>Android</strong> : Émulateur ou appareil physique</li>
+                <li><strong>iOS</strong> : Simulateur iOS (sur macOS uniquement)</li>
+                <li><strong>Windows</strong> : Application Windows native</li>
+                <li><strong>macOS</strong> : Application macOS via MacCatalyst</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">💡 Points techniques remarquables</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Architecture</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Séparation Modèle/Interface</li>
+                        <li>Code partagé (MauiAppCoach.Core)</li>
+                        <li>Code spécifique par plateforme</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Calculs</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Formule IMG validée (Deurenberg)</li>
+                        <li>Conversion cm → mètres</li>
+                        <li>Précision avec une décimale</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Interface utilisateur</h4>
+                    <ul class="compte-rendu__list">
+                        <li>XAML déclaratif</li>
+                        <li>Code-behind C#</li>
+                        <li>Ressources centralisées</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Tests</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Tests unitaires</li>
+                        <li>MSTest framework</li>
+                        <li>Validation des calculs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🐛 Difficultés rencontrées et solutions</h2>
+            
+            <div class="compte-rendu__problem">
+                <strong>Problème 1 : Configuration multiplateforme</strong>
+                <p>Configuration des différentes plateformes (Android, iOS, Windows).</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Utilisation de .NET MAUI qui simplifie la configuration multiplateforme avec des fichiers manifestes spécifiques par plateforme.
+            </div>
+
+            <div class="compte-rendu__problem">
+                <strong>Problème 2 : Conversion des unités</strong>
+                <p>Conversion correcte de la taille de centimètres en mètres pour le calcul.</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Division par 100.0 pour obtenir des mètres avec précision décimale.
+            </div>
+
+            <div class="compte-rendu__problem">
+                <strong>Problème 3 : Gestion des résultats selon le sexe</strong>
+                <p>Seuils différents pour hommes et femmes.</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Implémentation de la méthode `ResultatIMG()` avec conditions spécifiques selon la valeur de `sexe`.
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📈 Améliorations possibles</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Fonctionnalités</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Validation des entrées</li>
+                        <li>Gestion des erreurs (Try-catch)</li>
+                        <li>Historique des calculs</li>
+                        <li>Graphiques d'évolution</li>
+                        <li>Objectifs de poids/IMG</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Technique</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Export PDF/CSV</li>
+                        <li>Localisation multilingue</li>
+                        <li>Thèmes (mode sombre/clair)</li>
+                        <li>Base de données</li>
+                        <li>Synchronisation cloud</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📚 Compétences développées</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Développement mobile</h4>
+                    <ul class="compte-rendu__list">
+                        <li>.NET MAUI framework</li>
+                        <li>XAML déclaratif</li>
+                        <li>C# orienté objet avancé</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Architecture</h4>
+                    <ul class="compte-rendu__list">
+                        <li>MVVM Pattern</li>
+                        <li>Code partagé entre plateformes</li>
+                        <li>Modularité (projets séparés)</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Calculs et logique métier</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Implémentation formules mathématiques</li>
+                        <li>Validation des données</li>
+                        <li>Tests unitaires</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Multiplateforme</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Android (configuration et développement)</li>
+                        <li>iOS (sur macOS)</li>
+                        <li>Windows (application native)</li>
+                        <li>macOS (MacCatalyst)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🎓 Conclusion</h2>
+            <p>Ce projet a permis de découvrir le développement d'applications mobiles multiplateformes avec .NET MAUI. L'application combine une interface utilisateur simple avec une logique de calcul précise pour fournir un outil utile de calcul d'IMG.</p>
+            
+            <p>L'utilisation de .NET MAUI démontre la capacité à créer des applications natives pour plusieurs plateformes à partir d'un seul code source, ce qui est un avantage majeur pour le développement moderne.</p>
+            
+            <div class="compte-rendu__highlight">
+                <strong>Points forts :</strong>
+                <ul class="compte-rendu__list">
+                    <li>Application multiplateforme fonctionnelle</li>
+                    <li>Code bien structuré avec séparation des responsabilités</li>
+                    <li>Interface utilisateur intuitive</li>
+                    <li>Tests unitaires pour valider la logique</li>
+                </ul>
+            </div>
+
+            <p><strong>Prochaines étapes :</strong> Amélioration de l'interface utilisateur, ajout de fonctionnalités avancées (historique, graphiques), validation des entrées et gestion des erreurs.</p>
+        </div>
+    </div>
+
+    <script>
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observer toutes les sections
+        document.querySelectorAll('.compte-rendu__section').forEach(section => {
+            section.style.opacity = '0';
+            observer.observe(section);
+        });
+
+        // Animation pour les badges au scroll
+        const badgeObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s both`;
+                    }, index * 50);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.compte-rendu__badge').forEach(badge => {
+            badgeObserver.observe(badge);
+        });
+
+        // Animation pour les cartes
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = `fadeInUp 0.5s ease-out ${index * 0.1}s both`;
+                    }, index * 50);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.compte-rendu__card').forEach(card => {
+            cardObserver.observe(card);
+        });
+
+        // Animation pour les lignes de tableau
+        const tableObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.setProperty('--i', index);
+                    entry.target.style.animation = `fadeInUp 0.4s ease-out ${index * 0.1}s both`;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.compte-rendu__table tbody tr').forEach(row => {
+            tableObserver.observe(row);
+        });
+
+        // Effet parallaxe léger sur le header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.compte-rendu__header');
+            if (header) {
+                const scrolled = window.pageYOffset;
+                header.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Animation au hover pour les sections
+        document.querySelectorAll('.compte-rendu__section').forEach(section => {
+            section.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            section.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Effet de particules animées
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(0, 212, 255, 0.6)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.animation = `floatUp ${3 + Math.random() * 2}s linear forwards`;
+            
+            const header = document.querySelector('.compte-rendu__header');
+            if (header) {
+                header.appendChild(particle);
+                setTimeout(() => particle.remove(), 5000);
+            }
+        }
+
+        // Créer des particules périodiquement
+        setInterval(createParticle, 2000);
+
+        // Ajouter l'animation floatUp
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                to {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

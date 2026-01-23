@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte Rendu - SIO Shoes</title>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="compte-rendu-styles.css">
+</head>
+<body>
+    <div class="compte-rendu">
+        <a href="../index.html#work" class="compte-rendu__back">
+            <i class='bx bx-arrow-back'></i> Retour au portfolio
+        </a>
+
+        <div class="compte-rendu__header">
+            <h1 class="compte-rendu__title">Compte Rendu - SIO Shoes</h1>
+            <p class="compte-rendu__subtitle">Application e-commerce Symfony complète</p>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📋 Informations générales</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <strong>Nom du projet :</strong> SIO Shoes - Application E-commerce Symfony
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Date de création :</strong> Projet BTS SIO SLAM
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Auteur :</strong> Abdelmalek Elidrissi
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Type :</strong> Application e-commerce complète
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🎯 Objectifs du projet</h2>
+            <ul class="compte-rendu__list">
+                <li>Gestion de produits (chaussures) avec catégories et sous-catégories</li>
+                <li>Gestion d'un panier d'achat fonctionnel</li>
+                <li>Traitement de commandes en ligne</li>
+                <li>Intégration de paiements sécurisés via Stripe</li>
+                <li>Administration complète du site</li>
+                <li>Génération de factures PDF</li>
+                <li>Envoi d'emails de confirmation</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🛠️ Technologies utilisées</h2>
+            <h3 class="compte-rendu__subsection-title">Backend</h3>
+            <span class="compte-rendu__badge">PHP 8.2+</span>
+            <span class="compte-rendu__badge">Symfony 7.3</span>
+            <span class="compte-rendu__badge">Doctrine ORM 3.5</span>
+            <span class="compte-rendu__badge">Doctrine DBAL 3</span>
+            <span class="compte-rendu__badge">PostgreSQL</span>
+            <span class="compte-rendu__badge">Stripe PHP SDK 18.0</span>
+            <span class="compte-rendu__badge">Dompdf 3.1</span>
+            <span class="compte-rendu__badge">Symfony Mailer 7.3</span>
+            <span class="compte-rendu__badge">Symfony Security 7.3</span>
+            <span class="compte-rendu__badge">Symfony Forms 7.3</span>
+            <span class="compte-rendu__badge">KnpPaginatorBundle 6.9</span>
+            
+            <h3 class="compte-rendu__subsection-title">Frontend</h3>
+            <span class="compte-rendu__badge">Twig 2.12/3.0</span>
+            <span class="compte-rendu__badge">Bootstrap</span>
+            <span class="compte-rendu__badge">JavaScript ES6+</span>
+            <span class="compte-rendu__badge">Stimulus 2.30</span>
+            <span class="compte-rendu__badge">Turbo 2.31</span>
+            <span class="compte-rendu__badge">Asset Mapper 7.3</span>
+            
+            <h3 class="compte-rendu__subsection-title">Infrastructure & Outils</h3>
+            <span class="compte-rendu__badge">Docker & Docker Compose</span>
+            <span class="compte-rendu__badge">Composer</span>
+            <span class="compte-rendu__badge">Symfony CLI</span>
+            <span class="compte-rendu__badge">Git</span>
+            <span class="compte-rendu__badge">PHPUnit 11.5</span>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📁 Structure du projet</h2>
+            <div class="compte-rendu__code">
+Site_eShoes-main/
+├── config/                    # Configuration Symfony
+│   ├── packages/             # Configuration des bundles
+│   ├── routes/               # Routes de l'application
+│   └── services.yaml         # Configuration des services
+├── public/                    # Point d'entrée web
+│   └── index.php             # Front controller
+├── src/
+│   ├── Controller/           # 12 contrôleurs (Bill, Cart, Category, etc.)
+│   ├── Entity/               # 8 entités Doctrine
+│   ├── Form/                 # 7 formulaires Symfony
+│   ├── Repository/           # Repositories Doctrine
+│   ├── Service/              # Services métier (StripePayment)
+│   └── Twig/                 # Extensions Twig
+├── templates/                 # Templates Twig (~50 templates)
+├── migrations/                # 15 migrations de base de données
+├── assets/                    # Assets frontend (JS/CSS)
+├── tests/                     # Tests unitaires
+└── docker/                    # Configuration Docker
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🔧 Fonctionnalités implémentées</h2>
+            
+            <h3 class="compte-rendu__subsection-title">1. Gestion des produits (ProductController)</h3>
+            <h4>CRUD Produits</h4>
+            <ul class="compte-rendu__list">
+                <li><strong>Create</strong> : Ajout de nouveaux produits avec upload d'images (nom, description, prix, stock, catégorie, sous-catégorie)</li>
+                <li><strong>Read</strong> : Affichage des produits avec pagination (liste admin + détails public)</li>
+                <li><strong>Update</strong> : Modification des produits existants (infos, stock, image)</li>
+                <li><strong>Delete</strong> : Suppression de produits avec confirmation</li>
+                <li><strong>Show</strong> : Affichage détaillé d'un produit avec disponibilité en stock</li>
+            </ul>
+            
+            <h4>Gestion du stock</h4>
+            <ul class="compte-rendu__list">
+                <li>Historique des ajouts de stock (AddProductHistory)</li>
+                <li>Suivi des modifications de stock avec date et quantité</li>
+                <li>Interface pour ajouter du stock à un produit existant</li>
+                <li>Affichage de l'historique pour chaque produit</li>
+            </ul>
+            
+            <h4>Catégories et sous-catégories</h4>
+            <ul class="compte-rendu__list">
+                <li>Gestion hiérarchique : Catégories avec sous-catégories</li>
+                <li>CRUD complet pour catégories et sous-catégories</li>
+                <li>Filtrage des produits par catégorie/sous-catégorie sur la page d'accueil</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">2. Panier d'achat (CartController)</h3>
+            <ul class="compte-rendu__list">
+                <li>Ajout de produits au panier avec gestion des quantités</li>
+                <li>Modification des quantités (augmentation/diminution)</li>
+                <li>Suppression d'articles du panier</li>
+                <li>Calcul automatique du total du panier</li>
+                <li>Persistance en session Symfony</li>
+                <li>Affichage du nombre d'articles dans la navigation</li>
+                <li>Validation du stock avant ajout</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">3. Système de commandes (OrderController)</h3>
+            <h4>Processus de commande</h4>
+            <ul class="compte-rendu__list">
+                <li>Passage de commande depuis le panier</li>
+                <li>Enregistrement des informations de livraison et facturation</li>
+                <li>Gestion des adresses (sélection de la ville de livraison)</li>
+                <li>Suivi des commandes par utilisateur</li>
+                <li>Historique des commandes passées avec détails</li>
+            </ul>
+            
+            <h4>Entités</h4>
+            <ul class="compte-rendu__list">
+                <li><strong>Order</strong> : Statut, total, date, utilisateur, ville de livraison</li>
+                <li><strong>OrderProducts</strong> : Produits, quantités, prix unitaire au moment de la commande</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">4. Paiement Stripe (StripeController)</h3>
+            <ul class="compte-rendu__list">
+                <li>Intégration complète avec SDK Stripe PHP officiel (version 18.0)</li>
+                <li>Paiement sécurisé par carte bancaire avec Stripe Checkout</li>
+                <li>Gestion des succès : Page de confirmation après paiement réussi</li>
+                <li>Gestion des annulations : Page d'annulation en cas d'abandon</li>
+                <li>Service dédié `StripePayment` pour encapsuler la logique</li>
+                <li>Support des clés de test Stripe (pk_test_, sk_test_)</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">5. Authentification et sécurité</h3>
+            <h4>Inscription et connexion</h4>
+            <ul class="compte-rendu__list">
+                <li>Formulaire d'inscription avec validation (email unique, force du mot de passe)</li>
+                <li>Connexion et déconnexion sécurisées</li>
+                <li>Gestion des rôles (ROLE_USER, ROLE_ADMIN)</li>
+            </ul>
+            
+            <h4>Sécurité Symfony</h4>
+            <ul class="compte-rendu__list">
+                <li>Protection CSRF sur tous les formulaires</li>
+                <li>Chiffrement des mots de passe avec bcrypt (Symfony PasswordHasher)</li>
+                <li>Protection des routes par rôle (Symfony Security)</li>
+                <li>Sessions sécurisées</li>
+                <li>Validation côté serveur (Symfony Validator)</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">6. Administration</h3>
+            <ul class="compte-rendu__list">
+                <li>Gestion des utilisateurs (liste, attribution de rôles)</li>
+                <li>CRUD complet pour produits, catégories, sous-catégories</li>
+                <li>Interface d'administration intuitive</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">7. Génération de factures PDF (BillController)</h3>
+            <ul class="compte-rendu__list">
+                <li>Création de factures PDF avec Dompdf (version 3.1)</li>
+                <li>Détails complets de la commande sur la facture</li>
+                <li>Informations client (nom, email, adresse)</li>
+                <li>Liste des produits avec quantités et prix</li>
+                <li>Calcul automatique du total</li>
+                <li>Design professionnel de la facture</li>
+                <li>Téléchargement en PDF</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">8. Envoi d'emails (Symfony Mailer)</h3>
+            <ul class="compte-rendu__list">
+                <li>Email de confirmation automatique après commande</li>
+                <li>Templates d'emails avec Twig (orderConfirm.html.twig)</li>
+                <li>Intégration Symfony Mailer</li>
+                <li>Gestion des erreurs d'envoi</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">9. Gestion des villes (CityController)</h3>
+            <ul class="compte-rendu__list">
+                <li>CRUD villes de livraison</li>
+                <li>Sélection de la ville lors du passage de commande</li>
+                <li>Relation avec les commandes (OneToMany)</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">10. Page d'accueil et catalogue (HomeController)</h3>
+            <ul class="compte-rendu__list">
+                <li>Catalogue de tous les produits disponibles</li>
+                <li>Pagination avec KnpPaginatorBundle (6 produits par page)</li>
+                <li>Filtrage par catégorie et sous-catégorie</li>
+                <li>Affichage détaillé d'un produit avec ajout au panier</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📊 Modèle de données</h2>
+            <h3 class="compte-rendu__subsection-title">Entités principales</h3>
+            <table class="compte-rendu__table">
+                <thead>
+                    <tr>
+                        <th>Entité</th>
+                        <th>Propriétés principales</th>
+                        <th>Relations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>User</strong></td>
+                        <td>id, email, password, roles</td>
+                        <td>orders (OneToMany)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Product</strong></td>
+                        <td>id, name, description, price, stock, image</td>
+                        <td>category (ManyToOne), subCategory (ManyToOne), addProductHistories (OneToMany)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Category</strong></td>
+                        <td>id, name</td>
+                        <td>products (OneToMany), subCategories (OneToMany)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SubCategory</strong></td>
+                        <td>id, name</td>
+                        <td>category (ManyToOne), products (OneToMany)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order</strong></td>
+                        <td>id, total, status, createdAt</td>
+                        <td>user (ManyToOne), orderProducts (OneToMany), city (ManyToOne)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OrderProducts</strong></td>
+                        <td>id, quantity, price</td>
+                        <td>order (ManyToOne), product (ManyToOne)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AddProductHistory</strong></td>
+                        <td>id, quantity, addedAt</td>
+                        <td>product (ManyToOne)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>City</strong></td>
+                        <td>id, name</td>
+                        <td>orders (OneToMany)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🌐 Routes principales</h2>
+            <h3 class="compte-rendu__subsection-title">Routes publiques</h3>
+            <table class="compte-rendu__table">
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Méthode</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>/</td>
+                        <td>GET</td>
+                        <td>Page d'accueil avec catalogue de produits</td>
+                    </tr>
+                    <tr>
+                        <td>/product/{id}</td>
+                        <td>GET</td>
+                        <td>Détails d'un produit</td>
+                    </tr>
+                    <tr>
+                        <td>/register</td>
+                        <td>GET, POST</td>
+                        <td>Inscription</td>
+                    </tr>
+                    <tr>
+                        <td>/login</td>
+                        <td>GET, POST</td>
+                        <td>Connexion</td>
+                    </tr>
+                    <tr>
+                        <td>/cart</td>
+                        <td>GET</td>
+                        <td>Panier d'achat</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="compte-rendu__subsection-title">Routes authentifiées</h3>
+            <table class="compte-rendu__table">
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Méthode</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>/cart/add/{id}</td>
+                        <td>POST</td>
+                        <td>Ajouter au panier</td>
+                    </tr>
+                    <tr>
+                        <td>/cart/remove/{id}</td>
+                        <td>POST</td>
+                        <td>Retirer du panier</td>
+                    </tr>
+                    <tr>
+                        <td>/order</td>
+                        <td>GET, POST</td>
+                        <td>Passer une commande</td>
+                    </tr>
+                    <tr>
+                        <td>/orders</td>
+                        <td>GET</td>
+                        <td>Historique des commandes</td>
+                    </tr>
+                    <tr>
+                        <td>/order/{id}/bill</td>
+                        <td>GET</td>
+                        <td>Facture d'une commande (PDF)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="compte-rendu__subsection-title">Routes Stripe</h3>
+            <table class="compte-rendu__table">
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Méthode</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>/stripe/checkout</td>
+                        <td>GET, POST</td>
+                        <td>Page de paiement Stripe</td>
+                    </tr>
+                    <tr>
+                        <td>/stripe/success</td>
+                        <td>GET</td>
+                        <td>Succès du paiement</td>
+                    </tr>
+                    <tr>
+                        <td>/stripe/cancel</td>
+                        <td>GET</td>
+                        <td>Annulation du paiement</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="compte-rendu__subsection-title">Routes administrateur</h3>
+            <table class="compte-rendu__table">
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Méthode</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>/admin/products</td>
+                        <td>GET</td>
+                        <td>Liste des produits (admin)</td>
+                    </tr>
+                    <tr>
+                        <td>/admin/products/new</td>
+                        <td>GET, POST</td>
+                        <td>Créer un produit</td>
+                    </tr>
+                    <tr>
+                        <td>/admin/products/{id}/edit</td>
+                        <td>GET, POST</td>
+                        <td>Modifier un produit</td>
+                    </tr>
+                    <tr>
+                        <td>/admin/categories</td>
+                        <td>GET</td>
+                        <td>Gestion des catégories</td>
+                    </tr>
+                    <tr>
+                        <td>/admin/users</td>
+                        <td>GET</td>
+                        <td>Gestion des utilisateurs</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🚀 Installation et démarrage</h2>
+            <h3 class="compte-rendu__subsection-title">Prérequis</h3>
+            <ul class="compte-rendu__list">
+                <li>PHP >= 8.2</li>
+                <li>Composer (gestionnaire de dépendances PHP)</li>
+                <li>Docker et Docker Compose (pour PostgreSQL)</li>
+                <li>Node.js et npm (pour les assets frontend)</li>
+                <li>Symfony CLI (optionnel, mais recommandé)</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">Étapes d'installation</h3>
+            <ol class="compte-rendu__list" style="list-style: decimal; padding-left: 2rem;">
+                <li><strong>Installer les dépendances PHP</strong>
+                    <div class="compte-rendu__code">cd Projets/Site_eShoes-main
+composer install</div>
+                </li>
+                <li><strong>Configurer les variables d'environnement</strong>
+                    <p>Créer `.env.local` :</p>
+                    <div class="compte-rendu__code">DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
+STRIPE_PUBLIC_KEY="votre_clé_publique_stripe"
+STRIPE_SECRET_KEY="votre_clé_secrète_stripe"
+MAILER_DSN="smtp://localhost:1025"</div>
+                </li>
+                <li><strong>Démarrer la base de données</strong>
+                    <div class="compte-rendu__code">docker compose up -d</div>
+                </li>
+                <li><strong>Créer la base de données et exécuter les migrations</strong>
+                    <div class="compte-rendu__code">php bin/console doctrine:database:create
+php bin/console doctrine:migrations:migrate</div>
+                </li>
+                <li><strong>Installer les assets frontend</strong>
+                    <div class="compte-rendu__code">npm install
+npm run build</div>
+                </li>
+                <li><strong>Lancer l'application</strong>
+                    <div class="compte-rendu__code">symfony server:start
+# Ou avec PHP natif
+php -S localhost:8000 -t public</div>
+                </li>
+            </ol>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">💡 Points techniques remarquables</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Architecture MVC</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Séparation Modèle-Vue-Contrôleur</li>
+                        <li>Design Pattern Repository</li>
+                        <li>Services dédiés (StripePayment)</li>
+                        <li>Formulaires Symfony</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Sécurité</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Protection CSRF automatique</li>
+                        <li>Chiffrement bcrypt</li>
+                        <li>Contrôle d'accès par rôle</li>
+                        <li>Sessions sécurisées</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Base de données</h4>
+                    <ul class="compte-rendu__list">
+                        <li>15 migrations versionnées</li>
+                        <li>Doctrine ORM avec annotations</li>
+                        <li>Relations OneToMany/ManyToOne</li>
+                        <li>Requêtes optimisées</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Performance</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Pagination KnpPaginatorBundle</li>
+                        <li>Cache Symfony</li>
+                        <li>Turbo pour navigation</li>
+                        <li>Asset Mapper</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🐛 Difficultés rencontrées et solutions</h2>
+            
+            <div class="compte-rendu__problem">
+                <strong>Problème 1 : Gestion des relations Doctrine</strong>
+                <p>Création correcte des relations entre entités (OneToMany, ManyToOne).</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Étude approfondie de la documentation Doctrine et création correcte des annotations de relations avec les propriétés `inversedBy` et `mappedBy`.
+            </div>
+
+            <div class="compte-rendu__problem">
+                <strong>Problème 2 : Intégration Stripe</strong>
+                <p>Configuration et utilisation correcte du SDK Stripe PHP.</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Utilisation du SDK Stripe PHP officiel (version 18.0), configuration correcte des clés API de test dans `.env.local`, et création d'un service dédié pour encapsuler la logique de paiement.
+            </div>
+
+            <div class="compte-rendu__problem">
+                <strong>Problème 3 : Génération de PDF</strong>
+                <p>Génération de factures PDF avec Dompdf.</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Utilisation de Dompdf (version 3.1) avec création de templates HTML dédiés pour les factures, puis conversion en PDF.
+            </div>
+
+            <div class="compte-rendu__problem">
+                <strong>Problème 4 : Gestion du panier en session</strong>
+                <p>Sauvegarde du panier en session et persistance entre les requêtes.</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Utilisation de la session Symfony pour stocker temporairement les articles du panier avec gestion des quantités et des totaux.
+            </div>
+
+            <div class="compte-rendu__problem">
+                <strong>Problème 5 : Pagination des produits</strong>
+                <p>Implémentation de la pagination sur la liste des produits.</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Utilisation de KnpPaginatorBundle qui permet une pagination simple et efficace avec configuration dans le contrôleur.
+            </div>
+
+            <div class="compte-rendu__problem">
+                <strong>Problème 6 : Upload d'images</strong>
+                <p>Upload et stockage des images de produits.</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Utilisation de VichUploaderBundle ou gestion manuelle avec Symfony Filesystem, stockage dans le dossier `public/uploads/products/`.
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📈 Améliorations possibles</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Fonctionnalités</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Recherche avancée avec filtres</li>
+                        <li>Avis clients et notation</li>
+                        <li>Favoris / Liste de souhaits</li>
+                        <li>Codes promotionnels</li>
+                        <li>Multi-langue (i18n)</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Technique</h4>
+                    <ul class="compte-rendu__list">
+                        <li>API REST pour mobile</li>
+                        <li>Webhooks Stripe</li>
+                        <li>Tableau de bord admin</li>
+                        <li>Images multiples par produit</li>
+                        <li>Système de notifications</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>E-commerce</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Gestion des tailles</li>
+                        <li>Stock par taille</li>
+                        <li>Comparaison de produits</li>
+                        <li>Historique de navigation</li>
+                        <li>Recommandations produits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📚 Compétences développées</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Framework Symfony</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Maîtrise de Symfony 7</li>
+                        <li>Doctrine ORM 3.5</li>
+                        <li>Architecture MVC</li>
+                        <li>Formulaires Symfony</li>
+                        <li>Sécurité Symfony</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Base de données</h4>
+                    <ul class="compte-rendu__list">
+                        <li>PostgreSQL</li>
+                        <li>Migrations (15 migrations)</li>
+                        <li>Relations entités</li>
+                        <li>Requêtes optimisées</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Sécurité web</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Protection CSRF</li>
+                        <li>Chiffrement bcrypt</li>
+                        <li>Contrôle d'accès par rôle</li>
+                        <li>Validation serveur</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Intégrations</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Stripe (paiements)</li>
+                        <li>Dompdf (génération PDF)</li>
+                        <li>Symfony Mailer (emails)</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Frontend</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Twig (templates)</li>
+                        <li>Bootstrap (responsive)</li>
+                        <li>JavaScript moderne</li>
+                        <li>Stimulus</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Infrastructure</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Docker</li>
+                        <li>Git</li>
+                        <li>Tests PHPUnit</li>
+                        <li>Débogage Symfony</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🎓 Conclusion</h2>
+            <p>Ce projet constitue une application e-commerce complète et fonctionnelle, démontrant une maîtrise approfondie du framework Symfony et des concepts de développement web moderne. L'application intègre tous les composants essentiels d'un site e-commerce : gestion de produits, panier, commandes, paiement sécurisé, et administration.</p>
+            
+            <div class="compte-rendu__highlight">
+                <strong>Points forts :</strong>
+                <ul class="compte-rendu__list">
+                    <li>Architecture bien structurée et maintenable</li>
+                    <li>Code propre et organisé suivant les conventions Symfony</li>
+                    <li>Sécurité prise en compte à tous les niveaux</li>
+                    <li>Fonctionnalités complètes pour un e-commerce</li>
+                    <li>Documentation claire et installation simple</li>
+                    <li>Tests unitaires pour valider les fonctionnalités</li>
+                </ul>
+            </div>
+
+            <div class="compte-rendu__highlight">
+                <strong>Points techniques remarquables :</strong>
+                <ul class="compte-rendu__list">
+                    <li>Utilisation de Doctrine ORM pour une gestion efficace de la base de données</li>
+                    <li>Intégration complète de Stripe pour les paiements sécurisés</li>
+                    <li>Génération de factures PDF professionnelles</li>
+                    <li>Système de pagination pour les listes de produits</li>
+                    <li>Gestion du panier en session avec persistance</li>
+                </ul>
+            </div>
+
+            <p><strong>Prochaines étapes :</strong> Amélioration de l'interface utilisateur, ajout de fonctionnalités avancées (recherche, avis, favoris), optimisation des performances, et transformation en API REST pour application mobile.</p>
+        </div>
+    </div>
+
+    <script>
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observer toutes les sections
+        document.querySelectorAll('.compte-rendu__section').forEach(section => {
+            section.style.opacity = '0';
+            observer.observe(section);
+        });
+
+        // Animation pour les badges au scroll
+        const badgeObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s both`;
+                    }, index * 50);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.compte-rendu__badge').forEach(badge => {
+            badgeObserver.observe(badge);
+        });
+
+        // Animation pour les cartes
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = `fadeInUp 0.5s ease-out ${index * 0.1}s both`;
+                    }, index * 50);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.compte-rendu__card').forEach(card => {
+            cardObserver.observe(card);
+        });
+
+        // Animation pour les lignes de tableau
+        const tableObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.setProperty('--i', index);
+                    entry.target.style.animation = `fadeInUp 0.4s ease-out ${index * 0.1}s both`;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.compte-rendu__table tbody tr').forEach(row => {
+            tableObserver.observe(row);
+        });
+
+        // Effet parallaxe léger sur le header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.compte-rendu__header');
+            if (header) {
+                const scrolled = window.pageYOffset;
+                header.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Animation au hover pour les sections
+        document.querySelectorAll('.compte-rendu__section').forEach(section => {
+            section.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            section.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Effet de particules animées
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(0, 212, 255, 0.6)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.animation = `floatUp ${3 + Math.random() * 2}s linear forwards`;
+            
+            const header = document.querySelector('.compte-rendu__header');
+            if (header) {
+                header.appendChild(particle);
+                setTimeout(() => particle.remove(), 5000);
+            }
+        }
+
+        // Créer des particules périodiquement
+        setInterval(createParticle, 2000);
+
+        // Ajouter l'animation floatUp
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                to {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
