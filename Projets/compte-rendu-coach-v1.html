@@ -61,7 +61,6 @@
             <span class="compte-rendu__badge">macOS (MacCatalyst)</span>
             
             <h3 class="compte-rendu__subsection-title">Architecture</h3>
-            <span class="compte-rendu__badge">MVVM Pattern</span>
             <span class="compte-rendu__badge">MSTest</span>
         </div>
 
@@ -77,11 +76,6 @@
 
             <h3 class="compte-rendu__subsection-title">Historique et évolution</h3>
             <ul class="compte-rendu__list">
-                <li><strong>Xamarin.Forms</strong> (2014-2022) : Prédécesseur de MAUI, framework multiplateforme pour mobile</li>
-                <li><strong>.NET MAUI</strong> (2022) : Évolution de Xamarin.Forms intégrée à l'écosystème .NET</li>
-                <li>Basé sur <strong>.NET 6+</strong> et bénéficie de toutes les améliorations de performance de .NET</li>
-                <li>Support officiel depuis mai 2022 avec .NET 6</li>
-            </ul>
 
             <h3 class="compte-rendu__subsection-title">Principaux concepts et architecture</h3>
             
@@ -124,7 +118,6 @@ Platforms/
                 <li>Styles et ressources réutilisables</li>
             </ul>
 
-            <h4>4. MVVM Pattern (Model-View-ViewModel)</h4>
             <p>Architecture recommandée pour structurer les applications MAUI :</p>
             <div class="compte-rendu__grid">
                 <div class="compte-rendu__card">
@@ -166,7 +159,7 @@ Platforms/
                 </div>
                 <div class="compte-rendu__card">
                     <h4>🛠️ Écosystème .NET</h4>
-                    <p>Accès à toutes les bibliothèques .NET, NuGet packages, et outils de l'écosystème .NET.</p>
+                    <p>Accès à toutes les bibliothèques .NET ( .NET10-android , .NET10-ios , .NET10-windows , .NET10 macOs ) et outils de l'écosystème .NET.</p>
                 </div>
                 <div class="compte-rendu__card">
                     <h4>📦 Hot Reload</h4>
@@ -195,47 +188,9 @@ Platforms/
                     <h4>Layouts</h4>
                     <ul class="compte-rendu__list">
                         <li><code>StackLayout</code> - Empilement vertical/horizontal</li>
-                        <li><code>Grid</code> - Grille flexible</li>
-                        <li><code>FlexLayout</code> - Layout flexible</li>
-                        <li><code>AbsoluteLayout</code> - Positionnement absolu</li>
-                    </ul>
-                </div>
-                <div class="compte-rendu__card">
-                    <h4>Navigation</h4>
-                    <ul class="compte-rendu__list">
-                        <li><code>Shell</code> - Navigation et structure d'app</li>
-                        <li><code>NavigationPage</code> - Navigation par pile</li>
-                        <li><code>TabbedPage</code> - Onglets</li>
-                    </ul>
-                </div>
-                <div class="compte-rendu__card">
-                    <h4>Données</h4>
-                    <ul class="compte-rendu__list">
-                        <li><code>CollectionView</code> - Listes performantes</li>
-                        <li><code>ListView</code> - Listes (legacy)</li>
-                        <li><code>Picker</code> - Sélecteur de valeurs</li>
                     </ul>
                 </div>
             </div>
-
-            <h3 class="compte-rendu__subsection-title">Binding de données (Data Binding)</h3>
-            <p>Le binding permet de connecter automatiquement les données aux contrôles UI :</p>
-            <div class="compte-rendu__code">
-// En XAML
-&lt;Label Text="{Binding Message}" /&gt;
-&lt;Entry Text="{Binding Poids}" /&gt;
-
-// En C# (ViewModel)
-public string Message { get; set; }
-public int Poids { get; set; }
-            </div>
-            <p><strong>Types de binding :</strong></p>
-            <ul class="compte-rendu__list">
-                <li><strong>One-way binding :</strong> Données → UI (affichage)</li>
-                <li><strong>Two-way binding :</strong> Données ↔ UI (saisie et affichage)</li>
-                <li><strong>One-way-to-source :</strong> UI → Données (saisie uniquement)</li>
-            </ul>
-
             <h3 class="compte-rendu__subsection-title">Ressources et styles</h3>
             <p>MAUI permet de centraliser les ressources (couleurs, styles, images) :</p>
             <div class="compte-rendu__code">
@@ -245,51 +200,6 @@ public int Poids { get; set; }
     &lt;Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" /&gt;
 &lt;/Style&gt;
             </div>
-
-            <h3 class="compte-rendu__subsection-title">Cycle de vie de l'application</h3>
-            <p>MAUI gère les événements du cycle de vie :</p>
-            <ul class="compte-rendu__list">
-                <li><code>OnStart()</code> - Application démarrée</li>
-                <li><code>OnSleep()</code> - Application mise en arrière-plan</li>
-                <li><code>OnResume()</code> - Application revenue au premier plan</li>
-            </ul>
-
-            <h3 class="compte-rendu__subsection-title">Accès aux fonctionnalités natives</h3>
-            <p>MAUI fournit des APIs unifiées pour accéder aux fonctionnalités natives :</p>
-            <div class="compte-rendu__grid">
-                <div class="compte-rendu__card">
-                    <h4>Device Info</h4>
-                    <p><code>DeviceInfo.Platform</code>, <code>DeviceInfo.Idiom</code></p>
-                </div>
-                <div class="compte-rendu__card">
-                    <h4>File System</h4>
-                    <p><code>FileSystem.AppDataDirectory</code>, <code>FileSystem.CacheDirectory</code></p>
-                </div>
-                <div class="compte-rendu__card">
-                    <h4>Preferences</h4>
-                    <p><code>Preferences.Set()</code>, <code>Preferences.Get()</code> pour le stockage local</p>
-                </div>
-                <div class="compte-rendu__card">
-                    <h4>Connectivity</h4>
-                    <p><code>Connectivity.NetworkAccess</code> pour vérifier la connexion</p>
-                </div>
-            </div>
-
-            <h3 class="compte-rendu__subsection-title">Déploiement et compilation</h3>
-            <p><strong>Processus de compilation :</strong></p>
-            <ol class="compte-rendu__list" style="list-style: decimal; padding-left: 2rem;">
-                <li><strong>Compilation C# :</strong> Le code C# est compilé en IL (Intermediate Language)</li>
-                <li><strong>Linking :</strong> Réduction de la taille de l'app (suppression du code inutilisé)</li>
-                <li><strong>Compilation native :</strong>
-                    <ul class="compte-rendu__list">
-                        <li><strong>Android :</strong> AOT (Ahead-Of-Time) ou JIT (Just-In-Time)</li>
-                        <li><strong>iOS :</strong> AOT obligatoire (Apple requirement)</li>
-                        <li><strong>Windows :</strong> Compilation .NET standard</li>
-                    </ul>
-                </li>
-                <li><strong>Packaging :</strong> Création du package d'installation (.apk, .ipa, .msix, etc.)</li>
-            </ol>
-
             <h3 class="compte-rendu__subsection-title">Comparaison avec d'autres technologies</h3>
             <table class="compte-rendu__table">
                 <thead>
@@ -330,7 +240,7 @@ public int Poids { get; set; }
                 <li><strong>Logique métier :</strong> Code partagé dans <code>MauiAppCoach.Core</code> (classe <code>Profil</code>)</li>
                 <li><strong>Ressources :</strong> Images stockées dans <code>Resources/Images/</code></li>
                 <li><strong>Multiplateforme :</strong> Même code fonctionne sur Android, iOS, Windows, macOS</li>
-                <li><strong>Navigation :</strong> Utilisation de <code>AppShell</code> pour la structure de l'application</li>
+            
             </ul>
 
             <div class="compte-rendu__highlight">
@@ -473,10 +383,45 @@ public class Profil
 
     private void ResultatIMG()
     {
-        // Logique d'évaluation selon le sexe
-        // Détermine message et image
+            if (sexe == 0) // Femme
+    {
+        if (img < 25)
+        {
+            message = "Trop maigre.";
+            image = "smiley_tropmaigre.png";
+        }
+        else if (img < 30)
+        {
+            message = "Parfait.";
+            image = "smiley_parfait.png";
+        }
+        else
+        {
+            message = "Surpoids.";
+            image = "smiley_surpoids.png";
+        }
+    }
+    else // Homme
+    {
+        if (img < 15)
+        {
+            message = "Trop maigre.";
+            image = "smiley_tropmaigre.png";
+        }
+        else if (img < 20)
+        {
+            message = "Parfait.";
+            image = "smiley_parfait.png";
+        }
+        else
+        {
+            message = "Surpoids.";
+            image = "smiley_surpoids.png";
+        }
     }
 }
+    }
+
             </div>
 
             <h3 class="compte-rendu__subsection-title">MainPage.xaml.cs</h3>
@@ -502,7 +447,7 @@ private void btCalculer_Clicked(object sender, EventArgs e)
             <p>Voici un aperçu réel de l'application <strong>Coach v1</strong> en exécution sur un émulateur Android (ici un <em>Pixel 7 - API 33</em>) :</p>
 
             <div class="compte-rendu__highlight" style="text-align:center;">
-                <img src="../assets/img/apercu-coach.png" alt="Aperçu de l'application Coach v1 sur émulateur Android" style="max-width:280px;width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.35);border:3px solid rgba(0,212,255,0.6);margin-bottom:1.5rem;">
+                <img src="Coach V1/img/Apercu Coach.png" alt="Aperçu de l'application Coach v1 sur émulateur Android" style="max-width:280px;width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.35);border:3px solid rgba(0,212,255,0.6);margin-bottom:1.5rem;">
                 <p style="margin-top:0.5rem;"><strong>Écran principal de l'application Coach v1 : saisie des données et résultat de l'IMG.</strong></p>
             </div>
 
@@ -628,9 +573,15 @@ private void btCalculer_Clicked(object sender, EventArgs e)
             <div class="compte-rendu__solution">
                 <strong>Solution :</strong> Division par 100.0 pour obtenir des mètres avec précision décimale.
             </div>
-
             <div class="compte-rendu__problem">
-                <strong>Problème 3 : Gestion des résultats selon le sexe</strong>
+                <strong>Problème 3 : Résulat neutre ( ni réussite ni échec ) </strong>
+                <p>Obtenir les bons résultat lors de l'exécution des tests unitaires</p>
+            </div>
+              <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Faire référence à l'outil de test et appeler aux différentes solutions.
+            </div>
+            <div class="compte-rendu__problem">
+                <strong>Problème 4 : Gestion des résultats selon le sexe</strong>
                 <p>Seuils différents pour hommes et femmes.</p>
             </div>
             <div class="compte-rendu__solution">
@@ -677,8 +628,7 @@ private void btCalculer_Clicked(object sender, EventArgs e)
                 </div>
                 <div class="compte-rendu__card">
                     <h4>Architecture</h4>
-                    <ul class="compte-rendu__list">
-                        <li>MVVM Pattern</li>
+                    <ul class="compte-rendu__list"></ul>
                         <li>Code partagé entre plateformes</li>
                         <li>Modularité (projets séparés)</li>
                     </ul>
