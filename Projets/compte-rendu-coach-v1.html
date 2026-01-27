@@ -498,6 +498,42 @@ private void btCalculer_Clicked(object sender, EventArgs e)
         </div>
 
         <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📸 Aperçu de l'application Coach v1</h2>
+            <p>Voici un aperçu réel de l'application <strong>Coach v1</strong> en exécution sur un émulateur Android (ici un <em>Pixel 7 - API 33</em>) :</p>
+
+            <div class="compte-rendu__highlight" style="text-align:center;">
+                <img src="../assets/img/apercu-coach.png" alt="Aperçu de l'application Coach v1 sur émulateur Android" style="max-width:280px;width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.35);border:3px solid rgba(0,212,255,0.6);margin-bottom:1.5rem;">
+                <p style="margin-top:0.5rem;"><strong>Écran principal de l'application Coach v1 : saisie des données et résultat de l'IMG.</strong></p>
+            </div>
+
+            <h3 class="compte-rendu__subsection-title">Description détaillée de l'écran</h3>
+            <ul class="compte-rendu__list">
+                <li>En haut, le titre <strong>Coach</strong> dans la barre d'application, dans la couleur principale de l'application.</li>
+                <li>Trois champs de saisie alignés verticalement :
+                    <ul class="compte-rendu__list">
+                        <li><strong>Poids</strong> (65 kg dans l'exemple)</li>
+                        <li><strong>Taille</strong> (171 cm)</li>
+                        <li><strong>Âge</strong> (19 ans)</li>
+                    </ul>
+                </li>
+                <li>Un groupe de boutons radio pour le <strong>sexe</strong> :
+                    <ul class="compte-rendu__list">
+                        <li><strong>Homme</strong> (sélectionné dans la capture)</li>
+                        <li><strong>Femme</strong></li>
+                    </ul>
+                </li>
+                <li>Un bouton principal <strong>« Calculer IMG »</strong> qui déclenche le calcul à partir des valeurs saisies.</li>
+                <li>En dessous, un <strong>smiley</strong> qui change en fonction du résultat (ici un visage neutre pour un IMG proche de la limite).</li>
+                <li>Enfin, le texte de résultat <strong>« Votre IMG : 14.8 »</strong> qui affiche la valeur calculée formatée avec une décimale.</li>
+            </ul>
+
+            <div class="compte-rendu__highlight">
+                <strong>Interprétation de cet aperçu :</strong>
+                <p>Avec les valeurs de l'exemple (65 kg, 171 cm, 19 ans, Homme), l'application calcule un IMG de <strong>14.8</strong>. Cela correspond à la catégorie <strong>« Trop maigre »</strong> pour un homme, d'où l'affichage d'un smiley qui n'est pas entièrement satisfait. Cet écran illustre concrètement le lien entre la formule mathématique, la logique métier de la classe <code>Profil</code> et le retour visuel donné à l'utilisateur.</p>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
             <h2 class="compte-rendu__section-title">🚀 Installation et démarrage</h2>
             <h3 class="compte-rendu__subsection-title">Prérequis</h3>
             <ul class="compte-rendu__list">
