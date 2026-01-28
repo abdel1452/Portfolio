@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppCoach.MainPage">
+
+    <VerticalStackLayout VerticalOptions="Center" Spacing="25" Margin="10">
+
+        <Entry
+            x:Name="entPoids"
+            Placeholder="Poids en kg"
+            FontSize="22"
+            Keyboard="Numeric"
+            TextColor="DarkBlue" />
+
+        <Entry
+            x:Name="entTaille"
+            Placeholder="Taille en cm"
+            FontSize="22"
+            Keyboard="Numeric"
+            TextColor="DarkBlue" />
+
+        <Entry
+            x:Name="entAge"
+            Placeholder="Âge"
+            FontSize="22"
+            Keyboard="Numeric"
+            TextColor="DarkBlue" />
+
+        <HorizontalStackLayout Spacing="20">
+            <RadioButton
+                x:Name="rdHomme"
+                Content="Homme"
+                GroupName="Sexe"
+                IsChecked="True"/>
+
+            <RadioButton
+                x:Name="rdFemme"
+                Content="Femme"
+                GroupName="Sexe"/>
+        </HorizontalStackLayout>
+
+        <Button
+            Text="Calculer IMG"
+            FontSize="22"
+            Clicked="btCalculer_Clicked"/>
+        <!-- UNE SEULE IMAGE -->
+        <Image
+            x:Name="imgResultat"
+            HeightRequest="185"
+            Aspect="AspectFit" />
+
+        <Label
+            x:Name="lblImg"
+            Text="Votre IMG :"
+            FontSize="18"
+            HorizontalOptions="Center"
+            TextColor="Black"/>
+
+    </VerticalStackLayout>
+</ContentPage>

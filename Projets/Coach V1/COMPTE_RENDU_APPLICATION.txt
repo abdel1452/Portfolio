@@ -1,0 +1,223 @@
+================================================================================
+                    COMPTE RENDU - APPLICATION MAUI COACH
+================================================================================
+
+VUE D'ENSEMBLE
+--------------------------------------------------------------------------------
+
+Nom de l'application : MauiAppCoach
+Type : Application MAUI (.NET MAUI)
+Objectif : Calcul de l'IMG (Indice de Masse Grasse)
+
+
+STRUCTURE DU PROJET
+--------------------------------------------------------------------------------
+
+1. MauiAppCoach - Projet principal
+2. MauiAppCoach.Core - Bibliothèque contenant le modèle Profil
+
+
+PAGES DE L'APPLICATION
+--------------------------------------------------------------------------------
+
+1. MAINPAGE
+--------------------------------------------------------------------------------
+
+Fichiers : MainPage.xaml, MainPage.xaml.cs
+
+Interface utilisateur (MainPage.xaml) :
+- Layout : VerticalStackLayout centré avec espacement de 25 et marge de 10
+
+Contrôles :
+- entPoids : Entry pour saisir le poids en kg
+  * Clavier numérique
+  * Taille de police : 22
+  * Couleur du texte : DarkBlue
+
+- entTaille : Entry pour saisir la taille en cm
+  * Clavier numérique
+  * Taille de police : 22
+  * Couleur du texte : DarkBlue
+
+- entAge : Entry pour saisir l'âge
+  * Clavier numérique
+  * Taille de police : 22
+  * Couleur du texte : DarkBlue
+
+- rdHomme : RadioButton "Homme" (sélectionné par défaut)
+- rdFemme : RadioButton "Femme"
+  * Groupe : "Sexe"
+
+- Button "Calculer IMG"
+  * Taille de police : 22
+  * Événement : btCalculer_Clicked
+
+- imgResultat : Image pour afficher le résultat
+  * Hauteur : 185
+  * Aspect : AspectFit
+
+- CounterLabel : Label pour afficher l'IMG
+  * Texte initial : "Votre IMG :"
+  * Taille de police : 18
+  * Alignement : Center
+  * Couleur : Black
+
+Fonctionnalité (MainPage.xaml.cs) :
+
+Méthode btCalculer_Clicked :
+1. Convertit les valeurs saisies en entiers (poids, taille, âge)
+2. Détermine le sexe : 1 si Homme, 0 si Femme
+3. Crée une instance de Profil avec ces paramètres
+4. Affiche l'IMG dans CounterLabel avec format "0.0"
+5. Affiche l'image correspondante dans imgResultat
+
+Note : Pas de gestion d'erreur pour les conversions
+
+
+2. APPSHELL
+--------------------------------------------------------------------------------
+
+Fichiers : AppShell.xaml, AppShell.xaml.cs
+
+Configuration :
+- Titre : "MauiAppCoach"
+- Route : "MainPage"
+- Titre de l'onglet : "Coach"
+- Contenu : MainPage
+
+Code-behind : Constructeur simple qui initialise le composant
+
+
+3. APP
+--------------------------------------------------------------------------------
+
+Fichiers : App.xaml, App.xaml.cs, MauiProgram.cs
+
+App.xaml :
+- Charge les ressources :
+  * Resources/Styles/Colors.xaml
+  * Resources/Styles/Styles.xaml
+
+App.xaml.cs :
+- Crée une fenêtre avec AppShell comme contenu
+
+MauiProgram.cs :
+- Configure l'application MAUI
+- Enregistre les polices :
+  * OpenSans-Regular.ttf
+  * OpenSans-Semibold.ttf
+- Active le logging en mode DEBUG
+
+
+MODÈLE MÉTIER : PROFIL
+--------------------------------------------------------------------------------
+
+Fichier : MauiAppCoach.Core/Modele/Profil.cs
+
+Propriétés privées :
+- sexe : int
+- poids : int
+- taille : int
+- age : int
+- img : double
+- message : string
+- image : string
+
+Constructeur :
+Profil(int sexe, int poids, int taille, int age)
+- Initialise les propriétés
+- Appelle CalculIMG()
+- Appelle ResultatIMG()
+
+Note : Constructeur par défaut commenté dans le code
+
+Méthodes privées :
+
+CalculIMG() :
+Calcule l'IMG avec la formule :
+img = (1.2 * poids / (tailleEnMetres²)) + (0.23 * age) - (10.83 * sexe) - 5.4
+où tailleEnMetres = taille / 100.0
+
+ResultatIMG() :
+Détermine le message et l'image selon l'IMG :
+
+Pour les femmes (sexe = 0) :
+- IMG < 25 : message = "Trop maigre.", image = "smiley_tropmaigre.png"
+- 25 ≤ IMG < 30 : message = "Parfait.", image = "smiley_parfait.png"
+- IMG ≥ 30 : message = "Surpoids.", image = "smiley_surpoids.png"
+
+Pour les hommes (sexe = 1) :
+- IMG < 15 : message = "Trop maigre.", image = "smiley_tropmaigre.png"
+- 15 ≤ IMG < 20 : message = "Parfait.", image = "smiley_parfait.png"
+- IMG ≥ 20 : message = "Surpoids.", image = "smiley_surpoids.png"
+
+Méthodes publiques (Getters) :
+- GetSexe() : int
+- GetPoids() : double
+- GetTaille() : double
+- GetAge() : int
+- GetImg() : double
+- GetMessage() : string
+- GetImage() : string
+
+
+FONCTIONNALITÉS
+--------------------------------------------------------------------------------
+
+Fonctionnalités présentes :
+- Saisie du poids, taille et âge
+- Sélection du sexe (Homme/Femme)
+- Calcul automatique de l'IMG
+- Affichage de l'IMG avec 1 décimale
+- Affichage d'une image selon le résultat (smiley)
+
+Fonctionnalités non présentes :
+- Validation des champs vides
+- Gestion des erreurs de conversion
+- Validation des valeurs saisies
+- Affichage du message de corpulence dans l'interface
+
+
+PROBLÈMES IDENTIFIÉS DANS LE CODE
+--------------------------------------------------------------------------------
+
+MainPage.xaml.cs :
+- Ligne 16 : Accolade ouvrante orpheline
+- Ligne 29 : Accolade fermante en trop
+- Pas de gestion d'erreur pour Convert.ToInt32 (risque FormatException)
+- Le message de corpulence (GetMessage()) n'est pas affiché dans l'interface
+
+Profil.cs :
+- Constructeur par défaut commenté (lignes 30-39)
+
+
+RESSOURCES
+--------------------------------------------------------------------------------
+
+Styles :
+- Resources/Styles/Colors.xaml
+- Resources/Styles/Styles.xaml
+
+Polices :
+- OpenSans-Regular.ttf
+- OpenSans-Semibold.ttf
+
+Images (utilisées dans le code) :
+- smiley_tropmaigre.png
+- smiley_parfait.png
+- smiley_surpoids.png
+
+
+STATISTIQUES
+--------------------------------------------------------------------------------
+
+- Nombre de pages : 1 (MainPage)
+- Nombre de modèles : 1 (Profil)
+- Nombre de champs de saisie : 3
+- Nombre de RadioButtons : 2
+- Nombre de méthodes publiques dans Profil : 7 (getters)
+
+
+================================================================================
+Document basé uniquement sur l'analyse du code source
+================================================================================
