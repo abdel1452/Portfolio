@@ -486,7 +486,7 @@ body.dark-mode .l-header.scrolled {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: transparent;
+  background: var(--bg-color);
   border: 2px solid var(--neon-blue);
   border-radius: 50%;
   width: 50px;
@@ -499,8 +499,9 @@ body.dark-mode .l-header.scrolled {
   color: var(--neon-blue);
   font-size: 1.5rem;
   box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
-  z-index: 999;
-  background-color: var(--bg-color);
+  z-index: 10000;
+  visibility: visible;
+  opacity: 1;
 }
 
 .theme-toggle:hover {
