@@ -1,0 +1,927 @@
+.compte-rendu {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+.compte-rendu__header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-blue-dark) 100%);
+    border-radius: 15px;
+    color: white;
+}
+.compte-rendu__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.compte-rendu__subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+.compte-rendu__section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.compte-rendu__section-title {
+    font-size: 1.8rem;
+    color: var(--neon-blue);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--neon-blue);
+}
+.compte-rendu__subsection-title {
+    font-size: 1.3rem;
+    color: var(--neon-blue-dark);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.compte-rendu__list {
+    list-style: none;
+    padding: 0;
+}
+.compte-rendu__list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+.compte-rendu__list li:before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--neon-blue);
+    font-weight: bold;
+}
+.compte-rendu__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.compte-rendu__table th,
+.compte-rendu__table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+.compte-rendu__table th {
+    background: var(--neon-blue);
+    color: white;
+    font-weight: 600;
+}
+.compte-rendu__table tr:hover {
+    background: #f5f5f5;
+}
+.compte-rendu__code {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    margin: 1rem 0;
+    border-left: 4px solid var(--neon-blue);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.compte-rendu__badge {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    background: var(--neon-blue);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin: 0.25rem;
+    font-weight: 500;
+}
+.compte-rendu__back {
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--neon-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+.compte-rendu__back:hover {
+    background: var(--neon-blue-dark);
+    transform: translateY(-2px);
+}
+.compte-rendu__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.compte-rendu__card {
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid var(--neon-blue);
+}
+.compte-rendu__card h4 {
+    margin-top: 0;
+    color: var(--neon-blue-dark);
+}
+.compte-rendu__highlight {
+    background: rgba(0, 212, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--neon-blue);
+    margin: 1rem 0;
+}
+.compte-rendu__problem {
+    background: #fff3cd;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+    margin: 1rem 0;
+}
+.compte-rendu__solution {
+    background: #d4edda;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+    margin: 1rem 0;
+}
+
+/* ===== ANIMATIONS ===== */
+
+/* Animation fade-in pour les sections */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 0 30px rgba(0, 212, 255, 0.6);
+    }
+}
+
+/* Animation pour le header */
+.compte-rendu__header {
+    animation: fadeInUp 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.compte-rendu__header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+/* Animation pour les sections */
+.compte-rendu__section {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.compte-rendu__section:nth-child(1) { animation-delay: 0.1s; }
+.compte-rendu__section:nth-child(2) { animation-delay: 0.2s; }
+.compte-rendu__section:nth-child(3) { animation-delay: 0.3s; }
+.compte-rendu__section:nth-child(4) { animation-delay: 0.4s; }
+.compte-rendu__section:nth-child(5) { animation-delay: 0.5s; }
+.compte-rendu__section:nth-child(6) { animation-delay: 0.6s; }
+.compte-rendu__section:nth-child(7) { animation-delay: 0.7s; }
+.compte-rendu__section:nth-child(8) { animation-delay: 0.8s; }
+
+.compte-rendu__section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation pour les titres de section */
+.compte-rendu__section-title {
+    animation: slideInLeft 0.6s ease-out;
+    position: relative;
+}
+
+.compte-rendu__section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--neon-blue);
+    animation: expandWidth 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes expandWidth {
+    to {
+        width: 100%;
+    }
+}
+
+/* Animation pour les badges */
+.compte-rendu__badge {
+    animation: fadeIn 0.5s ease-out;
+    animation-fill-mode: both;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.compte-rendu__badge::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.compte-rendu__badge:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+}
+
+.compte-rendu__badge:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.compte-rendu__badge:nth-child(1) { animation-delay: 0.1s; }
+.compte-rendu__badge:nth-child(2) { animation-delay: 0.15s; }
+.compte-rendu__badge:nth-child(3) { animation-delay: 0.2s; }
+.compte-rendu__badge:nth-child(4) { animation-delay: 0.25s; }
+.compte-rendu__badge:nth-child(5) { animation-delay: 0.3s; }
+.compte-rendu__badge:nth-child(6) { animation-delay: 0.35s; }
+.compte-rendu__badge:nth-child(7) { animation-delay: 0.4s; }
+.compte-rendu__badge:nth-child(8) { animation-delay: 0.45s; }
+
+/* Animation pour les cartes */
+.compte-rendu__card {
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: both;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.compte-rendu__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--neon-blue);
+    transition: height 0.3s ease;
+}
+
+.compte-rendu__card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.2);
+}
+
+.compte-rendu__card:hover::before {
+    height: 100%;
+}
+
+.compte-rendu__card:nth-child(1) { animation-delay: 0.1s; }
+.compte-rendu__card:nth-child(2) { animation-delay: 0.2s; }
+.compte-rendu__card:nth-child(3) { animation-delay: 0.3s; }
+.compte-rendu__card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Animation pour les listes */
+.compte-rendu__list li {
+    animation: slideInLeft 0.4s ease-out;
+    animation-fill-mode: both;
+    transition: all 0.2s ease;
+}
+
+.compte-rendu__list li:hover {
+    transform: translateX(10px);
+    color: var(--neon-blue-dark);
+}
+
+.compte-rendu__list li:nth-child(1) { animation-delay: 0.1s; }
+.compte-rendu__list li:nth-child(2) { animation-delay: 0.15s; }
+.compte-rendu__list li:nth-child(3) { animation-delay: 0.2s; }
+.compte-rendu__list li:nth-child(4) { animation-delay: 0.25s; }
+.compte-rendu__list li:nth-child(5) { animation-delay: 0.3s; }
+.compte-rendu__list li:nth-child(6) { animation-delay: 0.35s; }
+.compte-rendu__list li:nth-child(7) { animation-delay: 0.4s; }
+.compte-rendu__list li:nth-child(8) { animation-delay: 0.45s; }
+
+.compte-rendu__list li:before {
+    transition: all 0.3s ease;
+}
+
+.compte-rendu__list li:hover:before {
+    transform: scale(1.5);
+    color: var(--neon-blue-light);
+}
+
+/* Animation pour les tableaux */
+.compte-rendu__table {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.compte-rendu__table tr {
+    animation: fadeIn 0.4s ease-out;
+    animation-fill-mode: both;
+    transition: all 0.3s ease;
+}
+
+.compte-rendu__table tr:nth-child(1) { animation-delay: 0.1s; }
+.compte-rendu__table tr:nth-child(2) { animation-delay: 0.15s; }
+.compte-rendu__table tr:nth-child(3) { animation-delay: 0.2s; }
+.compte-rendu__table tr:nth-child(4) { animation-delay: 0.25s; }
+.compte-rendu__table tr:nth-child(5) { animation-delay: 0.3s; }
+.compte-rendu__table tr:nth-child(6) { animation-delay: 0.35s; }
+
+.compte-rendu__table tr:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(0, 212, 255, 0.2);
+}
+
+.compte-rendu__table th {
+    position: relative;
+    overflow: hidden;
+}
+
+.compte-rendu__table th::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: white;
+    animation: expandWidth 0.8s ease-out forwards;
+}
+
+/* Animation pour le code */
+.compte-rendu__code {
+    animation: fadeIn 0.6s ease-out;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.compte-rendu__code:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+.compte-rendu__code::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--neon-blue);
+    animation: pulse 2s infinite;
+}
+
+/* Animation pour le bouton retour */
+.compte-rendu__back {
+    animation: slideInLeft 0.5s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.compte-rendu__back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.compte-rendu__back:hover::before {
+    left: 100%;
+}
+
+/* Animation pour les boxes spéciales */
+.compte-rendu__highlight {
+    animation: fadeInUp 0.5s ease-out;
+    transition: all 0.3s ease;
+}
+
+.compte-rendu__highlight:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.2);
+}
+
+.compte-rendu__problem {
+    animation: slideInRight 0.5s ease-out;
+    transition: all 0.3s ease;
+}
+
+.compte-rendu__problem:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+.compte-rendu__solution {
+    animation: slideInLeft 0.5s ease-out;
+    transition: all 0.3s ease;
+}
+
+.compte-rendu__solution:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+/* Animation pour les sous-titres */
+.compte-rendu__subsection-title {
+    animation: fadeIn 0.5s ease-out;
+    animation-fill-mode: both;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.compte-rendu__subsection-title::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--neon-blue);
+    animation: pulse 1.5s infinite;
+}
+
+/* Animation pour la grille */
+.compte-rendu__grid {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Effet de particules animées dans le header */
+.compte-rendu__header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    animation: pulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Animation au scroll (si JavaScript est activé) */
+.compte-rendu__section.visible {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Animation pour les icônes dans les titres */
+.compte-rendu__section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Effet de brillance sur les badges */
+@keyframes shine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.compte-rendu__badge {
+    background: linear-gradient(90deg, var(--neon-blue) 0%, var(--neon-blue-light) 50%, var(--neon-blue) 100%);
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+/* Animation pour les cartes de la grille */
+.compte-rendu__grid .compte-rendu__card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.compte-rendu__grid .compte-rendu__card:hover {
+    transform: translateY(-8px) scale(1.02);
+    z-index: 10;
+}
+
+/* Animation pour les tableaux - effet de vague */
+.compte-rendu__table tbody tr {
+    animation: fadeInUp 0.4s ease-out;
+    animation-fill-mode: both;
+}
+
+.compte-rendu__table tbody tr:nth-child(odd) {
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+/* Animation pour le code - effet de typing */
+.compte-rendu__code {
+    position: relative;
+}
+
+.compte-rendu__code::after {
+    content: '|';
+    position: absolute;
+    right: 1rem;
+    top: 1.5rem;
+    color: var(--neon-blue);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Animation pour le titre principal */
+.compte-rendu__title {
+    animation: fadeInUp 0.8s ease-out;
+    position: relative;
+    display: inline-block;
+}
+
+.compte-rendu__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: white;
+    animation: expandWidth 1s ease-out 0.5s forwards;
+}
+
+/* Animation pour le sous-titre */
+.compte-rendu__subtitle {
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+/* Animation pour les icônes dans les titres */
+.compte-rendu__section-title i,
+.compte-rendu__subsection-title i {
+    animation: pulse 2s infinite;
+    display: inline-block;
+}
+
+/* Effet de gradient animé sur le header */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.compte-rendu__header {
+    background-size: 200% 200%;
+    animation: gradientShift 5s ease infinite, fadeInUp 0.8s ease-out;
+}
+
+/* Animation pour les listes - effet de révélation */
+.compte-rendu__list {
+    position: relative;
+}
+
+.compte-rendu__list li {
+    overflow: hidden;
+}
+
+.compte-rendu__list li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.compte-rendu__list li:hover::after {
+    left: 100%;
+}
+
+/* Animation pour les tableaux - effet de révélation progressive */
+.compte-rendu__table tbody tr td {
+    position: relative;
+    overflow: hidden;
+}
+
+.compte-rendu__table tbody tr td::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 212, 255, 0.1);
+    transition: left 0.3s;
+}
+
+.compte-rendu__table tbody tr:hover td::before {
+    left: 100%;
+}
+
+/* Animation pour les codes - effet de typing */
+.compte-rendu__code {
+    position: relative;
+    overflow: hidden;
+}
+
+.compte-rendu__code::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--neon-blue);
+    animation: blink 1s infinite, typing 2s steps(40) infinite;
+}
+
+@keyframes typing {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Animation pour les cartes - effet de flip au hover */
+.compte-rendu__card {
+    perspective: 1000px;
+}
+
+.compte-rendu__card:hover {
+    transform: translateY(-8px) rotateX(2deg);
+}
+
+/* Animation pour les badges - effet de rebond */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.compte-rendu__badge:hover {
+    animation: bounce 0.5s ease;
+}
+
+/* Animation pour les problèmes et solutions - effet de slide */
+.compte-rendu__problem,
+.compte-rendu__solution {
+    position: relative;
+    overflow: hidden;
+}
+
+.compte-rendu__problem::before,
+.compte-rendu__solution::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+.compte-rendu__problem:hover::before,
+.compte-rendu__solution:hover::before {
+    left: 100%;
+}
+
+/* Animation pour le bouton retour - effet de vague */
+.compte-rendu__back {
+    position: relative;
+    overflow: hidden;
+}
+
+.compte-rendu__back i {
+    transition: transform 0.3s ease;
+}
+
+.compte-rendu__back:hover i {
+    transform: translateX(-5px);
+}
+
+/* Animation pour les grilles - effet de stagger */
+.compte-rendu__grid {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.compte-rendu__grid .compte-rendu__card {
+    transition-delay: calc(var(--card-index, 0) * 0.1s);
+}
+
+/* Animation pour les highlights */
+.compte-rendu__highlight {
+    position: relative;
+    overflow: hidden;
+}
+
+.compte-rendu__highlight::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 10s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animation pour les sous-sections */
+.compte-rendu__subsection-title {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.compte-rendu__subsection-title::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--neon-blue);
+    animation: slideRight 1s ease-in-out infinite;
+}
+
+@keyframes slideRight {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+}
+
+/* Effet de brillance sur les tableaux */
+.compte-rendu__table th {
+    position: relative;
+    overflow: hidden;
+}
+
+.compte-rendu__table th::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 3s infinite;
+}
+
+/* Animation pour les codes - effet de scan */
+.compte-rendu__code::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--neon-blue);
+    animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+    0% {
+        top: 0;
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+/* Animation pour les cartes de la grille - effet de cascade */
+.compte-rendu__grid .compte-rendu__card:nth-child(1) { --card-index: 0; }
+.compte-rendu__grid .compte-rendu__card:nth-child(2) { --card-index: 1; }
+.compte-rendu__grid .compte-rendu__card:nth-child(3) { --card-index: 2; }
+.compte-rendu__grid .compte-rendu__card:nth-child(4) { --card-index: 3; }
+.compte-rendu__grid .compte-rendu__card:nth-child(5) { --card-index: 4; }
+.compte-rendu__grid .compte-rendu__card:nth-child(6) { --card-index: 5; }
+
+/* Animation pour le texte dans les sections */
+.compte-rendu__section p {
+    animation: fadeIn 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.compte-rendu__section p:nth-of-type(1) { animation-delay: 0.1s; }
+.compte-rendu__section p:nth-of-type(2) { animation-delay: 0.2s; }
+.compte-rendu__section p:nth-of-type(3) { animation-delay: 0.3s; }
+
+/* Effet de glow sur les éléments interactifs */
+.compte-rendu__badge:active,
+.compte-rendu__back:active {
+    animation: glow 0.3s ease;
+}
+
+/* Animation pour les listes - effet de révélation au scroll */
+.compte-rendu__list {
+    counter-reset: list-counter;
+}
+
+.compte-rendu__list li {
+    counter-increment: list-counter;
+}
+
+/* Responsive animations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

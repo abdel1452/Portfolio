@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach v1 - Lanceur Android</title>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <style>
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--body-font);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-blue-dark) 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .launcher-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .launcher-card h2 {
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+        }
+        .btn-launch {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--neon-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-launch:hover {
+            background: var(--neon-blue-dark);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+            border-left: 4px solid var(--neon-blue);
+        }
+        .info-box {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--neon-blue);
+            margin: 1rem 0;
+        }
+        .warning-box {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 1rem 0;
+        }
+        .steps {
+            list-style: none;
+            padding: 0;
+        }
+        .steps li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        .steps li:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            background: var(--neon-blue);
+            color: white;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .steps {
+            counter-reset: step-counter;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--neon-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: var(--neon-blue-dark);
+            transform: translateY(-2px);
+        }
+        .visual-guide {
+            background: #f8f9fa;
+            border: 2px dashed var(--neon-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        .visual-guide strong {
+            color: var(--neon-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .step-highlight {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border-left: 3px solid var(--neon-blue);
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+        .icon-large {
+            font-size: 2rem;
+            color: var(--neon-blue);
+            margin: 0.5rem;
+        }
+        h3 {
+            color: var(--neon-blue-dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        h4 {
+            color: var(--neon-blue);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html#work" class="back-link">
+            <i class='bx bx-arrow-back'></i> Retour au portfolio
+        </a>
+
+        <div class="header">
+            <h1><i class='bx bx-dumbbell'></i> Coach v1</h1>
+            <p>Application mobile multiplateforme .NET MAUI</p>
+        </div>
+
+        <div class="launcher-card" style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%); border: 2px solid var(--neon-blue);">
+            <h2 style="text-align: center; color: var(--neon-blue); margin-bottom: 1.5rem;">
+                <i class='bx bx-list-check icon-large' style="font-size: 2rem; display: block; margin-bottom: 0.5rem;"></i>
+                Guide rapide en 5 étapes
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px; border: 2px solid var(--neon-blue);">
+                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--neon-blue);">1</div>
+                    <strong>Télécharger</strong><br>
+                    <small>Le projet</small>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px; border: 2px solid var(--neon-blue);">
+                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--neon-blue);">2</div>
+                    <strong>Ouvrir</strong><br>
+                    <small>Visual Studio 2022</small>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px; border: 2px solid var(--neon-blue);">
+                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--neon-blue);">3</div>
+                    <strong>Configurer</strong><br>
+                    <small>L'émulateur Android</small>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px; border: 2px solid var(--neon-blue);">
+                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--neon-blue);">4</div>
+                    <strong>Sélectionner</strong><br>
+                    <small>Android dans la liste</small>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px; border: 2px solid var(--neon-blue);">
+                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--neon-blue);">5</div>
+                    <strong>Lancer</strong><br>
+                    <small>F5 ou Démarrer</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="launcher-card">
+            <h2>📥 Guide complet : Télécharger et lancer le projet</h2>
+            <p>Suivez ces étapes pour télécharger, configurer et lancer l'application Coach v1 dans un émulateur Android.</p>
+            
+            <div class="info-box">
+                <strong>📋 Prérequis :</strong>
+                <ul>
+                    <li><strong>Visual Studio 2022</strong> (pas Visual Studio Code) avec le workload <strong>.NET MAUI</strong> installé</li>
+                    <li><strong>Android SDK</strong> installé (via Visual Studio Installer ou Android Studio)</li>
+                    <li><strong>Android Emulator</strong> configuré avec au moins un AVD (Android Virtual Device)</li>
+                    <li>Windows 10/11 (pour le développement Android)</li>
+                </ul>
+            </div>
+
+            <h3>Étape 1 : Télécharger le projet</h3>
+            <ol class="steps">
+                <li>Téléchargez le projet <strong>Coach v1</strong> depuis le dépôt GitHub ou le dossier local</li>
+                <li>Extrayez l'archive dans un dossier de votre choix (ex: <code>C:\Projects\Coach V1</code>)</li>
+                <li>Vérifiez que le dossier contient le fichier <code>MauiAppCoach.slnx</code> ou <code>MauiAppCoach.sln</code></li>
+            </ol>
+
+            <h3>Étape 2 : Ouvrir le projet dans Visual Studio</h3>
+            <ol class="steps">
+                <li><strong>Lancez Visual Studio 2022</strong> (pas Visual Studio Code)</li>
+                <li>Dans Visual Studio, cliquez sur <strong>"Ouvrir un projet ou une solution"</strong></li>
+                <li>Naviguez vers le dossier du projet et sélectionnez le fichier <code>MauiAppCoach.slnx</code> ou <code>MauiAppCoach.sln</code></li>
+                <li>Attendez que Visual Studio charge le projet et restaure les packages NuGet (cela peut prendre quelques minutes la première fois)</li>
+            </ol>
+
+            <div class="warning-box">
+                <strong>⚠️ Important :</strong> Assurez-vous d'utiliser <strong>Visual Studio 2022</strong> et non Visual Studio Code. Visual Studio Code ne peut pas lancer les émulateurs Android directement.
+            </div>
+
+            <h3>Étape 3 : Configurer l'émulateur Android</h3>
+            <div class="visual-guide">
+                <strong>📍 Où trouver la liste des appareils dans Visual Studio :</strong>
+                <p>Dans la barre d'outils principale, en haut de Visual Studio, à côté du bouton vert "Démarrer" (▶)</p>
+            </div>
+            <ol class="steps">
+                <li>Dans Visual Studio, regardez la <strong>barre d'outils en haut</strong> (à côté du bouton "Démarrer" vert)</li>
+                <li>Vous verrez une liste déroulante qui affiche probablement <strong>"Aucun appareil"</strong> ou un appareil par défaut</li>
+                <li><strong>Cliquez sur cette liste déroulante</strong> pour voir les options disponibles</li>
+                <li>Si aucun émulateur n'apparaît, cliquez sur <strong>"Gérer les appareils..."</strong> ou <strong>"Device Manager"</strong></li>
+                <li>Dans la fenêtre qui s'ouvre, vous pouvez :
+                    <ul style="margin-top: 0.5rem; padding-left: 2rem;">
+                        <li>Voir les émulateurs Android déjà configurés</li>
+                        <li>Créer un nouvel émulateur en cliquant sur <strong>"Créer"</strong> ou <strong>"Create"</strong></li>
+                        <li>Sélectionner un appareil (ex: <strong>Pixel 5</strong>, <strong>Pixel 6</strong>)</li>
+                        <li>Choisir une version Android (ex: <strong>API 33 - Android 13</strong>, <strong>API 31 - Android 12</strong>)</li>
+                    </ul>
+                </li>
+                <li>Une fois l'émulateur créé, <strong>fermez la fenêtre de gestion des appareils</strong></li>
+            </ol>
+            <div class="step-highlight">
+                💡 <strong>Astuce :</strong> La liste déroulante des appareils se trouve dans la barre d'outils principale, généralement entre le bouton "Démarrer" et les configurations de build (Debug/Release).
+            </div>
+
+            <h3>Étape 4 : Sélectionner l'émulateur Android</h3>
+            <div class="visual-guide">
+                <strong>📱 Sélection de l'émulateur :</strong>
+                <p>Dans la liste déroulante, choisissez un émulateur Android (ex: Pixel_5_API_33, Pixel_6_API_31, etc.)</p>
+            </div>
+            <ol class="steps">
+                <li>Retournez dans Visual Studio, dans la <strong>barre d'outils principale</strong></li>
+                <li>Dans la liste déroulante des appareils (à côté du bouton "Démarrer"), <strong>sélectionnez votre émulateur Android</strong></li>
+                <li>Vous devriez voir quelque chose comme :
+                    <ul style="margin-top: 0.5rem; padding-left: 2rem;">
+                        <li><strong>"Pixel_5_API_33"</strong> <i class='bx bx-mobile icon-large' style="font-size: 1rem; margin: 0;"></i></li>
+                        <li><strong>"Android_Emulator_Pixel_6"</strong></li>
+                        <li>Ou un autre nom d'émulateur que vous avez configuré</li>
+                    </ul>
+                </li>
+                <li>Si l'émulateur n'est pas encore lancé, Visual Studio le lancera automatiquement lors du déploiement</li>
+            </ol>
+            <div class="step-highlight">
+                ✅ <strong>Confirmation :</strong> Une fois l'émulateur sélectionné, son nom devrait apparaître dans la liste déroulante, indiquant qu'il est prêt à être utilisé.
+            </div>
+
+            <h3>Étape 5 : Lancer l'application</h3>
+            <div class="visual-guide">
+                <strong>▶️ Bouton Démarrer :</strong>
+                <p>Cliquez sur le bouton vert "Démarrer" (▶) dans la barre d'outils ou appuyez sur <strong>F5</strong></p>
+            </div>
+            <ol class="steps">
+                <li>Une fois l'émulateur sélectionné dans la liste déroulante, vous êtes prêt à lancer l'application</li>
+                <li>Cliquez sur le bouton <strong>"Démarrer"</strong> (flèche verte ▶) dans la barre d'outils, ou appuyez sur <strong>F5</strong></li>
+                <li>Visual Studio va :
+                    <ul style="margin-top: 0.5rem; padding-left: 2rem;">
+                        <li>✅ Compiler le projet .NET MAUI</li>
+                        <li>🚀 Lancer l'émulateur Android (s'il n'est pas déjà lancé - cela peut prendre 1-2 minutes la première fois)</li>
+                        <li>📦 Déployer l'application sur l'émulateur</li>
+                        <li>🎯 Lancer automatiquement l'application Coach v1</li>
+                    </ul>
+                </li>
+                <li>L'application devrait maintenant s'afficher dans l'émulateur Android !</li>
+            </ol>
+            <div class="step-highlight">
+                ⏱️ <strong>Temps d'attente :</strong> Le premier lancement peut prendre 2-3 minutes. Les lancements suivants seront beaucoup plus rapides (30 secondes environ).
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Astuce :</strong> Le premier lancement de l'émulateur peut prendre plusieurs minutes. Les lancements suivants seront beaucoup plus rapides car l'émulateur reste en mémoire.
+            </div>
+
+            <h3>Méthode alternative : Lancer l'émulateur manuellement (optionnel)</h3>
+            <p>Si vous préférez lancer l'émulateur avant d'ouvrir Visual Studio, vous pouvez utiliser l'une de ces méthodes :</p>
+            
+            <h4>Via Android Studio :</h4>
+            <ol class="steps">
+                <li>Ouvrir <strong>Android Studio</strong></li>
+                <li>Aller dans <strong>Tools > Device Manager</strong></li>
+                <li>Cliquer sur le bouton <strong>Play (▶)</strong> à côté d'un appareil virtuel</li>
+                <li>Attendre que l'émulateur démarre complètement</li>
+                <li>Ensuite, dans Visual Studio, sélectionnez cet émulateur dans la liste déroulante</li>
+            </ol>
+
+            <h4>Via ligne de commande (PowerShell) :</h4>
+            <div class="code-block">
+# Lister les AVD disponibles
+$env:LOCALAPPDATA\Android\Sdk\emulator\emulator.exe -list-avds
+
+# Lancer un émulateur spécifique (remplacez "Pixel_5_API_33" par votre AVD)
+$env:LOCALAPPDATA\Android\Sdk\emulator\emulator.exe -avd Pixel_5_API_33
+            </div>
+
+            <h3>Script automatique (Windows) - Option rapide</h3>
+            <p>Exécutez directement le script PowerShell pour lancer l'émulateur automatiquement :</p>
+            <a href="lancer-emulateur-android.ps1" class="btn-launch" download>
+                <i class='bx bx-play'></i> Lancer l'émulateur Android
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                <strong>Note :</strong> Cliquez-droit sur le fichier téléchargé > "Exécuter avec PowerShell" 
+                ou double-cliquez si PowerShell est configuré par défaut.
+            </p>
+            <button class="btn-launch btn-secondary" onclick="showManualCommands()">
+                <i class='bx bx-code-alt'></i> Voir les commandes manuelles
+            </button>
+
+            <div id="manual-commands" style="display: none; margin-top: 1rem;">
+                <div class="code-block">
+# Commandes PowerShell pour lancer l'émulateur Android
+# Remplacez "Pixel_5_API_33" par le nom de votre AVD
+
+# Trouver le chemin de l'émulateur
+$emulatorPath = "$env:LOCALAPPDATA\Android\Sdk\emulator\emulator.exe"
+
+# Lister les AVD disponibles
+&amp; $emulatorPath -list-avds
+
+# Lancer un émulateur spécifique
+&amp; $emulatorPath -avd Pixel_5_API_33
+                </div>
+            </div>
+        </div>
+
+        <div class="launcher-card">
+            <h2>📱 Émulateurs Android recommandés</h2>
+            <p>Pour une meilleure expérience, utilisez un de ces appareils virtuels :</p>
+            <ul>
+                <li><strong>Pixel 5 API 33</strong> (Android 13) - Recommandé</li>
+                <li><strong>Pixel 6 API 31</strong> (Android 12)</li>
+                <li><strong>Pixel 7 API 34</strong> (Android 14)</li>
+            </ul>
+            
+            <div class="warning-box">
+                <strong>⚠️ Note :</strong> Le premier lancement de l'émulateur peut prendre plusieurs minutes. Les lancements suivants seront plus rapides.
+            </div>
+        </div>
+
+        <div class="launcher-card">
+            <h2>🔧 Configuration de l'émulateur</h2>
+            <h3>Si vous n'avez pas d'émulateur configuré :</h3>
+            <ol class="steps">
+                <li>Ouvrir Android Studio</li>
+                <li>Aller dans <strong>Tools > Device Manager</strong></li>
+                <li>Cliquer sur <strong>Create Device</strong></li>
+                <li>Sélectionner un appareil (ex: Pixel 5)</li>
+                <li>Télécharger une image système (ex: API 33 - Android 13)</li>
+                <li>Finaliser la création de l'AVD</li>
+            </ol>
+        </div>
+
+        <div class="launcher-card">
+            <h2>🔄 Résumé des étapes principales</h2>
+            <p>Pour référence rapide, voici les étapes essentielles :</p>
+            <ol class="steps">
+                <li><strong>Télécharger</strong> le projet Coach v1</li>
+                <li><strong>Ouvrir Visual Studio 2022</strong> (pas Visual Studio Code)</li>
+                <li><strong>Ouvrir</strong> le fichier <code>MauiAppCoach.slnx</code> ou <code>MauiAppCoach.sln</code></li>
+                <li>Dans la <strong>barre d'outils</strong>, cliquer sur la <strong>liste déroulante des appareils</strong></li>
+                <li><strong>Sélectionner un émulateur Android</strong> (ou créer-en un via "Gérer les appareils...")</li>
+                <li>Cliquer sur <strong>"Démarrer"</strong> ou appuyer sur <strong>F5</strong></li>
+                <li>Attendre que l'émulateur se lance et que l'application se déploie</li>
+            </ol>
+            
+            <div class="warning-box">
+                <strong>⚠️ Problèmes courants :</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>Pas d'émulateur dans la liste ?</strong> → Cliquez sur "Gérer les appareils..." et créez-en un</li>
+                    <li><strong>L'émulateur ne démarre pas ?</strong> → Vérifiez que l'Android SDK est bien installé</li>
+                    <li><strong>Erreur de compilation ?</strong> → Vérifiez que le workload .NET MAUI est installé dans Visual Studio Installer</li>
+                    <li><strong>Visual Studio Code au lieu de Visual Studio ?</strong> → Vous devez utiliser Visual Studio 2022, pas VS Code</li>
+                </ul>
+            </div>
+
+            <h3>Commandes alternatives en ligne de commande (avancé)</h3>
+            <p>Si vous préférez utiliser la ligne de commande :</p>
+            <div class="code-block">
+# Naviguer vers le dossier du projet
+cd "Chemin/Vers/Coach V1"
+
+# Restaurer les packages NuGet
+dotnet restore
+
+# Compiler le projet
+dotnet build
+
+# Lancer sur Android (nécessite un émulateur déjà lancé)
+dotnet build -t:Run -f net8.0-android
+            </div>
+        </div>
+
+        <div class="launcher-card">
+            <h2>📚 Ressources utiles</h2>
+            <ul>
+                <li><a href="compte-rendu-coach-v1.html" target="_blank">Voir le compte rendu complet</a></li>
+                <li><a href="https://learn.microsoft.com/en-us/dotnet/maui/" target="_blank">Documentation .NET MAUI</a></li>
+                <li><a href="https://developer.android.com/studio/run/emulator" target="_blank">Guide Android Emulator</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function showManualCommands() {
+            const div = document.getElementById('manual-commands');
+            div.style.display = div.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Essayer de lancer automatiquement si possible (nécessite des permissions)
+        window.addEventListener('load', function() {
+            // Afficher un message si l'utilisateur est sur Windows
+            if (navigator.platform.indexOf('Win') > -1) {
+                console.log('Système Windows détecté. Utilisez le script PowerShell pour lancer l\'émulateur.');
+            }
+        });
+    </script>
+</body>
+</html>

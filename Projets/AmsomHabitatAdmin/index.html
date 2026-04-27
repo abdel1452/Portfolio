@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Amsom Habitat – Admin</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="amsom.css">
+</head>
+
+<body>
+
+<div class="container py-4">
+
+<!-- LOGIN -->
+<div id="login-view" class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="card shadow p-4">
+      <h4 class="text-center mb-3">Connexion</h4>
+
+      <form id="login-form">
+        <input type="text" name="username" class="form-control mb-3" value="admin">
+        <input type="password" name="password" class="form-control mb-3" value="admin">
+
+        <button type="submit" class="btn btn-primary w-100">
+          Se connecter
+        </button>
+        <p id="login-error" class="text-danger mt-2"></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" style="display:none;">
+
+  <div class="admin-header">
+    <div class="d-flex align-items-center gap-3">
+      <img src="./amsom.jpg">
+      <h3>Amsom Habitat CRUD</h3>
+    </div>
+
+    <div class="d-flex gap-2">
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">+ Ajouter</button>
+      <button id="reset-data" class="btn btn-warning">Reset</button>
+      <button id="logout" class="btn btn-danger">Déconnexion</button>
+    </div>
+  </div>
+
+  <div class="card shadow">
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Préprod</th>
+            <th>Prod</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="projects-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="addModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5>Ajouter un projet</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="add-form">
+
+          <input id="desc" class="form-control mb-2" placeholder="Description">
+          <input type="file" id="imgFile" class="form-control mb-2">
+
+          <img id="preview" class="preview">
+
+          <input id="preprod" class="form-control mb-2" placeholder="URL préprod">
+          <input id="prod" class="form-control mb-2" placeholder="URL prod">
+
+          <button class="btn btn-success w-100">Ajouter</button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="amsom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

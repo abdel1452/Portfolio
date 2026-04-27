@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte Rendu - Weather API</title>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="compte-rendu-styles.css">
+</head>
+<body>
+    <div class="compte-rendu">
+        <a href="../index.html#work" class="compte-rendu__back">
+            <i class='bx bx-arrow-back'></i> Retour au portfolio
+        </a>
+
+        <div class="compte-rendu__header">
+            <h1 class="compte-rendu__title">Compte Rendu - Weather API</h1>
+            <p class="compte-rendu__subtitle">Application web météo avec géolocalisation</p>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📋 Informations générales</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <strong>Nom du projet :</strong> Weather API - Application Météo
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Date de création :</strong> Projet BTS SIO SLAM
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Auteur :</strong> Abdelmalek Elidrissi
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Type :</strong> Application web météo avec géolocalisation
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🎯 Objectifs du projet</h2>
+            <ul class="compte-rendu__list">
+                <li>Consultation de la météo en temps réel basée sur la géolocalisation</li>
+                <li>Affichage des prévisions météorologiques (horaires et 7 jours)</li>
+                <li>Sauvegarde de l'historique des localisations consultées</li>
+                <li>Affichage de la qualité de l'air</li>
+                <li>Interface utilisateur moderne et responsive</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🛠️ Technologies utilisées</h2>
+            <h3 class="compte-rendu__subsection-title">Backend</h3>
+            <span class="compte-rendu__badge">Node.js</span>
+            <span class="compte-rendu__badge">Express.js 5.2.1</span>
+            <span class="compte-rendu__badge">SQLite3 5.1.7</span>
+            <span class="compte-rendu__badge">Node-fetch 2.7.0</span>
+            <span class="compte-rendu__badge">Dotenv 17.2.3</span>
+            
+            <h3 class="compte-rendu__subsection-title">Frontend</h3>
+            <span class="compte-rendu__badge">HTML5</span>
+            <span class="compte-rendu__badge">CSS3</span>
+            <span class="compte-rendu__badge">JavaScript ES6+</span>
+            <span class="compte-rendu__badge">Bootstrap 5</span>
+            <span class="compte-rendu__badge">Google Fonts</span>
+            
+            <h3 class="compte-rendu__subsection-title">API externe</h3>
+            <span class="compte-rendu__badge">WeatherAPI.com</span>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📁 Structure du projet</h2>
+            <div class="compte-rendu__code">
+Projet-Weather-API-master/
+├── index.js                 # Serveur Express principal (292 lignes)
+├── package.json             # Configuration npm et dépendances
+├── package-lock.json        # Version verrouillée des dépendances
+├── .gitignore              # Fichiers ignorés par Git
+├── weatherApp.db           # Base de données SQLite (créée automatiquement)
+├── weatherApp.db-journal   # Journal SQLite
+├── weatherApp.sqbpro       # Projet SQLite
+├── README.md               # Documentation principale
+├── README_LOCAL.md         # Documentation locale
+└── public/
+    ├── index.html          # Page principale (~1450 lignes)
+    ├── all.html            # Page d'affichage de l'historique
+    ├── Images/
+    │   └── Meteo.jpg       # Images du projet
+    └── Meteo.jpg           # Image météo
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🔧 Fonctionnalités implémentées</h2>
+            
+            <h3 class="compte-rendu__subsection-title">1. Géolocalisation automatique</h3>
+            <ul class="compte-rendu__list">
+                <li>Détection de la position via l'API Geolocation du navigateur</li>
+                <li>Récupération des coordonnées GPS (latitude/longitude)</li>
+                <li>Gestion des erreurs avec messages explicites</li>
+                <li>Demande de permission utilisateur avec gestion des refus</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">2. Récupération des données météo</h3>
+            <h4>Météo actuelle :</h4>
+            <ul class="compte-rendu__list">
+                <li>Température (en Celsius)</li>
+                <li>Conditions météorologiques (description, icônes)</li>
+                <li>Humidité</li>
+                <li>Vitesse et direction du vent</li>
+                <li>Pression atmosphérique</li>
+                <li>Visibilité</li>
+                <li>Indice UV</li>
+            </ul>
+            
+            <h4>Prévisions météo :</h4>
+            <ul class="compte-rendu__list">
+                <li>Prévisions horaires (prochaines 24 heures)</li>
+                <li>Prévisions sur 7 jours</li>
+                <li>Températures maximales et minimales</li>
+                <li>Probabilité de précipitations</li>
+            </ul>
+            
+            <h4>Qualité de l'air :</h4>
+            <ul class="compte-rendu__list">
+                <li>Indice DEFRA (UK Air Quality Index)</li>
+                <li>Concentration de PM2.5 (particules fines)</li>
+                <li>Niveaux de pollution</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">3. Base de données SQLite</h3>
+            <p>Structure de la table <code>geoloc</code> :</p>
+            <table class="compte-rendu__table">
+                <thead>
+                    <tr>
+                        <th>Colonne</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>INTEGER PRIMARY KEY AUTOINCREMENT</td>
+                        <td>Identifiant unique</td>
+                    </tr>
+                    <tr>
+                        <td>latitude</td>
+                        <td>REAL NOT NULL</td>
+                        <td>Coordonnée latitude</td>
+                    </tr>
+                    <tr>
+                        <td>longitude</td>
+                        <td>REAL NOT NULL</td>
+                        <td>Coordonnée longitude</td>
+                    </tr>
+                    <tr>
+                        <td>timestamp</td>
+                        <td>INTEGER NOT NULL</td>
+                        <td>Date et heure (Unix timestamp)</td>
+                    </tr>
+                    <tr>
+                        <td>mood</td>
+                        <td>TEXT NOT NULL</td>
+                        <td>Humeur de l'utilisateur</td>
+                    </tr>
+                    <tr>
+                        <td>pays</td>
+                        <td>TEXT</td>
+                        <td>Nom du pays</td>
+                    </tr>
+                    <tr>
+                        <td>ville</td>
+                        <td>TEXT</td>
+                        <td>Nom de la ville</td>
+                    </tr>
+                    <tr>
+                        <td>temperature</td>
+                        <td>REAL</td>
+                        <td>Température enregistrée</td>
+                    </tr>
+                    <tr>
+                        <td>condition</td>
+                        <td>TEXT</td>
+                        <td>Conditions météorologiques</td>
+                    </tr>
+                    <tr>
+                        <td>defra</td>
+                        <td>REAL</td>
+                        <td>Indice qualité de l'air DEFRA</td>
+                    </tr>
+                    <tr>
+                        <td>pm25</td>
+                        <td>REAL</td>
+                        <td>Concentration de PM2.5</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="compte-rendu__subsection-title">4. Configuration API</h3>
+            <ul class="compte-rendu__list">
+                <li>Configuration via l'interface web (recommandé)</li>
+                <li>Alternative : configuration via fichier .env</li>
+                <li>Sauvegarde de la clé API dans la session serveur</li>
+                <li>Validation de la clé API avant utilisation</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">5. Historique des localisations</h3>
+            <ul class="compte-rendu__list">
+                <li>Page dédiée (/all.html) affichant toutes les localisations</li>
+                <li>Affichage formaté avec Bootstrap cards</li>
+                <li>Tri par date (du plus récent au plus ancien)</li>
+                <li>Affichage des informations météo enregistrées</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🌐 Routes API exposées</h2>
+            <table class="compte-rendu__table">
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Méthode</th>
+                        <th>Description</th>
+                        <th>Paramètres</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>/</td>
+                        <td>GET</td>
+                        <td>Page principale</td>
+                        <td>Aucun</td>
+                    </tr>
+                    <tr>
+                        <td>/all.html</td>
+                        <td>GET</td>
+                        <td>Page historique</td>
+                        <td>Aucun</td>
+                    </tr>
+                    <tr>
+                        <td>/weather</td>
+                        <td>GET</td>
+                        <td>Données météo actuelles et prévisions</td>
+                        <td>lat, lon, apiKey, country (optionnel)</td>
+                    </tr>
+                    <tr>
+                        <td>/forecast</td>
+                        <td>GET</td>
+                        <td>Prévisions météo uniquement</td>
+                        <td>lat, lon, apiKey</td>
+                    </tr>
+                    <tr>
+                        <td>/all</td>
+                        <td>GET</td>
+                        <td>Toutes les localisations (JSON)</td>
+                        <td>Aucun</td>
+                    </tr>
+                    <tr>
+                        <td>/api</td>
+                        <td>POST</td>
+                        <td>Sauvegarde localisation</td>
+                        <td>Body JSON</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="compte-rendu__subsection-title">Exemples d'utilisation</h3>
+            <p><strong>GET /weather</strong></p>
+            <div class="compte-rendu__code">
+GET /weather?lat=48.8566&lon=2.3522&apiKey=YOUR_API_KEY
+            </div>
+
+            <p><strong>POST /api</strong></p>
+            <div class="compte-rendu__code">
+{
+  "lat": 48.8566,
+  "long": 2.3522,
+  "timestamp": 1234567890,
+  "mood": "Happy",
+  "country": "France",
+  "city": "Paris",
+  "temperature": 15.5,
+  "condition": "Sunny",
+  "defra": 2,
+  "pm25": 10.5
+}
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📊 Schéma de base de données</h2>
+            <div class="compte-rendu__code">
+CREATE TABLE IF NOT EXISTS geoloc (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    latitude REAL NOT NULL,
+    longitude REAL NOT NULL,
+    timestamp INTEGER NOT NULL,
+    mood TEXT NOT NULL,
+    pays TEXT,
+    ville TEXT,
+    temperature REAL,
+    condition TEXT,
+    defra REAL,
+    pm25 REAL
+);
+            </div>
+            <p><strong>Migrations :</strong> Le code gère automatiquement l'ajout de colonnes si elles n'existent pas déjà (condition, defra, pm25).</p>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🚀 Installation et démarrage</h2>
+            <h3 class="compte-rendu__subsection-title">Prérequis</h3>
+            <ul class="compte-rendu__list">
+                <li>Node.js version 14 ou supérieure</li>
+                <li>npm (généralement inclus avec Node.js)</li>
+                <li>Clé API WeatherAPI gratuite sur weatherapi.com</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">Étapes d'installation</h3>
+            <ol class="compte-rendu__list" style="list-style: decimal; padding-left: 2rem;">
+                <li><strong>Installer les dépendances</strong>
+                    <div class="compte-rendu__code">cd Projets/Projet-Weather-API-master
+npm install</div>
+                </li>
+                <li><strong>Configurer la clé API</strong>
+                    <p>Option 1 - Via l'interface web (recommandé) :</p>
+                    <ul class="compte-rendu__list">
+                        <li>Lancer le serveur : <code>node index.js</code></li>
+                        <li>Ouvrir http://localhost:3000</li>
+                        <li>Entrer la clé API dans la section "Configuration API"</li>
+                    </ul>
+                    <p>Option 2 - Via fichier .env :</p>
+                    <div class="compte-rendu__code">WEATHER_API_KEY=votre_cle_api_ici</div>
+                </li>
+                <li><strong>Lancer le serveur</strong>
+                    <div class="compte-rendu__code">node index.js</div>
+                </li>
+                <li><strong>Accéder à l'application</strong>
+                    <ul class="compte-rendu__list">
+                        <li>Page principale : http://localhost:3000</li>
+                        <li>Page historique : http://localhost:3000/all.html</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">💡 Points techniques remarquables</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Architecture</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Architecture REST</li>
+                        <li>Séparation backend/frontend</li>
+                        <li>Base de données SQLite légère</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Gestion des erreurs</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Erreurs de géolocalisation</li>
+                        <li>Erreurs d'API externe</li>
+                        <li>Validation des paramètres</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Sécurité</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Protection SQL injection</li>
+                        <li>Gestion sécurisée clé API</li>
+                        <li>Gestion CORS</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Performance</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Requêtes SQL optimisées</li>
+                        <li>Gestion de session</li>
+                        <li>Interface responsive</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🐛 Difficultés rencontrées et solutions</h2>
+            
+            <div class="compte-rendu__problem">
+                <strong>Problème 1 : Géolocalisation non disponible</strong>
+                <p>L'API de géolocalisation nécessite une autorisation explicite de l'utilisateur.</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Ajout d'un message d'erreur explicite demandant à l'utilisateur d'autoriser la géolocalisation dans son navigateur. Gestion des cas où la géolocalisation n'est pas disponible.
+            </div>
+
+            <div class="compte-rendu__problem">
+                <strong>Problème 2 : Gestion des erreurs CORS</strong>
+                <p>Les requêtes directes depuis le navigateur vers l'API WeatherAPI génèrent des erreurs CORS.</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Utilisation d'un serveur Express pour servir les fichiers statiques et agir comme proxy vers l'API externe, évitant ainsi les problèmes CORS.
+            </div>
+
+            <div class="compte-rendu__problem">
+                <strong>Problème 3 : Migration de schéma de base de données</strong>
+                <p>Ajout de nouvelles colonnes à la table existante sans perdre les données.</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Ajout de colonnes conditionnelles avec gestion des erreurs pour les colonnes déjà existantes. Utilisation d'ALTER TABLE avec vérification des erreurs.
+            </div>
+
+            <div class="compte-rendu__problem">
+                <strong>Problème 4 : Gestion de la clé API</strong>
+                <p>Stockage sécurisé de la clé API côté client ou serveur.</p>
+            </div>
+            <div class="compte-rendu__solution">
+                <strong>Solution :</strong> Stockage de la clé API dans la session serveur Express, permettant une configuration unique par utilisateur sans exposer la clé dans le code client.
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📈 Améliorations possibles</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Fonctionnalités</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Authentification utilisateur</li>
+                        <li>Graphiques de données</li>
+                        <li>Notifications météo</li>
+                        <li>Export de données</li>
+                        <li>Recherche de ville</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Technique</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Mode hors-ligne (Service Workers)</li>
+                        <li>PWA (Progressive Web App)</li>
+                        <li>Tests unitaires (Jest, Mocha)</li>
+                        <li>Documentation Swagger/OpenAPI</li>
+                        <li>Multi-langue (i18n)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">📚 Compétences développées</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <h4>Backend</h4>
+                    <ul class="compte-rendu__list">
+                        <li>API REST avec Node.js et Express</li>
+                        <li>Gestion de base de données SQLite</li>
+                        <li>Intégration d'API externes</li>
+                        <li>Gestion des sessions</li>
+                        <li>Gestion des erreurs et logs</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Frontend</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Interfaces web interactives</li>
+                        <li>Bootstrap 5 responsive</li>
+                        <li>Géolocalisation navigateur</li>
+                        <li>Manipulation DOM moderne</li>
+                        <li>Gestion asynchrone (fetch, async/await)</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Base de données</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Modélisation SQLite</li>
+                        <li>Création et migration de schémas</li>
+                        <li>Requêtes SQL optimisées</li>
+                        <li>Gestion de l'historique</li>
+                    </ul>
+                </div>
+                <div class="compte-rendu__card">
+                    <h4>Général</h4>
+                    <ul class="compte-rendu__list">
+                        <li>Architecture REST</li>
+                        <li>Sécurité web</li>
+                        <li>Documentation de projet</li>
+                        <li>Gestion de projet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">🎓 Conclusion</h2>
+            <p>Ce projet a permis de mettre en pratique les compétences en développement web full-stack. L'application combine efficacement les technologies backend (Node.js, Express) et frontend (HTML, CSS, JavaScript) pour créer une solution fonctionnelle et utilisable.</p>
+            
+            <div class="compte-rendu__highlight">
+                <strong>Points forts :</strong>
+                <ul class="compte-rendu__list">
+                    <li>Architecture bien structurée</li>
+                    <li>Interface utilisateur moderne et responsive</li>
+                    <li>Gestion complète des erreurs</li>
+                    <li>Documentation claire</li>
+                </ul>
+            </div>
+
+            <p><strong>Prochaines étapes :</strong> Amélioration de l'interface utilisateur, ajout de fonctionnalités avancées (graphiques, notifications), optimisation des performances et transformation en PWA.</p>
+        </div>
+    </div>
+
+    <script>
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observer toutes les sections
+        document.querySelectorAll('.compte-rendu__section').forEach(section => {
+            section.style.opacity = '0';
+            observer.observe(section);
+        });
+
+        // Animation pour les badges au scroll
+        const badgeObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s both`;
+                    }, index * 50);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.compte-rendu__badge').forEach(badge => {
+            badgeObserver.observe(badge);
+        });
+
+        // Animation pour les cartes
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = `fadeInUp 0.5s ease-out ${index * 0.1}s both`;
+                    }, index * 50);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.compte-rendu__card').forEach(card => {
+            cardObserver.observe(card);
+        });
+
+        // Animation pour les lignes de tableau
+        const tableObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.setProperty('--i', index);
+                    entry.target.style.animation = `fadeInUp 0.4s ease-out ${index * 0.1}s both`;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.compte-rendu__table tbody tr').forEach(row => {
+            tableObserver.observe(row);
+        });
+
+        // Effet parallaxe léger sur le header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.compte-rendu__header');
+            if (header) {
+                const scrolled = window.pageYOffset;
+                header.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Animation au hover pour les sections
+        document.querySelectorAll('.compte-rendu__section').forEach(section => {
+            section.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            section.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Effet de particules animées (optionnel)
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(0, 212, 255, 0.6)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.animation = `floatUp ${3 + Math.random() * 2}s linear forwards`;
+            
+            const header = document.querySelector('.compte-rendu__header');
+            if (header) {
+                header.appendChild(particle);
+                setTimeout(() => particle.remove(), 5000);
+            }
+        }
+
+        // Créer des particules périodiquement
+        setInterval(createParticle, 2000);
+
+        // Ajouter l'animation floatUp
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                to {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

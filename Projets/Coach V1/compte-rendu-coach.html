@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte Rendu - Application MAUI Coach</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #512BD4 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #512BD4;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #512BD4;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .warning {
+            background: #f8d7da;
+            padding: 15px;
+            border-left: 4px solid #dc3545;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            padding: 15px;
+            border-left: 4px solid #0c5460;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #512BD4;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stat-card h4 {
+            color: white;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .number {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #2d2d2d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📱 Application MAUI Coach</h1>
+            <p>Compte Rendu Technique</p>
+        </header>
+
+        <div class="content">
+            <section>
+                <h2>Vue d'ensemble</h2>
+                <div class="info-box">
+                    <p><strong>Nom de l'application :</strong> MauiAppCoach</p>
+                    <p><strong>Type :</strong> Application MAUI (.NET MAUI)</p>
+                    <p><strong>Objectif :</strong> Calcul de l'IMG (Indice de Masse Grasse)</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Structure du projet</h2>
+                <ul>
+                    <li><strong>MauiAppCoach</strong> - Projet principal</li>
+                    <li><strong>MauiAppCoach.Core</strong> - Bibliothèque contenant le modèle Profil</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Pages de l'application</h2>
+
+                <h3>1. MainPage</h3>
+                <p><strong>Fichiers :</strong> MainPage.xaml, MainPage.xaml.cs</p>
+
+                <h4>Interface utilisateur (MainPage.xaml)</h4>
+                <ul>
+                    <li><strong>Layout :</strong> VerticalStackLayout centré avec espacement de 25 et marge de 10</li>
+                </ul>
+
+                <h4>Contrôles</h4>
+                <table>
+                    <tr>
+                        <th>Contrôle</th>
+                        <th>Description</th>
+                        <th>Propriétés</th>
+                    </tr>
+                    <tr>
+                        <td><code>entPoids</code></td>
+                        <td>Entry pour saisir le poids en kg</td>
+                        <td>Clavier numérique, Police 22, DarkBlue</td>
+                    </tr>
+                    <tr>
+                        <td><code>entTaille</code></td>
+                        <td>Entry pour saisir la taille en cm</td>
+                        <td>Clavier numérique, Police 22, DarkBlue</td>
+                    </tr>
+                    <tr>
+                        <td><code>entAge</code></td>
+                        <td>Entry pour saisir l'âge</td>
+                        <td>Clavier numérique, Police 22, DarkBlue</td>
+                    </tr>
+                    <tr>
+                        <td><code>rdHomme</code></td>
+                        <td>RadioButton "Homme"</td>
+                        <td>Sélectionné par défaut, Groupe "Sexe"</td>
+                    </tr>
+                    <tr>
+                        <td><code>rdFemme</code></td>
+                        <td>RadioButton "Femme"</td>
+                        <td>Groupe "Sexe"</td>
+                    </tr>
+                    <tr>
+                        <td><code>Button</code></td>
+                        <td>"Calculer IMG"</td>
+                        <td>Police 22, Événement btCalculer_Clicked</td>
+                    </tr>
+                    <tr>
+                        <td><code>imgResultat</code></td>
+                        <td>Image pour afficher le résultat</td>
+                        <td>Hauteur 185, AspectFit</td>
+                    </tr>
+                    <tr>
+                        <td><code>CounterLabel</code></td>
+                        <td>Label pour afficher l'IMG</td>
+                        <td>Police 18, Center, Black</td>
+                    </tr>
+                </table>
+
+                <h4>Fonctionnalité (MainPage.xaml.cs)</h4>
+                <p><strong>Méthode btCalculer_Clicked :</strong></p>
+                <ol>
+                    <li>Convertit les valeurs saisies en entiers (poids, taille, âge)</li>
+                    <li>Détermine le sexe : 1 si Homme, 0 si Femme</li>
+                    <li>Crée une instance de Profil avec ces paramètres</li>
+                    <li>Affiche l'IMG dans CounterLabel avec format "0.0"</li>
+                    <li>Affiche l'image correspondante dans imgResultat</li>
+                </ol>
+
+                <div class="warning">
+                    <strong>Note :</strong> Pas de gestion d'erreur pour les conversions
+                </div>
+
+                <h3>2. AppShell</h3>
+                <p><strong>Fichiers :</strong> AppShell.xaml, AppShell.xaml.cs</p>
+                <ul>
+                    <li><strong>Titre :</strong> "MauiAppCoach"</li>
+                    <li><strong>Route :</strong> "MainPage"</li>
+                    <li><strong>Titre de l'onglet :</strong> "Coach"</li>
+                    <li><strong>Contenu :</strong> MainPage</li>
+                </ul>
+                <p>Code-behind : Constructeur simple qui initialise le composant</p>
+
+                <h3>3. App</h3>
+                <p><strong>Fichiers :</strong> App.xaml, App.xaml.cs, MauiProgram.cs</p>
+                <ul>
+                    <li><strong>App.xaml :</strong> Charge les ressources (Colors.xaml, Styles.xaml)</li>
+                    <li><strong>App.xaml.cs :</strong> Crée une fenêtre avec AppShell comme contenu</li>
+                    <li><strong>MauiProgram.cs :</strong> Configure l'application MAUI, enregistre les polices (OpenSans-Regular, OpenSans-Semibold), active le logging en mode DEBUG</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Modèle métier : Profil</h2>
+                <p><strong>Fichier :</strong> MauiAppCoach.Core/Modele/Profil.cs</p>
+
+                <h4>Propriétés privées</h4>
+                <ul>
+                    <li><code>sexe</code> : int</li>
+                    <li><code>poids</code> : int</li>
+                    <li><code>taille</code> : int</li>
+                    <li><code>age</code> : int</li>
+                    <li><code>img</code> : double</li>
+                    <li><code>message</code> : string</li>
+                    <li><code>image</code> : string</li>
+                </ul>
+
+                <h4>Constructeur</h4>
+                <div class="code-block">
+Profil(int sexe, int poids, int taille, int age)
+- Initialise les propriétés
+- Appelle CalculIMG()
+- Appelle ResultatIMG()
+                </div>
+                <div class="highlight">
+                    <strong>Note :</strong> Constructeur par défaut commenté dans le code
+                </div>
+
+                <h4>Méthodes privées</h4>
+                <h5>CalculIMG()</h5>
+                <p>Calcule l'IMG avec la formule :</p>
+                <div class="code-block">
+img = (1.2 * poids / (tailleEnMetres²)) + (0.23 * age) - (10.83 * sexe) - 5.4
+où tailleEnMetres = taille / 100.0
+                </div>
+
+                <h5>ResultatIMG()</h5>
+                <p>Détermine le message et l'image selon l'IMG :</p>
+                
+                <table>
+                    <tr>
+                        <th>Sexe</th>
+                        <th>Condition IMG</th>
+                        <th>Message</th>
+                        <th>Image</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">Femme (0)</td>
+                        <td>IMG &lt; 25</td>
+                        <td>"Trop maigre."</td>
+                        <td>smiley_tropmaigre.png</td>
+                    </tr>
+                    <tr>
+                        <td>25 ≤ IMG &lt; 30</td>
+                        <td>"Parfait."</td>
+                        <td>smiley_parfait.png</td>
+                    </tr>
+                    <tr>
+                        <td>IMG ≥ 30</td>
+                        <td>"Surpoids."</td>
+                        <td>smiley_surpoids.png</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">Homme (1)</td>
+                        <td>IMG &lt; 15</td>
+                        <td>"Trop maigre."</td>
+                        <td>smiley_tropmaigre.png</td>
+                    </tr>
+                    <tr>
+                        <td>15 ≤ IMG &lt; 20</td>
+                        <td>"Parfait."</td>
+                        <td>smiley_parfait.png</td>
+                    </tr>
+                    <tr>
+                        <td>IMG ≥ 20</td>
+                        <td>"Surpoids."</td>
+                        <td>smiley_surpoids.png</td>
+                    </tr>
+                </table>
+
+                <h4>Méthodes publiques (Getters)</h4>
+                <ul>
+                    <li><code>GetSexe()</code> : int</li>
+                    <li><code>GetPoids()</code> : double</li>
+                    <li><code>GetTaille()</code> : double</li>
+                    <li><code>GetAge()</code> : int</li>
+                    <li><code>GetImg()</code> : double</li>
+                    <li><code>GetMessage()</code> : string</li>
+                    <li><code>GetImage()</code> : string</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Fonctionnalités</h2>
+                
+                <h3>Fonctionnalités présentes</h3>
+                <ul>
+                    <li>✅ Saisie du poids, taille et âge</li>
+                    <li>✅ Sélection du sexe (Homme/Femme)</li>
+                    <li>✅ Calcul automatique de l'IMG</li>
+                    <li>✅ Affichage de l'IMG avec 1 décimale</li>
+                    <li>✅ Affichage d'une image selon le résultat (smiley)</li>
+                </ul>
+
+                <h3>Fonctionnalités non présentes</h3>
+                <ul>
+                    <li>❌ Validation des champs vides</li>
+                    <li>❌ Gestion des erreurs de conversion</li>
+                    <li>❌ Validation des valeurs saisies</li>
+                    <li>❌ Affichage du message de corpulence dans l'interface</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Problèmes identifiés dans le code</h2>
+                
+                <h3>MainPage.xaml.cs</h3>
+                <ul>
+                    <li>Ligne 16 : Accolade ouvrante orpheline</li>
+                    <li>Ligne 29 : Accolade fermante en trop</li>
+                    <li>Pas de gestion d'erreur pour Convert.ToInt32 (risque FormatException)</li>
+                    <li>Le message de corpulence (GetMessage()) n'est pas affiché dans l'interface</li>
+                </ul>
+
+                <h3>Profil.cs</h3>
+                <ul>
+                    <li>Constructeur par défaut commenté (lignes 30-39)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Ressources</h2>
+                
+                <h3>Styles</h3>
+                <ul>
+                    <li>Resources/Styles/Colors.xaml</li>
+                    <li>Resources/Styles/Styles.xaml</li>
+                </ul>
+
+                <h3>Polices</h3>
+                <ul>
+                    <li>OpenSans-Regular.ttf</li>
+                    <li>OpenSans-Semibold.ttf</li>
+                </ul>
+
+                <h3>Images (utilisées dans le code)</h3>
+                <ul>
+                    <li>smiley_tropmaigre.png</li>
+                    <li>smiley_parfait.png</li>
+                    <li>smiley_surpoids.png</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Statistiques</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Pages</h4>
+                        <div class="number">1</div>
+                        <p>MainPage</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Modèles</h4>
+                        <div class="number">1</div>
+                        <p>Profil</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Champs de saisie</h4>
+                        <div class="number">3</div>
+                        <p>Poids, Taille, Âge</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>RadioButtons</h4>
+                        <div class="number">2</div>
+                        <p>Homme, Femme</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Getters</h4>
+                        <div class="number">7</div>
+                        <p>Méthodes publiques</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Document basé uniquement sur l'analyse du code source</p>
+            <p>Application MAUI Coach - Compte Rendu Technique</p>
+        </footer>
+    </div>
+</body>
+</html>

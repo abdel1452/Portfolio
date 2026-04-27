@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions d'installation - SIO Shoes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+        }
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            color: #e83e8c;
+        }
+        .alert-custom {
+            border-left: 4px solid #ffc107;
+        }
+        .command-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 5px;
+            position: relative;
+            font-family: 'Courier New', monospace;
+            margin: 0.5rem 0;
+        }
+        .command-prompt {
+            color: #4ec9b0;
+            margin-right: 0.5rem;
+        }
+        .command-text {
+            color: #d4d4d4;
+            word-break: break-all;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #2d2d2d;
+            border: 1px solid #555;
+            color: #d4d4d4;
+            padding: 0.25rem 0.75rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        .copy-btn:hover {
+            background: #3d3d3d;
+            border-color: #667eea;
+            color: #fff;
+        }
+        .copy-btn.copied {
+            background: #28a745;
+            border-color: #28a745;
+            color: #fff;
+        }
+        .command-box:hover .copy-btn {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center mb-4">
+            <h1 class="display-4 mb-3">👟 SIO Shoes</h1>
+            <p class="lead">Application E-commerce Symfony</p>
+        </div>
+
+        <div class="alert alert-warning alert-custom" role="alert">
+            <h5 class="alert-heading">⚠️ Projet Symfony</h5>
+            <p class="mb-0">Ce projet nécessite un environnement de développement configuré avec PHP, Composer et Docker pour fonctionner.</p>
+        </div>
+
+        <h2 class="mt-4 mb-3">📦 Prérequis</h2>
+        <ul>
+            <li><strong>PHP</strong> >= 8.2</li>
+            <li><strong>Composer</strong> (gestionnaire de dépendances PHP)</li>
+            <li><strong>Docker</strong> et <strong>Docker Compose</strong></li>
+            <li><strong>Node.js</strong> et <strong>npm</strong> (optionnel pour les assets)</li>
+        </ul>
+
+        <h2 class="mt-4 mb-3">🚀 Installation en 5 étapes</h2>
+
+        <div class="step">
+            <div class="d-flex align-items-center mb-2">
+                <span class="step-number">1</span>
+                <h4 class="mb-0">Installer les dépendances PHP</h4>
+            </div>
+            <p>Ouvrez un terminal dans le dossier du projet et exécutez :</p>
+            <div class="command-box">
+                <button class="copy-btn" onclick="copyCommand(this, 'cd Projets/Site_eShoes-main\ncomposer install')">📋 Copier</button>
+                <div class="command-text">
+                    <span class="command-prompt">$</span><span>cd Projets/Site_eShoes-main</span><br>
+                    <span class="command-prompt">$</span><span>composer install</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="d-flex align-items-center mb-2">
+                <span class="step-number">2</span>
+                <h4 class="mb-0">Démarrer la base de données</h4>
+            </div>
+            <p>Démarrez Docker Compose pour lancer PostgreSQL :</p>
+            <div class="command-box">
+                <button class="copy-btn" onclick="copyCommand(this, 'docker compose up -d')">📋 Copier</button>
+                <div class="command-text">
+                    <span class="command-prompt">$</span><span>docker compose up -d</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="d-flex align-items-center mb-2">
+                <span class="step-number">3</span>
+                <h4 class="mb-0">Configurer l'environnement</h4>
+            </div>
+            <p>Créez un fichier <code>.env.local</code> à la racine du projet avec :</p>
+            <div class="command-box">
+                <button class="copy-btn" onclick="copyCommand(this, 'DATABASE_URL=\"postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8\"')">📋 Copier</button>
+                <div class="command-text">
+                    <span class="command-prompt">$</span><span>DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="d-flex align-items-center mb-2">
+                <span class="step-number">4</span>
+                <h4 class="mb-0">Créer la base de données</h4>
+            </div>
+            <p>Exécutez les migrations pour créer les tables :</p>
+            <div class="command-box">
+                <button class="copy-btn" onclick="copyCommand(this, 'php bin/console doctrine:database:create\nphp bin/console doctrine:migrations:migrate')">📋 Copier</button>
+                <div class="command-text">
+                    <span class="command-prompt">$</span><span>php bin/console doctrine:database:create</span><br>
+                    <span class="command-prompt">$</span><span>php bin/console doctrine:migrations:migrate</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="d-flex align-items-center mb-2">
+                <span class="step-number">5</span>
+                <h4 class="mb-0">Lancer l'application</h4>
+            </div>
+            <p>Démarrez le serveur de développement :</p>
+            <div class="command-box">
+                <button class="copy-btn" onclick="copyCommand(this, 'symfony server:start')">📋 Copier</button>
+                <div class="command-text">
+                    <span class="command-prompt">$</span><span>symfony server:start</span>
+                </div>
+            </div>
+            <p class="mt-2">Ou avec PHP natif :</p>
+            <div class="command-box">
+                <button class="copy-btn" onclick="copyCommand(this, 'php -S localhost:8000 -t public')">📋 Copier</button>
+                <div class="command-text">
+                    <span class="command-prompt">$</span><span>php -S localhost:8000 -t public</span>
+                </div>
+            </div>
+            <p class="mt-3"><strong>🌐 Accédez à :</strong> <a href="http://localhost:8000" target="_blank">http://localhost:8000</a></p>
+        </div>
+
+        <div class="alert alert-info mt-4" role="alert">
+            <h5 class="alert-heading">ℹ️ Documentation complète</h5>
+            <p class="mb-0">Pour plus de détails, consultez le fichier <code>README.md</code> dans le dossier du projet.</p>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="../index.html" class="btn btn-primary">← Retour au portfolio</a>
+        </div>
+    </div>
+
+    <script>
+        function copyCommand(button, command) {
+            // Copier la commande dans le presse-papiers
+            navigator.clipboard.writeText(command).then(function() {
+                // Changer le texte du bouton temporairement
+                const originalText = button.innerHTML;
+                button.innerHTML = '✅ Copié!';
+                button.classList.add('copied');
+                
+                // Remettre le texte original après 2 secondes
+                setTimeout(function() {
+                    button.innerHTML = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(function(err) {
+                // Fallback pour les navigateurs plus anciens
+                const textArea = document.createElement('textarea');
+                textArea.value = command;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    button.innerHTML = '✅ Copié!';
+                    button.classList.add('copied');
+                    setTimeout(function() {
+                        button.innerHTML = '📋 Copier';
+                        button.classList.remove('copied');
+                    }, 2000);
+                } catch (err) {
+                    alert('Impossible de copier. Veuillez copier manuellement.');
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Abdelmalek Elidrissi - Portfolio BTS SIO SLAM</title>
+    </head>
+    <body>
+        <!--===== LOADER =====-->
+        <div class="loader" id="loader">
+            <div class="loader__content">
+                <div class="loader__spinner">
+                    <div class="loader__circle"></div>
+                    <div class="loader__circle"></div>
+                    <div class="loader__circle"></div>
+                </div>
+                <h2 class="loader__text">Abdelmalek Elidrissi</h2>
+                <p class="loader__subtext">Portfolio BTS SIO SLAM</p>
+            </div>
+        </div>
+
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">Abdelmalek</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu" style="right: -100%; transform: translateX(100%); -webkit-transform: translateX(100%);">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link">Accueil</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">À propos</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Compétences</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link">Projets</a></li>
+                        <li class="nav__item"><a href="#e4" class="nav__link">Épreuve E4</a></li>
+                        <li class="nav__item"><a href="#veille" class="nav__link">Veille</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__right">
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class='bx bx-menu'></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!-- Graphique de données animé en arrière-plan -->
+            <div class="animated-chart">
+                <svg class="chart-svg" viewBox="0 0 1200 600" preserveAspectRatio="none">
+                    <!-- Lignes de grille horizontales -->
+                    <line class="grid-line" x1="0" y1="100" x2="1200" y2="100" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="200" x2="1200" y2="200" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="300" x2="1200" y2="300" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="400" x2="1200" y2="400" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    <line class="grid-line" x1="0" y1="500" x2="1200" y2="500" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+                    
+                    <!-- Labels numériques sur l'axe Y (valeurs) -->
+                    <text class="chart-label" x="30" y="105" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">100</text>
+                    <text class="chart-label" x="30" y="205" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">80</text>
+                    <text class="chart-label" x="30" y="305" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">60</text>
+                    <text class="chart-label" x="30" y="405" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">40</text>
+                    <text class="chart-label" x="30" y="505" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">20</text>
+                    <text class="chart-label" x="30" y="555" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">0</text>
+                    
+                    <!-- Labels numériques sur l'axe X (temps/périodes) -->
+                    <text class="chart-label" x="135" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q1</text>
+                    <text class="chart-label" x="235" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q2</text>
+                    <text class="chart-label" x="335" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q3</text>
+                    <text class="chart-label" x="435" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q4</text>
+                    <text class="chart-label" x="535" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q5</text>
+                    <text class="chart-label" x="635" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q6</text>
+                    <text class="chart-label" x="735" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q7</text>
+                    <text class="chart-label" x="835" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q8</text>
+                    <text class="chart-label" x="935" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q9</text>
+                    <text class="chart-label" x="1035" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q10</text>
+                    
+                    <!-- Graphique en ligne avec points de données animés -->
+                    <polyline class="data-line" points="100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400" 
+                        fill="none" stroke="rgba(0, 212, 255, 0.4)" stroke-width="2">
+                        <animate attributeName="points" 
+                            values="100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400;
+                                    100,420 150,400 200,380 250,400 300,360 350,420 400,380 450,400 500,360 550,420 600,380 650,400 700,360 750,420 800,380 850,400 900,360 950,420 1000,380 1050,400 1100,360;
+                                    100,400 150,420 200,360 250,400 300,420 350,360 400,400 450,420 500,360 550,400 600,420 650,360 700,400 750,420 800,360 850,400 900,420 950,360 1000,400 1050,420 1100,360;
+                                    100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400"
+                            dur="8s" repeatCount="indefinite"/>
+                    </polyline>
+                    
+                    <!-- Points de données animés -->
+                    <circle class="data-point" cx="100" cy="450" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="450;420;400;450" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="300" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="500" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="700" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="900" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="data-point" cx="1100" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
+                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- Barres de données animées -->
+                    <rect class="chart-bar" x="120" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;80;120;100;70;0" dur="5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;370;330;350;380;450" dur="5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="220" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;100;80;120;90;0" dur="4.5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;350;370;330;360;450" dur="4.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="320" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;120;100;90;110;0" dur="5.5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;330;350;360;340;450" dur="5.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="420" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;90;110;100;95;0" dur="4.8s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;360;340;350;355;450" dur="4.8s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="520" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;110;85;105;95;0" dur="5.2s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;340;365;345;355;450" dur="5.2s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="620" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;95;115;100;105;0" dur="4.6s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;355;335;350;345;450" dur="4.6s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="720" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;105;90;110;100;0" dur="5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;345;360;340;350;450" dur="5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="820" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;100;110;95;105;0" dur="4.7s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;350;340;355;345;450" dur="4.7s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="920" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;110;95;105;100;0" dur="5.3s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;340;355;345;350;450" dur="5.3s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect class="chart-bar" x="1020" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
+                        <animate attributeName="height" values="0;95;105;100;110;0" dur="4.9s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="450;355;345;350;340;450" dur="4.9s" repeatCount="indefinite"/>
+                    </rect>
+                </svg>
+            </div>
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title"><span class="home__title-color">Abdelmalek ELIDRISSI</span><br>Étudiant en informatique</h1>
+                    <a href="#contact" class="button">Me contacter</a>
+                </div>
+
+                <div class="home__social">
+                    <a href="https://www.linkedin.com/in/abdelmalek-elidrissi/" target="_blank" rel="noopener noreferrer" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://github.com/abdel1452" target="_blank" rel="noopener noreferrer" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                </div>
+
+                <div class="home__img">
+                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <mask id="mask0" mask-type="alpha">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                        </mask>
+                        <g mask="url(#mask0)">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                            <image class="home__blob-img" x="50" y="60" href="home-removebg-preview.png"/>
+                        </g>
+                    </svg>
+                </div>
+            </section>
+
+            <!--===== ABOUT =====-->
+<section class="about section " id="about">
+    <h2 class="section-title">À propos</h2>
+
+    <div class="about__container bd-grid">
+
+        <!-- COLONNE GAUCHE -->
+        <div class="about__left">
+            <h2 class="about__subtitle">Je suis Abdelmalek Elidrissi</h2>
+            
+            <div class="about__text-block">
+                <p class="about__text">
+                    Étudiant en <strong>BTS SIO</strong> (Services Informatiques aux Organisations) spécialité <strong>SLAM</strong> (Solutions Logicielles et Applications Métiers), je me forme aux métiers du développement logiciel et des applications web.
+                </p>
+
+                <p class="about__text">
+                    Le <strong>BTS SIO</strong> (Services Informatiques aux Organisations) est une formation qui prépare aux métiers de l’informatique en entreprise. Il propose deux spécialités distinctes :
+                </p>
+                
+                <p class="about__text">
+                    La spécialité <strong>SLAM (Solutions Logicielles et Applications Métiers)</strong> est orientée vers le développement d’applications web, mobiles et logiciels métiers. Elle forme principalement des développeurs capables de concevoir, coder et maintenir des solutions logicielles adaptées aux besoins des entreprises.
+                </p>
+                
+                <p class="about__text">
+                    Les débouchés de SLAM sont : <strong>développeur web</strong>, <strong>développeur d’applications</strong>, <strong>développeur full-stack</strong>, <strong>intégrateur web</strong> ou encore <strong>analyste programmeur</strong>.
+                </p>
+                
+                <p class="about__text">
+                    La spécialité <strong>SISR (Solutions d’Infrastructure, Systèmes et Réseaux)</strong> est centrée sur la gestion des systèmes informatiques, des réseaux et de la cybersécurité. Elle forme des professionnels capables d’installer, administrer et sécuriser les infrastructures informatiques d’une organisation.
+                </p>
+                
+                <p class="about__text">
+                    Mon objectif professionnel est de devenir <strong>Data Engineer</strong>, en me spécialisant dans le traitement, la structuration et la gestion de grandes quantités de données, afin de construire des pipelines de données fiables pour les entreprises.
+                </p>
+                
+                <p class="about__text">
+                    J’ai choisi la spécialité <strong>SLAM</strong> pour développer mes compétences en programmation, bases de données et manipulation de données, qui constituent une base essentielle pour évoluer vers le métier de Data Engineer.
+                </p>
+
+            </div>
+        </div>
+
+        <!-- COLONNE DROITE -->
+        <div class="about__right">
+
+            <!-- Centres d'intérêt -->
+            <div class="about__interests">
+                <h3 class="about__interests-title">Centres d'intérêt</h3>
+                <ul class="about__interests-list">
+                    <li><i class='bx bx-code-alt'></i> Développement web et applications</li>
+                    <li><i class='bx bx-brain'></i> Résolution de problèmes</li>
+                    <li><i class='bx bx-shield-quarter'></i> Cybersécurité</li>
+                    <li><i class='bx bx-trending-up'></i> Veille technologique</li>
+                    <li><i class='bx bx-group'></i> Travail en équipe</li>
+                </ul>
+            </div>
+
+            <!-- Qualités professionnelles -->
+            <div class="about__qualities">
+                <h3 class="about__qualities-title">Qualités professionnelles</h3>
+                <div class="about__qualities-grid">
+                    <div class="about__quality-item"><i class='bx bx-check-circle'></i><span>Rigoureux</span></div>
+                    <div class="about__quality-item"><i class='bx bx-check-circle'></i><span>Curieux</span></div>
+                    <div class="about__quality-item"><i class='bx bx-check-circle'></i><span>Autonome</span></div>
+                    <div class="about__quality-item"><i class='bx bx-check-circle'></i><span>Adaptable</span></div>
+                    <div class="about__quality-item"><i class='bx bx-check-circle'></i><span>Organisé</span></div>
+                    <div class="about__quality-item"><i class='bx bx-check-circle'></i><span>Esprit d'équipe</span></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<div class="timeline">
+
+
+    <!-- BTS SIO -->
+    <div class="timeline__item">
+        <div class="timeline__content">
+            <span class="timeline__year-badge">2024 - 2026</span>
+            <h3 class="timeline__heading">BTS SIO</h3>
+            <p class="timeline__subtitle">Spécialité SLAM</p>
+            <p class="timeline__description">
+                Services Informatiques aux Organisations - Solutions Logicielles et Applications Métiers
+            </p>
+            <ul class="timeline__details">
+                <li>Développement d'applications web</li>
+                <li>Conception et développement logiciel</li>
+                <li>Bases de données et SQL</li>
+                <li>Cybersécurité et logique réseau</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- BAC -->
+    <div class="timeline__item">
+        <div class="timeline__content">
+            <span class="timeline__year-badge">2023 - 2024</span>
+            <h3 class="timeline__heading">Bac Général</h3>
+            <p class="timeline__subtitle">Lycée Édouard Branly (Amiens)</p>
+            <p class="timeline__description">
+                Spécialités Mathématiques et NSI (Numérique et Sciences Informatiques)
+            </p>
+            <ul class="timeline__details">
+                <li>Programmation Python</li>
+                <li>Algorithmique</li>
+                <li>Bases de données</li>
+                <li>Développement web</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+                <!--===== CV SECTION =====-->
+                <div class="cv__container bd-grid">
+                    <div class="cv__card">
+                        <div class="cv__icon-wrapper">
+                            <i class='bx bx-file-blank cv__icon'></i>
+                        </div>
+                        <h3 class="cv__title">Mon CV</h3>
+                        
+                        <div class="cv__preview">
+                            <iframe src="CV.pdf" alt="Aperçu du CV d'Abdelmalek Elidrissi" class="cv__preview-img" id="cv-preview-img"></iframe>
+                        </div>
+                        
+                        <!-- Modal pour agrandir le CV -->
+                        <div class="cv__modal" id="cv-modal">
+                            <div class="cv__modal-content">
+                                <button class="cv__modal-close" id="cv-modal-close">&times;</button>
+                                <img src="CV.pdf" alt="CV complet d'Abdelmalek Elidrissi" class="cv__modal-img">
+                            </div>
+                        </div>
+                        
+                        <a href="CV.pdf" class="cv__download-button button" id="download-cv" download="CV_Abdelmalek_Elidrissi.pdf">
+                            <i class='bx bx-download'></i>
+                            Télécharger mon CV
+                        </a>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title">Compétences</h2>
+
+                <div class="skills__container bd-grid">          
+                    <div>
+                        <h2 class="skills__subtitle">Compétences Techniques</h2>
+                        <div class="skills__text-block">
+                            <p class="skills__text">
+                                En formation <strong>BTS SIO SLAM</strong>, je développe mes compétences en développement logiciel, programmation web et conception d'applications métiers.
+                            </p>
+                            <p class="skills__text">
+                                Mes compétences couvrent l'ensemble du cycle de vie d'une application, de la conception à la maintenance.
+                            </p>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="Logo HTML5" class="skills__logo">
+                                <span class="skills__name">HTML5</span>
+                            </div>
+                            <div class="skills__bar skills__html">
+
+                            </div>
+                            <div>
+                                <span class="skills__percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="Logo CSS3" class="skills__logo">
+                                <span class="skills__name">CSS3</span>
+                            </div>
+                            <div class="skills__bar skills__css">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">80%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="Logo JavaScript" class="skills__logo">
+                                <span class="skills__name">JavaScript</span>
+                            </div>
+                            <div class="skills__bar skills__js">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">75%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="Logo PHP" class="skills__logo">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Logo Java" class="skills__logo skills__logo--secondary">
+                                <span class="skills__name">PHP / Java</span>
+                            </div>
+                            <div class="skills__bar skills__php">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">70%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="Logo MySQL" class="skills__logo">
+                                <span class="skills__name">Base de données (SQL)</span>
+                            </div>
+                            <div class="skills__bar skills__db">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h2 class="skills__subtitle">Outils & Technologies</h2>
+                        <p class="skills__text">Maîtrise des outils de développement et des technologies modernes pour créer des solutions efficaces.</p>
+                        
+                        <div class="skills__tools">
+                            <div class="skills__tool-item">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Logo Git" class="skills__tool-logo">
+                                <span>Git / GitHub</span>
+                            </div>
+                            <div class="skills__tool-item">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="Logo VS Code" class="skills__tool-logo">
+                                <span>VS Code</span>
+                            </div>
+                            <div class="skills__tool-item">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="Logo MySQL" class="skills__tool-logo">
+                                <span>MySQL / PostgreSQL</span>
+                            </div>
+                            <div class="skills__tool-item">
+                                <i class='bx bx-window'></i>
+                                <span>Frameworks web</span>
+                            </div>
+                            <div class="skills__tool-item">
+                                <i class='bx bx-shield'></i>
+                                <span>Cybersécurité</span>
+                            </div>
+                            <div class="skills__tool-item">
+                                <i class='bx bx-cloud'></i>
+                                <span>Cloud Computing</span>
+                            </div>
+                        </div>
+                        
+                        <h3 class="skills__subtitle" style="margin-top: 2rem;">Compétences Transversales</h3>
+                        <div class="skills__soft">
+                            <div class="skills__soft-item">
+                                <i class='bx bx-group'></i>
+                                <span>Travail en équipe</span>
+                            </div>
+                            <div class="skills__soft-item">
+                                <i class='bx bx-message-dots'></i>
+                                <span>Communication</span>
+                            </div>
+                            <div class="skills__soft-item">
+                                <i class='bx bx-time'></i>
+                                <span>Gestion de projet</span>
+                            </div>
+                            <div class="skills__soft-item">
+                                <i class='bx bx-book'></i>
+                                <span>Veille technologique</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== WORK =====-->
+            <section class="work section" id="work">
+                <h2 class="section-title">Projets</h2>
+
+                <div class="work__container bd-grid">
+                    <div class="work__project-card" data-project-index="0">
+                        <div class="work__project-link-card">
+                            <div class="work__project-header">
+                                <img src="Projets/Projet-Weather-API-master/public/Meteo.jpg" alt="Projet Weather API" class="work__project-header-img">
+                                <div class="work__project-header-overlay">
+                                    <i class='bx bx-cloud work__project-icon'></i>
+                                    <h3 class="work__project-card-title">Weather API</h3>
+                                </div>
+                            </div>
+                            <div class="work__project-content">
+                                <p class="work__project-description-card">Application web de météo utilisant la géolocalisation et l'API WeatherAPI. Affiche la température, les conditions météorologiques et la qualité de l'air. Fonctionne entièrement côté client avec localStorage.</p>
+                                <div class="work__project-tech">
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="Logo JavaScript" class="work__tech-logo">
+                                        JavaScript
+                                    </span>
+                                    <span class="work__tech-tag">API REST</span>
+                                    <span class="work__tech-tag">localStorage</span>
+                                    <span class="work__tech-tag">Géolocalisation</span>
+                                </div>
+                                <div class="work__project-links">
+                                    <a href="" target="_blank" class="work__project-link">
+                                        <span>Voir le projet</span>
+                                        <i class='bx bx-link-external'></i>
+                                    </a>
+                                    <a href="Projets/compte-rendu-weather-api.html" target="_blank" class="work__project-link">
+                                        <span>Voir le compte rendu</span>
+                                        <i class='bx bx-file-blank'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work__project-card" data-project-index="1">
+                        <div class="work__project-link-card">
+                            <div class="work__project-header">
+                                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&h=600&fit=crop&q=80" alt="Projet SIO Shoes" class="work__project-header-img" onerror="this.onerror=null; this.src='assets/img/work2.jpg';">
+                                <div class="work__project-header-overlay">
+                                    <i class='bx bx-shopping-bag work__project-icon'></i>
+                                    <h3 class="work__project-card-title">SIO Shoes</h3>
+                                </div>
+                            </div>
+                            <div class="work__project-content">
+                                <p class="work__project-description-card">Application e-commerce Symfony pour la vente de chaussures. Gestion des produits, catégories, panier, commandes et paiement Stripe. Interface d'administration complète.</p>
+                                <div class="work__project-tech">
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/symfony/symfony-original.svg" alt="Logo Symfony" class="work__tech-logo">
+                                        Symfony
+                                    </span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="Logo PHP" class="work__tech-logo">
+                                        PHP
+                                    </span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twig/twig-original.svg" alt="Logo Twig" class="work__tech-logo">
+                                        Twig
+                                    </span>
+                                    <span class="work__tech-tag">Stripe</span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="Logo MySQL" class="work__tech-logo">
+                                        MySQL
+                                    </span>
+                                </div>
+                                <div class="work__project-links">
+                                    <a href="Projets/Site_eShoes-main/instructions.html" target="_blank" class="work__project-link">
+                                        <span>Voir le projet</span>
+                                        <i class='bx bx-link-external'></i>
+                                    </a>
+                                    <a href="Projets/compte-rendu-site-eshoes.html" target="_blank" class="work__project-link">
+                                        <span>Voir le compte rendu</span>
+                                        <i class='bx bx-file-blank'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work__project-card" data-project-index="2">
+                        <div class="work__project-link-card">
+                            <div class="work__project-header">
+                                <img src="assets/img/IMG.jpg" alt="Projet Coach v1" class="work__project-header-img" onerror="this.onerror=null; this.src='assets/img/work3.jpg';">
+                                <div class="work__project-header-overlay">
+                                    <i class='bx bx-dumbbell work__project-icon'></i>
+                                    <h3 class="work__project-card-title">Coach v1</h3>
+                                </div>
+                            </div>
+                            <div class="work__project-content">
+                                <p class="work__project-description-card">Application mobile multiplateforme (.NET MAUI) pour le calcul de l'IMG (Indice de Masse Grasse). Évaluation de la condition physique avec affichage visuel des résultats.</p>
+                                <div class="work__project-tech">
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnet/dotnet-original.svg" alt="Logo .NET" class="work__tech-logo">
+                                        .NET MAUI
+                                    </span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="Logo C#" class="work__tech-logo">
+                                        C#
+                                    </span>
+                                    <span class="work__tech-tag">XAML</span>
+                                    <span class="work__tech-tag">Mobile</span>
+                                </div>
+                                <div class="work__project-links">
+                                    <a href="Projets/Coach V1/lanceur-android.html" target="_blank" class="work__project-link">
+                                        <span>Voir le projet</span>
+                                        <i class='bx bx-link-external'></i>
+                                    </a>
+                                    <a href="Projets/compte-rendu-coach-v1.html" target="_blank" class="work__project-link">
+                                        <span>Voir le compte rendu</span>
+                                        <i class='bx bx-file-blank'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work__project-card" data-project-index="3">
+                        <div class="work__project-link-card">
+                            <div class="work__project-header">
+                                <img src="assets/img/work4.jpg" alt="Amsom Habitat Admin" class="work__project-header-img" onerror="this.onerror=null; this.src='assets/img/work1.jpg';">
+                                <div class="work__project-header-overlay">
+                                    <i class='bx bx-building-house work__project-icon'></i>
+                                    <h3 class="work__project-card-title">Amsom Habitat – Console admin</h3>
+                                </div>
+                            </div>
+                            <div class="work__project-content">
+                                <p class="work__project-description-card">Maquette d'une console d'administration pour Amsom Habitat : connexion admin et tableau de 45 applications internes avec boutons de préproduction et production.</p>
+                                <div class="work__project-tech">
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="Logo HTML5" class="work__tech-logo">
+                                        HTML5
+                                    </span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="Logo CSS3" class="work__tech-logo">
+                                        CSS3
+                                    </span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="Logo JavaScript" class="work__tech-logo">
+                                        JavaScript
+                                    </span>
+                                </div>
+                                <div class="work__project-links">
+                                    <a href="Projets/AmsomHabitatAdmin/index.html" target="_blank" class="work__project-link">
+                                        <span>Voir le projet</span>
+                                        <i class='bx bx-link-external'></i>
+                                    </a>
+                                    <a href="#" class="work__project-link" style="pointer-events: none; opacity: 0.6;">
+                                        <span>Compte rendu à venir</span>
+                                        <i class='bx bx-time-five'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work__item" data-project-index="4">
+                                <input type="file" id="project-file-2" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
+                                <label for="project-file-2" class="work__placeholder">
+                                    <i class='bx bx-plus-circle work__add-icon'></i>
+                                    <p class="work__placeholder-text">Ajouter un projet</p>
+                                    <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
+                                </label>
+                                <div class="work__preview-container"></div>
+                    </div>
+                    <div class="work__item" data-project-index="5">
+                                <input type="file" id="project-file-3" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
+                                <label for="project-file-3" class="work__placeholder">
+                                    <i class='bx bx-plus-circle work__add-icon'></i>
+                                    <p class="work__placeholder-text">Ajouter un projet</p>
+                                    <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
+                                </label>
+                                <div class="work__preview-container"></div>
+                    </div>
+                    <div class="work__item" data-project-index="6">
+                                <input type="file" id="project-file-4" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
+                                <label for="project-file-4" class="work__placeholder">
+                                    <i class='bx bx-plus-circle work__add-icon'></i>
+                                    <p class="work__placeholder-text">Ajouter un projet</p>
+                                    <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
+                                </label>
+                                <div class="work__preview-container"></div>
+                    </div>
+                    <div class="work__item" data-project-index="7">
+                                <input type="file" id="project-file-5" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
+                                <label for="project-file-5" class="work__placeholder">
+                                    <i class='bx bx-plus-circle work__add-icon'></i>
+                                    <p class="work__placeholder-text">Ajouter un projet</p>
+                                    <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
+                                </label>
+                                <div class="work__preview-container"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== E4 =====-->
+<section class="e4 section" id="e4">
+    <h2 class="section-title">Épreuve E4</h2>
+
+    <div class="e4__container bd-grid">
+        
+        <div class="e4__card">
+            <i class='bx bx-link-external e4__icon'></i>
+            <h3 class="e4__title">Mes réalisations E4</h3>
+
+            
+
+            <!-- BOUTON À REMPLACER PLUS TARD -->
+            <a href="BTS_SIO_Annexe_VI.5_Epreuve E5 - Tableau de synthese_2026 (1).pdf" 
+   class="button e4__button" 
+   target="_blank">
+   <i class='bx bx-file-blank'></i> Voir mon tableau de synthèse E4
+</a>
+
+        </div>
+
+    </div>
+</section>
+
+       <!--===== VEILLE TECHNOLOGIQUE =====-->
+<section class="veille section" id="veille">
+    <h2 class="section-title">Veille Technologique</h2>
+
+    <div class="veille__container bd-grid">
+
+        <!--===== VEILLE 1 =====-->
+        <div class="veille__card">
+            <div class="veille__header">
+                <i class='bx bx-data veille__icon'></i>
+                <h3 class="veille__title">Big Data : Data Lake vs Data Warehouse</h3>
+            </div>
+
+            <div class="veille__content">
+                <p class="veille__date"><i class='bx bx-calendar'></i> Mise à jour : Avril 2026</p>
+
+                <div class="veille__description">
+
+                    <h4>Contexte</h4>
+                    <p>
+                        Aujourd’hui, les entreprises collectent énormément de données : clients, ventes, applications, réseaux sociaux…
+                        On parle de Big Data. Pour stocker et exploiter ces données, deux solutions principales existent :
+                        le Data Warehouse et le Data Lake.
+                    </p>
+
+                    <h4>Data Warehouse</h4>
+                    <ul>
+                        <li><strong>But :</strong> stocker des données propres et organisées</li>
+                        <li><strong>Type :</strong> données structurées (tableaux, chiffres)</li>
+                        <li><strong>Utilisation :</strong> statistiques, tableaux de bord, décisions</li>
+                        <li><strong>Avantage :</strong> rapide et facile à analyser</li>
+                        <li><strong>Inconvénient :</strong> nécessite de préparer les données avant</li>
+                    </ul>
+
+                    <p>
+                        Le Data Warehouse est souvent utilisé par les entreprises pour suivre leurs performances,
+                        par exemple les ventes ou le comportement des clients.
+                    </p>
+
+                    <h4>Data Lake</h4>
+                    <ul>
+                        <li><strong>But :</strong> stocker toutes les données sans tri</li>
+                        <li><strong>Type :</strong> données variées (images, vidéos, textes…)</li>
+                        <li><strong>Utilisation :</strong> intelligence artificielle, analyse avancée</li>
+                        <li><strong>Avantage :</strong> très flexible</li>
+                        <li><strong>Inconvénient :</strong> peut devenir désorganisé</li>
+                    </ul>
+
+                    <p>
+                        Le Data Lake est utilisé pour des projets plus avancés comme le Machine Learning,
+                        où les données n’ont pas besoin d’être organisées au départ.
+                    </p>
+
+                    <h4>Exemples concrets</h4>
+                    <ul>
+                        <li>Netflix analyse les films regardés (Data Warehouse)</li>
+                        <li>Spotify stocke les données musicales et utilisateurs (Data Lake)</li>
+                        <li>Amazon utilise les deux pour ses recommandations</li>
+                    </ul>
+
+                    <h4>Tendances actuelles</h4>
+                    <p>
+                        Aujourd’hui, les entreprises utilisent souvent une combinaison des deux appelée
+                        “Lakehouse”, qui mélange les avantages du Data Lake et du Data Warehouse.
+                    </p>
+
+                    <h4>Pourquoi c’est important pour une entreprise ?</h4>
+                    <p>
+                        Les entreprises utilisent ces systèmes pour mieux comprendre leurs clients.
+                        En analysant les données (achats, navigation, préférences), elles peuvent améliorer leurs services.
+                    </p>
+
+                    <ul>
+                        <li>Proposer des produits adaptés aux clients</li>
+                        <li>Améliorer l’expérience utilisateur</li>
+                        <li>Prendre de meilleures décisions</li>
+                        <li>Anticiper les besoins des clients</li>
+                    </ul>
+
+                    <h4>Lien avec le client</h4>
+                    <p>
+                        Le client est directement concerné par l’analyse des données.
+                        Lorsqu’un utilisateur navigue sur un site, ses actions sont enregistrées et analysées
+                        pour proposer des recommandations personnalisées.
+                    </p>
+
+                    <ul>
+                        <li>Netflix recommande des films selon ce que tu regardes</li>
+                        <li>Amazon propose des produits similaires à tes achats</li>
+                        <li>Spotify suggère des musiques selon tes goûts</li>
+                    </ul>
+
+                    <p>
+                        Sans ces systèmes, les entreprises ne pourraient pas personnaliser leurs services.
+                    </p>
+
+                    <h4>Conclusion</h4>
+                    <p>
+                        Le Data Warehouse est utile pour analyser rapidement des données propres.
+                        Le Data Lake est plus adapté pour la Big Data et l’intelligence artificielle.
+                        Les deux sont complémentaires et essentiels dans les métiers de la data.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!--===== VEILLE 2 =====-->
+        <div class="veille__card">
+            <div class="veille__header">
+                <i class='bx bx-brain veille__icon'></i>
+                <h3 class="veille__title">IA : Machine Learning vs IA Générative</h3>
+            </div>
+
+            <div class="veille__content">
+                <p class="veille__date"><i class='bx bx-calendar'></i> Mise à jour : Avril 2026</p>
+
+                <div class="veille__description">
+
+                    <h4>Contexte</h4>
+                    <p>
+                        L’intelligence artificielle est devenue essentielle dans l’informatique.
+                        Elle est utilisée dans les applications, les réseaux sociaux et les entreprises.
+                        Deux types principaux d’IA existent : le Machine Learning et l’IA générative.
+                    </p>
+
+                    <h4>Machine Learning</h4>
+                    <ul>
+                        <li><strong>Principe :</strong> apprendre à partir de données</li>
+                        <li><strong>Exemples :</strong> recommandations Netflix, filtres anti-spam</li>
+                        <li><strong>Utilisation :</strong> prédiction, analyse, détection</li>
+                        <li><strong>Avantage :</strong> très efficace pour analyser</li>
+                        <li><strong>Inconvénient :</strong> ne crée pas de contenu</li>
+                    </ul>
+
+                    <p>
+                        Le Machine Learning est très utilisé dans les entreprises pour analyser des données
+                        et prendre des décisions automatiques.
+                    </p>
+
+                    <h4>IA Générative</h4>
+                    <ul>
+                        <li><strong>Principe :</strong> créer du contenu automatiquement</li>
+                        <li><strong>Exemples :</strong> ChatGPT, génération d’images</li>
+                        <li><strong>Utilisation :</strong> texte, code, images</li>
+                        <li><strong>Avantage :</strong> rapide et créatif</li>
+                        <li><strong>Inconvénient :</strong> peut se tromper</li>
+                    </ul>
+
+                    <p>
+                        L’IA générative est de plus en plus utilisée dans le développement,
+                        le marketing et les entreprises pour automatiser certaines tâches.
+                    </p>
+
+                    <h4>Exemples concrets</h4>
+                    <ul>
+                        <li>Google Maps prédit le trafic (Machine Learning)</li>
+                        <li>Amazon recommande des produits (Machine Learning)</li>
+                        <li>ChatGPT génère du texte (IA générative)</li>
+                        <li>IA qui crée des images ou du code</li>
+                    </ul>
+
+                    <h4>Tendances actuelles</h4>
+                    <p>
+                        L’IA générative est en forte croissance depuis 2023.
+                        Elle est utilisée dans l’éducation, le développement et la création de contenu.
+                    </p>
+
+                    <h4>Pourquoi c’est important pour une entreprise ?</h4>
+                    <p>
+                        L’intelligence artificielle permet aux entreprises d’automatiser des tâches
+                        et d’analyser les comportements des utilisateurs.
+                    </p>
+
+                    <ul>
+                        <li>Gagner du temps</li>
+                        <li>Améliorer les services</li>
+                        <li>Réduire les erreurs</li>
+                        <li>Analyser beaucoup de données rapidement</li>
+                    </ul>
+
+                    <h4>Lien avec le client</h4>
+                    <p>
+                        Le client bénéficie directement de l’intelligence artificielle.
+                        Les entreprises utilisent ses données pour améliorer son expérience.
+                    </p>
+
+                    <ul>
+                        <li>Chatbots qui répondent automatiquement</li>
+                        <li>Recommandations personnalisées</li>
+                        <li>Publicités adaptées</li>
+                        <li>Assistants vocaux</li>
+                    </ul>
+
+                    <p>
+                        Grâce à l’IA, le client a une expérience plus rapide et personnalisée.
+                    </p>
+
+                    <h4>Conclusion</h4>
+                    <p>
+                        Le Machine Learning sert à analyser et prédire.
+                        L’IA générative sert à créer du contenu.
+                        Les deux sont essentiels aujourd’hui et utilisés ensemble dans les entreprises.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+            <!--===== CONTACT =====-->
+            <section class="contact section" id="contact">
+                <h2 class="section-title">Contact</h2>
+
+                <div class="contact__container bd-grid">
+                    <form action="" class="contact__form" id="contact-form">
+                        <input type="text" id="contact-name" name="name" placeholder="Nom" class="contact__input" required>
+                        <input type="email" id="contact-email" name="email" placeholder="Email" class="contact__input" required>
+                        <textarea name="message" id="contact-message" cols="0" rows="10" placeholder="Votre message" class="contact__input" required></textarea>
+                        <button type="submit" class="contact__button button">
+                            <i class='bx bx-send'></i>
+                            Envoyer
+                        </button>
+                        <p class="contact__message" id="contact-message-text"></p>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title">Abdelmalek Elidrissi</p>
+            <div class="footer__social">
+                <a href="https://www.linkedin.com/in/abdelmalek-elidrissi/" target="_blank" rel="noopener noreferrer" class="footer__icon"><i class='bx bxl-linkedin' ></i></a>
+                <a href="https://github.com/abdel1452" target="_blank" rel="noopener noreferrer" class="footer__icon"><i class='bx bxl-github' ></i></a>
+            </div>
+            <p class="footer__copy">&#169; 2026 Abdelmalek Elidrissi - Étudiant BTS SIO SLAM. Tous droits réservés.</p>
+        </footer>
+
+        <!--===== THEME TOGGLE BUTTON =====-->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+            <i class='bx bx-sun theme-icon' id="theme-icon"></i>
+        </button>
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

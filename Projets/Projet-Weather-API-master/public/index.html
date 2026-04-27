@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API - Application Météo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        * {
+            font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .display-4, .display-1, .display-2, .display-3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+        
+        #forecast-container h1, #forecast-container h2, #forecast-container h3, #forecast-container h4, #forecast-container h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        #forecast-container .fw-bold {
+            font-weight: 600;
+        }
+        
+        .card-header h5, .card-header h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Styles spécifiques pour les prévisions */
+        #current-day, #current-date {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        #current-temp {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+        }
+        
+        #today-high, #today-low, #tomorrow-high, #tomorrow-low,
+        #morning-temp, #afternoon-temp, #evening-temp {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+        
+        .badge, .btn {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+        
+        /* Amélioration de la lisibilité */
+        .text-white, .text-white-50 {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        #hourly-forecast > div, #7day-forecast > div {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        #hourly-forecast .fw-bold, #7day-forecast .fw-bold {
+            font-weight: 600;
+        }
+        
+        /* Styles pour les boutons d'humeur */
+        .mood-btn {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border: 3px solid transparent !important;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mood-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mood-btn.btn-success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+        
+        .mood-btn.btn-warning {
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            color: white;
+        }
+        
+        .mood-btn.btn-danger {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+        }
+        
+        .mood-btn.btn-outline-secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #6c757d;
+        }
+        
+        .card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: none;
+        }
+        
+        .bg-primary, .bg-success, .bg-warning, .bg-danger, .bg-dark, .bg-secondary, .bg-info {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)) !important;
+        }
+        
+        .bg-success {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.9), rgba(25, 135, 84, 0.9)) !important;
+        }
+        
+        .bg-warning {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.9), rgba(255, 152, 0, 0.9)) !important;
+        }
+        
+        .bg-danger {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.9), rgba(200, 35, 51, 0.9)) !important;
+        }
+        
+        .bg-dark {
+            background: linear-gradient(135deg, rgba(33, 37, 41, 0.9), rgba(52, 58, 64, 0.9)) !important;
+        }
+        
+        .bg-secondary {
+            background: linear-gradient(135deg, rgba(108, 117, 125, 0.9), rgba(73, 80, 87, 0.9)) !important;
+        }
+        
+        .bg-info {
+            background: linear-gradient(135deg, rgba(13, 202, 240, 0.9), rgba(0, 180, 216, 0.9)) !important;
+        }
+        
+        #hourly-forecast, #7day-forecast {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+        }
+        
+        #hourly-forecast::-webkit-scrollbar, #7day-forecast::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        #hourly-forecast::-webkit-scrollbar-track, #7day-forecast::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        #hourly-forecast::-webkit-scrollbar-thumb, #7day-forecast::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+        
+        .nav-tabs .nav-link {
+            color: #667eea;
+            font-weight: 500;
+        }
+        
+        .nav-tabs .nav-link.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        #forecast-container .card {
+            transition: transform 0.3s ease;
+        }
+        
+        #forecast-container .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        #hourly-forecast > div, #7day-forecast > div {
+            transition: transform 0.2s ease;
+        }
+        
+        #hourly-forecast > div:hover, #7day-forecast > div:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Votre météo</h1>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" id="tab-current" href="#" onclick="showTab('current'); return false;">
+                Actuel
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="tab-forecast" href="#" onclick="showTab('forecast'); return false;">
+                Prévisions
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./all.html">
+                Historique
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="container py-5">
+    <!-- Onglet Actuel -->
+    <div id="tab-content-current">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8">
+                <!-- Section Coordonnées -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">📍 Votre position</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="geolocation-prompt" class="alert alert-info text-center">
+                            <p class="mb-3">
+                                <strong>🔒 Autorisation requise</strong><br>
+                                Cette application a besoin d'accéder à votre position pour afficher les données météo de votre localisation.
+                            </p>
+                            <button id="request-geolocation" class="btn btn-primary btn-lg">
+                                📍 Autoriser la géolocalisation
+                            </button>
+                        </div>
+                        <div id="coordinates-display" style="display: none;">
+                            <p class="text-center mb-2">
+                                <strong>Latitude :</strong> <span id="latitude" class="badge bg-info">—</span> &deg;
+                            </p>
+                            <p class="text-center mb-2">
+                                <strong>Longitude :</strong> <span id="longitude" class="badge bg-info">—</span> &deg;
+                            </p>
+                            <div class="text-center mt-3">
+                                <button id="refresh-location" class="btn btn-outline-primary btn-sm">
+                                    🔄 Actualiser la position
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Données météo -->
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">🌤️ Données météorologiques</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="mb-2">
+                            <strong>Pays :</strong> <span id="country">—</span>
+                        </p>
+                        <p class="mb-3">
+                            <strong>Ville :</strong> <span id="city">—</span>
+                        </p>
+                        <div class="mb-3">
+                            <img id="icon" alt="Weather Icon" style="display: none; width: 64px; height: 64px;">
+                        </div>
+                        <p class="mb-2">
+                            <strong>Condition :</strong> <span id="summary">—</span>
+                        </p>
+                        <p class="mb-3">
+                            <strong>Température :</strong> <span id="temperature" class="fs-4 fw-bold">—</span> &deg;C
+                        </p>
+                        <hr>
+                        <p class="mb-2">
+                            <strong>Niveau de pollution de l'air (index UK DEFRA) :</strong> 
+                            <span id="airQualityIndex" class="badge bg-warning text-dark">—</span>
+                        </p>
+                        <p class="mb-0">
+                            <strong>Concentration de particules fines (PM2,5) :</strong> 
+                            <span id="pm25" class="badge bg-secondary">—</span> (µg/m³)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Onglet Prévisions -->
+    <div id="tab-content-forecast" style="display: none;">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <!-- Vue moderne des prévisions -->
+                <div id="forecast-container" style="display: none;">
+                    <!-- Jour actuel et métriques détaillées -->
+                    <div class="row mb-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="card bg-primary text-white" style="border-radius: 15px;">
+                                <div class="card-body p-4">
+                                    <h2 id="current-day" class="text-white mb-2">—</h2>
+                                    <p id="current-date" class="text-white-50 mb-3">—</p>
+                                    <h1 id="current-temp" class="display-4 text-white mb-2">—°C</h1>
+                                    <p id="current-condition" class="text-white mb-3">—</p>
+                                    <img id="current-icon-large" alt="Weather Icon" style="width: 80px; height: 80px; display: none;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <div class="card bg-primary text-white" style="border-radius: 15px;">
+                                <div class="card-body p-4">
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <small class="text-white-50">UV Index</small>
+                                            <p class="mb-0"><strong id="uv-index">—</strong></p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <small class="text-white-50">Vent</small>
+                                            <p class="mb-0"><strong id="wind">—</strong></p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <small class="text-white-50">Humidité</small>
+                                            <p class="mb-0"><strong id="humidity">—</strong></p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <small class="text-white-50">Point de rosée</small>
+                                            <p class="mb-0"><strong id="dew-point">—</strong></p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <small class="text-white-50">Pression</small>
+                                            <p class="mb-0"><strong id="pressure">—</strong></p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <small class="text-white-50">Visibilité</small>
+                                            <p class="mb-0"><strong id="visibility">—</strong></p>
+                                        </div>
+                                        <div class="col-6">
+                                            <small class="text-white-50">🌅 Lever du soleil</small>
+                                            <p class="mb-0"><strong id="sunrise">—</strong></p>
+                                        </div>
+                                        <div class="col-6">
+                                            <small class="text-white-50">🌇 Coucher du soleil</small>
+                                            <p class="mb-0"><strong id="sunset">—</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prévisions horaires -->
+                    <div class="card mb-4" style="border-radius: 15px;">
+                        <div class="card-header bg-info text-white" style="border-radius: 15px 15px 0 0;">
+                            <h5 class="mb-0">Prévisions horaires</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="hourly-forecast" class="d-flex overflow-auto pb-2" style="gap: 15px;">
+                                <!-- Les prévisions horaires seront ajoutées ici -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aujourd'hui et Demain -->
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="card bg-success text-white" style="border-radius: 15px;">
+                                <div class="card-body p-4">
+                                    <h4 class="mb-3">AUJOURD'HUI</h4>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <h2 id="today-high" class="mb-1">—°C</h2>
+                                            <p id="today-condition" class="mb-0 small">—</p>
+                                        </div>
+                                        <img id="today-icon" alt="Today Icon" style="width: 60px; height: 60px; display: none;">
+                                    </div>
+                                    <hr class="bg-white">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h2 id="today-low" class="mb-1">—°C</h2>
+                                            <p id="today-night-condition" class="mb-0 small">—</p>
+                                        </div>
+                                        <img id="today-night-icon" alt="Tonight Icon" style="width: 50px; height: 50px; display: none;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="card bg-warning text-dark" style="border-radius: 15px;">
+                                <div class="card-body p-4">
+                                    <h4 class="mb-3">DEMAIN</h4>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <h2 id="tomorrow-high" class="mb-1">—°C</h2>
+                                            <p id="tomorrow-condition" class="mb-0 small">—</p>
+                                        </div>
+                                        <img id="tomorrow-icon" alt="Tomorrow Icon" style="width: 60px; height: 60px; display: none;">
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h2 id="tomorrow-low" class="mb-1">—°C</h2>
+                                            <p id="tomorrow-night-condition" class="mb-0 small">—</p>
+                                        </div>
+                                        <img id="tomorrow-night-icon" alt="Tomorrow Night Icon" style="width: 50px; height: 50px; display: none;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prévisions par partie de journée -->
+                    <div class="row mb-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="card bg-secondary text-white" style="border-radius: 15px;">
+                                <div class="card-body p-4 text-center">
+                                    <h5 class="mb-3">MATIN</h5>
+                                    <h3 id="morning-temp" class="mb-2">—°C</h3>
+                                    <p id="morning-condition" class="mb-2">—</p>
+                                    <img id="morning-icon" alt="Morning Icon" style="width: 50px; height: 50px; display: none; margin: 0 auto;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card bg-danger text-white" style="border-radius: 15px;">
+                                <div class="card-body p-4 text-center">
+                                    <h5 class="mb-3">APRÈS-MIDI</h5>
+                                    <h3 id="afternoon-temp" class="mb-2">—°C</h3>
+                                    <p id="afternoon-condition" class="mb-2">—</p>
+                                    <img id="afternoon-icon" alt="Afternoon Icon" style="width: 50px; height: 50px; display: none; margin: 0 auto;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card bg-dark text-white" style="border-radius: 15px;">
+                                <div class="card-body p-4 text-center">
+                                    <h5 class="mb-3">SOIR</h5>
+                                    <h3 id="evening-temp" class="mb-2">—°C</h3>
+                                    <p id="evening-condition" class="mb-2">—</p>
+                                    <img id="evening-icon" alt="Evening Icon" style="width: 50px; height: 50px; display: none; margin: 0 auto;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prévisions sur 7 jours -->
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-header bg-primary text-white" style="border-radius: 15px 15px 0 0;">
+                            <h5 class="mb-0">Prévisions sur 7 jours</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="7day-forecast" class="d-flex overflow-auto pb-2" style="gap: 20px;">
+                                <!-- Les prévisions sur 7 jours seront ajoutées ici -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message si pas de données -->
+                <div id="forecast-no-data" class="alert alert-info text-center">
+                    <p class="mb-3">Veuillez d'abord autoriser la géolocalisation et charger les données météo dans l'onglet "Actuel".</p>
+                    <button onclick="showTab('current'); return false;" class="btn btn-primary">Aller à l'onglet Actuel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8">
+
+            <!-- Section Configuration API -->
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">⚙️ Configuration API</h5>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info mb-3">
+                        <strong>ℹ️ Note :</strong> Cette application fonctionne entièrement côté client. 
+                        Les données sont stockées dans votre navigateur (localStorage).
+                    </div>
+            <div class="mb-3">
+                        <label for="api-key" class="form-label"><strong>Clé API WeatherAPI :</strong></label>
+                        <input type="text" id="api-key" class="form-control" placeholder="Entrez votre clé API WeatherAPI">
+                        <small class="form-text text-muted">
+                            Obtenez une clé gratuite sur <a href="https://www.weatherapi.com/signup.aspx" target="_blank">weatherapi.com</a>
+                        </small>
+                    </div>
+                    <div class="d-grid">
+                        <button id="save-api-key" class="btn btn-warning">
+                            💾 Enregistrer la clé API
+                        </button>
+                    </div>
+                    <div id="api-key-status" class="mt-3" style="display: none;"></div>
+                </div>
+            </div>
+
+            <!-- Section Enregistrement -->
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">💾 Enregistrer votre localisation</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label"><strong>Humeur :</strong></label>
+                        <div class="d-flex gap-3 flex-wrap mb-3" id="mood-selection">
+                            <button type="button" class="btn btn-lg mood-btn" data-mood="happy" data-emoji="😊" style="flex: 1; min-width: 120px; border-radius: 15px; padding: 1rem; font-size: 2rem; border: 3px solid transparent; transition: all 0.3s;">
+                                😊<br><small style="font-size: 0.8rem;">Heureux</small>
+                            </button>
+                            <button type="button" class="btn btn-lg mood-btn" data-mood="neutral" data-emoji="😐" style="flex: 1; min-width: 120px; border-radius: 15px; padding: 1rem; font-size: 2rem; border: 3px solid transparent; transition: all 0.3s;">
+                                😐<br><small style="font-size: 0.8rem;">Neutre</small>
+                            </button>
+                            <button type="button" class="btn btn-lg mood-btn" data-mood="sad" data-emoji="😔" style="flex: 1; min-width: 120px; border-radius: 15px; padding: 1rem; font-size: 2rem; border: 3px solid transparent; transition: all 0.3s;">
+                                😔<br><small style="font-size: 0.8rem;">Triste</small>
+                            </button>
+                        </div>
+                        <input type="hidden" id="mood" value="">
+                        <input type="hidden" id="mood-emoji" value="">
+                        <small class="form-text text-muted">Sélectionnez votre humeur actuelle</small>
+                    </div>
+            <div class="d-grid">
+                        <button id="submit" class="btn btn-primary btn-lg">
+                            📤 Envoyer les données
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+let lat;
+let long;
+let city;
+let country;
+let condition;
+let temperature;
+let defra;
+let pm25;
+
+// Fonction pour afficher un message d'erreur
+function showError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'alert alert-danger mt-3';
+    errorDiv.textContent = message;
+    const container = document.querySelector('.col-12.col-sm-10.col-md-8');
+    if (container) {
+        container.appendChild(errorDiv);
+        setTimeout(() => errorDiv.remove(), 5000);
+    } else {
+        console.error('Erreur:', message);
+    }
+}
+
+// Fonction pour obtenir la clé API depuis localStorage
+function getApiKey() {
+    return localStorage.getItem('weatherApiKey') || '';
+}
+
+// Fonction pour sauvegarder la clé API
+function saveApiKey(key) {
+    localStorage.setItem('weatherApiKey', key);
+}
+
+// Fonction pour charger les données météo
+async function loadWeatherData(latitude, longitude) {
+    try {
+        console.log('🌤️ Chargement des données météo pour:', latitude, longitude);
+        
+        const apiKey = getApiKey();
+        
+        if (!apiKey) {
+            throw new Error('Veuillez d\'abord configurer votre clé API WeatherAPI');
+        }
+        
+        // Appel direct à l'API WeatherAPI depuis le navigateur
+        const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude},${longitude}&days=7&aqi=yes&alerts=yes`;
+        console.log('📡 Appel API WeatherAPI direct:', apiUrl.replace(apiKey, 'API_KEY_HIDDEN'));
+        
+        let response;
+        try {
+            response = await fetch(apiUrl, {
+                method: 'GET',
+                mode: 'cors', // Explicitement activer CORS
+        headers: {
+                    'Accept': 'application/json'
+                }
+            });
+        } catch (fetchError) {
+            console.error('❌ Erreur de fetch:', fetchError);
+            if (fetchError.message.includes('CORS') || fetchError.message.includes('Failed to fetch')) {
+                throw new Error('Erreur CORS: L\'API WeatherAPI nécessite que la page soit servie via HTTP/HTTPS. Ouvrez le fichier via un serveur web local ou déployez-le.');
+            }
+            throw fetchError;
+        }
+        
+        // Lire le body une seule fois
+        let json;
+        const contentType = response.headers.get('content-type');
+        
+        if (!response.ok) {
+            let errorMessage = `Erreur HTTP: ${response.status}`;
+            try {
+                if (contentType && contentType.includes('application/json')) {
+                    json = await response.json();
+                    console.error('❌ Erreur HTTP:', response.status, json);
+                    errorMessage = json.message || json.error?.message || errorMessage;
+                } else {
+                    const errorText = await response.text();
+                    console.error('❌ Erreur HTTP (texte):', response.status, errorText);
+                    errorMessage = errorText || errorMessage;
+                }
+            } catch (e) {
+                console.error('❌ Erreur lors de la lecture de la réponse:', e);
+            }
+            throw new Error(errorMessage);
+        }
+        
+        // Lire la réponse JSON
+        try {
+            if (contentType && contentType.includes('application/json')) {
+                json = await response.json();
+            } else {
+                const text = await response.text();
+                console.error('❌ Réponse non-JSON reçue:', text);
+                throw new Error('Réponse invalide du serveur (non-JSON)');
+            }
+        } catch (e) {
+            console.error('❌ Erreur lors du parsing JSON:', e);
+            throw new Error('Réponse invalide du serveur: ' + e.message);
+        }
+        console.log('✅ Données reçues:', json);
+        console.log('📋 Structure des données:', {
+            hasLocation: !!json.location,
+            hasCurrent: !!json.current,
+            locationKeys: json.location ? Object.keys(json.location) : [],
+            currentKeys: json.current ? Object.keys(json.current) : []
+        });
+        
+        // Vérifier si l'API a retourné une erreur
+        if (json.error) {
+            console.error('❌ Erreur API:', json.error);
+            throw new Error(json.error.message || 'Erreur API météo');
+        }
+        
+        // Vérifier que les données nécessaires existent
+        if (!json.location) {
+            console.error('❌ Pas de données location:', json);
+            throw new Error('Données de localisation manquantes');
+        }
+        
+        if (!json.current) {
+            console.error('❌ Pas de données current:', json);
+            throw new Error('Données météo actuelles manquantes');
+        }
+        
+        // Récupérer les données de localisation
+        city = json.location.name || '—';
+        country = json.location.country || '—';
+        console.log('📍 Localisation extraite - Ville:', city, 'Pays:', country);
+        
+        // Vérifier que les valeurs ne sont pas vides
+        if (city === '—' || !city) {
+            console.warn('⚠️ Ville vide, vérification des données:', json.location);
+        }
+        if (country === '—' || !country) {
+            console.warn('⚠️ Pays vide, vérification des données:', json.location);
+        }
+        
+        // Récupérer les données météo
+        condition = json.current.condition ? json.current.condition.text : '—';
+        temperature = json.current.temp_c !== undefined ? json.current.temp_c : '—';
+        console.log('🌡️ Météo extraite - Condition:', condition, 'Température:', temperature + '°C');
+        
+        // Vérifier que les valeurs ne sont pas vides
+        if (condition === '—' || !condition) {
+            console.warn('⚠️ Condition vide, vérification des données:', json.current.condition);
+        }
+        if (temperature === '—' || temperature === undefined) {
+            console.warn('⚠️ Température vide, vérification des données:', json.current);
+        }
+        
+        // Récupérer l'icône météo
+        const iconElement = document.getElementById('icon');
+        if (json.current.condition && json.current.condition.icon) {
+            // Ajouter https: si l'URL commence par //
+            let iconUrl = json.current.condition.icon;
+            if (iconUrl.startsWith('//')) {
+                iconUrl = 'https:' + iconUrl;
+            }
+            iconElement.src = iconUrl;
+            iconElement.style.display = 'block';
+            iconElement.style.margin = '0 auto';
+            console.log('🖼️ Icône:', iconUrl);
+        } else {
+            iconElement.style.display = 'none';
+            console.log('⚠️ Pas d\'icône disponible');
+        }
+        
+        // Récupérer les données de qualité de l'air
+        if (json.current.air_quality) {
+            console.log('💨 Données qualité de l\'air:', json.current.air_quality);
+
+            const defraIndex = json.current.air_quality['gb-defra-index'];
+            let defraText = '—';
+
+            if (defraIndex !== undefined && defraIndex !== null) {
+            if (defraIndex === 1) {
+            defraText = 'Faible';
+            } else if (defraIndex === 2) {
+            defraText = 'Modérée';
+            } else if (defraIndex === 3) {
+            defraText = 'Élevée';
+            } else if (defraIndex === 4) {
+            defraText = 'Très élevée';
+            } else {
+            defraText = 'Indéterminé';
+}
+            }
+            
+            defra = defraText;
+            pm25 = json.current.air_quality.pm2_5 !== undefined && json.current.air_quality.pm2_5 !== null 
+                ? json.current.air_quality.pm2_5 
+                : '—';
+            
+            console.log('🌬️ Qualité air - DEFRA:', defra, 'PM2.5:', pm25);
+        } else {
+            console.log('⚠️ Pas de données de qualité de l\'air disponibles');
+            defra = 'Non disponible';
+            pm25 = '—';
+        }
+        
+        // Afficher les données dans la page
+        console.log('🎨 Début de l\'affichage des données...');
+        console.log('📊 Valeurs à afficher:', {
+            city,
+            country,
+            condition,
+            temperature,
+            defra,
+            pm25
+        });
+        
+        const cityElement = document.getElementById('city');
+        const countryElement = document.getElementById('country');
+        const summaryElement = document.getElementById('summary');
+        const temperatureElement = document.getElementById('temperature');
+        const airQualityElement = document.getElementById('airQualityIndex');
+        const pm25Element = document.getElementById('pm25');
+        
+        // Vérifier que tous les éléments existent
+        const elements = {
+            city: cityElement,
+            country: countryElement,
+            summary: summaryElement,
+            temperature: temperatureElement,
+            airQualityIndex: airQualityElement,
+            pm25: pm25Element
+        };
+        
+        for (const [name, element] of Object.entries(elements)) {
+            if (!element) {
+                console.error(`❌ Élément ${name} non trouvé dans le DOM`);
+            }
+        }
+        
+        // Afficher les données
+        if (cityElement) {
+            cityElement.textContent = city || '—';
+            console.log('✅ Ville affichée:', cityElement.textContent);
+        }
+        
+        if (countryElement) {
+            countryElement.textContent = country || '—';
+            console.log('✅ Pays affiché:', countryElement.textContent);
+        }
+        
+        if (summaryElement) {
+            summaryElement.textContent = condition || '—';
+            console.log('✅ Condition affichée:', summaryElement.textContent);
+        }
+        
+        if (temperatureElement) {
+            temperatureElement.textContent = temperature !== undefined && temperature !== null ? temperature : '—';
+            console.log('✅ Température affichée:', temperatureElement.textContent);
+        }
+        
+        if (airQualityElement) {
+            airQualityElement.textContent = defra || '—';
+            console.log('✅ Qualité air affichée:', airQualityElement.textContent);
+        }
+        
+        if (pm25Element) {
+            pm25Element.textContent = pm25 !== undefined && pm25 !== null ? pm25 : '—';
+            console.log('✅ PM2.5 affiché:', pm25Element.textContent);
+        }
+        
+        console.log('✅ Toutes les données affichées avec succès');
+        console.log('🔍 Vérification finale des valeurs affichées:', {
+            city: cityElement?.textContent,
+            country: countryElement?.textContent,
+            condition: summaryElement?.textContent,
+            temperature: temperatureElement?.textContent,
+            defra: airQualityElement?.textContent,
+            pm25: pm25Element?.textContent
+        });
+        
+        // Charger aussi les prévisions en arrière-plan pour l'onglet Prévisions
+        loadForecastData(latitude, longitude).catch(err => {
+            console.warn('⚠️ Impossible de charger les prévisions:', err);
+        });
+        
+    } catch (error) {
+        console.error('❌ Erreur lors du chargement des données météo:', error);
+        console.error('Stack:', error.stack);
+        showError('Erreur lors du chargement des données météo: ' + error.message);
+        
+        // Afficher des valeurs par défaut
+        const elements = {
+            'city': '—',
+            'country': '—',
+            'summary': 'Données non disponibles',
+            'temperature': '—',
+            'airQualityIndex': '—',
+            'pm25': '—'
+        };
+        
+        for (const [id, value] of Object.entries(elements)) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = value;
+            } else {
+                console.error(`❌ Élément ${id} non trouvé pour afficher la valeur par défaut`);
+            }
+        }
+    }
+}
+
+// Fonction pour changer d'onglet
+function showTab(tabName) {
+    // Masquer tous les contenus d'onglets
+    document.getElementById('tab-content-current').style.display = 'none';
+    document.getElementById('tab-content-forecast').style.display = 'none';
+    
+    // Désactiver tous les onglets
+    document.getElementById('tab-current').classList.remove('active');
+    document.getElementById('tab-forecast').classList.remove('active');
+    
+    // Afficher l'onglet sélectionné
+    if (tabName === 'current') {
+        document.getElementById('tab-content-current').style.display = 'block';
+        document.getElementById('tab-current').classList.add('active');
+    } else if (tabName === 'forecast') {
+        document.getElementById('tab-content-forecast').style.display = 'block';
+        document.getElementById('tab-forecast').classList.add('active');
+        
+        // Charger les prévisions si on a les coordonnées
+        if (lat && long) {
+            loadForecastData(lat, long);
+        } else {
+            document.getElementById('forecast-container').style.display = 'none';
+            document.getElementById('forecast-no-data').style.display = 'block';
+        }
+    }
+}
+
+// Fonction pour charger les prévisions météo
+async function loadForecastData(latitude, longitude) {
+    try {
+        console.log('📅 Chargement des prévisions pour:', latitude, longitude);
+        
+        const apiKey = getApiKey();
+        
+        if (!apiKey) {
+            throw new Error('Veuillez d\'abord configurer votre clé API WeatherAPI');
+        }
+        
+        // Appel à l'API WeatherAPI pour les prévisions (7 jours avec prévisions horaires)
+        const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude},${longitude}&days=7&aqi=yes&alerts=yes`;
+        console.log('📡 Appel API Prévisions:', apiUrl.replace(apiKey, 'API_KEY_HIDDEN'));
+        
+        let response;
+        try {
+            response = await fetch(apiUrl, {
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+        } catch (fetchError) {
+            console.error('❌ Erreur de fetch:', fetchError);
+            if (fetchError.message.includes('CORS') || fetchError.message.includes('Failed to fetch')) {
+                throw new Error('Erreur CORS: L\'API nécessite que la page soit servie via HTTP/HTTPS.');
+            }
+            throw fetchError;
+        }
+        
+        let json;
+        const contentType = response.headers.get('content-type');
+        
+        if (!response.ok) {
+            let errorMessage = `Erreur HTTP: ${response.status}`;
+            try {
+                if (contentType && contentType.includes('application/json')) {
+                    json = await response.json();
+                    console.error('❌ Erreur HTTP:', response.status, json);
+                    errorMessage = json.error?.message || errorMessage;
+                } else {
+                    const errorText = await response.text();
+                    console.error('❌ Erreur HTTP (texte):', response.status, errorText);
+                    errorMessage = errorText || errorMessage;
+                }
+            } catch (e) {
+                console.error('❌ Erreur lors de la lecture de la réponse:', e);
+            }
+            throw new Error(errorMessage);
+        }
+        
+        try {
+            if (contentType && contentType.includes('application/json')) {
+                json = await response.json();
+            } else {
+                const text = await response.text();
+                console.error('❌ Réponse non-JSON reçue:', text);
+                throw new Error('Réponse invalide du serveur (non-JSON)');
+            }
+        } catch (e) {
+            console.error('❌ Erreur lors du parsing JSON:', e);
+            throw new Error('Réponse invalide du serveur: ' + e.message);
+        }
+        
+        console.log('✅ Données de prévisions reçues:', json);
+        
+        if (json.error) {
+            throw new Error(json.error.message || 'Erreur API météo');
+        }
+        
+        if (!json.location || !json.current || !json.forecast) {
+            throw new Error('Données de prévisions incomplètes');
+        }
+        
+        // Afficher les prévisions
+        displayForecastData(json);
+        
+    } catch (error) {
+        console.error('❌ Erreur lors du chargement des prévisions:', error);
+        showError('Erreur lors du chargement des prévisions: ' + error.message);
+        document.getElementById('forecast-container').style.display = 'none';
+        document.getElementById('forecast-no-data').style.display = 'block';
+    }
+}
+
+// Fonction pour afficher les données de prévisions
+function displayForecastData(data) {
+    const location = data.location;
+    const current = data.current;
+    const forecast = data.forecast;
+    
+    // Afficher le conteneur
+    document.getElementById('forecast-container').style.display = 'block';
+    document.getElementById('forecast-no-data').style.display = 'none';
+    
+    // Jour actuel
+    const now = new Date();
+    const days = ['DIMANCHE', 'LUNDI', 'MARDI', 'MERCREDI', 'JEUDI', 'VENDREDI', 'SAMEDI'];
+    const months = ['JANVIER', 'FÉVRIER', 'MARS', 'AVRIL', 'MAI', 'JUIN', 'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE'];
+    
+    document.getElementById('current-day').textContent = days[now.getDay()];
+    document.getElementById('current-date').textContent = `${now.getDate()} ${months[now.getMonth()]}`;
+    document.getElementById('current-temp').textContent = `${Math.round(current.temp_c)}°C`;
+    document.getElementById('current-condition').textContent = current.condition.text.toUpperCase();
+    
+    if (current.condition.icon) {
+        const iconEl = document.getElementById('current-icon-large');
+        let iconUrl = current.condition.icon;
+        if (iconUrl.startsWith('//')) iconUrl = 'https:' + iconUrl;
+        iconEl.src = iconUrl;
+        iconEl.style.display = 'block';
+    }
+    
+    // Métriques détaillées
+    document.getElementById('uv-index').textContent = `${current.uv} / 10`;
+    document.getElementById('wind').textContent = `${current.wind_dir} ${Math.round(current.wind_kph)} km/h`;
+    document.getElementById('humidity').textContent = `${current.humidity}%`;
+    document.getElementById('dew-point').textContent = `${Math.round(current.dewpoint_c)}°C`;
+    document.getElementById('pressure').textContent = `${current.pressure_mb} mb`;
+    document.getElementById('visibility').textContent = `${current.vis_km} km`;
+    document.getElementById('sunrise').textContent = forecast.forecastday[0].astro.sunrise;
+    document.getElementById('sunset').textContent = forecast.forecastday[0].astro.sunset;
+    
+    // Prévisions horaires (prochaines 24h)
+    const hourlyContainer = document.getElementById('hourly-forecast');
+    hourlyContainer.innerHTML = '';
+    
+    const todayHours = forecast.forecastday[0].hour;
+    const currentHour = now.getHours();
+    
+    // Afficher les heures à partir de maintenant
+    const hoursToShow = todayHours.slice(currentHour).slice(0, 12);
+    
+    hoursToShow.forEach(hour => {
+        const hourDate = new Date(hour.time);
+        const hourDiv = document.createElement('div');
+        hourDiv.className = 'text-center';
+        hourDiv.style.minWidth = '80px';
+        
+        let iconUrl = hour.condition.icon;
+        if (iconUrl.startsWith('//')) iconUrl = 'https:' + iconUrl;
+        
+        hourDiv.innerHTML = `
+            <div class="fw-bold mb-2 text-white">${hourDate.getHours()}h</div>
+            <img src="${iconUrl}" alt="${hour.condition.text}" style="width: 40px; height: 40px;" class="mb-2">
+            <div class="fw-bold text-white">${Math.round(hour.temp_c)}°C</div>
+        `;
+        hourlyContainer.appendChild(hourDiv);
+    });
+    
+    // Aujourd'hui
+    const today = forecast.forecastday[0].day;
+    document.getElementById('today-high').textContent = `${Math.round(today.maxtemp_c)}°C`;
+    document.getElementById('today-condition').textContent = today.condition.text.toUpperCase();
+    document.getElementById('today-low').textContent = `${Math.round(today.mintemp_c)}°C`;
+    document.getElementById('today-night-condition').textContent = today.condition.text.toUpperCase();
+    
+    if (today.condition.icon) {
+        let iconUrl = today.condition.icon;
+        if (iconUrl.startsWith('//')) iconUrl = 'https:' + iconUrl;
+        document.getElementById('today-icon').src = iconUrl;
+        document.getElementById('today-icon').style.display = 'block';
+        document.getElementById('today-night-icon').src = iconUrl;
+        document.getElementById('today-night-icon').style.display = 'block';
+    }
+    
+    // Demain
+    const tomorrow = forecast.forecastday[1].day;
+    document.getElementById('tomorrow-high').textContent = `${Math.round(tomorrow.maxtemp_c)}°C`;
+    document.getElementById('tomorrow-condition').textContent = tomorrow.condition.text.toUpperCase();
+    document.getElementById('tomorrow-low').textContent = `${Math.round(tomorrow.mintemp_c)}°C`;
+    document.getElementById('tomorrow-night-condition').textContent = tomorrow.condition.text.toUpperCase();
+    
+    if (tomorrow.condition.icon) {
+        let iconUrl = tomorrow.condition.icon;
+        if (iconUrl.startsWith('//')) iconUrl = 'https:' + iconUrl;
+        document.getElementById('tomorrow-icon').src = iconUrl;
+        document.getElementById('tomorrow-icon').style.display = 'block';
+        document.getElementById('tomorrow-night-icon').src = iconUrl;
+        document.getElementById('tomorrow-night-icon').style.display = 'block';
+    }
+    
+    // Prévisions par partie de journée (aujourd'hui)
+    const morningHour = todayHours.find(h => new Date(h.time).getHours() >= 6 && new Date(h.time).getHours() < 12) || todayHours[6];
+    const afternoonHour = todayHours.find(h => new Date(h.time).getHours() >= 12 && new Date(h.time).getHours() < 18) || todayHours[12];
+    const eveningHour = todayHours.find(h => new Date(h.time).getHours() >= 18) || todayHours[18];
+    
+    if (morningHour) {
+        document.getElementById('morning-temp').textContent = `${Math.round(morningHour.temp_c)}°C`;
+        document.getElementById('morning-condition').textContent = morningHour.condition.text.toUpperCase();
+        if (morningHour.condition.icon) {
+            let iconUrl = morningHour.condition.icon;
+            if (iconUrl.startsWith('//')) iconUrl = 'https:' + iconUrl;
+            document.getElementById('morning-icon').src = iconUrl;
+            document.getElementById('morning-icon').style.display = 'block';
+        }
+    }
+    
+    if (afternoonHour) {
+        document.getElementById('afternoon-temp').textContent = `${Math.round(afternoonHour.temp_c)}°C`;
+        document.getElementById('afternoon-condition').textContent = afternoonHour.condition.text.toUpperCase();
+        if (afternoonHour.condition.icon) {
+            let iconUrl = afternoonHour.condition.icon;
+            if (iconUrl.startsWith('//')) iconUrl = 'https:' + iconUrl;
+            document.getElementById('afternoon-icon').src = iconUrl;
+            document.getElementById('afternoon-icon').style.display = 'block';
+        }
+    }
+    
+    if (eveningHour) {
+        document.getElementById('evening-temp').textContent = `${Math.round(eveningHour.temp_c)}°C`;
+        document.getElementById('evening-condition').textContent = eveningHour.condition.text.toUpperCase();
+        if (eveningHour.condition.icon) {
+            let iconUrl = eveningHour.condition.icon;
+            if (iconUrl.startsWith('//')) iconUrl = 'https:' + iconUrl;
+            document.getElementById('evening-icon').src = iconUrl;
+            document.getElementById('evening-icon').style.display = 'block';
+        }
+    }
+    
+    // Prévisions sur 7 jours
+    const sevenDayContainer = document.getElementById('7day-forecast');
+    sevenDayContainer.innerHTML = '';
+    
+    forecast.forecastday.forEach((day, index) => {
+        const dayDate = new Date(day.date);
+        const dayNames = ['DIM', 'LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM'];
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'text-center p-3';
+        dayDiv.style.minWidth = '120px';
+        dayDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        dayDiv.style.borderRadius = '10px';
+        
+        let iconUrl = day.day.condition.icon;
+        if (iconUrl.startsWith('//')) iconUrl = 'https:' + iconUrl;
+        
+        dayDiv.innerHTML = `
+            <div class="fw-bold mb-2 text-white">${dayNames[dayDate.getDay()]}</div>
+            <img src="${iconUrl}" alt="${day.day.condition.text}" style="width: 50px; height: 50px;" class="mb-2">
+            <div class="fw-bold text-white">${Math.round(day.day.maxtemp_c)}°C</div>
+            <div class="text-white-50 small">${Math.round(day.day.mintemp_c)}°C</div>
+        `;
+        sevenDayContainer.appendChild(dayDiv);
+    });
+    
+    console.log('✅ Prévisions affichées avec succès');
+}
+
+// Fonction pour sauvegarder les données dans localStorage
+function saveToLocalStorage(data) {
+    try {
+        let records = JSON.parse(localStorage.getItem('weatherRecords') || '[]');
+        records.push(data);
+        localStorage.setItem('weatherRecords', JSON.stringify(records));
+        return true;
+    } catch (error) {
+        console.error('Erreur lors de la sauvegarde:', error);
+        return false;
+    }
+}
+
+// Gestionnaire de clic pour le bouton Envoyer
+let button = null;
+document.addEventListener('DOMContentLoaded', () => {
+    // Charger la clé API si elle existe
+    const savedApiKey = getApiKey();
+    if (savedApiKey) {
+        document.getElementById('api-key').value = savedApiKey;
+        const statusEl = document.getElementById('api-key-status');
+        if (statusEl) {
+            statusEl.innerHTML = '<div class="alert alert-success">✅ Clé API configurée</div>';
+            statusEl.style.display = 'block';
+        }
+    }
+    
+    // Bouton pour sauvegarder la clé API
+    const saveApiKeyButton = document.getElementById('save-api-key');
+    const apiKeyStatus = document.getElementById('api-key-status');
+    
+    if (saveApiKeyButton) {
+        saveApiKeyButton.addEventListener('click', () => {
+            const apiKey = document.getElementById('api-key').value.trim();
+            if (apiKey) {
+                saveApiKey(apiKey);
+                if (apiKeyStatus) {
+                    apiKeyStatus.innerHTML = '<div class="alert alert-success">✅ Clé API enregistrée avec succès !</div>';
+                    apiKeyStatus.style.display = 'block';
+                }
+            } else {
+                if (apiKeyStatus) {
+                    apiKeyStatus.innerHTML = '<div class="alert alert-danger">❌ Veuillez entrer une clé API</div>';
+                    apiKeyStatus.style.display = 'block';
+                }
+            }
+        });
+    }
+    
+    // Afficher le statut de la clé API au chargement
+    if (savedApiKey && apiKeyStatus) {
+        apiKeyStatus.innerHTML = '<div class="alert alert-success">✅ Clé API configurée</div>';
+        apiKeyStatus.style.display = 'block';
+    }
+    
+    // Gestion de la sélection d'humeur
+    document.querySelectorAll('.mood-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Réinitialiser tous les boutons
+            document.querySelectorAll('.mood-btn').forEach(b => {
+                b.classList.remove('btn-primary', 'btn-success', 'btn-warning', 'btn-danger');
+                b.classList.add('btn-outline-secondary');
+                b.style.border = '3px solid transparent';
+                b.style.transform = 'scale(1)';
+            });
+            
+            // Activer le bouton sélectionné
+            const mood = this.getAttribute('data-mood');
+            const emoji = this.getAttribute('data-emoji');
+            
+            document.getElementById('mood').value = mood;
+            document.getElementById('mood-emoji').value = emoji;
+            
+            // Style selon l'humeur
+            this.classList.remove('btn-outline-secondary');
+            if (mood === 'happy') {
+                this.classList.add('btn-success');
+            } else if (mood === 'neutral') {
+                this.classList.add('btn-warning');
+            } else if (mood === 'sad') {
+                this.classList.add('btn-danger');
+            }
+            this.style.border = '3px solid #667eea';
+            this.style.transform = 'scale(1.05)';
+        });
+    });
+    
+    button = document.getElementById('submit');
+    if (button) {
+        button.addEventListener('click', async event => {
+            if (!lat || !long) {
+                showError('Veuillez attendre que votre position soit détectée');
+                return;
+            }
+            
+            const mood = document.getElementById('mood').value;
+            const moodEmoji = document.getElementById('mood-emoji').value;
+            
+            if (!mood) {
+                showError('Veuillez sélectionner votre humeur');
+                return;
+            }
+            
+            // Sauvegarder dans localStorage
+            const data = {
+                lat,
+                long,
+                mood,
+                moodEmoji,
+                country,
+                city,
+                condition,
+                temperature,
+                defra,
+                pm25,
+                timestamp: Date.now()
+            };
+            
+            try {
+                // Sauvegarder dans localStorage
+                let records = JSON.parse(localStorage.getItem('weatherRecords') || '[]');
+                records.push(data);
+                localStorage.setItem('weatherRecords', JSON.stringify(records));
+                
+                const successDiv = document.createElement('div');
+                successDiv.className = 'alert alert-success mt-3';
+                successDiv.textContent = '✅ Données enregistrées avec succès !';
+                const container = document.querySelector('.col-12.col-sm-10.col-md-8');
+                if (container) {
+                    container.appendChild(successDiv);
+                    setTimeout(() => successDiv.remove(), 3000);
+                }
+                
+                // Réinitialiser la sélection d'humeur
+                document.getElementById('mood').value = '';
+                document.getElementById('mood-emoji').value = '';
+                document.querySelectorAll('.mood-btn').forEach(btn => {
+                    btn.classList.remove('btn-primary', 'btn-success', 'btn-warning', 'btn-danger');
+                    btn.classList.add('btn-outline-secondary');
+                    btn.style.border = '3px solid transparent';
+                    btn.style.transform = 'scale(1)';
+                });
+            } catch (error) {
+                console.error('Erreur lors de l\'enregistrement:', error);
+                showError('Erreur lors de l\'enregistrement des données');
+            }
+        });
+    }
+});
+
+// Fonction pour demander la géolocalisation
+function requestGeolocation() {
+    console.log('requestGeolocation() appelée');
+    
+    if (!("geolocation" in navigator)) {
+        showError('La géolocalisation n\'est pas disponible sur votre navigateur');
+        return;
+    }
+
+    // Masquer le prompt et afficher le chargement
+    const prompt = document.getElementById('geolocation-prompt');
+    const display = document.getElementById('coordinates-display');
+    const latElement = document.getElementById('latitude');
+    const longElement = document.getElementById('longitude');
+    
+    if (prompt) {
+        prompt.style.display = 'none';
+    }
+    
+    if (display) {
+        display.style.display = 'block';
+    }
+    
+    if (latElement) {
+        latElement.textContent = 'Chargement...';
+    }
+    
+    if (longElement) {
+        longElement.textContent = 'Chargement...';
+    }
+    
+    console.log('Demande de géolocalisation envoyée au navigateur...');
+
+    // Options pour la géolocalisation
+    const options = {
+        enableHighAccuracy: true,  // Utiliser la meilleure précision disponible
+        timeout: 10000,            // Timeout de 10 secondes
+        maximumAge: 0              // Ne pas utiliser de position en cache
+    };
+
+    navigator.geolocation.getCurrentPosition(
+        async (position) => {
+            try {
+                console.log('✅ Position obtenue avec succès');
+                
+                // Récupérer et afficher les coordonnées
+                lat = position.coords.latitude;
+                long = position.coords.longitude;
+                
+                console.log('Coordonnées récupérées:', lat, long);
+                console.log('Précision:', position.coords.accuracy, 'mètres');
+                
+                // S'assurer que les éléments existent avant de les modifier
+                const latElement = document.getElementById('latitude');
+                const longElement = document.getElementById('longitude');
+                
+                if (latElement && longElement) {
+                    latElement.textContent = lat.toFixed(6);
+                    longElement.textContent = long.toFixed(6);
+                    console.log('Coordonnées affichées dans le DOM');
+                } else {
+                    console.error('Éléments latitude/longitude non trouvés');
+                }
+                
+                // Charger les données météo
+                await loadWeatherData(lat, long);
+                
+            } catch (error) {
+                console.error('Erreur:', error);
+                showError('Erreur lors de la récupération de votre position: ' + error.message);
+                const latElement = document.getElementById('latitude');
+                const longElement = document.getElementById('longitude');
+                if (latElement) latElement.textContent = '—';
+                if (longElement) longElement.textContent = '—';
+            }
+        },
+        (error) => {
+            console.error('Erreur de géolocalisation:', error);
+            let errorMessage = '';
+            let showPromptAgain = false;
+            
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    errorMessage = '❌ Permission refusée. Veuillez autoriser la géolocalisation dans les paramètres de votre navigateur et réessayez.';
+                    showPromptAgain = true;
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    errorMessage = '⚠️ Position indisponible. Vérifiez que votre GPS est activé.';
+                    showPromptAgain = true;
+                    break;
+                case error.TIMEOUT:
+                    errorMessage = '⏱️ Timeout. La demande de géolocalisation a pris trop de temps. Veuillez réessayer.';
+                    showPromptAgain = true;
+                    break;
+                default:
+                    errorMessage = '❌ Erreur inconnue lors de la récupération de la position.';
+                    showPromptAgain = true;
+                    break;
+            }
+            
+            showError(errorMessage);
+            document.getElementById('latitude').textContent = '—';
+            document.getElementById('longitude').textContent = '—';
+            
+            // Réafficher le prompt si l'utilisateur peut réessayer
+            if (showPromptAgain) {
+                document.getElementById('geolocation-prompt').style.display = 'block';
+                document.getElementById('coordinates-display').style.display = 'none';
+            }
+        },
+        options
+    );
+}
+
+// Initialiser les event listeners quand le DOM est prêt
+function initializeApp() {
+    // Vérifier si la géolocalisation est disponible
+    if ("geolocation" in navigator) {
+        console.log('✅ Géolocalisation disponible');
+        
+        // Ajouter l'événement au bouton de demande
+        const requestButton = document.getElementById('request-geolocation');
+        if (requestButton) {
+            requestButton.addEventListener('click', () => {
+                console.log('Bouton cliqué - Demande de géolocalisation');
+                requestGeolocation();
+    });
+} else {
+            console.error('Bouton request-geolocation non trouvé');
+        }
+        
+        // Ajouter l'événement au bouton d'actualisation
+        const refreshButton = document.getElementById('refresh-location');
+        if (refreshButton) {
+            refreshButton.addEventListener('click', () => {
+                console.log('Bouton actualisation cliqué');
+                requestGeolocation();
+            });
+        }
+        
+    } else {
+        console.log('❌ Géolocalisation non disponible');
+        const prompt = document.getElementById('geolocation-prompt');
+        if (prompt) {
+            prompt.innerHTML = `
+                <div class="alert alert-warning">
+                    <strong>⚠️ Géolocalisation non disponible</strong><br>
+                    Votre navigateur ne supporte pas la géolocalisation. Veuillez utiliser un navigateur moderne.
+                </div>
+            `;
+        }
+    }
+}
+
+// Attendre que le DOM soit chargé
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    // DOM déjà chargé
+    initializeApp();
+    }
+</script>
+
+</body>
+</html>
