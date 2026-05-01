@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  {% include 'admin/partials/_login.html.twig' %}
+
+  <div id="dashboard" class="d-none">
+    {% include 'admin/partials/_navbar.html.twig' %}
+    {% include 'admin/partials/_main_dashboard.html.twig' %}
+  </div>
+
+  {% include 'admin/partials/_modals.html.twig' %}
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container"></div>
+{% endblock %}

@@ -38,8 +38,8 @@
                         <li class="nav__item"><a href="#about" class="nav__link">À propos</a></li>
                         <li class="nav__item"><a href="#skills" class="nav__link">Compétences</a></li>
                         <li class="nav__item"><a href="#work" class="nav__link">Projets</a></li>
-                        <li class="nav__item"><a href="#e4" class="nav__link">Épreuve E4</a></li>
                         <li class="nav__item"><a href="#veille" class="nav__link">Veille</a></li>
+                        <li class="nav__item"><a href="#e4" class="nav__link">Épreuve E4</a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                     </ul>
                 </div>
@@ -53,120 +53,48 @@
         </header>
 
         <main class="l-main">
-            <!-- Graphique de données animé en arrière-plan -->
-            <div class="animated-chart">
-                <svg class="chart-svg" viewBox="0 0 1200 600" preserveAspectRatio="none">
-                    <!-- Lignes de grille horizontales -->
-                    <line class="grid-line" x1="0" y1="100" x2="1200" y2="100" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
-                    <line class="grid-line" x1="0" y1="200" x2="1200" y2="200" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
-                    <line class="grid-line" x1="0" y1="300" x2="1200" y2="300" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
-                    <line class="grid-line" x1="0" y1="400" x2="1200" y2="400" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
-                    <line class="grid-line" x1="0" y1="500" x2="1200" y2="500" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
-                    
-                    <!-- Labels numériques sur l'axe Y (valeurs) -->
-                    <text class="chart-label" x="30" y="105" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">100</text>
-                    <text class="chart-label" x="30" y="205" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">80</text>
-                    <text class="chart-label" x="30" y="305" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">60</text>
-                    <text class="chart-label" x="30" y="405" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">40</text>
-                    <text class="chart-label" x="30" y="505" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">20</text>
-                    <text class="chart-label" x="30" y="555" fill="rgba(0, 212, 255, 0.4)" font-size="14" font-family="Arial, sans-serif" font-weight="500">0</text>
-                    
-                    <!-- Labels numériques sur l'axe X (temps/périodes) -->
-                    <text class="chart-label" x="135" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q1</text>
-                    <text class="chart-label" x="235" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q2</text>
-                    <text class="chart-label" x="335" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q3</text>
-                    <text class="chart-label" x="435" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q4</text>
-                    <text class="chart-label" x="535" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q5</text>
-                    <text class="chart-label" x="635" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q6</text>
-                    <text class="chart-label" x="735" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q7</text>
-                    <text class="chart-label" x="835" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q8</text>
-                    <text class="chart-label" x="935" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q9</text>
-                    <text class="chart-label" x="1035" y="570" fill="rgba(0, 212, 255, 0.4)" font-size="12" font-family="Arial, sans-serif" font-weight="500">Q10</text>
-                    
-                    <!-- Graphique en ligne avec points de données animés -->
-                    <polyline class="data-line" points="100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400" 
-                        fill="none" stroke="rgba(0, 212, 255, 0.4)" stroke-width="2">
-                        <animate attributeName="points" 
-                            values="100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400;
-                                    100,420 150,400 200,380 250,400 300,360 350,420 400,380 450,400 500,360 550,420 600,380 650,400 700,360 750,420 800,380 850,400 900,360 950,420 1000,380 1050,400 1100,360;
-                                    100,400 150,420 200,360 250,400 300,420 350,360 400,400 450,420 500,360 550,400 600,420 650,360 700,400 750,420 800,360 850,400 900,420 950,360 1000,400 1050,420 1100,360;
-                                    100,450 150,380 200,420 250,350 300,400 350,320 400,380 450,340 500,400 550,360 600,420 650,380 700,400 750,350 800,420 850,380 900,400 950,360 1000,420 1050,380 1100,400"
-                            dur="8s" repeatCount="indefinite"/>
-                    </polyline>
-                    
-                    <!-- Points de données animés -->
-                    <circle class="data-point" cx="100" cy="450" r="4" fill="rgba(0, 212, 255, 0.6)">
-                        <animate attributeName="cy" values="450;420;400;450" dur="8s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle class="data-point" cx="300" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
-                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle class="data-point" cx="500" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
-                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle class="data-point" cx="700" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
-                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle class="data-point" cx="900" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
-                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle class="data-point" cx="1100" cy="400" r="4" fill="rgba(0, 212, 255, 0.6)">
-                        <animate attributeName="cy" values="400;360;400;400" dur="8s" repeatCount="indefinite"/>
-                    </circle>
-                    
-                    <!-- Barres de données animées -->
-                    <rect class="chart-bar" x="120" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
-                        <animate attributeName="height" values="0;80;120;100;70;0" dur="5s" repeatCount="indefinite"/>
-                        <animate attributeName="y" values="450;370;330;350;380;450" dur="5s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect class="chart-bar" x="220" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
-                        <animate attributeName="height" values="0;100;80;120;90;0" dur="4.5s" repeatCount="indefinite"/>
-                        <animate attributeName="y" values="450;350;370;330;360;450" dur="4.5s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect class="chart-bar" x="320" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
-                        <animate attributeName="height" values="0;120;100;90;110;0" dur="5.5s" repeatCount="indefinite"/>
-                        <animate attributeName="y" values="450;330;350;360;340;450" dur="5.5s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect class="chart-bar" x="420" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
-                        <animate attributeName="height" values="0;90;110;100;95;0" dur="4.8s" repeatCount="indefinite"/>
-                        <animate attributeName="y" values="450;360;340;350;355;450" dur="4.8s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect class="chart-bar" x="520" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
-                        <animate attributeName="height" values="0;110;85;105;95;0" dur="5.2s" repeatCount="indefinite"/>
-                        <animate attributeName="y" values="450;340;365;345;355;450" dur="5.2s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect class="chart-bar" x="620" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
-                        <animate attributeName="height" values="0;95;115;100;105;0" dur="4.6s" repeatCount="indefinite"/>
-                        <animate attributeName="y" values="450;355;335;350;345;450" dur="4.6s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect class="chart-bar" x="720" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
-                        <animate attributeName="height" values="0;105;90;110;100;0" dur="5s" repeatCount="indefinite"/>
-                        <animate attributeName="y" values="450;345;360;340;350;450" dur="5s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect class="chart-bar" x="820" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
-                        <animate attributeName="height" values="0;100;110;95;105;0" dur="4.7s" repeatCount="indefinite"/>
-                        <animate attributeName="y" values="450;350;340;355;345;450" dur="4.7s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect class="chart-bar" x="920" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
-                        <animate attributeName="height" values="0;110;95;105;100;0" dur="5.3s" repeatCount="indefinite"/>
-                        <animate attributeName="y" values="450;340;355;345;350;450" dur="5.3s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect class="chart-bar" x="1020" y="450" width="30" height="0" fill="rgba(0, 212, 255, 0.25)">
-                        <animate attributeName="height" values="0;95;105;100;110;0" dur="4.9s" repeatCount="indefinite"/>
-                        <animate attributeName="y" values="450;355;345;350;340;450" dur="4.9s" repeatCount="indefinite"/>
-                    </rect>
+            <!-- Arrière-plan « data » : maille, halos analytiques, courbe indicative (couche fixe, sous le contenu) -->
+            <div class="site-ambient" aria-hidden="true">
+                <div class="site-ambient__mesh"></div>
+                <div class="site-ambient__blobs"></div>
+                <div class="site-ambient__grid"></div>
+                <div class="site-ambient__scan"></div>
+                <svg class="site-ambient__chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <defs>
+                        <linearGradient id="ambient-chart-fill" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.14"/>
+                            <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="ambient-chart-line" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.2"/>
+                            <stop offset="50%" stop-color="#33ddff" stop-opacity="0.45"/>
+                            <stop offset="100%" stop-color="#6f8b47" stop-opacity="0.35"/>
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#ambient-chart-fill)" d="M0,56 Q40,52 80,44 T160,36 T240,22 T320,14 L320,72 L0,72 Z"/>
+                    <path fill="none" stroke="url(#ambient-chart-line)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" d="M0,54 C50,50 70,46 100,38 S180,28 220,24 S280,14 320,10"/>
+                    <circle cx="320" cy="10" r="2.5" fill="#00d4ff" fill-opacity="0.5"/>
                 </svg>
             </div>
             <!--===== HOME =====-->
             <section class="home bd-grid" id="home">
                 <div class="home__data">
-                    <h1 class="home__title"><span class="home__title-color">Abdelmalek ELIDRISSI</span><br>Étudiant en informatique</h1>
-                    <a href="#contact" class="button">Me contacter</a>
-                </div>
-
-                <div class="home__social">
-                    <a href="https://www.linkedin.com/in/abdelmalek-elidrissi/" target="_blank" rel="noopener noreferrer" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                    <a href="https://github.com/abdel1452" target="_blank" rel="noopener noreferrer" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                    <h1 class="home__title">
+                        <span class="home__title-color">Abdelmalek El Idrissi</span>
+                        <span class="home__title-line">Étudiant en informatique</span>
+                    </h1>
+                    <p class="home__data-passion"><span class="home__data-passion__tag">Data</span> Structuration des données, SQL &amp; pipelines — viser le métier de <strong>Data Engineer</strong>.</p>
+                    <div class="home__actions">
+                        <a href="#contact" class="button home__cta">Me contacter</a>
+                    </div>
+                    <div class="home__social">
+                        <a href="https://www.linkedin.com/in/abdelmalek-elidrissi/" target="_blank" rel="noopener noreferrer" class="home__social-icon home__social-icon--linkedin" aria-label="Profil LinkedIn — Abdelmalek El Idrissi">
+                            <svg class="home__social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://github.com/abdel1452" target="_blank" rel="noopener noreferrer" class="home__social-icon home__social-icon--github" aria-label="Profil GitHub — abdel1452">
+                            <svg class="home__social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="home__img">
@@ -238,6 +166,11 @@
                     <li><i class='bx bx-group'></i> Travail en équipe</li>
                 </ul>
             </div>
+
+            <p class="about__veille-link">
+                <a href="#veille" class="about__veille-anchor"><i class='bx bx-trending-up' aria-hidden="true"></i> Veilles technologiques</a>
+                <span class="about__veille-hint"> — comparatifs (BTS SIO)</span>
+            </p>
 
             <!-- Qualités professionnelles -->
             <div class="about__qualities">
@@ -485,7 +418,7 @@
                                     <span class="work__tech-tag">Géolocalisation</span>
                                 </div>
                                 <div class="work__project-links">
-                                    <a href="" target="_blank" class="work__project-link">
+                                    <a href="Projets/Projet-Weather-API-master/public/index.html" target="_blank" class="work__project-link">
                                         <span>Voir le projet</span>
                                         <i class='bx bx-link-external'></i>
                                     </a>
@@ -499,40 +432,39 @@
                     </div>
                     <div class="work__project-card" data-project-index="1">
                         <div class="work__project-link-card">
-                            <div class="work__project-header">
-                                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&h=600&fit=crop&q=80" alt="Projet SIO Shoes" class="work__project-header-img" onerror="this.onerror=null; this.src='assets/img/work2.jpg';">
+                            <div class="work__project-header work__project-header--logo-fit">
+                                <img src="Projets/AmsomHabitatAdmin/public/images/amsom-official.png" alt="Logo AMSOM Habitat — console d’administration métiers" class="work__project-header-img work__project-header-img--contain">
                                 <div class="work__project-header-overlay">
-                                    <i class='bx bx-shopping-bag work__project-icon'></i>
-                                    <h3 class="work__project-card-title">SIO Shoes</h3>
+                                    <i class='bx bx-building-house work__project-icon'></i>
+                                    <h3 class="work__project-card-title">Amsom Habitat – Console admin</h3>
                                 </div>
                             </div>
                             <div class="work__project-content">
-                                <p class="work__project-description-card">Application e-commerce Symfony pour la vente de chaussures. Gestion des produits, catégories, panier, commandes et paiement Stripe. Interface d'administration complète.</p>
+                                <p class="work__project-description-card">Console d’administration pour Amsom Habitat : authentification, catalogue d’applications métiers avec liens préproduction / production et CRUD Bootstrap 5. Gabarits <strong>Twig</strong> (partials, <code>extends</code>), point d’entrée <code>public/index.php</code> et export HTML statique — organisation proche de <strong>Symfony</strong>. Identité <strong>Synéo</strong> (logo officiel).</p>
                                 <div class="work__project-tech">
                                     <span class="work__tech-tag">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/symfony/symfony-original.svg" alt="Logo Symfony" class="work__tech-logo">
-                                        Symfony
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="work__tech-logo">
+                                        Bootstrap 5
                                     </span>
                                     <span class="work__tech-tag">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="Logo PHP" class="work__tech-logo">
-                                        PHP
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="Logo HTML5" class="work__tech-logo">
+                                        HTML5
                                     </span>
                                     <span class="work__tech-tag">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twig/twig-original.svg" alt="Logo Twig" class="work__tech-logo">
-                                        Twig
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="Logo JavaScript" class="work__tech-logo">
+                                        JavaScript
                                     </span>
-                                    <span class="work__tech-tag">Stripe</span>
                                     <span class="work__tech-tag">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="Logo MySQL" class="work__tech-logo">
-                                        MySQL
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" class="work__tech-logo">
+                                        PHP / Twig
                                     </span>
                                 </div>
                                 <div class="work__project-links">
-                                    <a href="Projets/Site_eShoes-main/instructions.html" target="_blank" class="work__project-link">
+                                    <a href="Projets/AmsomHabitatAdmin/index.html" target="_blank" class="work__project-link">
                                         <span>Voir le projet</span>
                                         <i class='bx bx-link-external'></i>
                                     </a>
-                                    <a href="Projets/compte-rendu-site-eshoes.html" target="_blank" class="work__project-link">
+                                    <a href="Projets/compte-rendu-amsom-habitat.html" target="_blank" class="work__project-link">
                                         <span>Voir le compte rendu</span>
                                         <i class='bx bx-file-blank'></i>
                                     </a>
@@ -543,28 +475,148 @@
                     <div class="work__project-card" data-project-index="2">
                         <div class="work__project-link-card">
                             <div class="work__project-header">
-                                <img src="assets/img/IMG.jpg" alt="Projet Coach v1" class="work__project-header-img" onerror="this.onerror=null; this.src='assets/img/work3.jpg';">
+                                <img src="Projets/Francemobilier/images/carousel/salon.jpg" alt="France Mobilier — vitrine meubles" class="work__project-header-img">
                                 <div class="work__project-header-overlay">
-                                    <i class='bx bx-dumbbell work__project-icon'></i>
-                                    <h3 class="work__project-card-title">Coach v1</h3>
+                                    <i class='bx bx-home-heart work__project-icon'></i>
+                                    <h3 class="work__project-card-title">France Mobilier</h3>
                                 </div>
                             </div>
                             <div class="work__project-content">
-                                <p class="work__project-description-card">Application mobile multiplateforme (.NET MAUI) pour le calcul de l'IMG (Indice de Masse Grasse). Évaluation de la condition physique avec affichage visuel des résultats.</p>
+                                <p class="work__project-description-card">Vitrine <strong>meubles</strong> : conversion d’un site <strong>PHP / MySQL</strong> en version <strong>HTML / CSS / JavaScript</strong> statique. Carrousel, filtre catégorie et gamme, tableau produits, magasins et newsletter (démo). Données de catalogue en <code>data.js</code>.</p>
                                 <div class="work__project-tech">
                                     <span class="work__tech-tag">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnet/dotnet-original.svg" alt="Logo .NET" class="work__tech-logo">
-                                        .NET MAUI
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="work__tech-logo">
+                                        HTML5
                                     </span>
                                     <span class="work__tech-tag">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="Logo C#" class="work__tech-logo">
-                                        C#
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="work__tech-logo">
+                                        CSS3
                                     </span>
-                                    <span class="work__tech-tag">XAML</span>
-                                    <span class="work__tech-tag">Mobile</span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="work__tech-logo">
+                                        JavaScript
+                                    </span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="work__tech-logo">
+                                        Bootstrap 5
+                                    </span>
                                 </div>
                                 <div class="work__project-links">
-                                    <a href="Projets/Coach V1/lanceur-android.html" target="_blank" class="work__project-link">
+                                    <a href="Projets/Francemobilier/index.html" target="_blank" class="work__project-link">
+                                        <span>Voir le projet</span>
+                                        <i class='bx bx-link-external'></i>
+                                    </a>
+                                    <a href="Projets/compte-rendu-france-mobilier.html" target="_blank" class="work__project-link">
+                                        <span>Voir le compte rendu</span>
+                                        <i class='bx bx-file-blank'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work__project-card" data-project-index="3">
+                        <div class="work__project-link-card">
+                            <div class="work__project-header">
+                                <img src="assets/img/portfolio-snack-palace.jpg" alt="Snack Palace — commande en ligne" class="work__project-header-img">
+                                <div class="work__project-header-overlay">
+                                    <i class='bx bx-restaurant work__project-icon'></i>
+                                    <h3 class="work__project-card-title">Snack Palace — Commande en ligne</h3>
+                                </div>
+                            </div>
+                            <div class="work__project-content">
+                                <p class="work__project-description-card">Maquette type Uber Eats : carte du <strong>Snack Palace</strong> (Amiens), panier (localStorage), finalisation démo et <strong>Open-Meteo</strong> (météo dans le hero).</p>
+                                <div class="work__project-tech">
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="work__tech-logo">
+                                        HTML5
+                                    </span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="work__tech-logo">
+                                        CSS3
+                                    </span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="work__tech-logo">
+                                        JavaScript
+                                    </span>
+                                    <span class="work__tech-tag">Open-Meteo</span>
+                                </div>
+                                <div class="work__project-links">
+                                    <a href="Projets/SnackPalace/index.html" target="_blank" class="work__project-link">
+                                        <span>Voir le projet</span>
+                                        <i class='bx bx-link-external'></i>
+                                    </a>
+                                    <a href="Projets/compte-rendu-snack-palace.html" target="_blank" class="work__project-link">
+                                        <span>Voir le compte rendu</span>
+                                        <i class='bx bx-file-blank'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work__project-card" data-project-index="4">
+                        <div class="work__project-link-card">
+                            <div class="work__project-header">
+                                <img src="Projets/SioShoesVitrine/image%20shoes/ad-samba-og.jpg" alt="SIO Shoes — vitrine retail" class="work__project-header-img">
+                                <div class="work__project-header-overlay">
+                                    <i class='bx bx-shopping-bag work__project-icon'></i>
+                                    <h3 class="work__project-card-title">SIO Shoes — Vitrine retail</h3>
+                                </div>
+                            </div>
+                            <div class="work__project-content">
+                                <p class="work__project-description-card">Vitrine sport (running, lifestyle, basket) : catalogue, recherche, panier démo, images locales. <strong>APIs</strong> publiques <strong>Open-Meteo</strong> et <strong>Frankfurter</strong> (bandeau). Back-office Symfony dans <code>Site_eShoes-main</code>.</p>
+                                <div class="work__project-tech">
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="work__tech-logo">
+                                        HTML5
+                                    </span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="work__tech-logo">
+                                        JavaScript
+                                    </span>
+                                    <span class="work__tech-tag">Open-Meteo</span>
+                                    <span class="work__tech-tag">Frankfurter</span>
+                                </div>
+                                <div class="work__project-links">
+                                    <a href="Projets/SioShoesVitrine/index.html" target="_blank" class="work__project-link">
+                                        <span>Voir le projet</span>
+                                        <i class='bx bx-link-external'></i>
+                                    </a>
+                                    <a href="Projets/compte-rendu-site-eshoes.html" target="_blank" class="work__project-link">
+                                        <span>Compte rendu e-commerce</span>
+                                        <i class='bx bx-file-blank'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work__project-card" data-project-index="5">
+                        <div class="work__project-link-card">
+                            <div class="work__project-header">
+                                <img src="assets/img/portfolio-coach-web.jpg" alt="Coach v1 — maquette web salle de sport" class="work__project-header-img">
+                                <div class="work__project-header-overlay">
+                                    <i class='bx bx-dumbbell work__project-icon'></i>
+                                    <h3 class="work__project-card-title">Coach v1 — Maquette web</h3>
+                                </div>
+                            </div>
+                            <div class="work__project-content">
+                                <p class="work__project-description-card">Maquette « salle de sport » (inscription, abonnements, nutrition). <strong>APIs</strong> : météo Amiens (<strong>Open-Meteo</strong>) et citation (<strong>ZenQuotes</strong>).</p>
+                                <div class="work__project-tech">
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="work__tech-logo">
+                                        HTML5
+                                    </span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="work__tech-logo">
+                                        CSS3
+                                    </span>
+                                    <span class="work__tech-tag">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="work__tech-logo">
+                                        JavaScript
+                                    </span>
+                                    <span class="work__tech-tag">APIs</span>
+                                </div>
+                                <div class="work__project-links">
+                                    <a href="Projets/CoachV1Web/index.html" target="_blank" class="work__project-link">
                                         <span>Voir le projet</span>
                                         <i class='bx bx-link-external'></i>
                                     </a>
@@ -576,318 +628,182 @@
                             </div>
                         </div>
                     </div>
-                    <div class="work__project-card" data-project-index="3">
-                        <div class="work__project-link-card">
-                            <div class="work__project-header">
-                                <img src="assets/img/work4.jpg" alt="Amsom Habitat Admin" class="work__project-header-img" onerror="this.onerror=null; this.src='assets/img/work1.jpg';">
-                                <div class="work__project-header-overlay">
-                                    <i class='bx bx-building-house work__project-icon'></i>
-                                    <h3 class="work__project-card-title">Amsom Habitat – Console admin</h3>
-                                </div>
+                </div>
+            </section>
+
+            <!--===== VEILLE TECHNOLOGIQUE =====-->
+            <section class="veille section" id="veille">
+                <h2 class="section-title">Veille technologique</h2>
+
+                <div class="veille__container bd-grid">
+                    <article class="veille__card">
+                        <div class="veille__header">
+                            <i class='bx bx-brain veille__icon' aria-hidden="true"></i>
+                            <h3 class="veille__title">Machine Learning vs IA générative</h3>
+                        </div>
+                        <div class="veille__content">
+                            <div class="veille__date">
+                                <i class='bx bx-calendar' aria-hidden="true"></i>
+                                <span>2025 — 2026 · Intelligence artificielle</span>
                             </div>
-                            <div class="work__project-content">
-                                <p class="work__project-description-card">Maquette d'une console d'administration pour Amsom Habitat : connexion admin et tableau de 45 applications internes avec boutons de préproduction et production.</p>
-                                <div class="work__project-tech">
-                                    <span class="work__tech-tag">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="Logo HTML5" class="work__tech-logo">
-                                        HTML5
-                                    </span>
-                                    <span class="work__tech-tag">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="Logo CSS3" class="work__tech-logo">
-                                        CSS3
-                                    </span>
-                                    <span class="work__tech-tag">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="Logo JavaScript" class="work__tech-logo">
-                                        JavaScript
-                                    </span>
+                            <div class="veille__description">
+                                <h4>Présentation</h4>
+                                <div class="veille__big-picture">
+                                    <p><strong>Machine learning.</strong> Famille de méthodes où un <strong>modèle apprend à partir de données</strong> pour réaliser une tâche précise (classification, régression, détection d’anomalies, recommandation, etc.), sans être explicitement programmé pour chaque cas. L’entraînement et l’évaluation s’appuient sur des métriques adaptées au problème métier.</p>
+                                    <p><strong>IA générative.</strong> Approches (souvent fondées sur de très grands modèles) capables de <strong>produire des contenus nouveaux</strong> : texte, images, audio, code, etc. Elles s’appuient sur des corpus massifs et, en entreprise, sur des dispositifs comme le <strong>prompt engineering</strong>, le <strong>RAG</strong> ou le fine-tuning pour contextualiser les sorties.</p>
                                 </div>
-                                <div class="work__project-links">
-                                    <a href="Projets/AmsomHabitatAdmin/index.html" target="_blank" class="work__project-link">
-                                        <span>Voir le projet</span>
-                                        <i class='bx bx-link-external'></i>
-                                    </a>
-                                    <a href="#" class="work__project-link" style="pointer-events: none; opacity: 0.6;">
-                                        <span>Compte rendu à venir</span>
-                                        <i class='bx bx-time-five'></i>
-                                    </a>
+
+                                <h4>Finalité et livrable</h4>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">Le ML vise une <strong>tâche et des indicateurs</strong> (précision, rappel, erreur…) ; la GenAI vise des <strong>sorties créatives ou langagières</strong> dont la qualité se juge aussi par la pertinence métier et la conformité.</p>
                                 </div>
+
+                                <h4>Données et cycle de vie</h4>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">ML : jeux métiers, features, <strong>entraînement et réentraînement</strong> ciblés. GenAI : <strong>modèles pré-entraînés</strong>, enrichis par prompts, RAG ou ajustements ponctuels.</p>
+                                </div>
+
+                                <h4>Industrialisation</h4>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">ML : pipelines, <strong>MLOps</strong>, suivi de dérive et de biais. GenAI : cadres d’usage, quotas, traces, garde-fous et <strong>validation humaine</strong> des réponses.</p>
+                                </div>
+
+                                <h4>Conformité et risques</h4>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">ML : biais, explicabilité, équité. GenAI : <strong>hallucinations</strong>, données personnelles, propriété intellectuelle, dépendance aux <strong>API</strong> ou hébergeurs.</p>
+                                </div>
+
+                                <h4>Machine learning</h4>
+                                <p class="veille__subhead">Avantages</p>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">Tâche et périmètre <strong>clairs</strong> (précision, rappel, métier défini).</p>
+                                    <p class="veille__detail-line">Modèles souvent plus <strong>légers</strong> et maîtrisables en interne une fois le pipeline posé.</p>
+                                    <p class="veille__detail-line">Très adapté au <strong>scoring, à la détection d’anomalies, à la prévision</strong> sur données structurées.</p>
+                                </div>
+                                <p class="veille__subhead">Inconvénients</p>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">Besoin de <strong>données de qualité</strong>, parfois étiquetées, et d’un <strong>monitoring</strong> (dérive, biais).</p>
+                                    <p class="veille__detail-line">Chaque cas métier peut exiger un <strong>nouvel entraînement ou une refonte features</strong>.</p>
+                                    <p class="veille__detail-line">Moins visible « grand public » que le ChatGPT-type, donc parfois <strong>sous-estimé</strong> dans la communication projet.</p>
+                                </div>
+
+                                <h4>IA générative</h4>
+                                <p class="veille__subhead">Avantages</p>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line"><strong>Polyvalence immédiate</strong> : rédaction, idées, assistance code, support, prototypes rapides.</p>
+                                    <p class="veille__detail-line">Peut s’enrichir avec les données de l’entreprise via <strong>RAG</strong> sans tout ré-entraîner le modèle de base.</p>
+                                    <p class="veille__detail-line">Fort <strong>impact utilisateur</strong> et adoption rapide si les garde-fous sont en place.</p>
+                                </div>
+                                <p class="veille__subhead">Inconvénients</p>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">Risques de <strong>hallucinations</strong>, de fuites de données et de <strong>conformité</strong> (RGPD, propriété intellectuelle).</p>
+                                    <p class="veille__detail-line"><strong>Coût</strong> variable (tokens, API) et dépendance à des <strong>fournisseurs</strong> externes si pas d’hébergement maîtrisé.</p>
+                                    <p class="veille__detail-line">Qualité du résultat <strong>difficile à garantir</strong> sans revue humaine et sans politique d’usage.</p>
+                                </div>
+
+                                <h4>Synthèse</h4>
+                                <p>Les deux approches sont <strong>complémentaires</strong> : le ML classique soutient des décisions <strong>chiffrées et auditables</strong> ; l’IA générative apporte une couche d’<strong>assistance et de génération de contenu</strong>. La veille impose de <strong>cadrer séparément</strong> finalité, données, industrialisation et risques pour éviter d’agréger des problématiques hétérogènes sous un seul vocable « IA ».</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="work__item" data-project-index="4">
-                                <input type="file" id="project-file-2" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
-                                <label for="project-file-2" class="work__placeholder">
-                                    <i class='bx bx-plus-circle work__add-icon'></i>
-                                    <p class="work__placeholder-text">Ajouter un projet</p>
-                                    <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
-                                </label>
-                                <div class="work__preview-container"></div>
-                    </div>
-                    <div class="work__item" data-project-index="5">
-                                <input type="file" id="project-file-3" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
-                                <label for="project-file-3" class="work__placeholder">
-                                    <i class='bx bx-plus-circle work__add-icon'></i>
-                                    <p class="work__placeholder-text">Ajouter un projet</p>
-                                    <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
-                                </label>
-                                <div class="work__preview-container"></div>
-                    </div>
-                    <div class="work__item" data-project-index="6">
-                                <input type="file" id="project-file-4" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
-                                <label for="project-file-4" class="work__placeholder">
-                                    <i class='bx bx-plus-circle work__add-icon'></i>
-                                    <p class="work__placeholder-text">Ajouter un projet</p>
-                                    <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
-                                </label>
-                                <div class="work__preview-container"></div>
-                    </div>
-                    <div class="work__item" data-project-index="7">
-                                <input type="file" id="project-file-5" class="work__file-input" accept="image/*,video/*,.pdf,.zip,.rar" multiple>
-                                <label for="project-file-5" class="work__placeholder">
-                                    <i class='bx bx-plus-circle work__add-icon'></i>
-                                    <p class="work__placeholder-text">Ajouter un projet</p>
-                                    <p class="work__file-info">Cliquez pour ajouter des fichiers</p>
-                                </label>
-                                <div class="work__preview-container"></div>
-                    </div>
+                    </article>
+
+                    <article class="veille__card">
+                        <div class="veille__header">
+                            <i class='bx bx-layer veille__icon' aria-hidden="true"></i>
+                            <h3 class="veille__title">Data Lake vs Data Warehouse</h3>
+                        </div>
+                        <div class="veille__content">
+                            <div class="veille__date">
+                                <i class='bx bx-calendar' aria-hidden="true"></i>
+                                <span>2025 — 2026 · Architecture données</span>
+                            </div>
+                            <div class="veille__description">
+                                <h4>Présentation</h4>
+                                <div class="veille__big-picture">
+                                    <p><strong>Data lake.</strong> Référentiel qui centralise de grandes quantités de données <strong>souvent brutes ou peu structurées</strong> (fichiers, logs, JSON, flux, etc.), en privilégiant l’<strong>ingestion rapide</strong> et le stockage évolutif. La structure fine est en général appliquée <strong>au moment de l’exploitation</strong> (<em>schema-on-read</em>).</p>
+                                    <p><strong>Data warehouse.</strong> Entrepôt de données qui consolide des informations <strong>modélisées, nettoyées et historisées</strong> selon un schéma défini (<em>schema-on-write</em>), en vue du <strong>reporting</strong>, de la <strong>BI</strong> et de la prise de décision sur des indicateurs partagés.</p>
+                                </div>
+
+                                <h4>Modélisation et schéma</h4>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">Lake : flexibilité des formats, structuration en aval. Warehouse : <strong>modèle relationnel</strong> (souvent en étoile / constellation) imposé à l’intégration.</p>
+                                </div>
+
+                                <h4>Usages cibles</h4>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">Lake : exploration, <strong>data science</strong>, réservoir pour pipelines. Warehouse : <strong>KPI</strong>, tableaux de bord et reportings validés par le métier.</p>
+                                </div>
+
+                                <h4>Gouvernance et qualité</h4>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">Lake : catalogue, lignée, zones type bronze / argent / or. Warehouse : règles métiers, traçabilité, visée <strong>single source of truth</strong>.</p>
+                                </div>
+
+                                <h4>Performance et coûts</h4>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">Lake : stockage souvent <strong>économique à grande échelle</strong> ; analyses sur brut plus lourdes. Warehouse : données <strong>préparées et optimisées</strong> pour la requête BI, avec coût de <strong>ETL/ELT</strong> et de maintenance du modèle.</p>
+                                </div>
+
+                                <h4>Data lake</h4>
+                                <p class="veille__subhead">Avantages</p>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">Accueille <strong>tous les formats</strong> (JSON, logs, fichiers, flux…) sans tout normaliser d’entrée.</p>
+                                    <p class="veille__detail-line"><strong>Scalabilité</strong> et stockage souvent <strong>économique</strong> ; idéal pour la donnée « à explorer ».</p>
+                                    <p class="veille__detail-line">Point de départ naturel pour la <strong>data science</strong> et les pipelines batch / streaming.</p>
+                                </div>
+                                <p class="veille__subhead">Inconvénients</p>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">Sans gouvernance, risque de <strong>« data swamp »</strong> : données introuvables, doublons, sens flou.</p>
+                                    <p class="veille__detail-line">Les requêtes analytiques « directes » peuvent être <strong>lentes ou coûteuses</strong> sans couche de structuration.</p>
+                                    <p class="veille__detail-line"><strong>Sécurité et conformité</strong> plus complexes à homogénéiser sur des sources très variées.</p>
+                                </div>
+
+                                <h4>Data warehouse</h4>
+                                <p class="veille__subhead">Avantages</p>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line">Modèle <strong>stable</strong> (faits / dimensions, SCD…) : <strong>reporting et KPI</strong> fiables pour les métiers.</p>
+                                    <p class="veille__detail-line">Performance des requêtes BI en général <strong>meilleure</strong> sur des données préparées.</p>
+                                    <p class="veille__detail-line">Facilite la <strong>traçabilité</strong> et les règles métiers communes (« une seule version de la vérité »).</p>
+                                </div>
+                                <p class="veille__subhead">Inconvénients</p>
+                                <div class="veille__detail-group">
+                                    <p class="veille__detail-line"><strong>Coût et délai</strong> de conception ETL/ELT et de maintenance du modèle.</p>
+                                    <p class="veille__detail-line">Moins agile pour ingérer très vite des <strong>nouvelles sources</strong> non encore modélisées.</p>
+                                    <p class="veille__detail-line">Peut devenir un <strong>goulot</strong> si tout doit passer par le modèle avant toute exploration.</p>
+                                </div>
+
+                                <h4>Synthèse</h4>
+                                <p>Les architectures actuelles <strong>articulent</strong> souvent lac et entrepôt : réservoir pour l’ingestion et l’exploration, warehouse (ou couches curated) pour le <strong>pilotage certifié</strong>. Les modèles <strong>lakehouse</strong> rapprochent stockage scalable et moteurs SQL analytiques — alignés avec le rôle de <strong>Data Engineer</strong> (ingestion, qualité, modélisation, exposition contrôlée).</p>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </section>
 
             <!--===== E4 =====-->
-<section class="e4 section" id="e4">
-    <h2 class="section-title">Épreuve E4</h2>
+            <section class="e4 section" id="e4">
+                <h2 class="section-title">Épreuve E4</h2>
 
-    <div class="e4__container bd-grid">
-        
-        <div class="e4__card">
-            <i class='bx bx-link-external e4__icon'></i>
-            <h3 class="e4__title">Mes réalisations E4</h3>
+                <div class="e4__container bd-grid">
+                    <div class="e4__card">
+                        <h3 class="e4__title">Tableau de synthèse E4</h3>
+                        <p class="e4__lead">Le document PDF est disponible via le lien ci-dessous (ouvre dans un nouvel onglet). Place le fichier à côté de <code>index.html</code> ou modifie l’URL dans le code si besoin.</p>
 
-            
-
-            <!-- BOUTON À REMPLACER PLUS TARD -->
-            <a href="BTS_SIO_Annexe_VI.5_Epreuve E5 - Tableau de synthese_2026 (1).pdf" 
-   class="button e4__button" 
-   target="_blank">
-   <i class='bx bx-file-blank'></i> Voir mon tableau de synthèse E4
-</a>
-
-        </div>
-
-    </div>
-</section>
-
-       <!--===== VEILLE TECHNOLOGIQUE =====-->
-<section class="veille section" id="veille">
-    <h2 class="section-title">Veille Technologique</h2>
-
-    <div class="veille__container bd-grid">
-
-        <!--===== VEILLE 1 =====-->
-        <div class="veille__card">
-            <div class="veille__header">
-                <i class='bx bx-data veille__icon'></i>
-                <h3 class="veille__title">Big Data : Data Lake vs Data Warehouse</h3>
-            </div>
-
-            <div class="veille__content">
-                <p class="veille__date"><i class='bx bx-calendar'></i> Mise à jour : Avril 2026</p>
-
-                <div class="veille__description">
-
-                    <h4>Contexte</h4>
-                    <p>
-                        Aujourd’hui, les entreprises collectent énormément de données : clients, ventes, applications, réseaux sociaux…
-                        On parle de Big Data. Pour stocker et exploiter ces données, deux solutions principales existent :
-                        le Data Warehouse et le Data Lake.
-                    </p>
-
-                    <h4>Data Warehouse</h4>
-                    <ul>
-                        <li><strong>But :</strong> stocker des données propres et organisées</li>
-                        <li><strong>Type :</strong> données structurées (tableaux, chiffres)</li>
-                        <li><strong>Utilisation :</strong> statistiques, tableaux de bord, décisions</li>
-                        <li><strong>Avantage :</strong> rapide et facile à analyser</li>
-                        <li><strong>Inconvénient :</strong> nécessite de préparer les données avant</li>
-                    </ul>
-
-                    <p>
-                        Le Data Warehouse est souvent utilisé par les entreprises pour suivre leurs performances,
-                        par exemple les ventes ou le comportement des clients.
-                    </p>
-
-                    <h4>Data Lake</h4>
-                    <ul>
-                        <li><strong>But :</strong> stocker toutes les données sans tri</li>
-                        <li><strong>Type :</strong> données variées (images, vidéos, textes…)</li>
-                        <li><strong>Utilisation :</strong> intelligence artificielle, analyse avancée</li>
-                        <li><strong>Avantage :</strong> très flexible</li>
-                        <li><strong>Inconvénient :</strong> peut devenir désorganisé</li>
-                    </ul>
-
-                    <p>
-                        Le Data Lake est utilisé pour des projets plus avancés comme le Machine Learning,
-                        où les données n’ont pas besoin d’être organisées au départ.
-                    </p>
-
-                    <h4>Exemples concrets</h4>
-                    <ul>
-                        <li>Netflix analyse les films regardés (Data Warehouse)</li>
-                        <li>Spotify stocke les données musicales et utilisateurs (Data Lake)</li>
-                        <li>Amazon utilise les deux pour ses recommandations</li>
-                    </ul>
-
-                    <h4>Tendances actuelles</h4>
-                    <p>
-                        Aujourd’hui, les entreprises utilisent souvent une combinaison des deux appelée
-                        “Lakehouse”, qui mélange les avantages du Data Lake et du Data Warehouse.
-                    </p>
-
-                    <h4>Pourquoi c’est important pour une entreprise ?</h4>
-                    <p>
-                        Les entreprises utilisent ces systèmes pour mieux comprendre leurs clients.
-                        En analysant les données (achats, navigation, préférences), elles peuvent améliorer leurs services.
-                    </p>
-
-                    <ul>
-                        <li>Proposer des produits adaptés aux clients</li>
-                        <li>Améliorer l’expérience utilisateur</li>
-                        <li>Prendre de meilleures décisions</li>
-                        <li>Anticiper les besoins des clients</li>
-                    </ul>
-
-                    <h4>Lien avec le client</h4>
-                    <p>
-                        Le client est directement concerné par l’analyse des données.
-                        Lorsqu’un utilisateur navigue sur un site, ses actions sont enregistrées et analysées
-                        pour proposer des recommandations personnalisées.
-                    </p>
-
-                    <ul>
-                        <li>Netflix recommande des films selon ce que tu regardes</li>
-                        <li>Amazon propose des produits similaires à tes achats</li>
-                        <li>Spotify suggère des musiques selon tes goûts</li>
-                    </ul>
-
-                    <p>
-                        Sans ces systèmes, les entreprises ne pourraient pas personnaliser leurs services.
-                    </p>
-
-                    <h4>Conclusion</h4>
-                    <p>
-                        Le Data Warehouse est utile pour analyser rapidement des données propres.
-                        Le Data Lake est plus adapté pour la Big Data et l’intelligence artificielle.
-                        Les deux sont complémentaires et essentiels dans les métiers de la data.
-                    </p>
-
+                        <div class="e4__pdf-link-cadre">
+                            <a
+                                href="BTS_SIO_Annexe_VI.5_Epreuve%20E5%20-%20Tableau%20de%20synthese_2026%20(1).pdf"
+                                class="e4__pdf-primary-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class='bx bx-file-blank' aria-hidden="true"></i>
+                                <span>Ouvrir le tableau de synthèse (PDF)</span>
+                                <i class='bx bx-link-external e4__pdf-primary-link__icon' aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <!--===== VEILLE 2 =====-->
-        <div class="veille__card">
-            <div class="veille__header">
-                <i class='bx bx-brain veille__icon'></i>
-                <h3 class="veille__title">IA : Machine Learning vs IA Générative</h3>
-            </div>
-
-            <div class="veille__content">
-                <p class="veille__date"><i class='bx bx-calendar'></i> Mise à jour : Avril 2026</p>
-
-                <div class="veille__description">
-
-                    <h4>Contexte</h4>
-                    <p>
-                        L’intelligence artificielle est devenue essentielle dans l’informatique.
-                        Elle est utilisée dans les applications, les réseaux sociaux et les entreprises.
-                        Deux types principaux d’IA existent : le Machine Learning et l’IA générative.
-                    </p>
-
-                    <h4>Machine Learning</h4>
-                    <ul>
-                        <li><strong>Principe :</strong> apprendre à partir de données</li>
-                        <li><strong>Exemples :</strong> recommandations Netflix, filtres anti-spam</li>
-                        <li><strong>Utilisation :</strong> prédiction, analyse, détection</li>
-                        <li><strong>Avantage :</strong> très efficace pour analyser</li>
-                        <li><strong>Inconvénient :</strong> ne crée pas de contenu</li>
-                    </ul>
-
-                    <p>
-                        Le Machine Learning est très utilisé dans les entreprises pour analyser des données
-                        et prendre des décisions automatiques.
-                    </p>
-
-                    <h4>IA Générative</h4>
-                    <ul>
-                        <li><strong>Principe :</strong> créer du contenu automatiquement</li>
-                        <li><strong>Exemples :</strong> ChatGPT, génération d’images</li>
-                        <li><strong>Utilisation :</strong> texte, code, images</li>
-                        <li><strong>Avantage :</strong> rapide et créatif</li>
-                        <li><strong>Inconvénient :</strong> peut se tromper</li>
-                    </ul>
-
-                    <p>
-                        L’IA générative est de plus en plus utilisée dans le développement,
-                        le marketing et les entreprises pour automatiser certaines tâches.
-                    </p>
-
-                    <h4>Exemples concrets</h4>
-                    <ul>
-                        <li>Google Maps prédit le trafic (Machine Learning)</li>
-                        <li>Amazon recommande des produits (Machine Learning)</li>
-                        <li>ChatGPT génère du texte (IA générative)</li>
-                        <li>IA qui crée des images ou du code</li>
-                    </ul>
-
-                    <h4>Tendances actuelles</h4>
-                    <p>
-                        L’IA générative est en forte croissance depuis 2023.
-                        Elle est utilisée dans l’éducation, le développement et la création de contenu.
-                    </p>
-
-                    <h4>Pourquoi c’est important pour une entreprise ?</h4>
-                    <p>
-                        L’intelligence artificielle permet aux entreprises d’automatiser des tâches
-                        et d’analyser les comportements des utilisateurs.
-                    </p>
-
-                    <ul>
-                        <li>Gagner du temps</li>
-                        <li>Améliorer les services</li>
-                        <li>Réduire les erreurs</li>
-                        <li>Analyser beaucoup de données rapidement</li>
-                    </ul>
-
-                    <h4>Lien avec le client</h4>
-                    <p>
-                        Le client bénéficie directement de l’intelligence artificielle.
-                        Les entreprises utilisent ses données pour améliorer son expérience.
-                    </p>
-
-                    <ul>
-                        <li>Chatbots qui répondent automatiquement</li>
-                        <li>Recommandations personnalisées</li>
-                        <li>Publicités adaptées</li>
-                        <li>Assistants vocaux</li>
-                    </ul>
-
-                    <p>
-                        Grâce à l’IA, le client a une expérience plus rapide et personnalisée.
-                    </p>
-
-                    <h4>Conclusion</h4>
-                    <p>
-                        Le Machine Learning sert à analyser et prédire.
-                        L’IA générative sert à créer du contenu.
-                        Les deux sont essentiels aujourd’hui et utilisés ensemble dans les entreprises.
-                    </p>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
+            </section>
 
             <!--===== CONTACT =====-->
             <section class="contact section" id="contact">
@@ -912,15 +828,26 @@
         <footer class="footer">
             <p class="footer__title">Abdelmalek Elidrissi</p>
             <div class="footer__social">
-                <a href="https://www.linkedin.com/in/abdelmalek-elidrissi/" target="_blank" rel="noopener noreferrer" class="footer__icon"><i class='bx bxl-linkedin' ></i></a>
-                <a href="https://github.com/abdel1452" target="_blank" rel="noopener noreferrer" class="footer__icon"><i class='bx bxl-github' ></i></a>
+                <a href="https://www.linkedin.com/in/abdelmalek-elidrissi/" target="_blank" rel="noopener noreferrer" class="footer__social-btn footer__social-btn--linkedin" aria-label="LinkedIn">
+                    <svg class="footer__social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://github.com/abdel1452" target="_blank" rel="noopener noreferrer" class="footer__social-btn footer__social-btn--github" aria-label="GitHub">
+                    <svg class="footer__social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
             </div>
             <p class="footer__copy">&#169; 2026 Abdelmalek Elidrissi - Étudiant BTS SIO SLAM. Tous droits réservés.</p>
         </footer>
 
-        <!--===== THEME TOGGLE BUTTON =====-->
-        <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
-            <i class='bx bx-sun theme-icon' id="theme-icon"></i>
+        <!--===== THÈME : interrupteur coulissant clair / sombre =====-->
+        <button type="button" class="theme-switch" id="theme-toggle" role="switch" aria-checked="false" aria-label="Activer le thème sombre">
+            <span class="theme-switch__track" aria-hidden="true">
+                <span class="theme-switch__hint theme-switch__hint--sun"><i class='bx bx-sun'></i></span>
+                <span class="theme-switch__hint theme-switch__hint--moon"><i class='bx bx-moon'></i></span>
+                <span class="theme-switch__thumb" id="theme-switch-thumb">
+                    <i class='bx bx-sun theme-switch__thumb-icon theme-switch__thumb-icon--light' aria-hidden="true"></i>
+                    <i class='bx bx-moon theme-switch__thumb-icon theme-switch__thumb-icon--dark' aria-hidden="true"></i>
+                </span>
+            </span>
         </button>
 
         <!--===== SCROLL REVEAL =====-->

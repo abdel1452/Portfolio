@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte rendu — France Mobilier & actualisations portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="compte-rendu-styles.css">
+</head>
+<body>
+    <div class="compte-rendu">
+        <a href="../index.html#work" class="compte-rendu__back">
+            <i class="bx bx-arrow-back"></i> Retour au portfolio
+        </a>
+
+        <div class="compte-rendu__header">
+            <h1 class="compte-rendu__title">Compte rendu — France Mobilier</h1>
+            <p class="compte-rendu__subtitle">Vitrine meubles en HTML statique, et rappel des actualisations du portfolio</p>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">1. Projet France Mobilier</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <strong>Objectif :</strong> Reproduire le comportement d’un site vitrine <strong>PHP / MySQL</strong> (pages d’accueil, liste produits filtrée, magasins, newsletter) sans serveur ni base : tout tourne en <strong>HTML, CSS, JavaScript</strong> avec des données de démo.
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Livrable :</strong> Dossier <code>Projets/Francemobilier/</code> ouvrable en local (<code>index.html</code>).
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Auteur :</strong> Abdelmalek Elidrissi — BTS SIO SLAM
+                </div>
+            </div>
+            <h3 class="compte-rendu__section-title" style="font-size:1.1rem;margin-top:1.25rem;">Fonctionnalités</h3>
+            <ul class="compte-rendu__list">
+                <li>Accueil : carrousel (images locales dans <code>images/carousel/</code>), liste des magasins, formulaire newsletter (démo : alerte, pas d’envoi serveur).</li>
+                <li>Recherche : filtres <strong>catégorie</strong> et <strong>gamme</strong> (valeur 0 = toutes), affichage d’un tableau produits (référence, photo, désignation, prix TTC format français).</li>
+                <li>Catalogue : données dans <code>data.js</code> (<code>categories</code>, <code>gammes</code>, <code>produits</code>, <code>magasins</code>).</li>
+                <li>Photos produits : fichiers locaux <code>images/produits/&lt;clé&gt;.jpg</code> (plus d’URL Picsum dans le code).</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Technologies (France Mobilier)</h2>
+            <span class="compte-rendu__badge">HTML5</span>
+            <span class="compte-rendu__badge">CSS3</span>
+            <span class="compte-rendu__badge">JavaScript</span>
+            <span class="compte-rendu__badge">Bootstrap 5</span>
+            <span class="compte-rendu__badge">Bootstrap Icons</span>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Arborescence indicative</h2>
+            <div class="compte-rendu__code">Projets/Francemobilier/
+├── index.html           # structure + vues accueil / liste
+├── francemobilier.css   # compléments à Bootstrap
+├── app.js               # filtres, rendu tableau, newsletter démo
+├── data.js              # FM_DATA (JSON de démo)
+└── images/
+    ├── carousel/        # salon.jpg, salle-a-manger.jpg, chambre.jpg
+    └── produits/        # canape.jpg, tablebasse.jpg, … (12 fichiers)</div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">2. Actualisations du portfolio (<code>index.html</code>)</h2>
+            <ul class="compte-rendu__list">
+                <li>Section <strong>Projets</strong> : ajout de la carte <strong>France Mobilier</strong> ; retrait des cartes <strong>SIO Shoes</strong> (e-commerce Symfony), <strong>Coach v1</strong> (app mobile) et <strong>Veille &amp; dossiers BTS</strong> ; conservation de <strong>SIO Shoes — Vitrine retail</strong> et <strong>Coach v1 — Maquette web</strong>.</li>
+                <li>Suppression du menu et de la section <strong>Veille technologique</strong> ; ajustements associés dans <code>assets/js/main.js</code> (ScrollReveal / cartes).</li>
+                <li>Images : miniatures <strong>Snack Palace</strong> et <strong>Coach</strong> en fichiers locaux sous <code>assets/img/</code> ; France Mobilier et carrousel en chemins relatifs ; pas de repli Unsplash sur la carte SIO Shoes.</li>
+                <li>Arrière-plan global : remplacement du graphique animé type « data » par un fond discret <code>.site-ambient</code> (dégradés + grille légère) dans <code>assets/css/styles.css</code>.</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">3. Rappel — maquette Amsom Habitat</h2>
+            <p>Logo officiel <strong>Synéo RVB</strong> (vert / gris) issu du kit de communication <a href="https://amsom-habitat.fr/communication/" target="_blank" rel="noopener noreferrer">amsom-habitat.fr</a>, fichier <code>public/images/amsom-official.png</code>. Interface recolorée dans <code>public/css/amsom.css</code> ; entrées de menu <strong>Applications</strong> et <strong>Statistiques</strong> retirées de la barre de navigation. Détail : <a href="compte-rendu-amsom-habitat.html">compte rendu Amsom Habitat</a>.</p>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Liens utiles</h2>
+            <ul class="compte-rendu__list">
+                <li><a href="Francemobilier/index.html">Ouvrir la vitrine France Mobilier</a></li>
+                <li><a href="../index.html#work">Section Projets du portfolio</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

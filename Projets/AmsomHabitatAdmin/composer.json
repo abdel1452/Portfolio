@@ -1,0 +1,11 @@
+{
+  "name": "portfolio/amsom-habitat-admin",
+  "description": "Console d'administration Amsom Habitat — gabarits Twig (équivalent stack Symfony)",
+  "require": {
+    "php": ">=8.1",
+    "twig/twig": "^3.11"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

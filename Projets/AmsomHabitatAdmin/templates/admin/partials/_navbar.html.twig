@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-navbar shadow-sm sticky-top">
+  <div class="container-fluid px-3 px-lg-4">
+    <a class="navbar-brand d-flex align-items-center py-1 me-lg-4" href="#" title="{{ app_name }}">
+      <img src="{{ brand_logo_nav }}" alt="AMSOM Habitat" class="brand-logo-nav" width="320" height="149" decoding="async">
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#ahNavbarNav" aria-controls="ahNavbarNav" aria-expanded="false" aria-label="Menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="ahNavbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-2 mt-lg-0 align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link active px-lg-3" aria-current="page" href="#" id="ah-nav-catalogue"><i class="bi bi-grid-3x3-gap me-1"></i>Catalogue</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-lg-3" href="#" id="ah-nav-stats"><i class="bi bi-graph-up-arrow me-1"></i>Indicateurs</a>
+        </li>
+      </ul>
+      <div class="d-flex flex-wrap align-items-center gap-2 ms-lg-2 mb-3 mb-lg-0 mt-2 mt-lg-0">
+        <span class="badge rounded-pill text-bg-success d-none d-md-inline fw-normal">Bootstrap 5</span>
+        <span class="badge rounded-pill text-bg-secondary d-none d-md-inline fw-normal">Twig</span>
+        <div class="dropdown">
+          <button class="btn btn-outline-light dropdown-toggle rounded-pill px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="user-menu">
+            <i class="bi bi-person-circle me-1"></i><span class="d-none d-sm-inline">Admin</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="user-menu">
+            <li><h6 class="dropdown-header">Session</h6></li>
+            <li><span class="dropdown-item-text small text-muted">Compte démo (localStorage)</span></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button type="button" class="dropdown-item text-danger" id="logout-dropdown"><i class="bi bi-box-arrow-right me-2"></i>Déconnexion</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

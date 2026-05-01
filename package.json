@@ -1,0 +1,8 @@
+{
+  "name": "portfolio-snack-dev",
+  "private": true,
+  "description": "Serveur local pour prévisualiser Snack Palace (portfolio)",
+  "scripts": {
+    "dev:snack": "node dev-snack.cjs"
+  }
+}

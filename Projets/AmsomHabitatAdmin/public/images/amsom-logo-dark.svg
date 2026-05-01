@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 80" role="img" aria-labelledby="t">
+  <title id="t">Amsom Habitat</title>
+  <!-- Fond transparent, couleurs alignees sur amsom.css -->
+  <path fill="#6f8b47" d="M24 52V34.5L38 22l14 12.5V52H44V40h-12v12H24z"/>
+  <text x="56" y="48" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="26" font-weight="700" fill="#1e3344">Amsom</text>
+  <text x="56" y="66" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="600" fill="#5a7f94" letter-spacing="0.14em">HABITAT</text>
+</svg>

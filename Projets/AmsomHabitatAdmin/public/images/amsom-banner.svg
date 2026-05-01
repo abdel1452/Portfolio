@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 450" role="img" aria-labelledby="tb">
+  <title id="tb">AMSOM Habitat — OPH de la Somme (Amiens) — maquette console admin</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#41425c"/>
+      <stop offset="100%" style="stop-color:#323848"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Logo couleur institutionnel (vert + gris) : Kit de Communication AMSOM Habitat — variante Synéo RVB → amsom-official.png -->
+  <image href="amsom-official.png" x="120" y="88" width="560" height="261" preserveAspectRatio="xMidYMid meet"/>
+  <text x="400" y="400" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#667e8e">Console d’administration (maquette portfolio)</text>
+</svg>

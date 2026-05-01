@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snack Palace — Pizzeria Amiens (maquette vitrine)</title>
+  <meta name="description" content="Maquette type site pizzeria — Snack Palace Amiens. Livraison, à emporter et sur place. Données alignées sur Uber Eats et le restaurant réel.">
+  <link rel="icon" href="logo-snack-palace.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="logo-snack-palace.svg">
+  <link rel="stylesheet" href="snack.css">
+</head>
+<body>
+  <p class="sp-promo-bar" id="sp-promo-bar"></p>
+
+  <header class="sp-header">
+    <div class="sp-header__row">
+      <a class="sp-logo" href="#sp-hero">
+        <img class="sp-logo__img" src="logo-snack-palace.svg" width="40" height="40" alt="" decoding="async">
+        <span class="sp-logo__text">Snack Palace</span>
+      </a>
+      <nav class="sp-nav" aria-label="Navigation principale">
+        <a href="#sp-hero">Accueil</a>
+        <a href="#sp-carte">La carte</a>
+        <a id="sp-header-contact" href="tel:+33983239783">Nous appeler</a>
+      </nav>
+      <div class="sp-search">
+        <span aria-hidden="true">🔍</span>
+        <input type="search" id="sp-search-input" placeholder="Rechercher une pizza…" enterkeyhint="search" autocomplete="off">
+      </div>
+      <button type="button" class="sp-header-cart" id="sp-nav-cart" aria-label="Ouvrir le panier" aria-controls="sp-drawer" aria-expanded="false">
+        <span class="sp-header-cart__icon" aria-hidden="true">🛒</span>
+        <span class="sp-header-cart__badge" id="sp-nav-cart-badge" hidden aria-hidden="true">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="sp-hero" id="sp-hero">
+    <div class="sp-hero__card">
+      <div class="sp-hero__img" role="img" aria-label="Ambiance pizzeria"></div>
+      <div class="sp-hero__body">
+        <p class="sp-hero__brand" id="sp-hero-brand-wrap">
+          <img class="sp-hero__brand-logo" src="logo-snack-palace.svg" width="36" height="36" alt="" decoding="async">
+          <span id="sp-hero-brand"></span>
+        </p>
+        <h1 class="sp-hero__headline" id="sp-hero-headline"></h1>
+        <p class="sp-hero__subhead" id="sp-hero-subhead"></p>
+        <p class="sp-hero__intro" id="sp-hero-intro"></p>
+        <p class="sp-hero__tagline" id="sp-hero-tagline"></p>
+        <div class="sp-hero__ctas">
+          <a class="sp-btn sp-btn--primary" id="sp-hero-uber-cta" href="#" target="_blank" rel="noopener noreferrer">Commander sur Uber Eats</a>
+          <a class="sp-btn sp-btn--ghost" href="#sp-carte">Découvrir la carte</a>
+        </div>
+        <p id="sp-delivery-note" class="sp-hero__delivery-note"></p>
+        <div class="sp-hero__meta">
+          <span class="sp-badge" id="sp-hero-rating"></span>
+          <span class="sp-badge" id="sp-hero-eta"></span>
+          <span class="sp-badge">Livraison · emporter · sur place</span>
+        </div>
+        <p class="sp-hero__addr" id="sp-hero-address"></p>
+        <p class="sp-hero__hours" id="sp-hero-hours"></p>
+        <p class="sp-hero__weather" id="sp-weather-line" hidden></p>
+        <p class="sp-hero__links">
+          <a class="sp-hero__link" id="sp-hero-phone" href="#"></a>
+          <span class="sp-hero__links-sep" aria-hidden="true">·</span>
+          <a class="sp-hero__link" id="sp-official-link" href="#" target="_blank" rel="noopener noreferrer">Site officiel</a>
+          <span class="sp-hero__links-sep" aria-hidden="true">·</span>
+          <a class="sp-hero__link" id="sp-uber-link" href="#" target="_blank" rel="noopener noreferrer">Menu Uber Eats</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-values" aria-labelledby="sp-values-heading">
+    <div class="sp-values__inner">
+      <h2 id="sp-values-heading" class="sp-values__title">Pourquoi Snack Palace ?</h2>
+      <p class="sp-values__lead">La recette d’une bonne adresse : des produits soignés, des choix simples et le plaisir de partager une pizza entre amis ou en famille.</p>
+      <div class="sp-values__grid" id="sp-values-grid"></div>
+    </div>
+  </section>
+
+  <nav class="sp-categories" id="sp-categories" aria-label="Catégories"></nav>
+
+  <main class="sp-main" id="sp-carte">
+    <h2 class="sp-section-title">Notre carte</h2>
+    <p class="sp-section-lead">Nos pizzas par sauce — comme sur la vitrine des grandes maisons : vous choisissez votre univers (crème, tomate, barbecue, Brazil) et vous vous régalez.</p>
+    <div class="sp-grid" id="sp-menu"></div>
+  </main>
+
+  <p class="sp-footer-note">
+    <strong>Commande</strong> — finalisation en <strong>maquette uniquement</strong> (panier vidé, page de confirmation) : aucun paiement réel.
+    <strong>Maquette pédagogique</strong> — ton et mise en page inspirés d’une vitrine type <em>chaîne pizzeria</em> (accroche, promesse livraison / emporter / sur place) ; marque et contenus restent <strong>Snack Palace</strong>.
+    <strong>Carte et tarifs :</strong> repris de la fiche <a id="sp-footer-uber" href="#" target="_blank" rel="noopener noreferrer">Le Snack Palace sur Uber Eats</a> (pizzas crème / tomate / barbecue / Brazil ; prix affichés sur la plateforme, ex. 11 € — 13 € selon plat, mai 2026).
+    Vérifier les prix et dispo sur Uber Eats ou au restaurant. Visuels plats : images locales du dossier <code>images/plats/</code>.
+  </p>
+
+  <button type="button" class="sp-cart-bar" id="sp-cart-bar" disabled>
+    <span class="sp-cart-bar__label" id="sp-cart-label">Panier vide</span>
+    <span class="sp-cart-bar__total" id="sp-cart-total">—</span>
+  </button>
+
+  <div class="sp-drawer-overlay" id="sp-drawer-overlay" hidden></div>
+  <aside class="sp-drawer" id="sp-drawer" role="dialog" aria-modal="true" aria-labelledby="sp-drawer-title" aria-hidden="true" tabindex="-1">
+    <div class="sp-drawer__head">
+      <h2 class="sp-drawer__title" id="sp-drawer-title">Votre panier</h2>
+      <button type="button" class="sp-drawer__close" id="sp-drawer-close" aria-label="Fermer le panier">×</button>
+    </div>
+    <div class="sp-drawer__body" id="sp-drawer-lines"></div>
+    <div class="sp-drawer__foot">
+      <div class="sp-drawer__total-row">
+        <span>Total</span>
+        <strong id="sp-drawer-sum">0,00 €</strong>
+      </div>
+      <button type="button" class="sp-drawer__checkout" id="sp-checkout">Finaliser la commande (maquette)</button>
+    </div>
+  </aside>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

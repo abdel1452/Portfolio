@@ -1,0 +1,35 @@
+{# Fragment connexion — inclus depuis dashboard.html.twig #}
+<div id="login-view" class="min-vh-100 d-flex align-items-center py-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5 col-lg-4">
+        <div class="card shadow-lg border-0 login-card ah-card-hover">
+          <div class="card-body p-4 p-md-5">
+            <div class="text-center mb-4">
+              <img src="{{ brand_logo_login }}" alt="AMSOM Habitat — logo officiel" class="brand-logo-login mx-auto mb-3 d-block" width="400" height="186" decoding="async">
+              <h1 class="h4 fw-semibold mb-1">{{ app_name }}</h1>
+              <p class="text-muted small mb-0">{{ app_tagline }}</p>
+            </div>
+            <form id="login-form" novalidate>
+              <div class="mb-3">
+                <label for="login-user" class="form-label">Identifiant</label>
+                <input type="text" id="login-user" name="username" class="form-control" autocomplete="username" required value="admin">
+              </div>
+              <div class="mb-3">
+                <label for="login-pass" class="form-label">Mot de passe</label>
+                <input type="password" id="login-pass" name="password" class="form-control" autocomplete="current-password" required value="admin">
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg rounded-3 shadow-sm">
+                  <i class="bi bi-box-arrow-in-right me-2"></i>Se connecter
+                </button>
+              </div>
+              <p id="login-error" class="text-primary small fw-semibold mt-3 mb-0 d-none" role="alert"></p>
+            </form>
+            <p class="text-muted small text-center mt-4 mb-0">Démo : <code>admin</code> / <code>admin</code></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

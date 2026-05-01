@@ -1,0 +1,256 @@
+/* AMSOM Habitat — charte Synéo (logo RVB) : gris bleuté + vert institutionnel */
+:root {
+  /* Couleurs échantillonnées sur public/images/amsom-official.png */
+  --ah-charcoal: #41425c;
+  --ah-charcoal-mid: #4d4f66;
+  --ah-charcoal-deep: #323848;
+  --ah-slate: #667e8e;
+  --ah-green: #9ead3a;
+  --ah-green-hover: #8a9934;
+  --ah-green-strong: #738632;
+  --ah-green-deep: #5f6d28;
+  --ah-muted: #5c6770;
+  --ah-surface: #f2f3f1;
+  --ah-white: #ffffff;
+
+  /* Bootstrap 5 — aligné charte AMSOM */
+  --bs-body-bg: var(--ah-surface);
+  --bs-body-color: var(--ah-charcoal-deep);
+  --bs-primary: var(--ah-green);
+  --bs-primary-rgb: 158, 173, 58;
+  --bs-secondary: var(--ah-slate);
+  --bs-secondary-rgb: 102, 126, 142;
+  --bs-success: var(--ah-green-strong);
+  --bs-success-rgb: 115, 134, 50;
+  --bs-info: var(--ah-slate);
+  --bs-info-rgb: 102, 126, 142;
+  --bs-warning: var(--ah-muted);
+  --bs-warning-rgb: 92, 103, 112;
+  --bs-danger: var(--ah-charcoal-deep);
+  --bs-danger-rgb: 50, 56, 72;
+  --bs-link-color: var(--ah-slate);
+  --bs-link-hover-color: var(--ah-green-strong);
+  --bs-border-color: rgba(65, 66, 92, 0.14);
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Barre navigation : dégradé gris Synéo */
+.bg-navbar {
+  background: linear-gradient(118deg, var(--ah-charcoal) 0%, var(--ah-charcoal-deep) 100%) !important;
+}
+
+/* Primaire = vert charte (boutons d’action principaux) */
+.btn-primary {
+  --bs-btn-color: var(--ah-white);
+  --bs-btn-bg: var(--ah-green);
+  --bs-btn-border-color: var(--ah-green);
+  --bs-btn-hover-color: var(--ah-white);
+  --bs-btn-hover-bg: var(--ah-green-hover);
+  --bs-btn-hover-border-color: var(--ah-green-hover);
+  --bs-btn-active-color: var(--ah-white);
+  --bs-btn-active-bg: var(--ah-green-strong);
+  --bs-btn-active-border-color: var(--ah-green-strong);
+  --bs-btn-disabled-bg: var(--ah-muted);
+  --bs-btn-disabled-border-color: var(--ah-muted);
+}
+
+/* Succès = vert plus soutenu (création, validation) */
+.btn-success {
+  --bs-btn-color: var(--ah-white);
+  --bs-btn-bg: var(--ah-green-strong);
+  --bs-btn-border-color: var(--ah-green-strong);
+  --bs-btn-hover-color: var(--ah-white);
+  --bs-btn-hover-bg: var(--ah-green-deep);
+  --bs-btn-hover-border-color: var(--ah-green-deep);
+  --bs-btn-active-bg: #556325;
+  --bs-btn-active-border-color: #4f5c22;
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: var(--ah-slate);
+  --bs-btn-border-color: var(--ah-slate);
+  --bs-btn-hover-color: var(--ah-white);
+  --bs-btn-hover-bg: var(--ah-slate);
+  --bs-btn-hover-border-color: var(--ah-slate);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--ah-green-strong);
+  --bs-btn-border-color: var(--ah-green);
+  --bs-btn-hover-color: var(--ah-white);
+  --bs-btn-hover-bg: var(--ah-green);
+  --bs-btn-hover-border-color: var(--ah-green);
+}
+
+.btn-outline-light {
+  --bs-btn-hover-bg: rgba(255, 255, 255, 0.18);
+  --bs-btn-hover-border-color: var(--ah-white);
+}
+
+/* Danger reste dans les gris (pas de rouge hors charte) */
+.btn-danger {
+  --bs-btn-color: var(--ah-white);
+  --bs-btn-bg: var(--ah-charcoal-deep);
+  --bs-btn-border-color: var(--ah-charcoal-deep);
+  --bs-btn-hover-color: var(--ah-white);
+  --bs-btn-hover-bg: var(--ah-charcoal);
+  --bs-btn-hover-border-color: var(--ah-charcoal);
+}
+
+.brand-logo-login {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+}
+
+/* Logo barre de navigation — taille institutionnelle lisible */
+.brand-logo-nav {
+  max-height: none;
+  height: 3.35rem;
+  width: auto;
+  max-width: min(320px, 52vw);
+  object-fit: contain;
+  object-position: left center;
+  background: rgba(242, 243, 241, 0.98);
+  border-radius: 0.4rem;
+  padding: 0.25rem 0.55rem;
+  box-shadow: 0 1px 4px rgba(50, 56, 72, 0.14);
+}
+
+.login-card {
+  border-radius: 1rem;
+  border-top: 3px solid var(--ah-green);
+  animation: ah-fade-up 0.45s ease;
+}
+
+@keyframes ah-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ah-card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.ah-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.65rem 1.35rem rgba(65, 66, 92, 0.14) !important;
+}
+
+.table-hover tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+#projects-table thead th {
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--ah-charcoal-mid);
+  border-bottom-color: rgba(65, 66, 92, 0.18);
+}
+
+.thumb-img {
+  box-shadow: 0 1px 3px rgba(65, 66, 92, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#projects-table tbody tr:hover .thumb-img {
+  transform: scale(1.06);
+  box-shadow: 0 4px 12px rgba(65, 66, 92, 0.18);
+}
+
+.img-preview {
+  max-height: 140px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.breadcrumb-item a {
+  color: var(--ah-slate);
+  transition: color 0.15s ease;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--ah-green-strong);
+}
+
+#projects-table .btn {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease,
+    border-color 0.15s ease, color 0.15s ease;
+}
+
+#projects-table .btn:hover {
+  transform: translateY(-1px);
+}
+
+#projects-table .btn-outline-primary:hover {
+  color: var(--ah-white);
+  background-color: var(--ah-green);
+  border-color: var(--ah-green);
+}
+
+#projects-table .btn-outline-danger {
+  --bs-btn-color: var(--ah-charcoal-deep);
+  --bs-btn-border-color: var(--ah-charcoal-deep);
+}
+
+#projects-table .btn-outline-danger:hover {
+  color: var(--ah-white);
+  background-color: var(--ah-charcoal-deep);
+  border-color: var(--ah-charcoal-deep);
+}
+
+.form-control:focus {
+  border-color: var(--ah-green);
+  box-shadow: 0 0 0 0.2rem rgba(158, 173, 58, 0.28);
+}
+
+.form-select:focus {
+  border-color: var(--ah-green);
+  box-shadow: 0 0 0 0.2rem rgba(158, 173, 58, 0.28);
+}
+
+.toast {
+  --bs-toast-border-radius: 0.75rem;
+}
+
+.text-ah-muted {
+  color: var(--ah-muted) !important;
+}
+
+/* Onglet actif : filet vert charte (sans saut de mise en page) */
+.navbar-dark .navbar-nav .nav-link {
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.35rem;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--ah-white) !important;
+  border-bottom-color: var(--ah-green);
+}
+
+.scroll-margin-top {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (max-width: 575.98px) {
+  .navbar-brand .fw-semibold {
+    font-size: 0.9rem;
+  }
+
+  .brand-logo-nav {
+    height: 2.65rem;
+    max-width: min(240px, 70vw);
+  }
+}

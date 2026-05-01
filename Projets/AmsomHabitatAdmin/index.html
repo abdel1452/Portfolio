@@ -1,108 +1,278 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Amsom Habitat – Admin</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="amsom.css">
-</head>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amsom Habitat – Console d’administration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="public/css/amsom.css">
+  </head>
 <body>
-
-<div class="container py-4">
-
-<!-- LOGIN -->
-<div id="login-view" class="row justify-content-center">
-  <div class="col-md-4">
-    <div class="card shadow p-4">
-      <h4 class="text-center mb-3">Connexion</h4>
-
-      <form id="login-form">
-        <input type="text" name="username" class="form-control mb-3" value="admin">
-        <input type="password" name="password" class="form-control mb-3" value="admin">
-
-        <button type="submit" class="btn btn-primary w-100">
-          Se connecter
-        </button>
-        <p id="login-error" class="text-danger mt-2"></p>
-      </form>
+  <div id="login-view" class="min-vh-100 d-flex align-items-center py-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5 col-lg-4">
+        <div class="card shadow-lg border-0 login-card ah-card-hover">
+          <div class="card-body p-4 p-md-5">
+            <div class="text-center mb-4">
+              <img src="public/images/amsom-official.png" alt="AMSOM Habitat — logo officiel" class="brand-logo-login mx-auto mb-3 d-block" width="400" height="186" decoding="async">
+              <h1 class="h4 fw-semibold mb-1">Amsom Habitat</h1>
+              <p class="text-muted small mb-0">Console d’administration des applications</p>
+            </div>
+            <form id="login-form" novalidate>
+              <div class="mb-3">
+                <label for="login-user" class="form-label">Identifiant</label>
+                <input type="text" id="login-user" name="username" class="form-control" autocomplete="username" required value="admin">
+              </div>
+              <div class="mb-3">
+                <label for="login-pass" class="form-label">Mot de passe</label>
+                <input type="password" id="login-pass" name="password" class="form-control" autocomplete="current-password" required value="admin">
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg rounded-3 shadow-sm">
+                  <i class="bi bi-box-arrow-in-right me-2"></i>Se connecter
+                </button>
+              </div>
+              <p id="login-error" class="text-primary small fw-semibold mt-3 mb-0 d-none" role="alert"></p>
+            </form>
+            <p class="text-muted small text-center mt-4 mb-0">Démo : <code>admin</code> / <code>admin</code></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- DASHBOARD -->
-<div id="dashboard" style="display:none;">
-
-  <div class="admin-header">
-    <div class="d-flex align-items-center gap-3">
-      <img src="./amsom.jpg">
-      <h3>Amsom Habitat CRUD</h3>
+  <div id="dashboard" class="d-none">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar shadow-sm sticky-top">
+  <div class="container-fluid px-3 px-lg-4">
+    <a class="navbar-brand d-flex align-items-center py-1 me-lg-4" href="#" title="Amsom Habitat">
+      <img src="public/images/amsom-official.png" alt="AMSOM Habitat" class="brand-logo-nav" width="320" height="149" decoding="async">
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#ahNavbarNav" aria-controls="ahNavbarNav" aria-expanded="false" aria-label="Menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="ahNavbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-2 mt-lg-0 align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link active px-lg-3" aria-current="page" href="#" id="ah-nav-catalogue"><i class="bi bi-grid-3x3-gap me-1"></i>Catalogue</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-lg-3" href="#" id="ah-nav-stats"><i class="bi bi-graph-up-arrow me-1"></i>Indicateurs</a>
+        </li>
+      </ul>
+      <div class="d-flex flex-wrap align-items-center gap-2 ms-lg-2 mb-3 mb-lg-0 mt-2 mt-lg-0">
+        <span class="badge rounded-pill text-bg-success d-none d-md-inline fw-normal">Bootstrap 5</span>
+        <span class="badge rounded-pill text-bg-secondary d-none d-md-inline fw-normal">Twig</span>
+        <div class="dropdown">
+          <button class="btn btn-outline-light dropdown-toggle rounded-pill px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="user-menu">
+            <i class="bi bi-person-circle me-1"></i><span class="d-none d-sm-inline">Admin</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="user-menu">
+            <li><h6 class="dropdown-header">Session</h6></li>
+            <li><span class="dropdown-item-text small text-muted">Compte démo (localStorage)</span></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button type="button" class="dropdown-item text-danger" id="logout-dropdown"><i class="bi bi-box-arrow-right me-2"></i>Déconnexion</button></li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+</nav>
+    <main class="container-fluid px-3 px-lg-4 py-4">
+  <nav aria-label="Fil d'Ariane" class="mb-3">
+    <ol class="breadcrumb mb-0 bg-white rounded shadow-sm px-3 py-2">
+      <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Accueil</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Catalogue</li>
+    </ol>
+  </nav>
 
-    <div class="d-flex gap-2">
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">+ Ajouter</button>
-      <button id="reset-data" class="btn btn-warning">Reset</button>
-      <button id="logout" class="btn btn-danger">Déconnexion</button>
+  <header id="ah-catalogue" class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-3 mb-4 scroll-margin-top">
+    <div>
+      <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
+        <h2 class="h4 mb-0">Catalogue métiers</h2>
+        <span class="badge rounded-pill text-bg-primary">CRUD</span>
+      </div>
+      <p class="text-muted small mb-0">Créer, modifier ou retirer une entrée du catalogue (données stockées localement).</p>
+    </div>
+    <div class="btn-group flex-wrap" role="group" aria-label="Actions sur le catalogue">
+      <button type="button" class="btn btn-success" id="btn-open-create">
+        <i class="bi bi-plus-lg me-1"></i>Nouvelle application
+      </button>
+      <button type="button" class="btn btn-outline-secondary" id="reset-data" title="Réinitialiser les données de démonstration">
+        <i class="bi bi-arrow-counterclockwise me-1"></i>Réinitialiser
+      </button>
+    </div>
+  </header>
+
+  <div class="row g-3 mb-4" id="ah-stats-row">
+    <div class="col-sm-6 col-xl-3">
+      <div class="card border-0 shadow-sm h-100 border-start border-4 border-secondary ah-card-hover">
+        <div class="card-body d-flex justify-content-between align-items-start">
+          <div>
+            <div class="text-muted small text-uppercase fw-semibold" style="letter-spacing:.04em;">Total</div>
+            <div class="fs-4 fw-semibold" id="stat-total">0</div>
+          </div>
+          <span class="rounded-3 bg-secondary bg-opacity-10 p-2 text-secondary"><i class="bi bi-grid-3x3-gap fs-5"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="card border-0 shadow-sm h-100 border-start border-4 border-primary ah-card-hover">
+        <div class="card-body d-flex justify-content-between align-items-start">
+          <div>
+            <div class="text-muted small text-uppercase fw-semibold" style="letter-spacing:.04em;">Préproduction</div>
+            <div class="fs-4 fw-semibold text-primary" id="stat-preprod">0</div>
+          </div>
+          <span class="rounded-3 bg-primary bg-opacity-10 p-2 text-primary"><i class="bi bi-flask fs-5"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="card border-0 shadow-sm h-100 border-start border-4 border-success ah-card-hover">
+        <div class="card-body d-flex justify-content-between align-items-start">
+          <div>
+            <div class="text-muted small text-uppercase fw-semibold" style="letter-spacing:.04em;">Production</div>
+            <div class="fs-4 fw-semibold text-success" id="stat-prod">0</div>
+          </div>
+          <span class="rounded-3 bg-success bg-opacity-10 p-2 text-success"><i class="bi bi-cloud-check fs-5"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="card border-0 shadow-sm h-100 border-start border-4 border-secondary ah-card-hover">
+        <div class="card-body d-flex justify-content-between align-items-start">
+          <div>
+            <div class="text-muted small text-uppercase fw-semibold" style="letter-spacing:.04em;">Filtre</div>
+            <div class="fs-4 fw-semibold text-secondary" id="stat-filtered">—</div>
+          </div>
+          <span class="rounded-3 bg-secondary bg-opacity-10 p-2 text-secondary"><i class="bi bi-funnel fs-5"></i></span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="card shadow">
+  <div class="card border-0 shadow-sm ah-card-hover">
+    <div class="card-body border-bottom bg-white">
+      <div class="row g-2 align-items-center">
+        <div class="col-md-6 col-lg-4">
+          <label for="search-input" class="visually-hidden">Rechercher</label>
+          <div class="input-group">
+            <span class="input-group-text bg-white"><i class="bi bi-search text-muted"></i></span>
+            <input type="search" id="search-input" class="form-control" placeholder="Nom, description ou URL…" autocomplete="off">
+          </div>
+        </div>
+        <div class="col-md-auto ms-md-auto text-muted small" id="table-meta"></div>
+      </div>
+    </div>
     <div class="table-responsive">
-      <table class="table table-striped align-middle">
-        <thead class="table-dark">
+      <table class="table table-striped table-hover align-middle mb-0" id="projects-table">
+        <thead class="table-light">
           <tr>
-            <th>#</th>
-            <th>Image</th>
-            <th>Description</th>
-            <th>Préprod</th>
-            <th>Prod</th>
-            <th>Actions</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase" style="width:3.5rem;">#</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase" style="width:5rem;">Visuel</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase">Application</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase d-none d-xl-table-cell">Description</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase">Préprod</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase">Prod</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase text-end" style="width:12.5rem;">Actions</th>
           </tr>
         </thead>
         <tbody id="projects-body"></tbody>
       </table>
     </div>
+    <div id="empty-state" class="text-center py-5 text-muted d-none">
+      <i class="bi bi-inbox fs-1 d-block mb-2 opacity-50"></i>
+      <p class="mb-0">Aucune application ne correspond à votre recherche.</p>
+    </div>
   </div>
 
-</div>
+  <footer class="mt-4 pt-3 border-top text-center text-muted small">
+    <p class="mb-1">Amsom Habitat — interface d’administration (maquette Bootstrap 5, gabarits Twig, données navigateur).</p>
+    <p class="mb-0">&copy; <span id="footer-year"></span></p>
+  </footer>
+</main>
+  </div>
 
-</div>
-
-<!-- MODAL -->
-<div class="modal fade" id="addModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <h5>Ajouter un projet</h5>
-        <button class="btn-close" data-bs-dismiss="modal"></button>
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header border-0 pb-0">
+        <h2 class="modal-title h5" id="projectModalTitle">Nouvelle application</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
       </div>
-
-      <div class="modal-body">
-        <form id="add-form">
-
-          <input id="desc" class="form-control mb-2" placeholder="Description">
-          <input type="file" id="imgFile" class="form-control mb-2">
-
-          <img id="preview" class="preview">
-
-          <input id="preprod" class="form-control mb-2" placeholder="URL préprod">
-          <input id="prod" class="form-control mb-2" placeholder="URL prod">
-
-          <button class="btn btn-success w-100">Ajouter</button>
-
+      <div class="modal-body pt-2">
+        <form id="project-form" novalidate>
+          <input type="hidden" id="project-id" value="">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="field-name" class="form-label">Nom de l’application <span class="text-primary">*</span></label>
+              <input type="text" class="form-control" id="field-name" required maxlength="120" placeholder="Ex. Portail RH">
+              <div class="invalid-feedback">Indiquez un nom.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="field-image-url" class="form-label">URL de l’image <span class="text-muted fw-normal">(optionnel)</span></label>
+              <input type="url" class="form-control" id="field-image-url" placeholder="https://…">
+            </div>
+            <div class="col-12">
+              <label for="field-description" class="form-label">Description</label>
+              <textarea class="form-control" id="field-description" rows="2" maxlength="500" placeholder="Rôle métier, périmètre…"></textarea>
+            </div>
+            <div class="col-md-6">
+              <label for="field-preprod" class="form-label">URL préproduction</label>
+              <input type="url" class="form-control" id="field-preprod" placeholder="https://preprod…">
+            </div>
+            <div class="col-md-6">
+              <label for="field-prod" class="form-label">URL production</label>
+              <input type="url" class="form-control" id="field-prod" placeholder="https://…">
+            </div>
+            <div class="col-12">
+              <label for="field-image-file" class="form-label">Ou importer une image <span class="text-muted fw-normal">(remplace l’URL)</span></label>
+              <input type="file" class="form-control" id="field-image-file" accept="image/*">
+              <div class="form-text">Formats image courants, taille raisonnable recommandée.</div>
+            </div>
+            <div class="col-12">
+              <div class="border rounded-3 p-2 bg-light text-center" id="image-preview-wrap" hidden>
+                <img src="" alt="Aperçu" id="image-preview" class="img-preview rounded">
+              </div>
+            </div>
+          </div>
+          <div class="btn-toolbar justify-content-end mt-4 pt-2 border-top" role="toolbar">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-outline-secondary rounded-start-3" data-bs-dismiss="modal">Annuler</button>
+              <button type="submit" class="btn btn-primary rounded-end-3" id="project-form-submit">
+                <i class="bi bi-check2 me-1"></i>Enregistrer
+              </button>
+            </div>
+          </div>
         </form>
       </div>
-
     </div>
   </div>
 </div>
 
-<script src="amsom.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header border-0">
+        <h2 class="modal-title h5" id="deleteModalTitle">Supprimer l’application</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body pt-0">
+        <p class="mb-0">Confirmer la suppression de <strong id="delete-target-name"></strong> ? Cette action est immédiate.</p>
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <div class="btn-group ms-auto" role="group">
+          <button type="button" class="btn btn-outline-secondary rounded-start-3" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger rounded-end-3" id="delete-confirm-btn"><i class="bi bi-trash me-1"></i>Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="public/js/amsom.js"></script>
 </body>
 </html>

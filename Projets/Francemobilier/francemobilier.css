@@ -1,0 +1,51 @@
+/* France-Mobilier — compléments à Bootstrap (carrousel, sidebar) */
+
+.fm-carousel {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fm-slide-wrap {
+  position: relative;
+  min-height: 280px;
+  background: #e9ecef;
+}
+
+@media (min-width: 768px) {
+  .fm-slide-wrap {
+    min-height: 380px;
+  }
+}
+
+.fm-slide-img {
+  object-fit: cover;
+  max-height: 420px;
+}
+
+.fm-caption {
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 0 0 0.5rem 0.5rem;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 480px;
+  padding: 0.75rem 1rem !important;
+  bottom: 1rem !important;
+}
+
+.fm-nav-btn {
+  width: 48px;
+  height: 48px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 12%;
+}
+
+#liste-magasins h3 {
+  font-weight: 600;
+  color: #495057;
+}

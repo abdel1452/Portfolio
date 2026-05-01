@@ -1,0 +1,76 @@
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header border-0 pb-0">
+        <h2 class="modal-title h5" id="projectModalTitle">Nouvelle application</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body pt-2">
+        <form id="project-form" novalidate>
+          <input type="hidden" id="project-id" value="">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="field-name" class="form-label">Nom de l’application <span class="text-primary">*</span></label>
+              <input type="text" class="form-control" id="field-name" required maxlength="120" placeholder="Ex. Portail RH">
+              <div class="invalid-feedback">Indiquez un nom.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="field-image-url" class="form-label">URL de l’image <span class="text-muted fw-normal">(optionnel)</span></label>
+              <input type="url" class="form-control" id="field-image-url" placeholder="https://…">
+            </div>
+            <div class="col-12">
+              <label for="field-description" class="form-label">Description</label>
+              <textarea class="form-control" id="field-description" rows="2" maxlength="500" placeholder="Rôle métier, périmètre…"></textarea>
+            </div>
+            <div class="col-md-6">
+              <label for="field-preprod" class="form-label">URL préproduction</label>
+              <input type="url" class="form-control" id="field-preprod" placeholder="https://preprod…">
+            </div>
+            <div class="col-md-6">
+              <label for="field-prod" class="form-label">URL production</label>
+              <input type="url" class="form-control" id="field-prod" placeholder="https://…">
+            </div>
+            <div class="col-12">
+              <label for="field-image-file" class="form-label">Ou importer une image <span class="text-muted fw-normal">(remplace l’URL)</span></label>
+              <input type="file" class="form-control" id="field-image-file" accept="image/*">
+              <div class="form-text">Formats image courants, taille raisonnable recommandée.</div>
+            </div>
+            <div class="col-12">
+              <div class="border rounded-3 p-2 bg-light text-center" id="image-preview-wrap" hidden>
+                <img src="" alt="Aperçu" id="image-preview" class="img-preview rounded">
+              </div>
+            </div>
+          </div>
+          <div class="btn-toolbar justify-content-end mt-4 pt-2 border-top" role="toolbar">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-outline-secondary rounded-start-3" data-bs-dismiss="modal">Annuler</button>
+              <button type="submit" class="btn btn-primary rounded-end-3" id="project-form-submit">
+                <i class="bi bi-check2 me-1"></i>Enregistrer
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header border-0">
+        <h2 class="modal-title h5" id="deleteModalTitle">Supprimer l’application</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body pt-0">
+        <p class="mb-0">Confirmer la suppression de <strong id="delete-target-name"></strong> ? Cette action est immédiate.</p>
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <div class="btn-group ms-auto" role="group">
+          <button type="button" class="btn btn-outline-secondary rounded-start-3" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger rounded-end-3" id="delete-confirm-btn"><i class="bi bi-trash me-1"></i>Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

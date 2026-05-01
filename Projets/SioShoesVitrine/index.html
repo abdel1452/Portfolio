@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIO Shoes — Chaussures sport &amp; lifestyle</title>
+  <meta name="description" content="Vitrine e-commerce chaussures — maquette inspirée du retail sportif professionnel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sio-shoes.css">
+</head>
+<body>
+  <p class="sio-topbar">Livraison offerte dès 75 € · Retours 30 jours — <strong>maquette</strong></p>
+
+  <header class="sio-nav">
+    <div class="sio-nav__inner">
+      <a class="sio-logo" href="#">SIO <span>SHOES</span></a>
+      <nav class="sio-nav__links" aria-label="Navigation">
+        <a href="#nouveautes" class="is-active">Nouveautés</a>
+        <a href="#homme">Homme</a>
+        <a href="#femme">Femme</a>
+        <a href="#enfant">Enfant</a>
+        <a href="#catalogue">Catalogue</a>
+      </nav>
+      <button type="button" class="sio-nav__cart" id="sio-cart-btn" aria-label="Panier">
+        Panier
+        <span class="sio-nav__cart-badge" id="sio-cart-badge" hidden>0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="sio-hero" id="nouveautes">
+    <div class="sio-hero__content">
+      <span class="sio-hero__tag">Performance 2026</span>
+      <h1>Domine le terrain. Chaque jour.</h1>
+      <p>Sélection running, basket, football et lifestyle — matériaux techniques, design affirmé, esprit boutique spécialisée.</p>
+      <a href="#catalogue" class="sio-btn">Voir le catalogue</a>
+      <a href="#inspiration" class="sio-btn sio-btn--outline" style="margin-left:0.5rem;">Charte &amp; mentions</a>
+    </div>
+  </section>
+
+  <div class="sio-brands" aria-hidden="true">
+    <div class="sio-brands__row">
+      <span>Running</span>
+      <span>Lifestyle</span>
+      <span>Basket</span>
+    </div>
+  </div>
+
+  <section class="sio-section" id="homme">
+    <div class="sio-section__head">
+      <h2>Homme · running &amp; training</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;">
+      <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=900&q=80&auto=format&fit=crop" alt="" style="width:100%;border-radius:var(--radius);aspect-ratio:16/10;object-fit:cover;border:1px solid var(--sio-gray);">
+      <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=900&q=80&auto=format&fit=crop" alt="" style="width:100%;border-radius:var(--radius);aspect-ratio:16/10;object-fit:cover;border:1px solid var(--sio-gray);">
+    </div>
+  </section>
+
+  <section class="sio-section" id="femme">
+    <div class="sio-section__head">
+      <h2>Femme · lifestyle</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;">
+      <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=900&q=80&auto=format&fit=crop" alt="Sneakers lifestyle" style="width:100%;border-radius:var(--radius);aspect-ratio:16/10;object-fit:cover;border:1px solid var(--sio-gray);">
+      <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=900&q=80&auto=format&fit=crop" alt="Nike Air Force 1" style="width:100%;border-radius:var(--radius);aspect-ratio:16/10;object-fit:cover;border:1px solid var(--sio-gray);">
+    </div>
+  </section>
+
+  <section class="sio-section" id="enfant">
+    <div class="sio-section__head">
+      <h2>Enfant</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
+      <img src="https://images.unsplash.com/photo-1556656475-1e2cabeeb32b?w=900&q=80&auto=format&fit=crop" alt="Chaussures enfant" style="width:100%;border-radius:var(--radius);aspect-ratio:4/3;object-fit:cover;border:1px solid var(--sio-gray);">
+      <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=900&q=80&auto=format&fit=crop" alt="Running" style="width:100%;border-radius:var(--radius);aspect-ratio:4/3;object-fit:cover;border:1px solid var(--sio-gray);">
+    </div>
+  </section>
+
+  <section class="sio-section" id="catalogue">
+    <div class="sio-section__head">
+      <h2>Catalogue</h2>
+      <p class="sio-catalog-lead">3 catégories · 10 modèles chacune · 30 photos Unsplash (illustratives).</p>
+      <div class="sio-catalog-toolbar">
+        <div class="sio-filters" role="group" aria-label="Filtrer par catégorie">
+          <button type="button" class="sio-filter is-on" data-filter="all">Tout</button>
+          <button type="button" class="sio-filter" data-filter="running">Running</button>
+          <button type="button" class="sio-filter" data-filter="lifestyle">Lifestyle</button>
+          <button type="button" class="sio-filter" data-filter="basket">Basket</button>
+        </div>
+        <label class="sio-search">
+          <span class="sio-search__label">Rechercher</span>
+          <input type="search" id="sio-search" class="sio-search__input" placeholder="Nom, marque, description…" autocomplete="off" enterkeyhint="search">
+        </label>
+      </div>
+    </div>
+    <div class="sio-grid" id="sio-grid"></div>
+  </section>
+
+  <p class="sio-api-strip" id="sio-api-info" aria-live="polite"></p>
+
+  <footer class="sio-inspiration" id="inspiration">
+    <p><strong>Maquette pédagogique SIO Shoes</strong> — interface et mise en page <strong>inspirées visuellement</strong> de l’univers des enseignes spécialisées chaussures &amp; sport (dont l’esprit graphique proche de vitrines type <strong>Courir</strong>, <strong>JD Sports</strong> et grands retailers running). <strong>Aucune affiliation, aucun partenariat</strong> : marques citées à titre d’inspiration design uniquement. Photos locales du catalogue (dossier <code>image shoes</code>).</p>
+    <p>Catalogue : <strong>30 modèles</strong> (10 running, 10 lifestyle, 10 basket), <strong>recherche</strong> en direct. Données dans <code>data.js</code>. <strong>APIs</strong> : bandeau ci-dessus via <strong>Open-Meteo</strong> (météo indicative Paris) et <strong>Frankfurter</strong> (change EUR→USD). Le projet Symfony (<code>Site_eShoes-main</code>) couvre back-office, panier serveur et Stripe.</p>
+  </footer>
+  <p class="sio-footer">&copy; SIO Shoes — vitrine front-end · Projet étudiant</p>
+
+  <div class="sio-drawer-overlay" id="sio-drawer-overlay"></div>
+  <aside class="sio-drawer" id="sio-drawer" aria-label="Panier">
+    <div class="sio-drawer__head">
+      <h3>Panier</h3>
+      <button type="button" class="sio-drawer__close" id="sio-drawer-close" aria-label="Fermer">&times;</button>
+    </div>
+    <div class="sio-drawer__body" id="sio-drawer-body"></div>
+    <div class="sio-drawer__foot">
+      <div class="sio-drawer__total">
+        <span>Total</span>
+        <span id="sio-drawer-total">0,00 €</span>
+      </div>
+      <button type="button" class="sio-btn" style="width:100%;justify-content:center;">Commander (démo)</button>
+    </div>
+  </aside>
+
+  <script src="data.js"></script>
+  <script src="sio-shoes.js"></script>
+</body>
+</html>

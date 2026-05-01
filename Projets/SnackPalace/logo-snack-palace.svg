@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="pz-crust" x1="24" y1="5" x2="24" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f0b04a"/>
+      <stop offset="0.5" stop-color="#d8942a"/>
+      <stop offset="1" stop-color="#9e6218"/>
+    </linearGradient>
+    <linearGradient id="pz-sauce" x1="14" y1="14" x2="38" y2="34" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ef5350"/>
+      <stop offset="1" stop-color="#a31616"/>
+    </linearGradient>
+    <linearGradient id="pz-cheese" x1="16" y1="16" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fffef5"/>
+      <stop offset="0.4" stop-color="#ffe082"/>
+      <stop offset="1" stop-color="#ffc107"/>
+    </linearGradient>
+    <radialGradient id="pz-pep" cx="32%" cy="32%" r="70%">
+      <stop offset="0" stop-color="#ff8a80"/>
+      <stop offset="0.65" stop-color="#c62828"/>
+      <stop offset="1" stop-color="#7f1212"/>
+    </radialGradient>
+  </defs>
+  <!-- Ombre portée (cartoon) -->
+  <ellipse cx="24" cy="42" rx="15" ry="4" fill="#1a0f0a" opacity="0.18"/>
+  <!-- Pizza vue du dessus : croûte -->
+  <circle cx="24" cy="23" r="17" fill="url(#pz-crust)" stroke="#6b3d0f" stroke-width="0.75"/>
+  <!-- Anneau sauce -->
+  <circle cx="24" cy="23" r="14.5" fill="url(#pz-sauce)"/>
+  <!-- Noyau fromage -->
+  <circle cx="24" cy="23" r="12" fill="url(#pz-cheese)"/>
+  <!-- Reflets fromage fondant -->
+  <ellipse cx="19" cy="18" rx="6" ry="4" fill="#fff" opacity="0.4"/>
+  <ellipse cx="29" cy="26" rx="4" ry="2.5" fill="#fff" opacity="0.22"/>
+  <!-- Pepperoni (volume léger + contours nets type cartoon) -->
+  <g stroke="#5c0a0a" stroke-width="0.5">
+    <circle cx="17.5" cy="22" r="3.8" fill="url(#pz-pep)"/>
+    <circle cx="27" cy="19" r="3.4" fill="url(#pz-pep)"/>
+    <circle cx="24" cy="28.5" r="3.2" fill="url(#pz-pep)"/>
+    <circle cx="30.5" cy="27" r="2.7" fill="url(#pz-pep)"/>
+  </g>
+  <ellipse cx="16.4" cy="20.6" rx="1.15" ry="0.7" fill="#fff" opacity="0.6"/>
+  <ellipse cx="25.8" cy="17.8" rx="1" ry="0.6" fill="#fff" opacity="0.55"/>
+  <ellipse cx="22.6" cy="27.2" rx="0.9" ry="0.55" fill="#fff" opacity="0.5"/>
+  <ellipse cx="29.4" cy="25.8" rx="0.75" ry="0.45" fill="#fff" opacity="0.45"/>
+  <!-- Basilic stylisé -->
+  <path fill="#2e7d32" d="M32 26.5c2-2.5 4-2.2 5-.2s-1.5 3.8-3.5 4.2-3.5-1.5-1.5-4z" opacity="0.92"/>
+  <path fill="#4caf50" d="M33.2 27.8c.8-1 1.8-1 2.4-.2s-.6 1.8-1.6 2-.8-1-1-1.8z" opacity="0.85"/>
+</svg>

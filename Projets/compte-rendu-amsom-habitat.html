@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte rendu — Amsom Habitat (console admin)</title>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="compte-rendu-styles.css">
+</head>
+<body>
+    <div class="compte-rendu">
+        <a href="../index.html#work" class="compte-rendu__back">
+            <i class="bx bx-arrow-back"></i> Retour au portfolio
+        </a>
+
+        <div class="compte-rendu__header">
+            <h1 class="compte-rendu__title">Compte rendu — Amsom Habitat</h1>
+            <p class="compte-rendu__subtitle">Console d’administration des applications métiers (maquette)</p>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Informations générales</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <strong>Projet :</strong> Console admin Amsom Habitat — annuaire des applications internes
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Contexte :</strong> Groupe logement / promoteur (identité visuelle logo officiel)
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Auteur :</strong> Abdelmalek Elidrissi — BTS SIO SLAM
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Livrable :</strong> Interface web (export HTML + option PHP/Twig), données navigateur (localStorage). Arborescence proche de <strong>Symfony</strong> (dossier <code>templates/</code>, <code>public/</code>, contrôleur illustratif).
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Objectifs</h2>
+            <ul class="compte-rendu__list">
+                <li>Simuler un portail administrateur listant les applications du SI (45 entrées métiers)</li>
+                <li>Permettre un CRUD complet (création, lecture, mise à jour, suppression) sur le catalogue</li>
+                <li>Associer à chaque application des URL de préproduction et de production</li>
+                <li>Proposer une interface professionnelle alignée sur la charte du logo (marine, ardoise, vert)</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Environnements d’URL (maquette réaliste)</h2>
+            <p>Les liens ne pointent pas vers de vrais services exposés sur Internet : ils reprennent une <strong>convention d’entreprise</strong> crédible pour la préprod et la prod, afin de se rapprocher d’un annuaire d’applications réel.</p>
+            <table class="compte-rendu__table">
+                <thead>
+                    <tr><th>Environnement</th><th>URL type (fictif, convention SI)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Qualification / préproduction</td><td><code>https://qualif-si.amsom-habitat.fr/app/&lt;slug&gt;</code></td></tr>
+                    <tr><td>Production</td><td><code>https://si.amsom-habitat.fr/app/&lt;slug&gt;</code></td></tr>
+                </tbody>
+            </table>
+            <p>Le <code>&lt;slug&gt;</code> est dérivé automatiquement du nom de l’application (sans accents, tirets).</p>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Technologies</h2>
+            <span class="compte-rendu__badge">HTML5</span>
+            <span class="compte-rendu__badge">Bootstrap 5</span>
+            <span class="compte-rendu__badge">Bootstrap Icons</span>
+            <span class="compte-rendu__badge">JavaScript (ES6+)</span>
+            <span class="compte-rendu__badge">localStorage</span>
+            <span class="compte-rendu__badge">Twig 3</span>
+            <span class="compte-rendu__badge">PHP 8</span>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Fonctionnalités</h2>
+            <ul class="compte-rendu__list">
+                <li>Écran de connexion (démo <code>admin</code> / <code>admin</code>)</li>
+                <li>Tableau filtrable, statistiques (préprod, prod, filtre actif)</li>
+                <li>Modale unique pour création et édition (nom, description, image URL ou fichier, URLs)</li>
+                <li>Confirmation avant suppression ; toasts de retour utilisateur</li>
+                <li>Réinitialisation du jeu de données de démonstration</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Fichiers principaux</h2>
+            <div class="compte-rendu__code">Projets/AmsomHabitatAdmin/
+├── composer.json          # dépendance twig/twig
+├── index.html             # export statique (php bin/render-static.php)
+├── bin/render-static.php
+├── config/
+│   ├── context.php        # contexte type contrôleur Symfony
+│   └── routes.yaml        # exemple de route (référence)
+├── public/                # document root
+│   ├── index.php          # rendu Twig (serveur PHP)
+│   ├── css/amsom.css
+│   ├── js/amsom.js
+│   └── images/
+│       ├── amsom-official.png    # logo couleur Synéo RVB (vert/gris), kit com. amsom-habitat.fr
+│       ├── amsom-logo-syneo-noir.png  # variante noir (même kit)
+│       ├── amsom-banner.svg      # bannière portfolio (référence au PNG)
+│       └── amsom-logo-*.svg      # variantes vectorielles optionnelles
+├── src/Controller/
+│   └── AdminController.php  # illustration d’action Symfony
+└── templates/
+    ├── base.html.twig
+    └── admin/
+        ├── dashboard.html.twig
+        └── partials/*.html.twig</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -8,15 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="meteo.css">
     <style>
+        /* Compléments légers — thème principal dans meteo.css */
         * {
             font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-weight: 400;
             letter-spacing: -0.01em;
         }
@@ -120,39 +120,6 @@
             color: #6c757d;
         }
         
-        .card {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: none;
-        }
-        
-        .bg-primary, .bg-success, .bg-warning, .bg-danger, .bg-dark, .bg-secondary, .bg-info {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)) !important;
-        }
-        
-        .bg-success {
-            background: linear-gradient(135deg, rgba(40, 167, 69, 0.9), rgba(25, 135, 84, 0.9)) !important;
-        }
-        
-        .bg-warning {
-            background: linear-gradient(135deg, rgba(255, 193, 7, 0.9), rgba(255, 152, 0, 0.9)) !important;
-        }
-        
-        .bg-danger {
-            background: linear-gradient(135deg, rgba(220, 53, 69, 0.9), rgba(200, 35, 51, 0.9)) !important;
-        }
-        
-        .bg-dark {
-            background: linear-gradient(135deg, rgba(33, 37, 41, 0.9), rgba(52, 58, 64, 0.9)) !important;
-        }
-        
-        .bg-secondary {
-            background: linear-gradient(135deg, rgba(108, 117, 125, 0.9), rgba(73, 80, 87, 0.9)) !important;
-        }
-        
-        .bg-info {
-            background: linear-gradient(135deg, rgba(13, 202, 240, 0.9), rgba(0, 180, 216, 0.9)) !important;
-        }
-        
         #hourly-forecast, #7day-forecast {
             scrollbar-width: thin;
             scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
@@ -170,30 +137,6 @@
         #hourly-forecast::-webkit-scrollbar-thumb, #7day-forecast::-webkit-scrollbar-thumb {
             background: rgba(255, 255, 255, 0.3);
             border-radius: 10px;
-        }
-        
-        .nav-tabs .nav-link {
-            color: #667eea;
-            font-weight: 500;
-        }
-        
-        .nav-tabs .nav-link.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-color: #667eea;
-        }
-        
-        .nav-tabs .nav-link:hover {
-            border-color: #667eea;
-            color: #667eea;
-        }
-        
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
         }
         
         #forecast-container .card {
@@ -215,8 +158,14 @@
 </head>
 <body>
 
+  <div class="meteo-strip">La météo affichée correspond à <strong>votre position</strong> (géolocalisation du navigateur) une fois l’autorisation accordée. Clé API WeatherAPI requise.</div>
+  <div class="meteo-hero">
+    <h1>Météo locale</h1>
+    <p>Localisation GPS + prévisions 7 jours, qualité de l’air et historique d’humeur.</p>
+  </div>
+
   <div class="container">
-    <h1>Votre météo</h1>
+    <h2 class="h4 mb-3" style="font-weight:700;">Tableau de bord</h2>
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link active" id="tab-current" href="#" onclick="showTab('current'); return false;">
@@ -253,8 +202,9 @@
                                 Cette application a besoin d'accéder à votre position pour afficher les données météo de votre localisation.
                             </p>
                             <button id="request-geolocation" class="btn btn-primary btn-lg">
-                                📍 Autoriser la géolocalisation
+                                📍 Utiliser ma position (GPS)
                             </button>
+                            <p class="small text-muted mt-2 mb-0">Si une clé API est déjà enregistrée, la position peut être demandée automatiquement au chargement.</p>
                         </div>
                         <div id="coordinates-display" style="display: none;">
                             <p class="text-center mb-2">
@@ -1411,8 +1361,8 @@ function initializeApp() {
             requestButton.addEventListener('click', () => {
                 console.log('Bouton cliqué - Demande de géolocalisation');
                 requestGeolocation();
-    });
-} else {
+            });
+        } else {
             console.error('Bouton request-geolocation non trouvé');
         }
         
@@ -1437,15 +1387,21 @@ function initializeApp() {
             `;
         }
     }
+
+    if (typeof getApiKey === 'function' && getApiKey()) {
+        setTimeout(() => {
+            const geoBtn = document.getElementById('request-geolocation');
+            if (geoBtn) geoBtn.click();
+        }, 600);
+    }
 }
 
 // Attendre que le DOM soit chargé
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeApp);
 } else {
-    // DOM déjà chargé
     initializeApp();
-    }
+}
 </script>
 
 </body>

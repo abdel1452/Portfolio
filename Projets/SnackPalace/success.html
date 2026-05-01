@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commande (maquette) — Snack Palace</title>
+  <link rel="icon" href="logo-snack-palace.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="logo-snack-palace.svg">
+  <link rel="stylesheet" href="snack.css">
+  <style>
+    .sp-result { max-width: 520px; margin: 3rem auto; padding: 0 1rem; text-align: center; }
+    .sp-result h1 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .sp-result p { color: var(--sp-gray-500); line-height: 1.5; margin-bottom: 1.5rem; }
+    .sp-result a { color: var(--sp-green-dark); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="sp-result">
+    <h1>Merci</h1>
+    <p>En <strong>maquette</strong>, aucun paiement n’a été traité. Le panier a été vidé dans votre navigateur.</p>
+    <p><a href="index.html">Retour à la carte</a></p>
+  </div>
+  <script>
+    (function () {
+      try { localStorage.removeItem("snack-palace-cart"); } catch (_) {}
+    })();
+  </script>
+</body>
+</html>

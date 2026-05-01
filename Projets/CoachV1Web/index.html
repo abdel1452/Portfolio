@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coach v1 — Salle &amp; coaching</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="coach.css">
+</head>
+<body>
+  <p class="coach-strip">Maquette étudiante — interface <strong>inspirée visuellement</strong> des enseignes <strong>Basic-Fit</strong>, <strong>Fitness Park</strong> et <strong>On Air</strong>. <strong>Aucune affiliation.</strong></p>
+
+  <header class="coach-nav">
+    <div class="coach-nav__inner">
+      <a class="coach-logo" href="index.html">COACH <span>V1</span></a>
+      <nav class="coach-menu" aria-label="Navigation">
+        <a href="index.html" class="is-active">Accueil</a>
+        <a href="inscription.html">Inscription</a>
+        <a href="abonnement.html">Abonnements</a>
+        <a href="nutrition.html">Nutrition</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="coach-main">
+    <section class="coach-hero">
+      <div>
+        <h1>Entraîne-toi sans compromis</h1>
+        <p>Coach v1 Web : parcours d’inscription, formules d’abonnement et programmes nutrition — même esprit que les grandes chaînes de salles accessibles, en version maquette front-end.</p>
+        <a class="coach-btn" href="inscription.html">Créer un compte</a>
+        <a class="coach-btn coach-btn--ghost" href="abonnement.html" style="margin-left:0.5rem;">Voir les offres</a>
+      </div>
+      <div class="coach-hero__visual" role="img" aria-label="Salle de sport"></div>
+    </section>
+
+    <section class="coach-live" aria-label="Données en direct (APIs)">
+      <div class="coach-live__inner" id="coach-live-api">
+        <p class="coach-live__loading">Chargement météo &amp; citation…</p>
+      </div>
+    </section>
+
+    <div class="coach-grid-3">
+      <article class="coach-card">
+        <h3>Accès illimité</h3>
+        <p>Machines cardio, musculation, zones fonctionnelles — présentation type salle multi-sites.</p>
+      </article>
+      <article class="coach-card">
+        <h3>Cours collectifs</h3>
+        <p>HIIT, renforcement, cycling… Planning illustratif (données de démonstration).</p>
+      </article>
+      <article class="coach-card">
+        <h3>Suivi nutrition</h3>
+        <p>Plans repas et équivalences — page <a href="nutrition.html" style="color:var(--c-yellow);">Nutrition</a>.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="coach-inspiration">
+    <p><strong>Rappel design :</strong> cette vitrine reprend des codes visuels (noir &amp; jaune vif, typo condensée, blocs “offre salle”) que l’on retrouve chez <strong>Basic-Fit</strong>, <strong>Fitness Park</strong> ou <strong>On Air</strong>. Il s’agit d’un <strong>exercice de style</strong> pour portfolio : <strong>aucun logo, aucune marque ni partenariat</strong> n’est revendiqué. L’application mobile historique Coach v1 (.NET MAUI, calcul IMG) reste disponible séparément.</p>
+  </footer>
+  <p class="coach-foot">© Coach v1 — maquette web · Projet étudiant BTS SIO</p>
+  <script src="coach-api.js"></script>
+</body>
+</html>

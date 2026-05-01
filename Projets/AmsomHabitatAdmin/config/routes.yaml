@@ -1,0 +1,5 @@
+# Exemple de route Symfony (référence — non chargé par ce dépôt minimal)
+#
+# admin_dashboard:
+#     path: /admin
+#     controller: App\Controller\AdminController::dashboard

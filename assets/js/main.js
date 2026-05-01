@@ -164,14 +164,7 @@ const animateSkills = () => {
 // Lancer l'animation au chargement
 window.addEventListener('load', animateSkills);
 
-/*===== PARALLAX EFFECT POUR L'IMAGE HOME =====*/
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const homeImg = document.querySelector('.home__img');
-    if (homeImg) {
-        homeImg.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }
-});
+/* Parallax hero retiré : le transform au scroll faisait glisser la photo par-dessus le CTA */
 
 /*===== ANIMATION AU SCROLL POUR LES CARTES =====*/
 const animateCardsOnScroll = () => {
@@ -238,7 +231,7 @@ sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{});
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200});
-sr.reveal('.veille__card',{interval: 300, delay: 200});
+sr.reveal('.veille .section-title',{delay: 150, origin: 'top', distance: '40px'});
 sr.reveal('.timeline__title',{delay: 200});
 sr.reveal('.timeline__item',{interval: 400, delay: 300, origin: 'bottom', distance: '50px'});
 
@@ -441,10 +434,19 @@ if (contactForm) {
     });
 }
 
-/*===== TOGGLE DARK/LIGHT MODE =====*/
+/*===== TOGGLE DARK/LIGHT MODE (interrupteur coulissant) =====*/
 const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
 const body = document.body;
+
+function syncThemeSwitchA11y() {
+    if (!themeToggle) return;
+    const dark = body.classList.contains('dark-mode');
+    themeToggle.setAttribute('aria-checked', dark ? 'true' : 'false');
+    themeToggle.setAttribute(
+        'aria-label',
+        dark ? 'Activer le thème clair' : 'Activer le thème sombre'
+    );
+}
 
 // Vérifier le thème sauvegardé ou utiliser le thème système
 const savedTheme = localStorage.getItem('theme');
@@ -452,29 +454,19 @@ const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
     body.classList.add('dark-mode');
-    if (themeIcon) {
-        themeIcon.className = 'bx bx-moon theme-icon';
-    }
 }
+syncThemeSwitchA11y();
 
-if (themeToggle && themeIcon) {
+if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-        // Ajouter la classe de transition
         body.classList.add('theme-transitioning');
-        
-        // Attendre un court instant puis changer le thème
+
         setTimeout(() => {
             body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                themeIcon.className = 'bx bx-moon theme-icon';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.className = 'bx bx-sun theme-icon';
-                localStorage.setItem('theme', 'light');
-            }
-            
-            // Retirer la classe de transition après l'animation
+            const dark = body.classList.contains('dark-mode');
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+            syncThemeSwitchA11y();
+
             setTimeout(() => {
                 body.classList.remove('theme-transitioning');
             }, 600);

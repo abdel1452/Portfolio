@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abonnements — Coach v1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="coach.css">
+</head>
+<body>
+  <p class="coach-strip">Maquette étudiante — ambiance offres “multi-clubs” façon <strong>Basic-Fit</strong> / <strong>Fitness Park</strong> / <strong>On Air</strong> · <strong>sans affiliation</strong></p>
+
+  <header class="coach-nav">
+    <div class="coach-nav__inner">
+      <a class="coach-logo" href="index.html">COACH <span>V1</span></a>
+      <nav class="coach-menu">
+        <a href="index.html">Accueil</a>
+        <a href="inscription.html">Inscription</a>
+        <a href="abonnement.html" class="is-active">Abonnements</a>
+        <a href="nutrition.html">Nutrition</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="coach-main">
+    <h1 style="font-family:var(--font-head);text-transform:uppercase;font-size:2rem;margin:0 0 0.5rem;">Choisis ton abonnement</h1>
+    <p style="color:var(--c-muted);margin:0 0 2rem;">Tarifs fictifs pour la maquette — compare les niveaux comme sur une page d’adhésion en ligne.</p>
+
+    <div class="coach-grid-3">
+      <article class="coach-card">
+        <h3>Essentiel</h3>
+        <p>Accès une salle partenaire, vestiaires, appli suivi basique.</p>
+        <p class="coach-price">19,90 € <small>/ mois</small></p>
+        <button type="button" class="coach-btn" style="width:100%;justify-content:center;margin-top:1rem;" onclick="alert('Maquette : pas de paiement.')">Choisir</button>
+      </article>
+      <article class="coach-card" style="border-color:var(--c-yellow);">
+        <h3>Performance</h3>
+        <p>Toutes salles du réseau fictif, invité 1x/mois, 2 cours VIP.</p>
+        <p class="coach-price">29,90 € <small>/ mois</small></p>
+        <button type="button" class="coach-btn" style="width:100%;justify-content:center;margin-top:1rem;" onclick="alert('Maquette : pas de paiement.')">Choisir</button>
+      </article>
+      <article class="coach-card">
+        <h3>Ultimate</h3>
+        <p>Coaching visio, programme perso, nutrition premium (lien page Nutrition).</p>
+        <p class="coach-price">44,90 € <small>/ mois</small></p>
+        <button type="button" class="coach-btn" style="width:100%;justify-content:center;margin-top:1rem;" onclick="alert('Maquette : pas de paiement.')">Choisir</button>
+      </article>
+    </div>
+  </main>
+
+  <footer class="coach-inspiration">
+    <p>Les <strong>formules et montants</strong> sont des <strong>exemples</strong>. L’habillage (cartes, hiérarchie des prix) s’inspire des pages d’<strong>abonnement</strong> des chaînes <strong>Basic-Fit</strong>, <strong>Fitness Park</strong> et <strong>On Air</strong> — <strong>sans voler de contenu ni de marque déposée</strong>.</p>
+  </footer>
+  <p class="coach-foot">© Coach v1 — maquette web</p>
+</body>
+</html>

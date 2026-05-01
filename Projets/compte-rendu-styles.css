@@ -19,6 +19,22 @@
     font-weight: 700;
     margin-bottom: 1rem;
 }
+
+.compte-rendu__title--with-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.compte-rendu__project-logo {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
 .compte-rendu__subtitle {
     font-size: 1.2rem;
     opacity: 0.9;

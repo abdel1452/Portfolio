@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte rendu — Snack Palace (commande en ligne)</title>
+    <link rel="icon" href="SnackPalace/logo-snack-palace.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="SnackPalace/logo-snack-palace.svg">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="compte-rendu-styles.css">
+</head>
+<body>
+    <div class="compte-rendu">
+        <a href="../index.html#work" class="compte-rendu__back">
+            <i class="bx bx-arrow-back"></i> Retour au portfolio
+        </a>
+
+        <div class="compte-rendu__header">
+            <h1 class="compte-rendu__title compte-rendu__title--with-logo">
+                <img src="SnackPalace/logo-snack-palace.svg" width="44" height="44" alt="" class="compte-rendu__project-logo" decoding="async">
+                Compte rendu — Snack Palace
+            </h1>
+            <p class="compte-rendu__subtitle">Maquette web type livraison (Uber Eats) / vitrine pizzeria (Mosaic)</p>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Référence établissement &amp; carte</h2>
+            <p>Le <strong>Snack Palace</strong> à <strong>Amiens</strong> (<strong>41 rue Pierre Corneille, 80080</strong>) est référencé sur <a href="https://www.ubereats.com/fr/store/le-snack-palace/8mM4xDSKSPe6TTBLXY8hMg" target="_blank" rel="noopener noreferrer">Uber Eats</a>. La maquette reprend les <strong>familles de pizzas</strong> et les <strong>intitulés, descriptions et prix</strong> affichés sur cette fiche (crème fraîche, sauce tomate, barbecue, sauce Brazil — mai 2026).</p>
+            <p>Autres sources : <a href="https://snack-palace.eatbu.com/?lang=fr" target="_blank" rel="noopener noreferrer">site Eatbu</a>, <a href="https://www.dish.guide/fr/snack-palace/" target="_blank" rel="noopener noreferrer">Dish.guide</a>. <strong>Téléphone :</strong> 09 83 23 97 83</p>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Objectifs du projet</h2>
+            <ul class="compte-rendu__list">
+                <li>Proposer une interface de commande lisible, proche des applications de livraison grand public</li>
+                <li>Organiser la carte par catégories (pizzas, paninis, burgers, pâtes, etc.)</li>
+                <li>Permettre recherche, ajout au panier et totalisation (localStorage)</li>
+                <li>Rappeler clairement qu’il s’agit d’une <strong>maquette</strong> : prix et liste des plats sont <strong>indicatifs</strong>, non contractuels par rapport au restaurant</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Technologies</h2>
+            <span class="compte-rendu__badge">HTML5</span>
+            <span class="compte-rendu__badge">CSS3</span>
+            <span class="compte-rendu__badge">JavaScript</span>
+            <span class="compte-rendu__badge">localStorage</span>
+            <span class="compte-rendu__badge">Open-Meteo (API)</span>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Structure</h2>
+            <div class="compte-rendu__code">Projets/SnackPalace/
+├── index.html    # Structure page
+├── success.html  # Confirmation maquette (panier vidé)
+├── snack.css     # Thème type app de livraison
+├── data.js       # Méta restaurant + carte (données de démo)
+└── app.js        # Rendu, filtres, panier, météo (Open-Meteo)</div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Périmètre et limites</h2>
+            <ul class="compte-rendu__list">
+                <li>Aucune commande réelle, aucun paiement : le bouton « Finaliser la commande (maquette) » vide le panier et affiche une page de confirmation</li>
+                <li>Photos : illustrations Unsplash (pas les visuels officiels du restaurant)</li>
+                <li>Les plats listés correspondent à la carte <strong>Uber Eats</strong> du Snack Palace ; les tarifs peuvent évoluer sur la plateforme</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

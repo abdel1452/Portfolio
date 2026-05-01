@@ -1,0 +1,113 @@
+<main class="container-fluid px-3 px-lg-4 py-4">
+  <nav aria-label="Fil d'Ariane" class="mb-3">
+    <ol class="breadcrumb mb-0 bg-white rounded shadow-sm px-3 py-2">
+      <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Accueil</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Catalogue</li>
+    </ol>
+  </nav>
+
+  <header id="ah-catalogue" class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-3 mb-4 scroll-margin-top">
+    <div>
+      <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
+        <h2 class="h4 mb-0">Catalogue métiers</h2>
+        <span class="badge rounded-pill text-bg-primary">CRUD</span>
+      </div>
+      <p class="text-muted small mb-0">Créer, modifier ou retirer une entrée du catalogue (données stockées localement).</p>
+    </div>
+    <div class="btn-group flex-wrap" role="group" aria-label="Actions sur le catalogue">
+      <button type="button" class="btn btn-success" id="btn-open-create">
+        <i class="bi bi-plus-lg me-1"></i>Nouvelle application
+      </button>
+      <button type="button" class="btn btn-outline-secondary" id="reset-data" title="Réinitialiser les données de démonstration">
+        <i class="bi bi-arrow-counterclockwise me-1"></i>Réinitialiser
+      </button>
+    </div>
+  </header>
+
+  <div class="row g-3 mb-4" id="ah-stats-row">
+    <div class="col-sm-6 col-xl-3">
+      <div class="card border-0 shadow-sm h-100 border-start border-4 border-secondary ah-card-hover">
+        <div class="card-body d-flex justify-content-between align-items-start">
+          <div>
+            <div class="text-muted small text-uppercase fw-semibold" style="letter-spacing:.04em;">Total</div>
+            <div class="fs-4 fw-semibold" id="stat-total">0</div>
+          </div>
+          <span class="rounded-3 bg-secondary bg-opacity-10 p-2 text-secondary"><i class="bi bi-grid-3x3-gap fs-5"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="card border-0 shadow-sm h-100 border-start border-4 border-primary ah-card-hover">
+        <div class="card-body d-flex justify-content-between align-items-start">
+          <div>
+            <div class="text-muted small text-uppercase fw-semibold" style="letter-spacing:.04em;">Préproduction</div>
+            <div class="fs-4 fw-semibold text-primary" id="stat-preprod">0</div>
+          </div>
+          <span class="rounded-3 bg-primary bg-opacity-10 p-2 text-primary"><i class="bi bi-flask fs-5"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="card border-0 shadow-sm h-100 border-start border-4 border-success ah-card-hover">
+        <div class="card-body d-flex justify-content-between align-items-start">
+          <div>
+            <div class="text-muted small text-uppercase fw-semibold" style="letter-spacing:.04em;">Production</div>
+            <div class="fs-4 fw-semibold text-success" id="stat-prod">0</div>
+          </div>
+          <span class="rounded-3 bg-success bg-opacity-10 p-2 text-success"><i class="bi bi-cloud-check fs-5"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="card border-0 shadow-sm h-100 border-start border-4 border-secondary ah-card-hover">
+        <div class="card-body d-flex justify-content-between align-items-start">
+          <div>
+            <div class="text-muted small text-uppercase fw-semibold" style="letter-spacing:.04em;">Filtre</div>
+            <div class="fs-4 fw-semibold text-secondary" id="stat-filtered">—</div>
+          </div>
+          <span class="rounded-3 bg-secondary bg-opacity-10 p-2 text-secondary"><i class="bi bi-funnel fs-5"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card border-0 shadow-sm ah-card-hover">
+    <div class="card-body border-bottom bg-white">
+      <div class="row g-2 align-items-center">
+        <div class="col-md-6 col-lg-4">
+          <label for="search-input" class="visually-hidden">Rechercher</label>
+          <div class="input-group">
+            <span class="input-group-text bg-white"><i class="bi bi-search text-muted"></i></span>
+            <input type="search" id="search-input" class="form-control" placeholder="Nom, description ou URL…" autocomplete="off">
+          </div>
+        </div>
+        <div class="col-md-auto ms-md-auto text-muted small" id="table-meta"></div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover align-middle mb-0" id="projects-table">
+        <thead class="table-light">
+          <tr>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase" style="width:3.5rem;">#</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase" style="width:5rem;">Visuel</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase">Application</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase d-none d-xl-table-cell">Description</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase">Préprod</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase">Prod</th>
+            <th scope="col" class="text-muted fw-semibold small text-uppercase text-end" style="width:12.5rem;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="projects-body"></tbody>
+      </table>
+    </div>
+    <div id="empty-state" class="text-center py-5 text-muted d-none">
+      <i class="bi bi-inbox fs-1 d-block mb-2 opacity-50"></i>
+      <p class="mb-0">Aucune application ne correspond à votre recherche.</p>
+    </div>
+  </div>
+
+  <footer class="mt-4 pt-3 border-top text-center text-muted small">
+    <p class="mb-1">{{ app_name }} — interface d’administration (maquette Bootstrap 5, gabarits Twig, données navigateur).</p>
+    <p class="mb-0">&copy; <span id="footer-year"></span></p>
+  </footer>
+</main>
