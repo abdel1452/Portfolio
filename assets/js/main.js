@@ -7,6 +7,9 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         loader.classList.add('hidden');
         body.classList.remove('loading');
+        requestAnimationFrame(() => {
+            body.classList.add('page-ready');
+        });
         
         // Retirer complètement le loader du DOM après l'animation
         setTimeout(() => {
@@ -98,8 +101,9 @@ function linkAction(e){
     if (targetId && targetId !== '#') {
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
+            const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             setTimeout(() => {
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                targetSection.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
             }, 300);
         }
     }
@@ -235,14 +239,17 @@ sr.reveal('.veille .section-title',{delay: 150, origin: 'top', distance: '40px'}
 sr.reveal('.timeline__title',{delay: 200});
 sr.reveal('.timeline__item',{interval: 400, delay: 300, origin: 'bottom', distance: '50px'});
 
-/*===== SMOOTH SCROLL POUR LES LIENS =====*/
+/*===== SMOOTH SCROLL POUR LES LIENS (sauf menu : déjà géré par linkAction) =====*/
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    if (anchor.classList.contains('nav__link')) return;
     anchor.addEventListener('click', function (e) {
+        const id = this.getAttribute('href');
+        if (!id || id === '#') return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(id);
         if (target) {
             target.scrollIntoView({
-                behavior: 'smooth',
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
                 block: 'start'
             });
         }

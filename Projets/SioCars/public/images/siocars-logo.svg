@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">Sio Cars — logo officiel</title>
+  <defs>
+    <linearGradient id="lgBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2332"/>
+      <stop offset="55%" stop-color="#0f141c"/>
+      <stop offset="100%" stop-color="#070a0f"/>
+    </linearGradient>
+    <linearGradient id="lgRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fb7185"/>
+      <stop offset="50%" stop-color="#e11d48"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <linearGradient id="lgChrome" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fond + bordure lumineuse -->
+  <rect x="2" y="2" width="196" height="196" rx="44" fill="url(#lgBg)" stroke="rgba(148,163,184,0.22)" stroke-width="2"/>
+
+  <!-- Trait vitesse diagonal -->
+  <path d="M-8 130 L208 58 L212 78 L-4 152 Z" fill="url(#lgRed)" opacity="0.22"/>
+
+  <!-- Silhouette berline stylisée (négatif sur bandeau) -->
+  <g transform="translate(100, 118)" filter="url(#softGlow)">
+    <path fill="url(#lgChrome)" opacity="0.95" d="M-62 8 L-54 -6 L-28 -14 H28 L54 -6 L62 8 V18 H-62 Z"/>
+    <path fill="#1e293b" d="M-48 -4 L-30 -10 H30 L48 -4 L50 2 H-50 Z"/>
+    <ellipse cx="-34" cy="16" rx="11" ry="11" fill="#0f172a"/>
+    <ellipse cx="-34" cy="16" rx="5" ry="5" fill="#475569"/>
+    <ellipse cx="34" cy="16" rx="11" ry="11" fill="#0f172a"/>
+    <ellipse cx="34" cy="16" rx="5" ry="5" fill="#475569"/>
+    <rect x="-66" y="4" width="10" height="5" rx="1.5" fill="#fbbf24" opacity="0.95"/>
+  </g>
+
+  <!-- Monogramme SIO -->
+  <text x="100" y="78" text-anchor="middle" font-family="Segoe UI, system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="52" font-weight="800" fill="url(#lgChrome)" letter-spacing="-3">SIO</text>
+  <text x="100" y="96" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="700" fill="#e11d48" letter-spacing="0.35em">CARS</text>
+
+  <!-- Filet sport sous le texte -->
+  <rect x="56" y="102" width="88" height="3" rx="1.5" fill="url(#lgRed)" opacity="0.9"/>
+</svg>

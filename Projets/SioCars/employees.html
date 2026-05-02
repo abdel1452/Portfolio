@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sio Cars — Employés</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="public/css/siocars.css">
+</head>
+<body class="sc-app-body sc-body-f1">
+  <div class="sc-f1-hud" aria-hidden="true">
+    <div class="sc-f1-hud__timing"></div>
+    <div class="sc-f1-hud__telemetry"></div>
+    <div class="sc-f1-hud__labels"><span>S1</span><span>S2</span><span>S3</span></div>
+  </div>
+  <nav class="navbar navbar-dark sc-module-nav sc-nav-dynamic navbar-expand-lg py-2 sticky-top">
+    <div class="container-fluid px-3 flex-wrap gap-2">
+      <a class="navbar-brand sc-nav-brand d-flex align-items-center gap-2" href="dashboard.html">
+        <img class="sc-nav-logo" src="public/images/siocars-logo.svg" alt="Sio Cars" width="40" height="40" decoding="async">
+        <span class="sc-nav-wordmark d-none d-sm-flex flex-column lh-1">
+          <span class="sc-nav-title">Sio Cars</span>
+          <span class="sc-nav-sub">Concession digitale</span>
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModules" aria-controls="navModules" aria-expanded="false" aria-label="Menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navModules">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="clients.html">Clients</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Produits</a></li>
+          <li class="nav-item"><a class="nav-link active" href="employees.html" aria-current="page">Employés</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html"><i class="bi bi-grid-1x2-fill me-1"></i>Tableau de bord</a></li>
+        </ul>
+        <button type="button" class="btn btn-sm sc-btn-nav-danger" id="nav-logout"><i class="bi bi-box-arrow-right me-1"></i>Déconnexion</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid px-3 px-lg-4 py-4">
+    <header class="sc-page-hero">
+      <h1 class="text-white mb-2 d-flex align-items-center gap-2 flex-wrap"><i class="bi bi-person-badge text-primary"></i> Équipe concession</h1>
+      <p class="text-sc-muted small mb-0">Rôles <strong>vente</strong>, <strong>atelier</strong>, <strong>administratif</strong>.</p>
+    </header>
+
+    <div class="d-flex flex-wrap align-items-center gap-2 mb-3 mt-3">
+      <input type="search" class="form-control sc-input-dark" style="max-width: 320px;" id="search-employees" placeholder="Matricule, nom, poste…">
+      <span class="text-sc-muted small ms-auto fw-semibold" id="employees-count-label"></span>
+      <button type="button" class="btn btn-sm sc-btn-secondary-auto" id="btn-reset-demo"><i class="bi bi-arrow-repeat me-1"></i> Régénérer</button>
+    </div>
+
+    <div class="sc-list-toolbar" role="region" aria-label="Actions sur la sélection">
+      <div class="sc-list-toolbar__selection">
+        <span class="text-sc-muted small d-block" id="list-toolbar-hint">Sélectionnez un employé dans le tableau.</span>
+        <strong id="list-toolbar-selection" class="d-none"></strong>
+      </div>
+      <button type="button" class="btn sc-btn-cta sc-btn-cta--compact" id="list-toolbar-open" disabled>
+        <i class="bi bi-pencil-square me-1"></i> Ouvrir la fiche
+      </button>
+    </div>
+
+    <div class="sc-table-wrap mb-3">
+      <div class="table-responsive">
+        <table class="table table-sc table-hover align-middle" id="table-employees">
+          <thead>
+            <tr>
+              <th>Matricule</th>
+              <th>Nom</th>
+              <th>Poste</th>
+              <th class="d-none d-md-table-cell">Service</th>
+              <th class="d-none d-lg-table-cell">Email pro</th>
+              <th>Embauche</th>
+              <th>Statut</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <nav id="pagination-employees" class="d-flex justify-content-center" aria-label="Pagination employés"></nav>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="public/js/siocars-auth.js"></script>
+  <script src="public/js/siocars-data.js"></script>
+  <script src="public/js/siocars-ui.js"></script>
+  <script src="public/js/siocars-employees.js"></script>
+  <script src="public/js/siocars-nav.js"></script>
+  <script>
+    document.getElementById("nav-logout").addEventListener("click", function () {
+      SioCarsAuth.logout();
+    });
+  </script>
+</body>
+</html>

@@ -173,6 +173,64 @@ body.loading {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-padding-top: 5rem;
+  }
+}
+
+/* Transition plein écran entre pages HTML (voir assets/js/page-transitions.js) */
+#page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: var(--bg-color);
+  opacity: 0;
+  transition: opacity 0.38s ease;
+}
+
+#page-transition.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Entrée du contenu après le loader (index) */
+body.loading .l-main > :not(.site-ambient),
+body.loading .footer {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+body.page-ready .l-main > :not(.site-ambient),
+body.page-ready .footer {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.55s ease, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.loading .l-main > :not(.site-ambient),
+  body.loading .footer,
+  body.page-ready .l-main > :not(.site-ambient),
+  body.page-ready .footer {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  #page-transition,
+  #page-transition.is-visible {
+    transition: none;
+  }
+}
+
+section[id].section {
+  scroll-margin-top: 5rem;
 }
 
 body {

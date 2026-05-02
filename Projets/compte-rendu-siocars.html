@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte rendu — Sio Cars</title>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="compte-rendu-styles.css">
+</head>
+<body>
+    <div class="compte-rendu">
+        <a href="../index.html#work" class="compte-rendu__back">
+            <i class="bx bx-arrow-back"></i> Retour au portfolio
+        </a>
+
+        <div class="compte-rendu__header">
+            <h1 class="compte-rendu__title">Compte rendu — Sio Cars</h1>
+            <p class="compte-rendu__subtitle">Maquette web d’une console concession automobile (back-office)</p>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Informations générales</h2>
+            <div class="compte-rendu__grid">
+                <div class="compte-rendu__card">
+                    <strong>Nom du projet :</strong> Sio Cars — console concession
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Contexte :</strong> Maquette pédagogique / portfolio (BTS SIO SLAM)
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Auteur :</strong> Abdelmalek Elidrissi
+                </div>
+                <div class="compte-rendu__card">
+                    <strong>Type :</strong> Application web statique HTML / CSS / JavaScript, données locales
+                </div>
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Objectifs du projet</h2>
+            <ul class="compte-rendu__list">
+                <li>Simuler un <strong>espace concession</strong> : connexion, tableau de bord, modules métier séparés.</li>
+                <li>Gérer des <strong>volumes réalistes</strong> de données (clients, véhicules, ventes, employés) sans serveur.</li>
+                <li>Proposer une <strong>expérience proche des sites auto</strong> (identité visuelle, lisibilité, CTA).</li>
+                <li>Permettre la <strong>consultation et la modification</strong> des fiches (véhicule, client, employé) avec persistance locale.</li>
+                <li>Relier les entités (vente ↔ client ↔ véhicule ↔ vendeur) pour illustrer un <strong>parcours cohérent</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Technologies utilisées</h2>
+            <h3 class="compte-rendu__subsection-title">Interface</h3>
+            <span class="compte-rendu__badge">HTML5</span>
+            <span class="compte-rendu__badge">CSS3</span>
+            <span class="compte-rendu__badge">Bootstrap 5.3</span>
+            <span class="compte-rendu__badge">Bootstrap Icons</span>
+            <span class="compte-rendu__badge">Google Fonts (Plus Jakarta Sans)</span>
+
+            <h3 class="compte-rendu__subsection-title">Logique</h3>
+            <span class="compte-rendu__badge">JavaScript (IIFE, modules globaux)</span>
+            <span class="compte-rendu__badge">localStorage (session + jeu de données JSON)</span>
+
+            <h3 class="compte-rendu__subsection-title">Livrables graphiques</h3>
+            <span class="compte-rendu__badge">Logo SVG intégré</span>
+            <span class="compte-rendu__badge">Illustrations véhicules (SVG inline, sans photos externes)</span>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Structure du projet</h2>
+            <div class="compte-rendu__code">
+SioCars/
+├── index.html              # Connexion
+├── dashboard.html          # Hub après authentification
+├── clients.html            # Liste clients + barre d’actions
+├── products.html           # Stock véhicules (grille)
+├── employees.html          # Liste employés
+├── client-detail.html      # Fiche client éditable
+├── product-detail.html     # Fiche véhicule éditable
+├── employee-detail.html    # Fiche employé éditable
+└── public/
+    ├── css/siocars.css     # Thème concession / animations / composants
+    ├── images/siocars-logo.svg
+    └── js/
+        ├── siocars-auth.js       # Session (clés localStorage, garde d’accès)
+        ├── siocars-data.js       # Génération &gt; 500 enregistrements, persistance
+        ├── siocars-ui.js         # Pagination, formatage, helpers (marque, SVG…)
+        ├── siocars-login.js
+        ├── siocars-dashboard.js
+        ├── siocars-clients.js
+        ├── siocars-products.js
+        ├── siocars-employees.js
+        ├── siocars-client-detail.js
+        ├── siocars-product-detail.js
+        ├── siocars-employee-detail.js
+        └── siocars-nav.js        # Comportement navbar au scroll
+            </div>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Fonctionnalités principales</h2>
+
+            <h3 class="compte-rendu__subsection-title">1. Authentification légère</h3>
+            <ul class="compte-rendu__list">
+                <li>Page d’accueil <code>index.html</code> : saisie identifiant / mot de passe (démo).</li>
+                <li>État stocké dans <code>localStorage</code> ; les pages métier appellent <code>SioCarsAuth.requireAuth()</code> et redirigent sinon vers la connexion.</li>
+                <li>Déconnexion depuis la barre de navigation.</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">2. Tableau de bord</h3>
+            <ul class="compte-rendu__list">
+                <li>Vue d’ensemble avec accès rapide aux modules (clients, produits, employés).</li>
+                <li>Indicateurs liés au jeu de données chargé.</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">3. Modules liste</h3>
+            <ul class="compte-rendu__list">
+                <li><strong>Clients</strong> : tableau paginé, recherche, sélection de ligne, ouverture de la fiche via une barre d’actions hors liste.</li>
+                <li><strong>Produits</strong> : grille de cartes véhicule (modèles réels, vignette SVG + monogramme), filtres statut / recherche, pagination, même principe de sélection + bouton « Ouvrir la fiche ».</li>
+                <li><strong>Employés</strong> : tableau, recherche, sélection, fiche dédiée.</li>
+                <li>Bouton <strong>Régénérer</strong> : recrée tout le jeu de données démo (utile après évolution du modèle).</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">4. Fiches détail et édition</h3>
+            <ul class="compte-rendu__list">
+                <li>Chaque fiche est une page HTML dédiée avec paramètre <code>?id=…</code> (référence client, véhicule ou matricule).</li>
+                <li>Formulaires pour modifier les champs métier ; <strong>Enregistrer</strong> met à jour l’objet dans le JSON puis <code>SioCarsData.save()</code>.</li>
+                <li>Côté véhicule : bloc « Vente &amp; livraison » si une vente existe ; passage en stock peut retirer la vente associée (logique démo).</li>
+                <li>Historique d’achats (client) et ventes signées (employé) en lecture, avec liens croisés vers les autres fiches.</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">5. Données générées</h3>
+            <ul class="compte-rendu__list">
+                <li>Cible : <strong>au moins 500 enregistrements</strong> au total dans <code>localStorage</code> (clé versionnée).</li>
+                <li>Répartition indicative de la génération : ~430 clients, ~400 véhicules, ~340 ventes, ~48 employés (les véhicules vendus sont cohérents avec les ventes).</li>
+                <li>Marques et modèles calés sur des <strong>véhicules réels</strong> du marché européen ; pas d’images bitmap : silhouettes SVG et texte.</li>
+            </ul>
+
+            <h3 class="compte-rendu__subsection-title">6. Interface utilisateur</h3>
+            <ul class="compte-rendu__list">
+                <li>Thème sombre, accents rouges type CTA automobile, navbar responsive avec effets au survol et au scroll.</li>
+                <li>Transitions et survols sur cartes, boutons, tableaux et liens ; respect possible de <code>prefers-reduced-motion</code>.</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Choix techniques et limites</h2>
+            <ul class="compte-rendu__list">
+                <li><strong>Pas de backend</strong> : tout est simulé côté navigateur ; les données ne sont pas partagées entre postes ni sécurisées comme en production.</li>
+                <li><strong>Authentification</strong> : factice, uniquement pour structurer le parcours utilisateur.</li>
+                <li><strong>Évolutivité</strong> : une API REST, une base SQL et un vrai module d’auth remplaceraient avantageusement <code>localStorage</code> pour un déploiement métier.</li>
+            </ul>
+        </div>
+
+        <div class="compte-rendu__section">
+            <h2 class="compte-rendu__section-title">Conclusion</h2>
+            <p>Le projet <strong>Sio Cars</strong> regroupe navigation multi-pages, gestion d’un gros volume de données factices, fiches éditables et une présentation alignée sur l’univers concession / annonces auto. Il illustre la maîtrise du front statique, de la persistance locale et de la modélisation simple de relations métier (ventes, clients, vendeurs).</p>
+            <p class="compte-rendu__highlight">
+                <strong>Accès au projet :</strong>
+                <a href="SioCars/index.html" target="_blank" rel="noopener">Ouvrir la console Sio Cars</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
