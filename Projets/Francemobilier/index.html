@@ -11,17 +11,21 @@
 </head>
 <body>
 
-<div class="container-fluid min-vh-100 d-flex flex-column">
+<div class="container-fluid min-vh-100 d-flex flex-column fm-shell">
   <div class="row flex-grow-1">
 
-    <aside class="col-12 col-md-3 col-lg-2 bg-light p-4 border-end">
+    <aside class="col-12 col-md-3 col-lg-2 p-4 border-end fm-sidebar">
+      <div class="fm-brand mb-4">
+        <span class="fm-brand__tag">France Mobilier</span>
+        <p class="mb-0">Votre univers maison</p>
+      </div>
       <div class="mb-4">
-        <button type="button" id="btn-accueil" class="btn btn-outline-success w-100 mb-2">
+        <button type="button" id="btn-accueil" class="btn fm-btn-secondary w-100 mb-2">
           Accueil
         </button>
       </div>
 
-      <h5 class="mb-4">Meubles</h5>
+      <h5 class="mb-4">Filtrer les meubles</h5>
 
       <form id="form-filtre">
         <div class="mb-3">
@@ -38,17 +42,27 @@
           </select>
         </div>
 
-        <button type="submit" class="btn btn-warning w-100">
+        <button type="submit" class="btn fm-btn-primary w-100">
           Rechercher
         </button>
       </form>
     </aside>
 
     <main class="col-12 col-md-9 col-lg-10 p-4 p-md-5">
+      <section class="fm-top-strip mb-3" aria-label="Avantages clients">
+        <span><i class="bi bi-truck"></i> Livraison offerte dès 399€</span>
+        <span><i class="bi bi-arrow-repeat"></i> Retrait magasin sous 2h</span>
+        <span><i class="bi bi-shield-check"></i> Paiement 3x sans frais</span>
+      </section>
+      <section class="fm-hero mb-4">
+        <p class="fm-hero__eyebrow">Nouveautés mobilier</p>
+        <h1 class="fm-hero__title">Inspirez votre intérieur, pièce par pièce.</h1>
+        <p class="fm-hero__text">Découvrez des collections pensées pour le salon, la chambre et la salle à manger. Filtrez par catégorie et gamme pour trouver rapidement le meuble adapté à votre besoin.</p>
+      </section>
 
       <div id="view-accueil">
         <div class="text-center">
-          <h1 class="mb-4">France-Mobilier, les pros du meuble…</h1>
+          <h2 class="mb-3">France-Mobilier, les pros du meuble…</h2>
           <p class="text-muted">
             Sélectionnez une catégorie et/ou une gamme dans le menu, puis <strong>Rechercher</strong>.
           </p>
@@ -101,13 +115,21 @@
 
         <div class="text-center" id="liste-magasins"></div>
 
+        <section class="mt-5 fm-products-showcase">
+          <div class="d-flex justify-content-between align-items-end flex-wrap gap-2 mb-3">
+            <h3 class="mb-0">Nos best-sellers du moment</h3>
+            <small class="text-muted">Inspiré des parcours e-commerce grand public</small>
+          </div>
+          <div id="fm-featured-products" class="row g-3"></div>
+        </section>
+
         <div class="text-center mt-5">
           <h3>Inscription à la newsletter</h3>
           <p class="text-muted">Recevez nos nouveautés et promotions</p>
           <form id="form-newsletter" class="mx-auto" style="max-width: 520px;">
             <div class="d-flex flex-column flex-sm-row justify-content-center gap-2">
               <input type="email" name="email" required class="form-control" placeholder="Votre adresse email" autocomplete="email">
-              <button type="submit" class="btn btn-success px-4">S'inscrire</button>
+              <button type="submit" class="btn fm-btn-primary px-4">S'inscrire</button>
             </div>
           </form>
           <p class="small text-muted mt-2 mb-0">Démo HTML : pas d’envoi serveur (le projet PHP utilise <code>index.php?page=newsletter</code>).</p>
@@ -115,11 +137,11 @@
       </div>
 
       <div id="view-liste" hidden>
-        <h1 class="mb-4 text-success">Liste des produits</h1>
+        <h1 class="mb-4">Liste des produits</h1>
         <h2 class="h5 mb-4 text-muted" id="titre-liste"></h2>
         <div class="table-responsive">
-          <table class="table table-striped table-hover align-middle">
-            <thead class="table-success">
+          <table class="table table-striped table-hover align-middle fm-table">
+            <thead>
               <tr>
                 <th>Réf.</th>
                 <th>Photo</th>
@@ -135,7 +157,7 @@
     </main>
   </div>
 
-  <footer class="bg-dark text-white text-center py-3 mt-auto">
+  <footer class="text-center py-3 mt-auto fm-footer">
     <small>&copy; <span id="fm-year"></span> — France Mobilier — <span class="text-white-50">version HTML statique</span></small>
   </footer>
 </div>

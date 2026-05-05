@@ -15,6 +15,7 @@
   const tbody = document.getElementById("tbody-produits");
   const formFiltre = document.getElementById("form-filtre");
   const formNews = document.getElementById("form-newsletter");
+  const featuredContainer = document.getElementById("fm-featured-products");
 
   function fmtPrix(n) {
     return (
@@ -89,6 +90,49 @@
     return x ? x.libelle : "";
   }
 
+  function badgeFromIndex(i) {
+    if (i % 3 === 0) return "TOP VENTE";
+    if (i % 3 === 1) return "NOUVEAU";
+    return "BON PLAN";
+  }
+
+  function renderFeatured() {
+    if (!featuredContainer) return;
+    const items = data.produits.slice(0, 8);
+    featuredContainer.innerHTML = items
+      .map(function (p, idx) {
+        return (
+          '<article class="col-12 col-sm-6 col-xl-3">' +
+          '<div class="fm-product-card h-100">' +
+          '<span class="fm-product-badge">' +
+          badgeFromIndex(idx) +
+          "</span>" +
+          '<div class="fm-product-img-wrap">' +
+          '<img src="' +
+          photoUrl(p.photo) +
+          '" alt="' +
+          escapeHtml(p.designation) +
+          '" class="fm-product-img">' +
+          "</div>" +
+          '<p class="fm-product-ref">' +
+          escapeHtml(p.reference) +
+          "</p>" +
+          '<h4 class="fm-product-name">' +
+          escapeHtml(p.designation) +
+          "</h4>" +
+          '<div class="fm-product-bottom">' +
+          '<p class="fm-product-price mb-1">' +
+          fmtPrix(p.prixTTC) +
+          "</p>" +
+          '<p class="fm-product-stock mb-0">Disponible en magasin & web</p>' +
+          "</div>" +
+          "</div>" +
+          "</article>"
+        );
+      })
+      .join("");
+  }
+
   function afficherAccueil() {
     viewAccueil.hidden = false;
     viewListe.hidden = true;
@@ -128,7 +172,7 @@
         "</td>" +
         "<td><strong>" +
         fmtPrix(p.prixTTC) +
-        "</strong></td>";
+        '</strong><div class="small text-muted">Disponible web + magasin</div></td>';
       tbody.appendChild(tr);
     });
 
@@ -160,5 +204,6 @@
 
   remplirSelects();
   magasinsHtml();
+  renderFeatured();
   afficherAccueil();
 })();
