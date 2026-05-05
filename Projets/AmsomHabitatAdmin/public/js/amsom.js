@@ -4,12 +4,12 @@
 (function () {
   "use strict";
 
-  const STORAGE_KEY = "amsom-habitat-projects-v5";
+  const STORAGE_KEY = "amsom-habitat-projects-v8";
+  const DEFAULT_PROJECT_IMAGE = "public/images/amsom-official.png";
 
   /** Environnements type SI d’entreprise (qualification vs production) */
   const AMSOM_PREPROD_ORIGIN = "https://qualif-si.amsom-habitat.fr/app";
   const AMSOM_PROD_ORIGIN = "https://si.amsom-habitat.fr/app";
-  const LEGACY_KEY = "projects-demo";
 
   const loginView = document.getElementById("login-view");
   const dashboard = document.getElementById("dashboard");
@@ -68,7 +68,7 @@
     const image =
       raw.image && String(raw.image).trim() !== ""
         ? raw.image
-        : "https://placehold.co/96x96/f4f6f5/1e3344?text=App";
+        : DEFAULT_PROJECT_IMAGE;
     const name =
       raw.name ||
       (raw.description && String(raw.description).slice(0, 80)) ||
@@ -92,54 +92,44 @@
       .replace(/^-|-$/g, "");
   }
 
-  /** Catalogue type promoteur / bailleur social (Amsom Habitat — maquette) */
+  /** Catalogue de demonstration (noms et descriptions neutres) */
   function createDefaultProjects() {
     const samples = [
-      ["Portail intranet groupe", "Accueil SSO et liens vers les 45 applications métiers du groupe."],
-      ["GED corporate", "Gestion électronique des documents, workflows de validation et archivage."],
-      ["Suivi de chantiers OPC", "Avancement travaux, réceptions, réserves et reporting opérationnel."],
-      ["Planning ressources travaux", "Affectation équipes, sous-traitants et plannings mutualisés."],
-      ["Achats & marchés", "Consultations, offres, attribution et suivi des marchés publics et privés."],
-      ["Facturation fournisseurs", "Réception, contrôle et validation des factures achats."],
-      ["Comptabilité analytique chantiers", "Imputation budgets, centres de coûts et suivi de marge."],
-      ["Trésorerie & cash-flow", "Prévisions, rapprochements bancaires et pilotage de la trésorerie."],
-      ["SIRH — dossiers salariés", "Contrats, entretiens, compétences et documents RH."],
-      ["Temps & activités", "Saisie des temps sur chantiers et projets internes."],
-      ["Congés & absences", "Demandes, validations et planning des équipes."],
-      ["Recrutement & onboarding", "Offres, candidatures et intégration des nouveaux collaborateurs."],
-      ["Formation & certifications", "Catalogue de formations et habilitations sécurité / qualité."],
-      ["Parc véhicules & carburant", "Affectation, entretien et suivi des consommations."],
-      ["GMAO bâtiments", "Maintenance préventive et corrective des équipements techniques."],
-      ["Stocks matériaux", "Inventaires, mouvements et valorisation des stocks chantier."],
-      ["Magasins chantier", "Réservation et distribution matériel vers les opérations."],
-      ["Planning livraisons", "Organisation des flux logistiques et créneaux livraison."],
-      ["CRM commercial logements", "Prospects, visites, réservations et suivi commercial."],
-      ["Réservation & options lots", "Blocage d’appartements, acomptes et levée d’option."],
-      ["Extranet acquéreurs", "Suivi de dossier, pièces et échanges avec les futurs propriétaires."],
-      ["Portail copropriétaires", "Assemblées, convocations et documents de syndic."],
-      ["Portail locataires", "Demandes d’intervention, quittances et messagerie locative."],
-      ["Gestion des baux", "Baux commerciaux et résidentiels, indexation et avenants."],
-      ["Encaissements loyers & charges", "Prélèvements, relances et lettrage des paiements."],
-      ["Recouvrement & contentieux", "Suivi des impayés et procédures amiables / judiciaires."],
-      ["Assurance & sinistres", "Déclarations, experts et suivi des dossiers sinistres."],
-      ["Qualité & QSE chantier", "Contrôles, audits internes et plans d’actions qualité."],
-      ["HSE — hygiène sécurité", "DUERP, autorisations de travail et registres sécurité."],
-      ["Permis de construire & dossiers", "Instruction, pièces administratives et échéances réglementaires."],
-      ["SIG & foncier", "Cartographie des opérations, parcelles et servitudes."],
-      ["Visionneuse BIM", "Consultation des maquettes numériques et coordination projet."],
-      ["Reporting direction", "Tableaux de bord consolidés pour la direction générale."],
-      ["Entrepôt de données BI", "Historisation et restitution des indicateurs groupe."],
-      ["ETL & interfaces métiers", "Échanges entre ERP, CRM et applications métiers."],
-      ["Annuaire entreprise", "Contacts, organigramme et rattachements hiérarchiques."],
-      ["Service desk IT", "Tickets incidents, demandes et base de connaissances."],
-      ["Parc informatique", "Inventaire postes, mobiles et logiciels déployés."],
-      ["Supervision & sauvegardes", "Monitoring infrastructure et politique de sauvegarde."],
-      ["Conformité RGPD", "Registre des traitements, DPA et exercice des droits."],
-      ["Archivage légal", "Conservation à valeur probante et plans de classement."],
-      ["Veille réglementaire BTP", "Alertes normes, décrets et évolutions sectorielles."],
-      ["Voix du client", "Enquêtes satisfaction et traitement des réclamations."],
-      ["Veille prix & concurrence", "Indicateurs marché et positionnement offres."],
-      ["Portail fournisseurs", "Dépôt factures dématérialisées et échanges achats."],
+      ["9000 - AmsomBootstrap", "Base front commune Bootstrap pour les applications internes."],
+      ["9010 - Extranet-Fournisseur", "Portail dedie aux fournisseurs (documents, echanges, suivi)."],
+      ["9020 - Sezame-Admin", "Interface d'administration centrale des acces et parametres."],
+      ["9030 - Loky", "Module metier interne lie a la gestion locative."],
+      ["9040 - Projimmo-Bricks", "Service de composants metier pour projets immobiliers."],
+      ["9041 - Projimmo-Bricks (https)", "Meme service Projimmo-Bricks en acces securise HTTPS."],
+      ["9050 - Trouve-Ton-Marche", "Outil de recherche de marches / appels d'offres."],
+      ["9060 - Cally", "Service lie aux appels, contacts ou centre de relation usagers."],
+      ["9061 - Cally (https)", "Meme service Cally en acces securise HTTPS."],
+      ["9070 - Volly", "Application metier interne (fonction exacte non confirmee)."],
+      ["9071 - Volly (https)", "Meme application Volly en acces securise HTTPS."],
+      ["9080 - AmsomEtMoi-EspaceClient", "Espace client locataire (compte, paiements, demandes)."],
+      ["9090 - ApiMetier", "API coeur metier exposee aux autres applications."],
+      ["9091 - ApiMetier (https)", "Meme API metier en acces securise HTTPS."],
+      ["9110 - ApiMailing", "API d'envoi d'emails, notifications et campagnes."],
+      ["9120 - ApiLocataire", "API de gestion des donnees et operations locataires."],
+      ["9121 - ApiLocataire (https)", "Meme API locataire en acces securise HTTPS."],
+      ["9130 - Oscar", "Application metier transverse (fonction exacte non confirmee)."],
+      ["9140 - Suivi-Recla", "Suivi des reclamations et traitement des tickets."],
+      ["9150 - ApiAuth", "API d'authentification (connexion, tokens, droits)."],
+      ["9151 - ApiAuth (https)", "Meme API d'authentification en acces securise HTTPS."],
+      ["9160 - ApiFournisseur", "API dediee aux flux fournisseurs et achats."],
+      ["9170 - ApiGed", "API de gestion electronique des documents (GED)."],
+      ["9180 - VeilleSecuritaire", "Outil de veille securite, alertes et suivi incidents."],
+      ["9190 - Patri", "Module patrimoine / gestion du parc immobilier."],
+      ["9200 - FicheProprete", "Suivi des fiches proprete, controles et interventions."],
+      ["9210 - Kifekoi", "Annuaire des roles et responsabilites (qui fait quoi)."],
+      ["9220 - Cockpit", "Tableau de bord central de pilotage."],
+      ["9230 - ApiTraduction", "API de traduction de contenus applicatifs."],
+      ["9240 - ApiDocument", "API de generation, stockage ou consultation de documents."],
+      ["9250 - NouvellesFiches", "Creation / mise a jour de nouvelles fiches metier."],
+      ["9260 - CallyV2", "Nouvelle version du service Cally."],
+      ["9270 - ComCible-Notify", "Notifications ciblees pour communication interne / externe."],
+      ["9300 - RechercheTiers", "Service de recherche de tiers (personnes, societes, contacts)."],
+      ["9320 - SuiviCo", "Suivi commercial ou suivi de contrats."],
     ];
     return samples.map(([name, description], i) => {
       const slug = slugify(name);
@@ -147,7 +137,7 @@
         id: i + 1,
         name,
         description,
-        image: `https://placehold.co/96x96/f4f6f5/1e3344?text=${encodeURIComponent(name.slice(0, 3))}`,
+        image: DEFAULT_PROJECT_IMAGE,
         preprodUrl: `${AMSOM_PREPROD_ORIGIN}/${slug}`,
         prodUrl: `${AMSOM_PROD_ORIGIN}/${slug}`,
       };
@@ -161,20 +151,6 @@
         const parsed = JSON.parse(raw);
         if (Array.isArray(parsed)) {
           state.projects = parsed.map(normalizeProject);
-          return;
-        }
-      }
-      const legacy = localStorage.getItem(LEGACY_KEY);
-      if (legacy) {
-        const parsed = JSON.parse(legacy);
-        if (Array.isArray(parsed)) {
-          state.projects = parsed.map((p) =>
-            normalizeProject({
-              ...p,
-              name: p.description || `Projet ${p.id}`,
-            })
-          );
-          persist();
           return;
         }
       }
@@ -372,8 +348,7 @@
     const prodUrl = fieldProd.value.trim() || "#";
 
     const existingId = fieldId.value ? Number(fieldId.value) : null;
-    const placeholder =
-      "https://placehold.co/96x96/f4f6f5/1e3344?text=App";
+    const placeholder = DEFAULT_PROJECT_IMAGE;
 
     let image;
     if (pendingImageData) {

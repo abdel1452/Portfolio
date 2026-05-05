@@ -433,14 +433,14 @@
                     <div class="work__project-card" data-project-index="1">
                         <div class="work__project-link-card">
                             <div class="work__project-header work__project-header--logo-fit">
-                                <img src="Projets/AmsomHabitatAdmin/public/images/amsom-official.png" alt="Logo AMSOM Habitat — console d’administration métiers" class="work__project-header-img work__project-header-img--contain">
+                                <img src="Projets/AmsomHabitatAdmin/public/images/amsom-official.png" alt="Logo console d’administration" class="work__project-header-img work__project-header-img--contain">
                                 <div class="work__project-header-overlay">
                                     <i class='bx bx-building-house work__project-icon'></i>
-                                    <h3 class="work__project-card-title">Amsom Habitat – Console admin</h3>
+                                    <h3 class="work__project-card-title">Console admin - CRUD applications</h3>
                                 </div>
                             </div>
                             <div class="work__project-content">
-                                <p class="work__project-description-card">Console d’administration pour Amsom Habitat : authentification, catalogue d’applications métiers avec liens préproduction / production et CRUD Bootstrap 5. Gabarits <strong>Twig</strong> (partials, <code>extends</code>), point d’entrée <code>public/index.php</code> et export HTML statique — organisation proche de <strong>Symfony</strong>. Identité <strong>Synéo</strong> (logo officiel).</p>
+                                <p class="work__project-description-card">Console d’administration avec authentification et CRUD complet. Le catalogue contient les applications par port (exemples : <strong>9000 - AmsomBootstrap</strong>, <strong>9080 - AmsomEtMoi-EspaceClient</strong>, <strong>9150 - ApiAuth</strong>, <strong>9320 - SuiviCo</strong>) avec boutons <strong>Préprod</strong> / <strong>Prod</strong>. Interface en <strong>Bootstrap 5</strong>, templates <strong>Twig</strong> et version statique HTML.</p>
                                 <div class="work__project-tech">
                                     <span class="work__tech-tag">
                                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="work__tech-logo">
@@ -683,62 +683,26 @@
                                 <span>2025 — 2026 · Intelligence artificielle</span>
                             </div>
                             <div class="veille__description">
-                                <h4>Présentation</h4>
+                                <h4>En clair</h4>
                                 <div class="veille__big-picture">
-                                    <p><strong>Machine learning.</strong> Famille de méthodes où un <strong>modèle apprend à partir de données</strong> pour réaliser une tâche précise (classification, régression, détection d’anomalies, recommandation, etc.), sans être explicitement programmé pour chaque cas. L’entraînement et l’évaluation s’appuient sur des métriques adaptées au problème métier.</p>
-                                    <p><strong>IA générative.</strong> Approches (souvent fondées sur de très grands modèles) capables de <strong>produire des contenus nouveaux</strong> : texte, images, audio, code, etc. Elles s’appuient sur des corpus massifs et, en entreprise, sur des dispositifs comme le <strong>prompt engineering</strong>, le <strong>RAG</strong> ou le fine-tuning pour contextualiser les sorties.</p>
+                                    <p><strong>Machine learning (ML).</strong> On entraîne un modèle sur des données pour faire une tâche précise : prédire, classer, détecter une anomalie. Le résultat est mesuré avec des métriques (précision, rappel, erreur).</p>
+                                    <p><strong>IA générative (GenAI).</strong> Le modèle produit du contenu (texte, image, code). En pratique, on lui donne un contexte clair et une personne vérifie toujours le résultat.</p>
                                 </div>
 
-                                <h4>Finalité et livrable</h4>
+                                <h4>Points techniques à connaître</h4>
                                 <div class="veille__detail-group">
-                                    <p class="veille__detail-line">Le ML vise une <strong>tâche et des indicateurs</strong> (précision, rappel, erreur…) ; la GenAI vise des <strong>sorties créatives ou langagières</strong> dont la qualité se juge aussi par la pertinence métier et la conformité.</p>
+                                    <p class="veille__detail-line"><strong>Objectif :</strong> ML = donner une réponse précise à une question (ex: "ce client risque-t-il de partir ?") ; GenAI = produire un contenu utilisable (ex: brouillon d’email, résumé, idée).</p>
+                                    <p class="veille__detail-line"><strong>Données :</strong> ML = on l’entraîne avec des exemples de l’entreprise ; GenAI = il connaît déjà beaucoup de choses, puis on lui ajoute le contexte du cas.</p>
+                                    <p class="veille__detail-line"><strong>Mise en place :</strong> ML = on contrôle souvent si la qualité baisse avec le temps ; GenAI = on définit des règles (ce qu’il peut ou non faire) et un humain valide.</p>
+                                    <p class="veille__detail-line"><strong>Risques :</strong> ML = mauvaises prédictions si les données de départ sont mauvaises ; GenAI = peut inventer une réponse, ou révéler une info sensible si on fait mal les réglages.</p>
                                 </div>
 
-                                <h4>Données et cycle de vie</h4>
+                                <h4>Ce que je retiens pour mes projets</h4>
                                 <div class="veille__detail-group">
-                                    <p class="veille__detail-line">ML : jeux métiers, features, <strong>entraînement et réentraînement</strong> ciblés. GenAI : <strong>modèles pré-entraînés</strong>, enrichis par prompts, RAG ou ajustements ponctuels.</p>
+                                    <p class="veille__detail-line">Je choisis le <strong>ML</strong> quand je veux un résultat mesurable et stable (score, prévision, détection).</p>
+                                    <p class="veille__detail-line">Je choisis la <strong>GenAI</strong> pour accélérer la rédaction, le support ou le prototypage, mais avec revue humaine obligatoire.</p>
+                                    <p class="veille__detail-line">Les deux sont <strong>complémentaires</strong> si le cadrage (objectif, données, sécurité) est clair dès le départ.</p>
                                 </div>
-
-                                <h4>Industrialisation</h4>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line">ML : pipelines, <strong>MLOps</strong>, suivi de dérive et de biais. GenAI : cadres d’usage, quotas, traces, garde-fous et <strong>validation humaine</strong> des réponses.</p>
-                                </div>
-
-                                <h4>Conformité et risques</h4>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line">ML : biais, explicabilité, équité. GenAI : <strong>hallucinations</strong>, données personnelles, propriété intellectuelle, dépendance aux <strong>API</strong> ou hébergeurs.</p>
-                                </div>
-
-                                <h4>Machine learning</h4>
-                                <p class="veille__subhead">Avantages</p>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line">Tâche et périmètre <strong>clairs</strong> (précision, rappel, métier défini).</p>
-                                    <p class="veille__detail-line">Modèles souvent plus <strong>légers</strong> et maîtrisables en interne une fois le pipeline posé.</p>
-                                    <p class="veille__detail-line">Très adapté au <strong>scoring, à la détection d’anomalies, à la prévision</strong> sur données structurées.</p>
-                                </div>
-                                <p class="veille__subhead">Inconvénients</p>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line">Besoin de <strong>données de qualité</strong>, parfois étiquetées, et d’un <strong>monitoring</strong> (dérive, biais).</p>
-                                    <p class="veille__detail-line">Chaque cas métier peut exiger un <strong>nouvel entraînement ou une refonte features</strong>.</p>
-                                    <p class="veille__detail-line">Moins visible « grand public » que le ChatGPT-type, donc parfois <strong>sous-estimé</strong> dans la communication projet.</p>
-                                </div>
-
-                                <h4>IA générative</h4>
-                                <p class="veille__subhead">Avantages</p>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line"><strong>Polyvalence immédiate</strong> : rédaction, idées, assistance code, support, prototypes rapides.</p>
-                                    <p class="veille__detail-line">Peut s’enrichir avec les données de l’entreprise via <strong>RAG</strong> sans tout ré-entraîner le modèle de base.</p>
-                                    <p class="veille__detail-line">Fort <strong>impact utilisateur</strong> et adoption rapide si les garde-fous sont en place.</p>
-                                </div>
-                                <p class="veille__subhead">Inconvénients</p>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line">Risques de <strong>hallucinations</strong>, de fuites de données et de <strong>conformité</strong> (RGPD, propriété intellectuelle).</p>
-                                    <p class="veille__detail-line"><strong>Coût</strong> variable (tokens, API) et dépendance à des <strong>fournisseurs</strong> externes si pas d’hébergement maîtrisé.</p>
-                                    <p class="veille__detail-line">Qualité du résultat <strong>difficile à garantir</strong> sans revue humaine et sans politique d’usage.</p>
-                                </div>
-
-                                <h4>Synthèse</h4>
-                                <p>Les deux approches sont <strong>complémentaires</strong> : le ML classique soutient des décisions <strong>chiffrées et auditables</strong> ; l’IA générative apporte une couche d’<strong>assistance et de génération de contenu</strong>. La veille impose de <strong>cadrer séparément</strong> finalité, données, industrialisation et risques pour éviter d’agréger des problématiques hétérogènes sous un seul vocable « IA ».</p>
                             </div>
                         </div>
                     </article>
@@ -754,62 +718,26 @@
                                 <span>2025 — 2026 · Architecture données</span>
                             </div>
                             <div class="veille__description">
-                                <h4>Présentation</h4>
+                                <h4>En clair</h4>
                                 <div class="veille__big-picture">
-                                    <p><strong>Data lake.</strong> Référentiel qui centralise de grandes quantités de données <strong>souvent brutes ou peu structurées</strong> (fichiers, logs, JSON, flux, etc.), en privilégiant l’<strong>ingestion rapide</strong> et le stockage évolutif. La structure fine est en général appliquée <strong>au moment de l’exploitation</strong> (<em>schema-on-read</em>).</p>
-                                    <p><strong>Data warehouse.</strong> Entrepôt de données qui consolide des informations <strong>modélisées, nettoyées et historisées</strong> selon un schéma défini (<em>schema-on-write</em>), en vue du <strong>reporting</strong>, de la <strong>BI</strong> et de la prise de décision sur des indicateurs partagés.</p>
+                                    <p><strong>Data Lake.</strong> C’est un grand espace où on stocke vite beaucoup de données, même non triées (fichiers, logs, JSON). On organise plus tard, au moment de l’analyse.</p>
+                                    <p><strong>Data Warehouse.</strong> Ici, les données sont triées et nettoyées avant d’être stockées. Le but est d’avoir des tableaux de bord fiables pour décider.</p>
                                 </div>
 
-                                <h4>Modélisation et schéma</h4>
+                                <h4>Points techniques à connaître</h4>
                                 <div class="veille__detail-group">
-                                    <p class="veille__detail-line">Lake : flexibilité des formats, structuration en aval. Warehouse : <strong>modèle relationnel</strong> (souvent en étoile / constellation) imposé à l’intégration.</p>
+                                    <p class="veille__detail-line"><strong>Organisation :</strong> Lake = souple, car on peut déposer des données de types différents sans les préparer tout de suite ; Warehouse = structure fixe, car on doit suivre un format défini avant de stocker.</p>
+                                    <p class="veille__detail-line"><strong>Usages :</strong> Lake = utile pour explorer, tester et chercher des idées ; Warehouse = utile pour suivre les chiffres officiels d’une entreprise (ventes, marge, stock).</p>
+                                    <p class="veille__detail-line"><strong>Qualité :</strong> Lake = si on ne range pas, on se perd vite ; Warehouse = les règles de tri/nettoyage sont faites au début, donc les résultats sont plus réguliers.</p>
+                                    <p class="veille__detail-line"><strong>Coût et vitesse :</strong> Lake = moins cher pour stocker beaucoup, mais plus long à analyser ensuite ; Warehouse = plus long à préparer au départ, mais plus rapide pour lire les tableaux de bord.</p>
                                 </div>
 
-                                <h4>Usages cibles</h4>
+                                <h4>Ce que je retiens pour mes projets</h4>
                                 <div class="veille__detail-group">
-                                    <p class="veille__detail-line">Lake : exploration, <strong>data science</strong>, réservoir pour pipelines. Warehouse : <strong>KPI</strong>, tableaux de bord et reportings validés par le métier.</p>
+                                    <p class="veille__detail-line">Le <strong>Data Lake</strong> est utile pour collecter vite et tester de nouveaux cas d’usage.</p>
+                                    <p class="veille__detail-line">Le <strong>Data Warehouse</strong> est plus adapté quand on veut des indicateurs stables pour la décision.</p>
+                                    <p class="veille__detail-line">Dans la pratique, beaucoup d’entreprises utilisent les deux selon le besoin : d’abord stocker, puis structurer pour décider.</p>
                                 </div>
-
-                                <h4>Gouvernance et qualité</h4>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line">Lake : catalogue, lignée, zones type bronze / argent / or. Warehouse : règles métiers, traçabilité, visée <strong>single source of truth</strong>.</p>
-                                </div>
-
-                                <h4>Performance et coûts</h4>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line">Lake : stockage souvent <strong>économique à grande échelle</strong> ; analyses sur brut plus lourdes. Warehouse : données <strong>préparées et optimisées</strong> pour la requête BI, avec coût de <strong>ETL/ELT</strong> et de maintenance du modèle.</p>
-                                </div>
-
-                                <h4>Data lake</h4>
-                                <p class="veille__subhead">Avantages</p>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line">Accueille <strong>tous les formats</strong> (JSON, logs, fichiers, flux…) sans tout normaliser d’entrée.</p>
-                                    <p class="veille__detail-line"><strong>Scalabilité</strong> et stockage souvent <strong>économique</strong> ; idéal pour la donnée « à explorer ».</p>
-                                    <p class="veille__detail-line">Point de départ naturel pour la <strong>data science</strong> et les pipelines batch / streaming.</p>
-                                </div>
-                                <p class="veille__subhead">Inconvénients</p>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line">Sans gouvernance, risque de <strong>« data swamp »</strong> : données introuvables, doublons, sens flou.</p>
-                                    <p class="veille__detail-line">Les requêtes analytiques « directes » peuvent être <strong>lentes ou coûteuses</strong> sans couche de structuration.</p>
-                                    <p class="veille__detail-line"><strong>Sécurité et conformité</strong> plus complexes à homogénéiser sur des sources très variées.</p>
-                                </div>
-
-                                <h4>Data warehouse</h4>
-                                <p class="veille__subhead">Avantages</p>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line">Modèle <strong>stable</strong> (faits / dimensions, SCD…) : <strong>reporting et KPI</strong> fiables pour les métiers.</p>
-                                    <p class="veille__detail-line">Performance des requêtes BI en général <strong>meilleure</strong> sur des données préparées.</p>
-                                    <p class="veille__detail-line">Facilite la <strong>traçabilité</strong> et les règles métiers communes (« une seule version de la vérité »).</p>
-                                </div>
-                                <p class="veille__subhead">Inconvénients</p>
-                                <div class="veille__detail-group">
-                                    <p class="veille__detail-line"><strong>Coût et délai</strong> de conception ETL/ELT et de maintenance du modèle.</p>
-                                    <p class="veille__detail-line">Moins agile pour ingérer très vite des <strong>nouvelles sources</strong> non encore modélisées.</p>
-                                    <p class="veille__detail-line">Peut devenir un <strong>goulot</strong> si tout doit passer par le modèle avant toute exploration.</p>
-                                </div>
-
-                                <h4>Synthèse</h4>
-                                <p>Les architectures actuelles <strong>articulent</strong> souvent lac et entrepôt : réservoir pour l’ingestion et l’exploration, warehouse (ou couches curated) pour le <strong>pilotage certifié</strong>. Les modèles <strong>lakehouse</strong> rapprochent stockage scalable et moteurs SQL analytiques — alignés avec le rôle de <strong>Data Engineer</strong> (ingestion, qualité, modélisation, exposition contrôlée).</p>
                             </div>
                         </div>
                     </article>

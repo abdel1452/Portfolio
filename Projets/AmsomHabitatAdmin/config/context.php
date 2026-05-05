@@ -15,9 +15,9 @@ return function (bool $forStaticExport): array {
     $official = $img . 'amsom-official.png';
 
     return [
-        'page_title' => 'Amsom Habitat – Console d’administration',
-        'app_name' => 'Amsom Habitat',
-        'app_tagline' => 'Console d’administration des applications',
+        'page_title' => 'Console d’administration',
+        'app_name' => 'Espace d’administration',
+        'app_tagline' => 'Gestion des applications',
         'asset_prefix' => $assetPrefix,
         'brand_logo_login' => $official,
         'brand_logo_nav' => $official,
